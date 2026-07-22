@@ -1,148 +1,21 @@
-const storeUrl = "https://smartstore.naver.com/cake";
+"use client";
+import {useState} from "react";
 
-function ArrowIcon() {
-  return <span aria-hidden="true">↗</span>;
-}
-
-export default function Home() {
-  return (
-    <main>
-      <section className="hero" id="top">
-        <nav className="nav-shell" aria-label="주요 메뉴">
-          <a className="brand" href="#top" aria-label="케익살롱 첫 화면">
-            <span className="brand-mark">C</span>
-            <span>케익살롱</span>
-          </a>
-          <div className="nav-links">
-            <a href="#about">상품특징</a>
-            <a href="#examples">활용예시</a>
-            <a href="#guide">구매안내</a>
-          </div>
-          <a className="nav-store" href={storeUrl} target="_blank" rel="noreferrer">
-            스마트스토어 <ArrowIcon />
-          </a>
-        </nav>
-
-        <div className="hero-layout">
-          <div className="hero-copy">
-            <p className="eyebrow">EDIBLE DECORATION STUDIO</p>
-            <h1>
-              한 장으로 완성하는
-              <em>가장 특별한 순간</em>
-            </h1>
-            <p className="hero-description">
-              케이크 위에 브랜드와 마음을 담아보세요. 케익살롱의 식용 토퍼는
-              디저트를 더 선명하고 오래 기억되는 경험으로 바꿉니다.
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href={storeUrl} target="_blank" rel="noreferrer">
-                스마트스토어에서 보기 <ArrowIcon />
-              </a>
-              <a className="text-link" href="#how">활용법 살펴보기 <span>↓</span></a>
-            </div>
-            <dl className="hero-metrics">
-              <div><dt>18개월</dt><dd>넉넉한 소비기한</dd></div>
-              <div><dt>4.8 / 5.0</dt><dd>아마존 평균 별점</dd></div>
-              <div><dt>GLOBAL</dt><dd>해외 판매 상품</dd></div>
-            </dl>
-          </div>
-
-          <div className="cake-stage" aria-label="꽃과 식용 토퍼로 장식한 케이크 일러스트">
-            <span className="sparkle sparkle-one">✦</span>
-            <span className="sparkle sparkle-two">✦</span>
-            <div className="arch"></div>
-            <div className="cake-shadow"></div>
-            <div className="cake-plate"></div>
-            <div className="cake-body">
-              <div className="cake-top"></div>
-              <div className="cake-band"></div>
-              <div className="cake-card"><span>with love</span><strong>CAKE<br />SALON</strong></div>
-              <i className="flower flower-a"></i><i className="flower flower-b"></i>
-              <i className="flower flower-c"></i><i className="flower flower-d"></i>
-            </div>
-            <p className="stage-note"><span></span> made for your celebration</p>
-          </div>
-        </div>
-      </section>
-
-      <section className="trust-strip" aria-label="제품 핵심 정보">
-        <p><b>FOOD GRADE</b><span>식용 토퍼를 위한 원료 기준</span></p>
-        <p><b>LONG SHELF LIFE</b><span>소비기한 18개월</span></p>
-        <p><b>GLOBAL REVIEW</b><span>아마존 평균 별점 4.8 / 5.0</span></p>
-        <p><b>EXPORT READY</b><span>전 세계 고객을 위한 상품</span></p>
-      </section>
-
-      <section className="intro" id="about">
-        <p className="eyebrow">A SMALL DETAIL, A LASTING IMPRESSION</p>
-        <h2>맛있는 디저트 위에,<br />기억할 이유를 올립니다.</h2>
-        <p className="intro-text">행사·매장·선물·브랜드 런칭까지. 원하는 이미지와 메시지를 식용 토퍼로 표현해 디저트의 첫인상을 완성하세요.</p>
-        <div className="feature-grid">
-          <article><span className="feature-number">01</span><h3>선명한 표현</h3><p>사진, 일러스트, 로고의 분위기를 디저트 위에서도 섬세하게 전달합니다.</p></article>
-          <article><span className="feature-number">02</span><h3>간편한 사용</h3><p>필름에서 부드럽게 분리해 원하는 위치에 올리면 준비가 끝납니다.</p></article>
-          <article><span className="feature-number">03</span><h3>넓은 활용</h3><p>케이크, 쿠키, 컵케이크, 음료 토퍼 등 다양한 메뉴에 어울립니다.</p></article>
-        </div>
-      </section>
-
-      <section className="product-detail" aria-labelledby="product-heading">
-        <div className="detail-heading">
-          <p className="eyebrow">WHAT MAKES IT SPECIAL</p>
-          <h2 id="product-heading">보기 좋은 장식이 아니라,<br /><em>먹을 수 있는 경험입니다.</em></h2>
-          <p>케익살롱 식용 토퍼는 케이크·쿠키·컵케이크·음료 위에 올려 사용하는 식용 장식 소재입니다. 기념일의 한마디부터 브랜드의 정체성까지, 디저트 위에서 자연스럽게 전달하세요.</p>
-        </div>
-        <div className="detail-cards">
-          <article className="detail-card print-card"><span>01</span><h3>원하는 디자인 그대로</h3><p>사진, 로고, 캐릭터, 이름, 행사 문구를 활용해 작은 디저트도 단 하나의 메시지로 완성합니다.</p><div className="mini-sheet"><strong>HAPPY<br />BIRTHDAY</strong></div></article>
-          <article className="detail-card peel-card"><span>02</span><h3>가볍게 분리하고 올리기</h3><p>PET 필름에서 스티커처럼 천천히 분리한 뒤, 평평한 디저트 표면에 올리면 됩니다.</p><div className="peel-visual"><i></i><b>PEEL &amp; PLACE</b></div></article>
-          <article className="detail-card storage-card"><span>03</span><h3>여유 있는 보관</h3><p>소비기한 18개월. 필요한 행사와 시즌을 미리 준비해 두고 활용할 수 있습니다.</p><div className="storage-number">18<small>MONTHS</small></div></article>
-        </div>
-      </section>
-
-      <section className="usage" id="how">
-        <div className="usage-visual"><div className="cup"><div className="foam"><span className="foam-print">YOUR<br />LOGO</span></div></div><p>CAFE &amp; EVENT</p></div>
-        <div className="usage-copy"><p className="eyebrow">MAKE IT YOURS</p><h2>브랜드의 한마디가<br /><em>디저트의 시그니처가 됩니다.</em></h2><p>매장 로고, 신제품 메시지, 고객 이름까지. 계절과 이벤트에 맞춘 작은 변화만으로도 고객에게 새로운 경험을 전할 수 있습니다.</p><a className="text-link dark-link" href={storeUrl} target="_blank" rel="noreferrer">맞춤 제작 문의하기 <ArrowIcon /></a></div>
-      </section>
-
-      <section className="examples" id="examples">
-        <div className="examples-heading"><p className="eyebrow">IDEAS FOR EVERY OCCASION</p><h2>이렇게 사용하면<br /><em>더 특별해집니다.</em></h2><p>무료로 사용할 수 있는 일반 이미지, 브랜드 로고, 고객 이름 등으로 디저트의 목적을 한눈에 전달하세요.</p></div>
-        <div className="example-grid">
-          <article className="example birthday"><div className="example-art"><span>HAPPY<br />DAY!</span></div><h3>기념일 케이크</h3><p>생일·돌잔치·웨딩·파티</p></article>
-          <article className="example cafe"><div className="example-art"><span>CAFE<br />LOGO</span></div><h3>카페 &amp; 음료 토퍼</h3><p>시그니처 메뉴·이벤트 음료</p></article>
-          <article className="example brand-example"><div className="example-art"><span>NEW<br />BRAND</span></div><h3>브랜드 프로모션</h3><p>론칭·팝업·VIP 선물</p></article>
-          <article className="example cookie"><div className="example-art"><span>THANK<br />YOU</span></div><h3>쿠키 &amp; 답례품</h3><p>감사 인사·기업 행사·선물</p></article>
-        </div>
-      </section>
-
-      <section className="steps" id="guide">
-        <div><p className="eyebrow">EASY TO USE</p><h2>필요한 순간에,<br />가볍게 올리세요.</h2></div>
-        <ol>
-          <li><span>1</span><div><h3>디자인 준비</h3><p>사용할 로고·이미지·문구를 준비합니다.</p></div></li>
-          <li><span>2</span><div><h3>토퍼 분리</h3><p>필름에서 천천히 분리합니다.</p></div></li>
-          <li><span>3</span><div><h3>디저트 완성</h3><p>원하는 위치에 올려 특별함을 더합니다.</p></div></li>
-        </ol>
-      </section>
-
-      <section className="business-use">
-        <div className="business-copy"><p className="eyebrow">FOR CAFÉ, HOTEL &amp; BRAND</p><h2>디저트 한 조각을<br /><em>브랜드 접점으로.</em></h2><p>매장 로고가 담긴 케이크와 음료 토퍼는 사진으로 공유되고, 다시 방문할 이유가 됩니다. 카페·베이커리·호텔·행사 운영을 위한 맞춤 제작도 상담할 수 있습니다.</p><a className="button button-outline" href="tel:0806647077">맞춤 제작 상담하기 <span>080-664-7077</span></a></div>
-        <div className="business-stats"><div><b>01</b><p>매장 로고를 메뉴 위에</p></div><div><b>02</b><p>시즌·이벤트마다 새롭게</p></div><div><b>03</b><p>선물과 답례품까지 확장</p></div></div>
-      </section>
-
-      <section className="faq-section">
-        <p className="eyebrow">BEFORE YOU ORDER</p><h2>구매 전 자주 묻는 질문</h2>
-        <div className="faq-list">
-          <details open><summary>어떤 디저트에 사용할 수 있나요?<span>+</span></summary><p>케이크, 컵케이크, 쿠키, 마카롱, 음료 토퍼 등 평평한 표면의 다양한 디저트에 활용할 수 있습니다.</p></details>
-          <details><summary>사용 방법이 어렵지 않나요?<span>+</span></summary><p>필름에서 천천히 분리한 뒤 원하는 위치에 올리는 방식입니다. 상세 사용 방법과 보관 조건은 스마트스토어 상품 페이지에서 확인하세요.</p></details>
-          <details><summary>인증·원료 관련 정보는 어디에서 확인하나요?<span>+</span></summary><p>원료, 인증·수출 관련 표기 범위 및 주문 단위별 안내는 구매 전 스마트스토어 상품 상세와 상담을 통해 확인하세요.</p></details>
-          <details><summary>맞춤 제작도 가능한가요?<span>+</span></summary><p>로고·사진·행사 문구 등 사용 목적에 맞는 맞춤 제작은 전화 상담으로 안내합니다.</p></details>
-        </div>
-      </section>
-
-      <section className="store-cta">
-        <p className="eyebrow">START YOUR SWEET STORY</p>
-        <h2>오늘의 디저트를<br /><em>케익살롱으로 완성하세요.</em></h2>
-        <a className="button button-primary" href={storeUrl} target="_blank" rel="noreferrer">스마트스토어 방문하기 <ArrowIcon /></a>
-        <p className="cta-help">제품·주문·맞춤 제작 상담&nbsp; <a href="tel:0806647077">080-664-7077</a></p>
-      </section>
-
-      <footer><a className="brand" href="#top"><span className="brand-mark">C</span><span>케익살롱</span></a><p>CAKE SALON · EDIBLE DECORATION</p><a href={storeUrl} target="_blank" rel="noreferrer">smartstore.naver.com/cake <ArrowIcon /></a></footer>
-    </main>
-  );
-}
+type Lang="ko"|"en"|"ja"|"zh";
+const store="https://smartstore.naver.com/cake";
+const words={
+ko:{nav:["제품","활용","브랜드"],shop:"스토어",tag:"EDIBLE PRINTING, REIMAGINED",title:"당신의 이야기를\n먹을 수 있는 예술로.",desc:"선명한 사진, 브랜드 로고, 마음을 담은 문장까지. 케익살롱 아이싱시트 한 장으로 평범한 디저트를 가장 특별한 장면으로 바꿔보세요.",cta:"제품 보러가기",note:"대한민국에서 만드는 프리미엄 식용 프린팅",collection:"가장 사랑받는\n케익살롱 컬렉션",cards:[["A4 아이싱시트","홈베이킹부터 전문 제작까지","50 sheets"],["맞춤 포토 토퍼","사진 한 장으로 완성하는 기념일","Custom print"],["브랜드 솔루션","카페·호텔·기업 이벤트 맞춤 제작","B2B order"]],why:"예쁘게 인쇄되고,\n쉽게 사용할 수 있도록.",features:[["01","VIVID","사진과 로고를 또렷하고 섬세하게"],["02","EASY","필름에서 분리해 가볍게 올리기"],["03","VERSATILE","케이크·쿠키·컵케이크·음료까지"]],story:"한 장이 만드는\n큰 차이",storyDesc:"축하하는 마음도, 브랜드의 인상도 가장 맛있는 방식으로 전달합니다. 케익살롱은 디저트 위의 작은 공간을 오래 기억되는 경험으로 만듭니다.",final:"오늘의 디저트를\n작품으로 바꿔보세요.",call:"맞춤 제작 상담 080-664-7077"},
+en:{nav:["Products","Ideas","Brand"],shop:"Shop",tag:"EDIBLE PRINTING, REIMAGINED",title:"Turn your story into\nedible art.",desc:"Vivid photos, brand logos, and heartfelt words. One Cake Salon icing sheet transforms an everyday dessert into an unforgettable scene.",cta:"Explore products",note:"Premium edible printing made in Korea",collection:"The most-loved\nCake Salon collection",cards:[["A4 Icing Sheets","For home bakers and professionals","50 sheets"],["Custom Photo Topper","Make celebrations personal with one photo","Custom print"],["Brand Solutions","Made for cafés, hotels and corporate events","B2B order"]],why:"Beautifully printed.\nEffortlessly applied.",features:[["01","VIVID","Crisp detail for photos and logos"],["02","EASY","Simply peel from the film and place"],["03","VERSATILE","For cakes, cookies, cupcakes and drinks"]],story:"One sheet.\nA world of difference.",storyDesc:"Share a celebration or express a brand in the most delicious way. Cake Salon turns a small space on dessert into a lasting experience.",final:"Turn today’s dessert\ninto a work of art.",call:"Custom orders +82 80-664-7077"},
+ja:{nav:["商品","活用例","ブランド"],shop:"ストア",tag:"EDIBLE PRINTING, REIMAGINED",title:"物語を、\n食べられるアートへ。",desc:"鮮やかな写真、ブランドロゴ、心を込めた言葉まで。ケーキサロンのアイシングシートで、いつものデザートを特別なシーンに。",cta:"商品を見る",note:"韓国で作るプレミアム食用プリント",collection:"愛される\nケーキサロンコレクション",cards:[["A4アイシングシート","ホームベーキングからプロまで","50 sheets"],["オーダーフォトトッパー","一枚の写真で記念日を特別に","Custom print"],["ブランドソリューション","カフェ・ホテル・企業イベント向け","B2B order"]],why:"美しく印刷、\n使い方は簡単。",features:[["01","VIVID","写真とロゴを鮮明に表現"],["02","EASY","フィルムからはがしてのせるだけ"],["03","VERSATILE","ケーキ・クッキー・ドリンクまで"]],story:"一枚が生む、\n大きな違い。",storyDesc:"お祝いの気持ちも、ブランドの印象も、おいしい方法で伝えます。デザートの小さな空間を忘れられない体験へ。",final:"今日のデザートを\n作品に変えよう。",call:"オーダー相談 +82 80-664-7077"},
+zh:{nav:["产品","灵感","品牌"],shop:"商店",tag:"EDIBLE PRINTING, REIMAGINED",title:"将故事变成\n可以品尝的艺术。",desc:"鲜明照片、品牌标志与暖心文字，一张 Cake Salon 糖霜纸，让普通甜点成为难忘的画面。",cta:"浏览产品",note:"韩国制造的优质可食用打印",collection:"备受喜爱的\nCake Salon 系列",cards:[["A4 糖霜纸","适合家庭烘焙与专业制作","50 sheets"],["定制照片装饰","用一张照片纪念特别时刻","Custom print"],["品牌解决方案","适合咖啡馆、酒店与企业活动","B2B order"]],why:"精美打印，\n轻松使用。",features:[["01","VIVID","清晰呈现照片与标志"],["02","EASY","从底膜揭下即可放置"],["03","VERSATILE","适用于蛋糕、曲奇与饮品"]],story:"一张纸，\n带来巨大不同。",storyDesc:"以最美味的方式传递祝福与品牌印象。Cake Salon 让甜点上的小空间成为长久记忆。",final:"让今天的甜点\n成为艺术品。",call:"定制咨询 +82 80-664-7077"}}
+const Lines=({children}:{children:string})=><>{children.split("\n").map((x,i)=><span key={x}>{x}{i===0&&<br/>}</span>)}</>;
+export default function Home(){const[lang,setLang]=useState<Lang>("ko");const t=words[lang];return <main>
+<header><a className="logo" href="#top"><b>CAKE</b><i>SALON</i></a><nav>{t.nav.map((n,i)=><a key={n} href={["#products","#ideas","#brand"][i]}>{n}</a>)}</nav><div className="tools"><select aria-label="Language" value={lang} onChange={e=>setLang(e.target.value as Lang)}><option value="ko">KR</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select><a href={store} target="_blank" rel="noreferrer">{t.shop} ↗</a></div></header>
+<section className="hero" id="top"><div className="heroText"><p className="tag">{t.tag}</p><h1><Lines>{t.title}</Lines></h1><p className="desc">{t.desc}</p><a className="cta" href={store} target="_blank" rel="noreferrer">{t.cta}<b>↗</b></a><p className="made">● {t.note}</p></div><div className="heroVisual"><div className="poster p1"><small>YOUR IMAGE</small><strong>MAKE IT<br/>MEMORABLE</strong></div><div className="poster p2"><small>EDIBLE ART</small><strong>CAKE<br/>SALON</strong></div><div className="cake"><span>HAPPY<br/><b>DAY!</b></span></div><p className="vertical">PRINT · PEEL · PLACE · CELEBRATE</p></div></section>
+<section className="ticker"><span>FDA REGISTERED</span><span>18 MONTHS</span><span>AMAZON ★ 4.8</span><span>WORLDWIDE EXPORT</span></section>
+<section className="collection" id="products"><div className="sectionTitle"><p>01 / COLLECTION</p><h2><Lines>{t.collection}</Lines></h2></div><div className="cards">{t.cards.map((c,i)=><article key={c[0]}><div className={`art art${i+1}`}>{i===0?<div className="sheets"><i/><i/><b>A4</b></div>:i===1?<div className="miniCake"><span>YOUR<br/>PHOTO</span></div>:<div className="cookies"><i>C</i><i>S</i><i>♥</i></div>}<em>0{i+1}</em></div><small>{c[2]}</small><h3>{c[0]}</h3><p>{c[1]}</p><a href={store}>VIEW PRODUCT →</a></article>)}</div></section>
+<section className="why" id="ideas"><div className="whyTitle"><p>02 / WHY CAKE SALON</p><h2><Lines>{t.why}</Lines></h2></div><div className="features">{t.features.map(f=><article key={f[0]}><b>{f[0]}</b><h3>{f[1]}</h3><p>{f[2]}</p></article>)}</div></section>
+<section className="story" id="brand"><div className="storyVisual"><div className="orbit"><b>CS</b><span>SEOUL — WORLD</span></div></div><div className="storyText"><p>03 / OUR STORY</p><h2><Lines>{t.story}</Lines></h2><div className="rule"/><p className="storyDesc">{t.storyDesc}</p><a href={store}>DISCOVER CAKE SALON ↗</a></div></section>
+<section className="end"><p>MAKE YOUR MOMENT EDIBLE</p><h2><Lines>{t.final}</Lines></h2><a className="cta dark" href={store}>{t.cta}<b>↗</b></a><a className="phone" href="tel:0806647077">{t.call}</a></section>
+<footer><a className="logo" href="#top"><b>CAKE</b><i>SALON</i></a><p>© 2026 C&amp;C CORPORATION · SEOUL</p><a href={store}>SMARTSTORE ↗</a></footer>
+</main>}
