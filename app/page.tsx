@@ -14,17 +14,15 @@ const productUrls = {
 
 const copy = {
   ko: {
-    nav: ["제품", "활용", "사용법", "회사소개"], shop: "스마트스토어",
+    nav: ["제품", "활용", "사용법", "회사소개", "CONTACT"], shop: "스마트스토어",
     kicker: "PREMIUM EDIBLE PRINTING", title: "상상한 디자인을,\n가장 맛있는 작품으로.",
     intro: "케익살롱의 아이싱시트와 식용 프린팅 솔루션으로 사진, 일러스트, 로고를 케이크 위에 선명하게 표현하세요.",
     primary: "판매 제품 보기", secondary: "맞춤 제작 상담", heroNote: "PET 필름에서 분리해 바로 사용하는 식용 이미지 시트",
     promises: [["18개월", "넉넉한 소비기한"], ["4.8 / 5", "아마존 평균 별점"], ["GLOBAL", "전 세계 수출"], ["080-664-7077", "제품·맞춤 상담"]],
-    shopKicker: "SHOP BY NEED", shopTitle: "필요한 작업에 맞춰\n바로 선택하세요.", shopIntro: "케이크 제작자, 카페, 호텔, 브랜드 행사를 위한 케익살롱의 핵심 판매 제품군입니다.",
+    shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "필요한 두 가지를\n명확하게 선택하세요.", shopIntro: "아이싱시트 1팩과 맞춤 프린팅 서비스, 케익살롱의 대표 상품만 간결하게 안내합니다.",
     products: [
-      ["A4 아이싱시트 50팩", "대량 제작과 매장 운영을 위한 실용적인 대용량 구성", "A4 · 50 SHEETS", "a4"],
-      ["A3 아이싱시트 25장", "큰 케이크와 넓은 이미지 작업을 위한 A3 규격", "A3 · 25 SHEETS", "a3"],
-      ["9cm·10cm 맞춤 프린팅", "사진과 디자인을 원형으로 인쇄해 바로 올리는 맞춤 토퍼", "CUSTOM PRINT", "custom"],
-      ["식용 프린팅 솔루션", "아이싱시트·식용잉크·프린터 소모품을 한곳에서", "TOTAL SOLUTION", "store"],
+      ["아이싱시트 1팩", "가정·소량 제작에 필요한 만큼 사용하는 식용 아이싱시트", "1 PACK · A4 / A3", "a4"],
+      ["맞춤 프린팅 서비스", "사진·로고·문구를 원하는 크기와 형태로 제작", "CUSTOM PRINT", "custom"],
     ],
     view: "제품 자세히 보기", galleryKicker: "REAL APPLICATION", galleryTitle: "한 장의 이미지가\n케이크의 가치를 바꿉니다.",
     galleryIntro: "고전미술, 플로럴 패턴, 기념사진, 브랜드 로고까지. 색감과 디테일이 살아 있는 케익살롱의 표현력을 확인하세요.",
@@ -39,13 +37,13 @@ const copy = {
     companyCta: "스마트스토어 방문", final: "오늘의 케이크를\n기억에 남는 작품으로.", finalText: "케익살롱의 제품과 맞춤 프린팅을 지금 만나보세요.", phone: "전화 상담 080-664-7077", email: "이메일 문의 cakecnc@daum.net",
   },
   en: {
-    nav: ["Products", "Inspiration", "How it works", "Company"], shop: "Smart Store",
+    nav: ["Products", "Inspiration", "How it works", "Company", "CONTACT"], shop: "Smart Store",
     kicker: "PREMIUM EDIBLE PRINTING", title: "Turn any design into\na delicious work of art.",
     intro: "Bring photos, illustrations and logos to life on cakes with Cake Salon icing sheets and edible-printing solutions.",
     primary: "Shop products", secondary: "Custom order", heroNote: "Edible image sheets that peel cleanly from PET backing",
     promises: [["18 months", "Generous shelf life"], ["4.8 / 5", "Amazon average"], ["GLOBAL", "Worldwide export"], ["+82 80-664-7077", "Product support"]],
-    shopKicker: "SHOP BY NEED", shopTitle: "Choose the right product\nfor every project.", shopIntro: "Core Cake Salon products for cake makers, cafés, hotels and branded events.",
-    products: [["A4 Icing Sheets · 50", "A practical bulk pack for professional production", "A4 · 50 SHEETS", "a4"], ["A3 Icing Sheets · 25", "Large-format sheets for bigger cakes and artwork", "A3 · 25 SHEETS", "a3"], ["9cm·10cm Custom Prints", "Ready-to-place round edible photo toppers", "CUSTOM PRINT", "custom"], ["Edible Printing Solution", "Icing sheets, edible ink and printing supplies in one place", "TOTAL SOLUTION", "store"]],
+    shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "Two clear choices\nfor your cake project.", shopIntro: "Explore Cake Salon’s two signature offers: a single pack of icing sheets and custom edible printing.",
+    products: [["Icing Sheet · 1 Pack", "A practical single pack for home bakers and small-batch projects", "1 PACK · A4 / A3", "a4"], ["Custom Printing Service", "Photos, logos and messages printed to your requested size and shape", "CUSTOM PRINT", "custom"]],
     view: "View product", galleryKicker: "REAL APPLICATION", galleryTitle: "One printed image can\ntransform the whole cake.", galleryIntro: "Classic art, floral patterns, celebration photos and brand logos—see the color and detail Cake Salon can deliver.", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "Print, peel and\nsimply place.", steps: [["01", "Prepare your design", "Set your photo, illustration or logo to size."], ["02", "Peel from the film", "Gently release the sheet from its PET backing."], ["03", "Finish the cake", "Place it on a smooth surface and serve."]],
     proKicker: "FOR PROFESSIONALS", proTitle: "Edible brand content for\ncafés, hotels and events.", proText: "From launches and VIP events to seasonal menus and promotions, turn logos and messages into an edible brand experience.", proCta: "Ask about B2B orders",
@@ -53,11 +51,11 @@ const copy = {
     companyKicker: "C&C CORPORATION", companyTitle: "Expanding edible printing\nto the global market.", companyText: "C&C Corporation manufactures and distributes icing sheets through Cake Salon, offering complete edible-printing solutions from Korean ecommerce to global export.", companyCta: "Visit Smart Store", final: "Turn today’s cake into\na lasting work of art.", finalText: "Discover Cake Salon products and custom edible printing.", phone: "Call +82 80-664-7077", email: "Email cakecnc@daum.net",
   },
   ja: {
-    nav: ["商品", "活用例", "使い方", "会社紹介"], shop: "スマートストア",
+    nav: ["商品", "活用例", "使い方", "会社紹介", "CONTACT"], shop: "スマートストア",
     kicker: "PREMIUM EDIBLE PRINTING", title: "想像したデザインを、\nいちばん美味しい作品へ。", intro: "ケーキサロンのアイシングシートで写真・イラスト・ロゴを鮮やかに表現できます。", primary: "商品を見る", secondary: "オーダー相談", heroNote: "PETフィルムからはがして使う食用イメージシート",
     promises: [["18か月", "余裕のある賞味期間"], ["4.8 / 5", "Amazon平均評価"], ["GLOBAL", "世界へ輸出"], ["+82 80-664-7077", "商品相談"]],
-    shopKicker: "SHOP BY NEED", shopTitle: "用途に合う商品を\nすぐに選べます。", shopIntro: "ケーキ制作者、カフェ、ホテル、ブランドイベント向けの商品です。",
-    products: [["A4アイシングシート 50枚", "店舗運営と大量制作に便利な大容量", "A4 · 50 SHEETS", "a4"], ["A3アイシングシート 25枚", "大きなケーキと広いデザイン用", "A3 · 25 SHEETS", "a3"], ["9cm·10cmオーダープリント", "すぐに使える円形フォトトッパー", "CUSTOM PRINT", "custom"], ["食用プリントソリューション", "アイシングシート・食用インク・印刷用品をまとめて", "TOTAL SOLUTION", "store"]],
+    shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "必要な二つを\n分かりやすく選択。", shopIntro: "アイシングシート1パックとオーダープリントサービスのみをご案内します。",
+    products: [["アイシングシート 1パック", "ホームベーキングや少量制作に便利な1パック", "1 PACK · A4 / A3", "a4"], ["オーダープリントサービス", "写真・ロゴ・文字を希望のサイズと形で制作", "CUSTOM PRINT", "custom"]],
     view: "商品を見る", galleryKicker: "REAL APPLICATION", galleryTitle: "一枚のイメージが\nケーキの価値を変えます。", galleryIntro: "クラシックアート、花柄、記念写真、ブランドロゴまで鮮やかに表現します。", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "プリントして、はがして、\nのせるだけ。", steps: [["01", "デザイン準備", "写真・イラスト・ロゴを準備します。"], ["02", "フィルムからはがす", "PETフィルムからゆっくりはがします。"], ["03", "ケーキ完成", "なめらかな表面にのせて仕上げます。"]],
     proKicker: "FOR PROFESSIONALS", proTitle: "カフェ・ホテル・ブランド向け\n食用コンテンツ。", proText: "新商品、VIPイベント、季節メニュー、企業プロモーションまで食用イメージでブランド体験を作ります。", proCta: "B2Bオーダー相談",
@@ -65,11 +63,11 @@ const copy = {
     companyKicker: "C&C CORPORATION", companyTitle: "食用プリントの可能性を\n世界市場へ。", companyText: "C&C Corporationはケーキサロンを通じてアイシングシートと食用プリントソリューションを提供し、グローバル輸出へ事業を拡大しています。", companyCta: "ストアを見る", final: "今日のケーキを\n記憶に残る作品へ。", finalText: "ケーキサロンの商品とオーダープリントをご覧ください。", phone: "電話 +82 80-664-7077", email: "メール cakecnc@daum.net",
   },
   zh: {
-    nav: ["产品", "应用", "使用方法", "公司介绍"], shop: "智能商店",
+    nav: ["产品", "应用", "使用方法", "公司介绍", "CONTACT"], shop: "智能商店",
     kicker: "PREMIUM EDIBLE PRINTING", title: "将想象中的设计，\n变成美味的艺术品。", intro: "使用 Cake Salon 糖霜纸与可食用打印方案，将照片、插画和标志清晰呈现在蛋糕上。", primary: "浏览产品", secondary: "咨询定制", heroNote: "从PET底膜揭下即可使用的可食用图像纸",
     promises: [["18个月", "充足保质期"], ["4.8 / 5", "亚马逊平均评分"], ["GLOBAL", "出口全球"], ["+82 80-664-7077", "产品咨询"]],
-    shopKicker: "SHOP BY NEED", shopTitle: "根据制作需求，\n快速选择产品。", shopIntro: "适合蛋糕师、咖啡馆、酒店和品牌活动的 Cake Salon 核心产品。",
-    products: [["A4糖霜纸 50张", "适合批量制作与门店运营", "A4 · 50 SHEETS", "a4"], ["A3糖霜纸 25张", "适合大蛋糕与大幅图像", "A3 · 25 SHEETS", "a3"], ["9cm·10cm定制打印", "揭下即可使用的圆形照片装饰", "CUSTOM PRINT", "custom"], ["可食用打印方案", "一站式提供糖霜纸、食用墨水和打印用品", "TOTAL SOLUTION", "store"]],
+    shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "两项代表服务，\n选择更简单。", shopIntro: "仅展示单包装糖霜纸与定制可食用打印服务。",
+    products: [["糖霜纸 1包装", "适合家庭烘焙与小批量制作的单包装", "1 PACK · A4 / A3", "a4"], ["定制打印服务", "按所需尺寸和形状打印照片、标志与文字", "CUSTOM PRINT", "custom"]],
     view: "查看产品", galleryKicker: "REAL APPLICATION", galleryTitle: "一张图像，\n改变蛋糕的价值。", galleryIntro: "从古典艺术、花卉图案到照片和品牌标志，展现清晰色彩与细节。", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "打印、揭下、\n轻轻放上。", steps: [["01", "准备设计", "准备照片、插画或品牌标志。"], ["02", "揭下底膜", "从PET底膜上慢慢揭下。"], ["03", "完成蛋糕", "放在平滑表面即可完成。"]],
     proKicker: "FOR PROFESSIONALS", proTitle: "为咖啡馆、酒店与品牌\n打造可食用内容。", proText: "从新品发布、VIP活动到季节菜单和企业推广，让标志与信息成为可品尝的品牌体验。", proCta: "咨询B2B定制",
@@ -79,11 +77,13 @@ const copy = {
 };
 
 const productImage = ["/cake-floral.jpeg", "/cake-portrait.jpeg", "/cake-renaissance.jpeg"];
-const productCardImage = ["/product-overview.jpeg", "/product-spec.jpeg", "/product-hero-sheet.jpeg", "/product-renewal.jpeg"];
-const guideAssets = [
-  "/product-global.jpeg", "/product-overview.jpeg", "/product-spec.jpeg",
-  "/product-how.jpeg", "/product-peel.jpeg", "/product-faq.jpeg", "/product-renewal.jpeg",
-];
+const productCardImage = ["/product-hero-sheet.jpeg", "/cake-portrait.jpeg"];
+const localizedGuideAsset: Record<Lang, string> = {
+  ko: "/product-global.jpeg",
+  en: "/cake-salon-guide-en.png",
+  ja: "/cake-salon-guide-ja.png",
+  zh: "/cake-salon-guide-zh.png",
+};
 const guideCopy = {
   ko: { kicker: "OFFICIAL PRODUCT GUIDE", title: "실제 판매 자료로\n제품을 더 자세히 확인하세요.", intro: "제품 특징, 규격, 사용법, 보관법과 자주 묻는 질문을 케익살롱 공식 이미지로 확인할 수 있습니다.", translationNote: "이미지에는 한국어 원문이 포함되어 있습니다. 크게 보기에서 선택 언어로 교정된 핵심 내용을 확인하세요.", labels: ["제품 전체 안내", "프리미엄 품질", "규격과 추천 구성", "3단계 사용법", "출력·박리·장식", "구매 전 FAQ", "아이싱시트 리뉴얼 V.10"], open: "크게 보기", close: "닫기", translatedHeading: "교정된 이미지 문구", originalNote: "제품 표시와 인증 정보는 실제 제품 라벨 및 최신 판매 안내를 기준으로 확인해 주세요.", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "커피와 음료 위에도\n브랜드를 선명하게.", cafeText: "로고와 메시지를 담은 식용 토퍼로 카페 시그니처 메뉴, 호텔 행사와 브랜드 프로모션을 완성하세요." },
   en: { kicker: "OFFICIAL PRODUCT GUIDE", title: "Explore the product through\nofficial sales materials.", intro: "Review features, sizes, use, storage and frequently asked questions in Cake Salon’s official visual guides.", translationNote: "The source artwork contains Korean text. Open any guide to read a proofread summary in your selected language.", labels: ["Complete guide", "Premium quality", "Sizes & recommendations", "Three-step use", "Print, peel & place", "FAQ", "Icing Sheet Renewal V.10"], open: "Enlarge", close: "Close", translatedHeading: "Proofread image copy", originalNote: "For labeling and compliance details, refer to the current product packaging and official sales information.", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "Put your brand on\ncoffee and drinks, too.", cafeText: "Create signature café menus, hotel events and brand promotions with custom edible logo toppers." },
@@ -141,7 +141,6 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("ko");
-  const [selectedGuide, setSelectedGuide] = useState<number | null>(null);
   const t: Copy = copy[lang];
   const g = guideCopy[lang];
   const details = guideDetails[lang];
@@ -151,7 +150,7 @@ export default function Home() {
   return <main lang={lang}>
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="Cake Salon home"><b>CAKE</b><i>SALON</i></a>
-      <nav aria-label="Main navigation">{t.nav.map((item, index) => <a key={item} href={["#products", "#gallery", "#how", "#company"][index]}>{item}</a>)}</nav>
+      <nav aria-label="Main navigation">{t.nav.map((item, index) => <a key={item} href={["#products", "#gallery", "#how", "#company", "#contact"][index]}>{item}</a>)}</nav>
       <div className="header-tools">
         <label><span className="sr-only">Language</span><select aria-label="Language" value={lang} onChange={(event) => setLang(event.target.value as Lang)}><option value="ko">KR</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select></label>
         <a className="header-shop" href={storeUrl} target="_blank" rel="noreferrer">{t.shop} <Arrow /></a>
@@ -185,9 +184,7 @@ export default function Home() {
 
     <section className="guide-section" id="guide">
       <div className="guide-heading"><div><p className="kicker">{g.kicker}</p><h2><Lines>{g.title}</Lines></h2></div><div><p>{g.intro}</p><p className="guide-language-note">{g.translationNote}</p></div></div>
-      <div className="guide-grid">{guideAssets.map((src, index) => <button className={`guide-card guide-card-${index + 1}`} type="button" key={src} onClick={() => setSelectedGuide(index)} aria-label={`${g.labels[index]} ${g.open}`}>
-        <img src={src} alt={g.labels[index]} /><span><b>0{index + 1}</b>{g.labels[index]}<i>{g.open} ↗</i></span>
-      </button>)}</div>
+      <div className="localized-guide"><img src={localizedGuideAsset[lang]} alt={g.labels[0]} /><div><p className="kicker">{g.translatedHeading}</p><h3>{details[0].title}</h3><p>{details[0].summary}</p><small>{g.originalNote}</small></div></div>
     </section>
 
     <section className="gallery-section" id="gallery">
@@ -212,14 +209,11 @@ export default function Home() {
       <div className="company-logo"><img src="/cnc-logo.jpeg" alt={alts.logo} /></div>
     </section>
 
-    <section className="final-section">
+    <section className="final-section" id="contact">
       <img src="/cake-floral.jpeg" alt={alts.final} />
       <div className="final-shade" /><div className="final-copy"><p className="kicker light-kicker">CAKE SALON</p><h2><Lines>{t.final}</Lines></h2><p>{t.finalText}</p><a className="button button-light" href={storeUrl} target="_blank" rel="noreferrer">{t.primary} <Arrow /></a><div className="final-contacts"><a href="tel:0806647077">{t.phone}</a><a href="mailto:cakecnc@daum.net">{t.email}</a></div></div>
     </section>
 
     <footer><a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a><p>© 2026 C&amp;C CORPORATION · SEOUL, KOREA</p><a href="mailto:cakecnc@daum.net">cakecnc@daum.net</a><a href={storeUrl} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a></footer>
-    {selectedGuide !== null && <div className="lightbox" role="dialog" aria-modal="true" aria-label={g.labels[selectedGuide]} onClick={() => setSelectedGuide(null)}>
-      <button type="button" onClick={() => setSelectedGuide(null)}>{g.close} ×</button><div className="lightbox-panel" onClick={(event) => event.stopPropagation()}><div className="lightbox-scroll"><img src={guideAssets[selectedGuide]} alt={g.labels[selectedGuide]} /></div><aside className="guide-translation"><p className="kicker">{g.translatedHeading}</p><h3>{details[selectedGuide].title}</h3><p>{details[selectedGuide].summary}</p><ul>{details[selectedGuide].bullets.map((item) => <li key={item}>{item}</li>)}</ul><small>{g.originalNote}</small></aside></div>
-    </div>}
   </main>;
 }

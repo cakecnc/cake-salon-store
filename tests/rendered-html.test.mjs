@@ -32,6 +32,11 @@ test("renders development preview metadata", async () => {
   const html = await response.text();
   assert.match(html, developmentPreviewMeta);
   assert.match(html, /cakecnc@daum\.net/);
-  assert.match(html, /선택 언어로 교정된 핵심 내용/);
+  assert.match(html, /아이싱시트 1팩/);
+  assert.match(html, /맞춤 프린팅 서비스/);
+  assert.match(html, /CONTACT/);
+  assert.match(html, /application\/ld\+json/);
+  assert.match(html, /식용 아이싱시트,아이싱시트 1팩/);
+  assert.doesNotMatch(html, /A4 아이싱시트 50팩|A3 아이싱시트 25장/);
   assert.doesNotMatch(html, /빈 카트리지|Empty Cartridges|空カートリッジ|空墨盒/);
 });

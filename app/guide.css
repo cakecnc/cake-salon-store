@@ -3,8 +3,24 @@
 }
 
 .product-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 1000px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
+
+.localized-guide {
+  max-width: 1120px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+  background: #fffdf9;
+  box-shadow: 0 18px 45px rgba(72, 48, 37, .1);
+}
+
+.localized-guide > img { width: 100%; height: auto; display: block; }
+.localized-guide > div { padding: 52px 42px; align-self: center; }
+.localized-guide h3 { margin: 0 0 18px; font: 32px/1.2 Georgia, "Nanum Myeongjo", serif; }
+.localized-guide > div > p:not(.kicker) { color: var(--muted); font-size: 12px; line-height: 1.8; }
+.localized-guide small { display: block; margin-top: 24px; padding-top: 18px; border-top: 1px solid #eadfd5; color: #927b6d; line-height: 1.6; }
 
 .product-copy h3 {
   font-size: 21px;
@@ -247,6 +263,8 @@ footer > a[href^="mailto:"] {
   .guide-section { padding: 80px 20px; }
   .guide-heading { margin-bottom: 42px; }
   .guide-heading h2 { font-size: 40px; }
+  .localized-guide { grid-template-columns: 1fr; }
+  .localized-guide > div { padding: 32px 24px; }
   .guide-grid { display: block; }
   .guide-card { width: 100%; margin-bottom: 15px; }
   .guide-card img,
