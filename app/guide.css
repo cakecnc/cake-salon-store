@@ -2,6 +2,14 @@
   object-position: center top;
 }
 
+.product-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.product-copy h3 {
+  font-size: 21px;
+}
+
 .guide-section {
   padding: 125px 6vw;
   background: #eee4d8;
@@ -27,11 +35,19 @@
   font-style: italic;
 }
 
-.guide-heading > p {
+.guide-heading > div:last-child > p {
   margin: 0;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.8;
+}
+
+.guide-heading .guide-language-note {
+  margin-top: 17px;
+  padding: 14px 16px;
+  border-left: 2px solid var(--rose);
+  background: rgba(255, 255, 255, .58);
+  font-size: 10px;
 }
 
 .guide-grid {
@@ -122,19 +138,109 @@
   cursor: pointer;
 }
 
+.lightbox-panel {
+  width: min(1260px, 94vw);
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr);
+  background: #fff;
+  overflow: hidden;
+}
+
 .lightbox-scroll {
-  max-width: min(900px, 92vw);
   max-height: 90vh;
   overflow: auto;
-  background: #fff;
+  background: #f6f1e9;
 }
 
 .lightbox-scroll img { width: 100%; height: auto; }
+.guide-translation {
+  max-height: 90vh;
+  padding: 48px 40px;
+  overflow: auto;
+  color: var(--ink);
+  background: #fffdf9;
+}
+
+.guide-translation h3 {
+  margin: 0 0 18px;
+  font: 30px/1.2 Georgia, "Nanum Myeongjo", serif;
+}
+
+.guide-translation > p:not(.kicker) {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.guide-translation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-translation li {
+  position: relative;
+  padding: 12px 0 12px 18px;
+  border-top: 1px solid #eadfd5;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.guide-translation li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+}
+
+.guide-translation small {
+  display: block;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid #eadfd5;
+  color: #927b6d;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.company-actions,
+.final-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.final-contacts {
+  margin-top: 24px;
+}
+
+.final-contacts a {
+  color: white;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+footer > a[href^="mailto:"] {
+  color: #d8c7c0;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
 .pro-image img { object-position: center center; }
 
 @media (max-width: 900px) {
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .guide-heading { grid-template-columns: 1fr; gap: 25px; }
   .guide-grid { grid-template-columns: repeat(2, 1fr); }
+  .lightbox-panel {
+    grid-template-columns: 1fr 360px;
+  }
 }
 
 @media (max-width: 620px) {
@@ -149,5 +255,16 @@
   .how-thumb { margin-top: 30px; max-height: 260px; }
   .lightbox { padding: 52px 10px 10px; }
   .lightbox > button { right: 12px; top: 10px; }
-  .lightbox-scroll { max-width: 100%; max-height: calc(100vh - 65px); }
+  .lightbox-panel {
+    width: 100%;
+    max-height: calc(100vh - 65px);
+    display: block;
+    overflow: auto;
+  }
+  .lightbox-scroll { max-width: 100%; max-height: none; overflow: visible; }
+  .guide-translation { max-height: none; padding: 34px 24px; overflow: visible; }
+  .guide-translation h3 { font-size: 27px; }
+  .company-actions,
+  .final-contacts { display: grid; gap: 14px; }
+  footer > a[href^="mailto:"] { display: block; margin: 14px 0; }
 }
