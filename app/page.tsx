@@ -84,12 +84,25 @@ const copy = {
 
 const artForProduct = ["sheet", "sheet wide", "custom", "cartridge ix", "cartridge ts", "solution"];
 const productImage = ["/cake-floral.jpeg", "/cake-portrait.jpeg", "/cake-renaissance.jpeg"];
+const productCardImage: Array<string | null> = ["/product-overview.jpeg", "/product-spec.jpeg", "/product-hero-sheet.jpeg", null, null, "/product-renewal.jpeg"];
+const guideAssets = [
+  "/product-global.jpeg", "/product-overview.jpeg", "/product-spec.jpeg",
+  "/product-how.jpeg", "/product-peel.jpeg", "/product-faq.jpeg", "/product-renewal.jpeg",
+];
+const guideCopy = {
+  ko: { kicker: "OFFICIAL PRODUCT GUIDE", title: "실제 판매 자료로\n제품을 더 자세히 확인하세요.", intro: "제품 특징, 규격, 사용법, 보관법과 자주 묻는 질문을 케익살롱 공식 이미지로 확인할 수 있습니다.", labels: ["제품 전체 안내", "프리미엄 품질", "규격과 추천 구성", "3단계 사용법", "출력·박리·장식", "구매 전 FAQ", "아이싱시트 리뉴얼 V.10"], open: "크게 보기", close: "닫기", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "커피와 음료 위에도\n브랜드를 선명하게.", cafeText: "로고와 메시지를 담은 식용 토퍼로 카페 시그니처 메뉴, 호텔 행사와 브랜드 프로모션을 완성하세요." },
+  en: { kicker: "OFFICIAL PRODUCT GUIDE", title: "Explore the product through\nofficial sales materials.", intro: "Review features, sizes, use, storage and frequently asked questions in Cake Salon’s official visual guides.", labels: ["Complete guide", "Premium quality", "Sizes & recommendations", "Three-step use", "Print, peel & place", "FAQ", "Icing Sheet Renewal V.10"], open: "Enlarge", close: "Close", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "Put your brand on\ncoffee and drinks, too.", cafeText: "Create signature café menus, hotel events and brand promotions with custom edible logo toppers." },
+  ja: { kicker: "OFFICIAL PRODUCT GUIDE", title: "公式販売資料で\n商品を詳しく確認。", intro: "商品の特徴、サイズ、使い方、保管方法、よくある質問を公式画像で確認できます。", labels: ["商品総合案内", "プレミアム品質", "サイズとおすすめ", "3ステップ使用法", "印刷・はがす・飾る", "よくある質問", "アイシングシート V.10"], open: "拡大表示", close: "閉じる", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "コーヒーやドリンクにも\nブランドを鮮やかに。", cafeText: "食用ロゴトッパーでカフェのシグネチャーメニュー、ホテルイベント、ブランドプロモーションを演出します。" },
+  zh: { kicker: "OFFICIAL PRODUCT GUIDE", title: "通过官方销售资料\n详细了解产品。", intro: "查看产品特点、规格、使用方法、储存方式和常见问题。", labels: ["完整产品指南", "优质品质", "规格与推荐", "三步使用方法", "打印、揭下、装饰", "常见问题", "糖霜纸 V.10"], open: "放大查看", close: "关闭", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "让咖啡和饮品也能\n清晰呈现品牌。", cafeText: "使用定制可食用标志装饰，打造咖啡馆招牌菜单、酒店活动与品牌推广。" },
+};
 const Lines = ({ children }: { children: string }) => <>{children.split("\n").map((line, index) => <span key={`${line}-${index}`}>{line}{index === 0 && <br />}</span>)}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("ko");
+  const [selectedGuide, setSelectedGuide] = useState<number | null>(null);
   const t: Copy = copy[lang];
+  const g = guideCopy[lang];
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
 
   return <main lang={lang}>
@@ -120,11 +133,18 @@ export default function Home() {
       <div className="section-heading"><div><p className="kicker">{t.shopKicker}</p><h2><Lines>{t.shopTitle}</Lines></h2></div><p className="section-intro">{t.shopIntro}</p></div>
       <div className="product-grid">{t.products.map((product, index) => <article className={`product-card card-${index + 1}`} key={product[0]}>
         <a className="product-art" href={productLink(product[3])} target="_blank" rel="noreferrer">
-          {index < 3 ? <img src={productImage[index]} alt="" /> : <div className={artForProduct[index]} aria-hidden="true">{index === 3 || index === 4 ? <><i /><i /><i /><i /><i /></> : <><i /><b>CAKE<br />SALON</b></>}</div>}
+          {productCardImage[index] ? <img src={productCardImage[index] as string} alt="" /> : <div className={artForProduct[index]} aria-hidden="true"><i /><i /><i /><i /><i /></div>}
           <span className="product-index">0{index + 1}</span><small>{product[2]}</small>
         </a>
         <div className="product-copy"><h3>{product[0]}</h3><p>{product[1]}</p><a href={productLink(product[3])} target="_blank" rel="noreferrer">{t.view} <Arrow /></a></div>
       </article>)}</div>
+    </section>
+
+    <section className="guide-section" id="guide">
+      <div className="guide-heading"><div><p className="kicker">{g.kicker}</p><h2><Lines>{g.title}</Lines></h2></div><p>{g.intro}</p></div>
+      <div className="guide-grid">{guideAssets.map((src, index) => <button className={`guide-card guide-card-${index + 1}`} type="button" key={src} onClick={() => setSelectedGuide(index)} aria-label={`${g.labels[index]} ${g.open}`}>
+        <img src={src} alt={g.labels[index]} /><span><b>0{index + 1}</b>{g.labels[index]}<i>{g.open} ↗</i></span>
+      </button>)}</div>
     </section>
 
     <section className="gallery-section" id="gallery">
@@ -133,13 +153,13 @@ export default function Home() {
     </section>
 
     <section className="how-section" id="how">
-      <div className="how-title"><p className="kicker">{t.useKicker}</p><h2><Lines>{t.useTitle}</Lines></h2></div>
+      <div className="how-title"><p className="kicker">{t.useKicker}</p><h2><Lines>{t.useTitle}</Lines></h2><img className="how-thumb" src="/product-peel.jpeg" alt="아이싱시트 출력, 박리, 케이크 장식 과정" /></div>
       <ol>{t.steps.map(([number, title, description]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
     </section>
 
     <section className="pro-section">
-      <div className="pro-image"><img src="/cake-portrait.jpeg" alt="케익살롱 맞춤 아이싱시트 적용 케이크" /><span>CAKE SALON · BUSINESS</span></div>
-      <div className="pro-copy"><p className="kicker">{t.proKicker}</p><h2><Lines>{t.proTitle}</Lines></h2><p>{t.proText}</p><a className="button button-dark" href="tel:0806647077">{t.proCta} <Arrow /></a></div>
+      <div className="pro-image"><img src="/product-coffee.jpeg" alt="커피 위에 적용한 케익살롱 식용 토퍼" /><span>CAKE SALON · CAFÉ &amp; HOTEL</span></div>
+      <div className="pro-copy"><p className="kicker">{g.cafeKicker}</p><h2><Lines>{g.cafeTitle}</Lines></h2><p>{g.cafeText}</p><a className="button button-dark" href="tel:0806647077">{t.proCta} <Arrow /></a></div>
     </section>
 
     <section className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</section>
@@ -155,5 +175,8 @@ export default function Home() {
     </section>
 
     <footer><a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a><p>© 2026 C&amp;C CORPORATION · SEOUL, KOREA</p><a href={storeUrl} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a></footer>
+    {selectedGuide !== null && <div className="lightbox" role="dialog" aria-modal="true" aria-label={g.labels[selectedGuide]} onClick={() => setSelectedGuide(null)}>
+      <button type="button" onClick={() => setSelectedGuide(null)}>{g.close} ×</button><div className="lightbox-scroll" onClick={(event) => event.stopPropagation()}><img src={guideAssets[selectedGuide]} alt={g.labels[selectedGuide]} /></div>
+    </div>}
   </main>;
 }
