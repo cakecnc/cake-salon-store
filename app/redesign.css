@@ -17,6 +17,21 @@ body {
     var(--paper);
 }
 
+h1,h2,h3,
+.hero-intro,.section-intro,.gallery-copy > p,.guide-heading p,
+.dessert-heading > p,.coffee-moments-heading > p:last-child,
+.cocktail-heading > p,.proof-heading > p:last-child,
+.company-copy > p,.final-copy > p {
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-wrap: balance;
+}
+
+p,li,dd,figcaption,blockquote {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 .site-header {
   height: 88px;
   padding: 0 max(28px,5vw);
