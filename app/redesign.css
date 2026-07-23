@@ -584,3 +584,105 @@ footer { background: linear-gradient(100deg,#294f48,#3f2d48 52%,#663449); }
   .guide-section { background: linear-gradient(155deg,#374963,#594768 62%,#6e516b); }
   .company-section { background: linear-gradient(145deg,#315e55,#a45f77); }
 }
+
+/* Unified image motion */
+main img {
+  transform: translate3d(0,0,0) scale(1);
+  transition:
+    transform .72s cubic-bezier(.2,.72,.2,1),
+    filter .55s ease,
+    box-shadow .55s ease;
+  will-change: transform;
+}
+
+.product-art,
+.gallery-item,
+.how-title,
+.pro-image,
+.coffee-moments-grid figure,
+.cocktail-grid figure,
+.dessert-grid figure,
+.company-logo,
+.final-section,
+.guide-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-art::after,
+.gallery-item::after,
+.pro-image::after,
+.coffee-moments-grid figure::after,
+.cocktail-grid figure::after,
+.dessert-grid figure::after,
+.final-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(115deg,transparent 20%,rgba(255,255,255,.22) 47%,transparent 72%);
+  transform: translateX(-70%);
+  transition: transform .8s cubic-bezier(.2,.72,.2,1),opacity .35s ease;
+}
+
+@media (hover:hover) and (pointer:fine) {
+  .hero:hover .hero-photo { transform: translate3d(0,-7px,0) scale(1.035); filter: saturate(1.06) contrast(1.02); }
+  .product-card:hover .product-art > img { transform: translate3d(0,-5px,0) scale(1.055); filter: saturate(1.08); }
+  .gallery-item:hover img { transform: translate3d(0,-7px,0) scale(1.05); filter: saturate(1.1); }
+  .how-title:hover .how-thumb { transform: translate3d(0,-8px,0) scale(1.025) rotate(-.25deg); filter: saturate(1.06); }
+  .pro-image:hover img { transform: translate3d(8px,-5px,0) scale(1.05); filter: saturate(1.08); }
+  .coffee-moments-grid figure:hover img { transform: translate3d(0,-7px,0) scale(1.055); filter: saturate(1.1); }
+  .cocktail-grid figure:hover img { transform: translate3d(0,-8px,0) scale(1.06); filter: saturate(1.12) contrast(1.03); }
+  .dessert-grid figure:hover img { transform: translate3d(0,-8px,0) scale(1.055); filter: saturate(1.09); }
+  .company-logo:hover img { transform: translate3d(0,-6px,0) scale(1.025); filter: saturate(1.04); }
+  .final-section:hover > img { transform: translate3d(8px,-5px,0) scale(1.04); filter: saturate(1.08); }
+  .guide-card:hover img { transform: translate3d(0,-5px,0) scale(1.035); filter: saturate(1.06); }
+
+  .product-art:hover::after,
+  .gallery-item:hover::after,
+  .pro-image:hover::after,
+  .coffee-moments-grid figure:hover::after,
+  .cocktail-grid figure:hover::after,
+  .dessert-grid figure:hover::after,
+  .final-section:hover::after {
+    opacity: 1;
+    transform: translateX(70%);
+  }
+
+  .product-card,
+  .gallery-item,
+  .coffee-moments-grid figure,
+  .cocktail-grid figure,
+  .dessert-grid figure {
+    transition: transform .45s ease,box-shadow .45s ease;
+  }
+  .product-card:hover,
+  .coffee-moments-grid figure:hover,
+  .cocktail-grid figure:hover,
+  .dessert-grid figure:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 34px 75px rgba(47,36,57,.2);
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  main img,
+  .product-card,
+  .gallery-item,
+  .coffee-moments-grid figure,
+  .cocktail-grid figure,
+  .dessert-grid figure,
+  .product-art::after,
+  .gallery-item::after,
+  .pro-image::after,
+  .coffee-moments-grid figure::after,
+  .cocktail-grid figure::after,
+  .dessert-grid figure::after,
+  .final-section::after {
+    transition: none !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
