@@ -159,6 +159,13 @@ const cocktailMoments: Record<Lang, { kicker: string; title: string; intro: stri
   zh: { kicker: "COCKTAIL CELEBRATION", title: "让一杯鸡尾酒\n成为活动主角。", intro: "以缤纷鸡尾酒搭配定制可食用信息装饰，为派对、纪念日、酒店活动和品牌场景留下难忘画面。", labels: ["举杯与派对", "特别的祝贺", "纪念日与婚礼"], alts: ["放有CHEERS可食用装饰的宝石红鸡尾酒", "放有CELEBRATE可食用装饰的蓝紫色鸡尾酒", "放有ANNIVERSARY可食用装饰的祖母绿玫红鸡尾酒"] },
 };
 const cocktailImages = ["/cocktail-cheers.png", "/cocktail-celebrate.png", "/cocktail-anniversary.png"];
+const dessertMoments: Record<Lang, { kicker: string; title: string; intro: string; items: Array<[string, string]>; alts: string[] }> = {
+  ko: { kicker: "SEASONAL CAKE INSPIRATION", title: "익숙한 디저트도\n새로운 작품으로.", intro: "한국적인 붕어빵과 풍성한 제철 과일까지, 아이싱시트 한 장으로 케이크의 이야기와 계절감을 확장합니다.", items: [["붕어빵 케이크", "붕어빵·팥·밤과 수채화 아이싱시트를 조합한 따뜻한 겨울 디저트"], ["과일 케이크", "보석처럼 선명한 과일과 플로럴 아이싱시트가 어우러진 축하 케이크"]], alts: ["수채화 붕어빵 아이싱시트를 장식한 붕어빵 케이크", "과일 화환 아이싱시트와 제철 과일을 장식한 과일 케이크"] },
+  en: { kicker: "SEASONAL CAKE INSPIRATION", title: "Turn familiar desserts\ninto new edible art.", intro: "From Korean bungeoppang to abundant seasonal fruit, one icing sheet expands the cake’s story and sense of season.", items: [["Bungeoppang Cake", "A warm winter cake with fish-shaped pastries, red bean, chestnut and a watercolor icing sheet"], ["Jewel Fruit Cake", "A celebration cake combining vivid seasonal fruit with a floral fruit-wreath icing sheet"]], alts: ["Bungeoppang cake decorated with a watercolor edible icing sheet", "Fruit cake decorated with seasonal fruit and a fruit-wreath icing sheet"] },
+  ja: { kicker: "SEASONAL CAKE INSPIRATION", title: "親しみのあるデザートを\n新しい作品へ。", intro: "韓国のたい焼き風プンオパンから豊かな旬のフルーツまで、アイシングシートでケーキの物語と季節感を広げます。", items: [["プンオパンケーキ", "プンオパン、小豆、栗、水彩アイシングシートを組み合わせた冬のデザート"], ["ジュエルフルーツケーキ", "色鮮やかな旬のフルーツとフルーツリースのアイシングシートを飾ったケーキ"]], alts: ["水彩プンオパンの食用アイシングシートを飾ったケーキ", "旬のフルーツとフルーツリースのアイシングシートを飾ったケーキ"] },
+  zh: { kicker: "SEASONAL CAKE INSPIRATION", title: "让熟悉的甜点\n成为全新作品。", intro: "从韩式鲫鱼饼到丰盛的时令水果，一张可食用糖霜纸即可拓展蛋糕的故事与季节感。", items: [["鲫鱼饼蛋糕", "结合鲫鱼饼、红豆、栗子与水彩糖霜纸的温暖冬季甜点"], ["宝石水果蛋糕", "以缤纷时令水果和水果花环糖霜纸装饰的庆祝蛋糕"]], alts: ["以水彩鲫鱼饼可食用糖霜纸装饰的蛋糕", "以时令水果和水果花环糖霜纸装饰的水果蛋糕"] },
+};
+const dessertImages = ["/bungeoppang-cake.png", "/fruit-cake.png"];
 const Lines = ({ children }: { children: string }) => <>{children.split("\n").map((line, index) => <span key={`${line}-${index}`}>{line}{index === 0 && <br />}</span>)}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -172,6 +179,7 @@ export default function Home() {
   const reviews = verifiedReviews[lang];
   const coffee = coffeeMoments[lang];
   const cocktails = cocktailMoments[lang];
+  const desserts = dessertMoments[lang];
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
 
@@ -218,6 +226,11 @@ export default function Home() {
     <section className="gallery-section" id="gallery">
       <div className="gallery-copy"><p className="kicker light-kicker">{t.galleryKicker}</p><h2><Lines>{t.galleryTitle}</Lines></h2><p>{t.galleryIntro}</p></div>
       <div className="gallery-grid">{productImage.map((src, index) => <figure key={src} className={`gallery-item gallery-${index + 1}`}><img src={src} alt={alts.gallery[index]} /><figcaption><span>0{index + 1}</span>{t.galleryLabels[index]}</figcaption></figure>)}</div>
+    </section>
+
+    <section className="dessert-stories">
+      <div className="dessert-heading"><p className="kicker">{desserts.kicker}</p><h2><Lines>{desserts.title}</Lines></h2><p>{desserts.intro}</p></div>
+      <div className="dessert-grid">{dessertImages.map((src, index) => <figure key={src} className={`dessert-${index + 1}`}><img src={src} alt={desserts.alts[index]} /><figcaption><span>0{index + 1}</span><div><h3>{desserts.items[index][0]}</h3><p>{desserts.items[index][1]}</p></div></figcaption></figure>)}</div>
     </section>
 
     <section className="how-section" id="how">
