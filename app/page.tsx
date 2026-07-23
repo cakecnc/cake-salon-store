@@ -21,7 +21,7 @@ const copy = {
     promises: [["18개월", "넉넉한 소비기한"], ["4.8 / 5", "아마존 평균 별점"], ["GLOBAL", "전 세계 수출"], ["080-664-7077", "제품·맞춤 상담"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "필요한 두 가지를\n명확하게 선택하세요.", shopIntro: "아이싱시트 1팩과 맞춤 프린팅 서비스, 케익살롱의 대표 상품만 간결하게 안내합니다.",
     products: [
-      ["아이싱시트 1팩", "가정·소량 제작에 필요한 만큼 사용하는 식용 아이싱시트", "1 PACK · A4 / A3", "a4"],
+      ["아이싱시트 1팩", "가정·소량 제작에 필요한 만큼 사용하는 식용 아이싱시트", "A4 · 50 SHEETS", "a4"],
       ["맞춤 프린팅 서비스", "사진·로고·문구를 원하는 크기와 형태로 제작", "CUSTOM PRINT", "custom"],
     ],
     view: "제품 자세히 보기", galleryKicker: "REAL APPLICATION", galleryTitle: "한 장의 이미지가\n케이크의 가치를 바꿉니다.",
@@ -43,7 +43,7 @@ const copy = {
     primary: "Shop products", secondary: "Custom order", heroNote: "Edible image sheets that peel cleanly from PET backing",
     promises: [["18 months", "Generous shelf life"], ["4.8 / 5", "Amazon average"], ["GLOBAL", "Worldwide export"], ["+82 80-664-7077", "Product support"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "Two clear choices\nfor your cake project.", shopIntro: "Explore Cake Salon’s two signature offers: a single pack of icing sheets and custom edible printing.",
-    products: [["Icing Sheet · 1 Pack", "A practical single pack for home bakers and small-batch projects", "1 PACK · A4 / A3", "a4"], ["Custom Printing Service", "Photos, logos and messages printed to your requested size and shape", "CUSTOM PRINT", "custom"]],
+    products: [["Icing Sheet · 1 Pack", "A practical single pack for home bakers and small-batch projects", "A4 · 50 SHEETS", "a4"], ["Custom Printing Service", "Photos, logos and messages printed to your requested size and shape", "CUSTOM PRINT", "custom"]],
     view: "View product", galleryKicker: "REAL APPLICATION", galleryTitle: "One printed image can\ntransform the whole cake.", galleryIntro: "Classic art, floral patterns, celebration photos and brand logos—see the color and detail Cake Salon can deliver.", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "Print, peel and\nsimply place.", steps: [["01", "Prepare your design", "Set your photo, illustration or logo to size."], ["02", "Peel from the film", "Gently release the sheet from its PET backing."], ["03", "Finish the cake", "Place it on a smooth surface and serve."]],
     proKicker: "FOR PROFESSIONALS", proTitle: "Edible brand content for\ncafés, hotels and events.", proText: "From launches and VIP events to seasonal menus and promotions, turn logos and messages into an edible brand experience.", proCta: "Ask about B2B orders",
@@ -55,7 +55,7 @@ const copy = {
     kicker: "PREMIUM EDIBLE PRINTING", title: "想像したデザインを、\nいちばん美味しい作品へ。", intro: "ケーキサロンのアイシングシートで写真・イラスト・ロゴを鮮やかに表現できます。", primary: "商品を見る", secondary: "オーダー相談", heroNote: "PETフィルムからはがして使う食用イメージシート",
     promises: [["18か月", "余裕のある賞味期間"], ["4.8 / 5", "Amazon平均評価"], ["GLOBAL", "世界へ輸出"], ["+82 80-664-7077", "商品相談"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "必要な二つを\n分かりやすく選択。", shopIntro: "アイシングシート1パックとオーダープリントサービスのみをご案内します。",
-    products: [["アイシングシート 1パック", "ホームベーキングや少量制作に便利な1パック", "1 PACK · A4 / A3", "a4"], ["オーダープリントサービス", "写真・ロゴ・文字を希望のサイズと形で制作", "CUSTOM PRINT", "custom"]],
+    products: [["アイシングシート 1パック", "ホームベーキングや少量制作に便利な1パック", "A4 · 50 SHEETS", "a4"], ["オーダープリントサービス", "写真・ロゴ・文字を希望のサイズと形で制作", "CUSTOM PRINT", "custom"]],
     view: "商品を見る", galleryKicker: "REAL APPLICATION", galleryTitle: "一枚のイメージが\nケーキの価値を変えます。", galleryIntro: "クラシックアート、花柄、記念写真、ブランドロゴまで鮮やかに表現します。", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "プリントして、はがして、\nのせるだけ。", steps: [["01", "デザイン準備", "写真・イラスト・ロゴを準備します。"], ["02", "フィルムからはがす", "PETフィルムからゆっくりはがします。"], ["03", "ケーキ完成", "なめらかな表面にのせて仕上げます。"]],
     proKicker: "FOR PROFESSIONALS", proTitle: "カフェ・ホテル・ブランド向け\n食用コンテンツ。", proText: "新商品、VIPイベント、季節メニュー、企業プロモーションまで食用イメージでブランド体験を作ります。", proCta: "B2Bオーダー相談",
@@ -67,7 +67,7 @@ const copy = {
     kicker: "PREMIUM EDIBLE PRINTING", title: "将想象中的设计，\n变成美味的艺术品。", intro: "使用 Cake Salon 糖霜纸与可食用打印方案，将照片、插画和标志清晰呈现在蛋糕上。", primary: "浏览产品", secondary: "咨询定制", heroNote: "从PET底膜揭下即可使用的可食用图像纸",
     promises: [["18个月", "充足保质期"], ["4.8 / 5", "亚马逊平均评分"], ["GLOBAL", "出口全球"], ["+82 80-664-7077", "产品咨询"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "两项代表服务，\n选择更简单。", shopIntro: "仅展示单包装糖霜纸与定制可食用打印服务。",
-    products: [["糖霜纸 1包装", "适合家庭烘焙与小批量制作的单包装", "1 PACK · A4 / A3", "a4"], ["定制打印服务", "按所需尺寸和形状打印照片、标志与文字", "CUSTOM PRINT", "custom"]],
+    products: [["糖霜纸 1包装", "适合家庭烘焙与小批量制作的单包装", "A4 · 50 SHEETS", "a4"], ["定制打印服务", "按所需尺寸和形状打印照片、标志与文字", "CUSTOM PRINT", "custom"]],
     view: "查看产品", galleryKicker: "REAL APPLICATION", galleryTitle: "一张图像，\n改变蛋糕的价值。", galleryIntro: "从古典艺术、花卉图案到照片和品牌标志，展现清晰色彩与细节。", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "打印、揭下、\n轻轻放上。", steps: [["01", "准备设计", "准备照片、插画或品牌标志。"], ["02", "揭下底膜", "从PET底膜上慢慢揭下。"], ["03", "完成蛋糕", "放在平滑表面即可完成。"]],
     proKicker: "FOR PROFESSIONALS", proTitle: "为咖啡馆、酒店与品牌\n打造可食用内容。", proText: "从新品发布、VIP活动到季节菜单和企业推广，让标志与信息成为可品尝的品牌体验。", proCta: "咨询B2B定制",
@@ -78,12 +78,6 @@ const copy = {
 
 const productImage = ["/cake-floral.jpeg", "/cake-portrait.jpeg", "/cake-renaissance.jpeg"];
 const productCardImage = ["/product-hero-sheet.jpeg", "/cake-portrait.jpeg"];
-const localizedGuideAsset: Record<Lang, string> = {
-  ko: "/product-global.jpeg",
-  en: "/cake-salon-guide-en.png",
-  ja: "/cake-salon-guide-ja.png",
-  zh: "/cake-salon-guide-zh.png",
-};
 const guideCopy = {
   ko: { kicker: "OFFICIAL PRODUCT GUIDE", title: "실제 판매 자료로\n제품을 더 자세히 확인하세요.", intro: "제품 특징, 규격, 사용법과 보관법을 케익살롱 공식 이미지로 확인할 수 있습니다.", translationNote: "현재 선택한 언어에 맞춘 제품 안내 이미지입니다.", labels: ["제품 전체 안내", "프리미엄 품질", "규격과 추천 구성", "3단계 사용법", "출력·박리·장식", "구매 전 FAQ", "아이싱시트 리뉴얼 V.10"], open: "크게 보기", close: "닫기", translatedHeading: "제품 주요 안내", originalNote: "제품 표시와 인증 정보는 실제 제품 라벨 및 최신 판매 안내를 기준으로 확인해 주세요.", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "커피와 음료 위에도\n브랜드를 선명하게.", cafeText: "로고와 메시지를 담은 식용 토퍼로 카페 시그니처 메뉴, 호텔 행사와 브랜드 프로모션을 완성하세요." },
   en: { kicker: "OFFICIAL PRODUCT GUIDE", title: "Explore the product through\nofficial sales materials.", intro: "Review product features, sizes, use and storage in Cake Salon’s official visual guide.", translationNote: "This product guide is presented in your selected language.", labels: ["Complete guide", "Premium quality", "Sizes & recommendations", "Three-step use", "Print, peel & place", "FAQ", "Icing Sheet Renewal V.10"], open: "Enlarge", close: "Close", translatedHeading: "Product Highlights", originalNote: "For labeling and compliance details, refer to the current product packaging and official sales information.", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "Put your brand on\ncoffee and drinks, too.", cafeText: "Create signature café menus, hotel events and brand promotions with custom edible logo toppers." },
@@ -136,6 +130,15 @@ const imageAlts: Record<Lang, { hero: string; gallery: string[]; how: string; co
   ja: { hero: "クラシックアートの食用アイシングシートをケーキにのせる様子", gallery: ["花柄の食用アイシングシートケーキ", "人物画の食用アイシングシートケーキ", "クラシックアートの食用アイシングシートケーキ"], how: "食用アイシングシートの印刷・はがし・飾り付け工程", coffee: "コーヒーに浮かべた食用ロゴトッパー", logo: "C&C Corporation ロゴ", final: "花柄の食用アイシングシートケーキ" },
   zh: { hero: "将古典艺术可食用糖霜纸放在蛋糕上", gallery: ["花卉图案可食用糖霜纸蛋糕", "人物画可食用糖霜纸蛋糕", "古典艺术可食用糖霜纸蛋糕"], how: "打印、揭膜并装饰可食用糖霜纸的过程", coffee: "漂浮在咖啡上的可食用标志装饰", logo: "C&C Corporation 公司标志", final: "花卉图案可食用糖霜纸蛋糕" },
 };
+const conversionCopy: Record<Lang, {
+  purchase: string; inquiry: string; currentPrice: string; specs: string; order: string;
+  productMeta: Array<[string, string, string]>; guideNote: string; proofKicker: string; proofTitle: string; proofText: string;
+}> = {
+  ko: { purchase: "네이버 스마트스토어에서 구매하기", inquiry: "1:1 맞춤 제작 문의", currentPrice: "최신 판매가 확인", specs: "구성·규격", order: "주문 조건", productMeta: [["스마트스토어 실시간 판매가", "A4 · 50장 구성", "최소 주문 1팩"], ["옵션별 판매가", "원형 9cm · 10cm", "주문 단위는 상품 옵션 기준"]], guideNote: "이미지 속 작은 글씨 대신 검색과 확대가 가능한 웹 텍스트로 안내합니다.", proofKicker: "VERIFIED PROOF", proofTitle: "확인 가능한 정보와\n실제 적용 사례만 담았습니다.", proofText: "케익살롱이 제공한 공식 제품 정보와 실제 제작 이미지를 기준으로 구성했습니다. 확인되지 않은 후기나 제휴사는 표시하지 않습니다." },
+  en: { purchase: "Buy on Naver Smart Store", inquiry: "Request a Custom Quote", currentPrice: "Check current price", specs: "Pack & size", order: "Order terms", productMeta: [["Live Smart Store price", "A4 · 50 sheets", "Minimum order: 1 pack"], ["Price varies by option", "Round · 9cm / 10cm", "Order unit follows store options"]], guideNote: "Product information is provided as searchable, responsive web text instead of small text embedded in an image.", proofKicker: "VERIFIED PROOF", proofTitle: "Only verified facts and\nreal applications.", proofText: "This section uses official Cake Salon product information and supplied production images. Unverified reviews or partner logos are not displayed." },
+  ja: { purchase: "NAVERスマートストアで購入", inquiry: "1:1オーダー相談", currentPrice: "最新価格を確認", specs: "構成・サイズ", order: "注文条件", productMeta: [["ストアのリアルタイム価格", "A4 · 50枚", "最小注文：1パック"], ["オプション別価格", "円形 · 9cm / 10cm", "注文単位は商品オプション基準"]], guideNote: "画像内の小さな文字ではなく、検索・拡大できるレスポンシブなWebテキストでご案内します。", proofKicker: "VERIFIED PROOF", proofTitle: "確認できる情報と\n実際の制作例だけを掲載。", proofText: "ケーキサロンの公式商品情報と提供された制作画像を使用し、未確認のレビューや提携ロゴは掲載していません。" },
+  zh: { purchase: "前往NAVER智能商店购买", inquiry: "1对1定制咨询", currentPrice: "查看最新价格", specs: "包装与规格", order: "订购条件", productMeta: [["智能商店实时价格", "A4 · 50张", "最低订购：1包装"], ["价格因选项而异", "圆形 · 9cm / 10cm", "订购单位以商品选项为准"]], guideNote: "产品信息采用可搜索、可缩放的响应式网页文字，不再依赖图片中的小字。", proofKicker: "VERIFIED PROOF", proofTitle: "仅展示可核实信息与\n真实应用案例。", proofText: "内容基于 Cake Salon 官方产品资料和已提供的制作图片，不展示未经核实的评价或合作品牌。" },
+};
 const Lines = ({ children }: { children: string }) => <>{children.split("\n").map((line, index) => <span key={`${line}-${index}`}>{line}{index === 0 && <br />}</span>)}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -145,6 +148,8 @@ export default function Home() {
   const g = guideCopy[lang];
   const details = guideDetails[lang];
   const alts = imageAlts[lang];
+  const c = conversionCopy[lang];
+  const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
 
   return <main lang={lang}>
@@ -164,7 +169,7 @@ export default function Home() {
         <p className="kicker light-kicker">{t.kicker}</p>
         <h1><Lines>{t.title}</Lines></h1>
         <p className="hero-intro">{t.intro}</p>
-        <div className="hero-actions"><a className="button button-light" href="#products">{t.primary} <Arrow /></a><a className="text-action light-action" href="tel:0806647077">{t.secondary}</a></div>
+        <div className="hero-actions"><a className="button button-light" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
       </div>
       <div className="hero-caption"><span>01</span><p>{t.heroNote}</p></div>
     </section>
@@ -174,17 +179,17 @@ export default function Home() {
     <section className="shop-section" id="products">
       <div className="section-heading"><div><p className="kicker">{t.shopKicker}</p><h2><Lines>{t.shopTitle}</Lines></h2></div><p className="section-intro">{t.shopIntro}</p></div>
       <div className="product-grid">{t.products.map((product, index) => <article className={`product-card card-${index + 1}`} key={product[0]}>
-        <a className="product-art" href={productLink(product[3])} target="_blank" rel="noreferrer">
+        <a className="product-art" href={index === 0 ? productLink(product[3]) : inquiryUrl} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}>
           <img src={productCardImage[index]} alt="" />
           <span className="product-index">0{index + 1}</span><small>{product[2]}</small>
         </a>
-        <div className="product-copy"><h3>{product[0]}</h3><p>{product[1]}</p><a href={productLink(product[3])} target="_blank" rel="noreferrer">{t.view} <Arrow /></a></div>
+        <div className="product-copy"><h3>{product[0]}</h3><p>{product[1]}</p><dl className="product-meta"><div><dt>{c.currentPrice}</dt><dd>{c.productMeta[index][0]}</dd></div><div><dt>{c.specs}</dt><dd>{c.productMeta[index][1]}</dd></div><div><dt>{c.order}</dt><dd>{c.productMeta[index][2]}</dd></div></dl><a href={index === 0 ? productLink(product[3]) : inquiryUrl} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}>{index === 0 ? c.purchase : c.inquiry} <Arrow /></a></div>
       </article>)}</div>
     </section>
 
     <section className="guide-section" id="guide">
-      <div className="guide-heading"><div><p className="kicker">{g.kicker}</p><h2><Lines>{g.title}</Lines></h2></div><div><p>{g.intro}</p><p className="guide-language-note">{g.translationNote}</p></div></div>
-      <div className="localized-guide"><img src={localizedGuideAsset[lang]} alt={g.labels[0]} /><div><p className="kicker">{g.translatedHeading}</p><h3>{details[0].title}</h3><p>{details[0].summary}</p><small>{g.originalNote}</small></div></div>
+      <div className="guide-heading"><div><p className="kicker">{g.kicker}</p><h2><Lines>{g.title}</Lines></h2></div><div><p>{g.intro}</p><p className="guide-language-note">{c.guideNote}</p></div></div>
+      <div className="feature-grid">{details.slice(0, 5).map((item, index) => <article className="feature-card" key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.summary}</p><ul>{item.bullets.slice(0, 4).map((bullet) => <li key={bullet}>{bullet}</li>)}</ul></article>)}</div>
     </section>
 
     <section className="gallery-section" id="gallery">
@@ -199,21 +204,22 @@ export default function Home() {
 
     <section className="pro-section">
       <div className="pro-image"><img src="/product-coffee.jpeg" alt={alts.coffee} /><span>CAKE SALON · CAFÉ &amp; HOTEL</span></div>
-      <div className="pro-copy"><p className="kicker">{g.cafeKicker}</p><h2><Lines>{g.cafeTitle}</Lines></h2><p>{g.cafeText}</p><a className="button button-dark" href="tel:0806647077">{t.proCta} <Arrow /></a></div>
+      <div className="pro-copy"><p className="kicker">{g.cafeKicker}</p><h2><Lines>{g.cafeTitle}</Lines></h2><p>{g.cafeText}</p><a className="button button-dark" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
     </section>
 
-    <section className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</section>
+    <section className="proof-section"><div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div><div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div></section>
 
     <section className="company-section" id="company">
-      <div className="company-copy"><p className="kicker">{t.companyKicker}</p><h2><Lines>{t.companyTitle}</Lines></h2><p>{t.companyText}</p><div className="company-actions"><a className="text-action" href={storeUrl} target="_blank" rel="noreferrer">{t.companyCta} <Arrow /></a><a className="text-action" href="mailto:cakecnc@daum.net">{t.email}</a></div></div>
+      <div className="company-copy"><p className="kicker">{t.companyKicker}</p><h2><Lines>{t.companyTitle}</Lines></h2><p>{t.companyText}</p><div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={inquiryUrl}>{c.inquiry}</a></div></div>
       <div className="company-logo"><img src="/cnc-logo.jpeg" alt={alts.logo} /></div>
     </section>
 
     <section className="final-section" id="contact">
       <img src="/cake-floral.jpeg" alt={alts.final} />
-      <div className="final-shade" /><div className="final-copy"><p className="kicker light-kicker">CAKE SALON</p><h2><Lines>{t.final}</Lines></h2><p>{t.finalText}</p><a className="button button-light" href={storeUrl} target="_blank" rel="noreferrer">{t.primary} <Arrow /></a><div className="final-contacts"><a href="tel:0806647077">{t.phone}</a><a href="mailto:cakecnc@daum.net">{t.email}</a></div></div>
+      <div className="final-shade" /><div className="final-copy"><p className="kicker light-kicker">CAKE SALON</p><h2><Lines>{t.final}</Lines></h2><p>{t.finalText}</p><div className="final-actions"><a className="button button-light" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div><div className="final-contacts"><span>{t.phone}</span><span>{t.email}</span></div></div>
     </section>
 
-    <footer><a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a><p>© 2026 C&amp;C CORPORATION · SEOUL, KOREA</p><a href="mailto:cakecnc@daum.net">cakecnc@daum.net</a><a href={storeUrl} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a></footer>
+    <footer><a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a><p>© 2026 C&amp;C CORPORATION · SEOUL, KOREA</p><span>cakecnc@daum.net</span><a href={productUrls.a4} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a></footer>
+    <div className="mobile-cta" aria-label="Quick actions"><a href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase}</a><a href={inquiryUrl}>{c.inquiry}</a></div>
   </main>;
 }

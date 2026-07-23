@@ -250,9 +250,36 @@ footer > a[href^="mailto:"] {
 }
 .pro-image img { object-position: center center; }
 
+.product-meta { margin: 0 0 24px; border-top: 1px solid #dfd2c6; }
+.product-meta > div { display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid #dfd2c6; }
+.product-meta dt { color: #99756e; font-size: 9px; font-weight: 700; }
+.product-meta dd { margin: 0; color: var(--ink); font-size: 10px; font-weight: 700; }
+.button-outline { border: 1px solid rgba(255,255,255,.68); color: white; background: rgba(40,20,24,.22); }
+.final-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.feature-grid { max-width: 1240px; margin: auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.feature-card { grid-column: span 2; padding: 32px 28px; background: #fffdf9; border: 1px solid #dfd2c6; box-shadow: 0 10px 26px rgba(72,48,37,.06); }
+.feature-card:nth-child(4), .feature-card:nth-child(5) { grid-column: span 3; }
+.feature-card > span { color: var(--rose); font: italic 12px Georgia, serif; }
+.feature-card h3 { margin: 18px 0 12px; font: 24px/1.25 Georgia,"Nanum Myeongjo",serif; }
+.feature-card p { min-height: 54px; color: var(--muted); font-size: 11px; line-height: 1.75; }
+.feature-card ul { margin: 20px 0 0; padding: 0; list-style: none; }
+.feature-card li { position: relative; padding: 10px 0 10px 15px; border-top: 1px solid #eadfd5; color: #554943; font-size: 10px; line-height: 1.55; }
+.feature-card li::before { content: ""; position: absolute; left: 0; top: 16px; width: 5px; height: 5px; border-radius: 50%; background: var(--rose); }
+.proof-section { padding: 105px 6vw; background: #fffaf3; }
+.proof-heading { max-width: 900px; margin: 0 auto 55px; text-align: center; }
+.proof-heading h2 { margin: 0; font: 400 clamp(40px,4vw,62px)/1.08 Georgia,"Nanum Myeongjo",serif; letter-spacing: -.05em; }
+.proof-heading h2 span:last-child { color: var(--rose); font-style: italic; }
+.proof-heading > p:last-child { max-width: 650px; margin: 24px auto 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.proof-section .trust-grid { max-width: 1100px; margin: auto; border: 1px solid var(--line); }
+.final-contacts span { color: white; font-size: 10px; }
+footer > span { color: #d8c7c0; font-size: 9px; letter-spacing: .08em; }
+.mobile-cta { display: none; }
+
 @media (max-width: 900px) {
   .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .guide-heading { grid-template-columns: 1fr; gap: 25px; }
+  .feature-card { grid-column: span 3; }
+  .feature-card:last-child { grid-column: 2 / span 4; }
   .guide-grid { grid-template-columns: repeat(2, 1fr); }
   .lightbox-panel {
     grid-template-columns: 1fr 360px;
@@ -260,11 +287,24 @@ footer > a[href^="mailto:"] {
 }
 
 @media (max-width: 620px) {
+  body { padding-bottom: 68px; }
   .guide-section { padding: 80px 20px; }
   .guide-heading { margin-bottom: 42px; }
   .guide-heading h2 { font-size: 40px; }
   .localized-guide { grid-template-columns: 1fr; }
   .localized-guide > div { padding: 32px 24px; }
+  .feature-grid { display: block; }
+  .feature-card { margin-bottom: 14px; padding: 27px 22px; }
+  .feature-card p { min-height: 0; }
+  .product-meta > div { grid-template-columns: 95px 1fr; }
+  .proof-section { padding: 78px 20px; }
+  .proof-heading { margin-bottom: 40px; }
+  .proof-heading h2 { font-size: 39px; }
+  .final-actions { display: grid; }
+  .mobile-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; display: grid; grid-template-columns: 1.25fr .75fr; min-height: 68px; box-shadow: 0 -8px 24px rgba(39,22,22,.2); }
+  .mobile-cta a { display: grid; place-items: center; padding: 12px 10px; text-align: center; font-size: 10px; font-weight: 800; line-height: 1.3; }
+  .mobile-cta a:first-child { background: var(--rose-dark); color: white; }
+  .mobile-cta a:last-child { background: #fff8ee; color: var(--rose-dark); border-top: 1px solid #dfd2c6; }
   .guide-grid { display: block; }
   .guide-card { width: 100%; margin-bottom: 15px; }
   .guide-card img,
