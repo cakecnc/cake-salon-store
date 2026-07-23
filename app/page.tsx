@@ -14,7 +14,7 @@ const productUrls = {
 
 const copy = {
   ko: {
-    nav: ["제품", "활용", "사용법", "회사소개", "CONTACT"], shop: "스마트스토어",
+    nav: ["제품", "활용", "사용법", "회사소개", "맞춤디자인", "CONTACT"], shop: "스마트스토어",
     kicker: "PREMIUM EDIBLE PRINTING", title: "상상한 디자인을,\n가장 맛있는 작품으로.",
     intro: "케익살롱의 아이싱시트와 식용 프린팅 솔루션으로 사진, 일러스트, 로고를 케이크 위에 선명하게 표현하세요.",
     primary: "판매 제품 보기", secondary: "맞춤 제작 상담", heroNote: "PET 필름에서 분리해 바로 사용하는 식용 이미지 시트",
@@ -37,7 +37,7 @@ const copy = {
     companyCta: "스마트스토어 방문", final: "오늘의 케이크를\n기억에 남는 작품으로.", finalText: "케익살롱의 제품과 맞춤 프린팅을 지금 만나보세요.", phone: "전화 상담 080-664-7077", email: "이메일 문의 cakecnc@daum.net",
   },
   en: {
-    nav: ["Products", "Inspiration", "How it works", "Company", "CONTACT"], shop: "Smart Store",
+    nav: ["Products", "Inspiration", "How it works", "Company", "Custom Design", "CONTACT"], shop: "Smart Store",
     kicker: "PREMIUM EDIBLE PRINTING", title: "Turn any design into\na delicious work of art.",
     intro: "Bring photos, illustrations and logos to life on cakes with Cake Salon icing sheets and edible-printing solutions.",
     primary: "Shop products", secondary: "Custom order", heroNote: "Edible image sheets that peel cleanly from PET backing",
@@ -51,7 +51,7 @@ const copy = {
     companyKicker: "C&C CORPORATION", companyTitle: "Expanding edible printing\nto the global market.", companyText: "C&C Corporation manufactures and distributes icing sheets through Cake Salon, offering complete edible-printing solutions from Korean ecommerce to global export.", companyCta: "Visit Smart Store", final: "Turn today’s cake into\na lasting work of art.", finalText: "Discover Cake Salon products and custom edible printing.", phone: "Call +82 80-664-7077", email: "Email cakecnc@daum.net",
   },
   ja: {
-    nav: ["商品", "活用例", "使い方", "会社紹介", "CONTACT"], shop: "スマートストア",
+    nav: ["商品", "活用例", "使い方", "会社紹介", "オーダーデザイン", "CONTACT"], shop: "スマートストア",
     kicker: "PREMIUM EDIBLE PRINTING", title: "想像したデザインを、\nいちばん美味しい作品へ。", intro: "ケーキサロンのアイシングシートで写真・イラスト・ロゴを鮮やかに表現できます。", primary: "商品を見る", secondary: "オーダー相談", heroNote: "PETフィルムからはがして使う食用イメージシート",
     promises: [["18か月", "余裕のある賞味期間"], ["4.8 / 5", "Amazon平均評価"], ["GLOBAL", "世界へ輸出"], ["+82 80-664-7077", "商品相談"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "必要な二つを\n分かりやすく選択。", shopIntro: "アイシングシート1パックとオーダープリントサービスのみをご案内します。",
@@ -63,7 +63,7 @@ const copy = {
     companyKicker: "C&C CORPORATION", companyTitle: "食用プリントの可能性を\n世界市場へ。", companyText: "C&C Corporationはケーキサロンを通じてアイシングシートと食用プリントソリューションを提供し、グローバル輸出へ事業を拡大しています。", companyCta: "ストアを見る", final: "今日のケーキを\n記憶に残る作品へ。", finalText: "ケーキサロンの商品とオーダープリントをご覧ください。", phone: "電話 +82 80-664-7077", email: "メール cakecnc@daum.net",
   },
   zh: {
-    nav: ["产品", "应用", "使用方法", "公司介绍", "CONTACT"], shop: "智能商店",
+    nav: ["产品", "应用", "使用方法", "公司介绍", "定制设计", "CONTACT"], shop: "智能商店",
     kicker: "PREMIUM EDIBLE PRINTING", title: "将想象中的设计，\n变成美味的艺术品。", intro: "使用 Cake Salon 糖霜纸与可食用打印方案，将照片、插画和标志清晰呈现在蛋糕上。", primary: "浏览产品", secondary: "咨询定制", heroNote: "从PET底膜揭下即可使用的可食用图像纸",
     promises: [["18个月", "充足保质期"], ["4.8 / 5", "亚马逊平均评分"], ["GLOBAL", "出口全球"], ["+82 80-664-7077", "产品咨询"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "两项代表服务，\n选择更简单。", shopIntro: "仅展示单包装糖霜纸与定制可食用打印服务。",
@@ -93,7 +93,7 @@ const guideDetails: Record<Lang, Array<{ title: string; summary: string; bullets
     { title: "출력부터 장식까지 3단계", summary: "식용 프린터로 출력한 뒤 원하는 모양으로 잘라 케이크에 올리면 완성됩니다.", bullets: ["1. 식용 프린터와 식용 잉크로 이미지 출력", "2. 원하는 모양으로 자른 뒤 PET 필름에서 천천히 분리", "3. 케이크의 매끄러운 표면에 가볍게 밀착", "작업 전 손을 깨끗이 씻고 충분히 건조"] },
     { title: "필름 분리와 케이크 부착", summary: "필요한 만큼만 꺼내 출력하고, 필름을 천천히 분리해 케이크에 부착합니다.", bullets: ["출력면이 손상되지 않도록 시트 가장자리를 잡기", "PET 보호 필름에서 천천히 분리하기", "케이크 표면의 과도한 수분을 정리한 뒤 부착", "남은 시트는 즉시 밀봉해 보관"] },
     { title: "구매 전 자주 묻는 질문", summary: "프린터, 보관, 소비기한과 맞춤 주문에 대한 핵심 안내입니다.", bullets: ["일반 프린터가 아닌 식용 프린터와 식용 잉크를 사용", "직사광선과 고온다습한 곳을 피하고 개봉 후 밀봉", "소비기한은 제조일로부터 18개월", "케이크 표면의 과도한 수분을 정리한 뒤 부착", "맞춤 제작과 대량 주문 상담 가능"] },
-    { title: "아이싱시트 리뉴얼 V.10", summary: "기포 발생을 줄이고 출력 품질과 작업성을 개선하도록 설계한 버전입니다.", bullets: ["기포와 필름 분리를 줄이기 위한 이중 가공 구조", "약 0.45–0.55mm의 작업하기 좋은 두께", "셀룰로오스 유래 식품 원료 HPMC 함유", "일반적인 계절 환경에서 일관된 작업성을 고려한 설계", "부드러운 식감과 편리한 커팅·박리"] },
+    { title: "아이싱시트 리뉴얼 V.10", summary: "기포 발생을 줄이고 출력 품질과 작업성을 개선하도록 설계한 버전입니다.", bullets: ["기포와 필름 분리를 줄이기 위한 이중 가공 구조", "실제 제품 두께 0.40mm", "셀룰로오스 유래 식품 원료 HPMC 함유", "일반적인 계절 환경에서 일관된 작업성을 고려한 설계", "부드러운 식감과 편리한 커팅·박리"] },
   ],
   en: [
     { title: "Complete Edible Icing Sheet Guide", summary: "An edible image sheet for reproducing photos, logos and illustrations clearly on cakes and desserts.", bullets: ["Made with ingredients intended for food use", "Designed for detailed edible printing and easy peel-and-place application", "Suitable for cakes, cookies, chocolate, marshmallows and other desserts", "A4 210×297mm, A3 297×420mm and custom sizes available", "Use-by period: 18 months from manufacture; keep sealed"] },
@@ -102,7 +102,7 @@ const guideDetails: Record<Lang, Array<{ title: string; summary: string; bullets
     { title: "Three Simple Steps", summary: "Print, cut and peel the sheet, then place it on the cake.", bullets: ["1. Print the image with an edible-ink printer", "2. Cut to shape and peel slowly from the PET backing", "3. Place gently on a smooth cake surface", "Wash and dry hands thoroughly before handling"] },
     { title: "Peel and Apply", summary: "Remove only the sheet you need, print it, peel the backing slowly and apply it to the cake.", bullets: ["Hold the sheet by the edges to protect the printed surface", "Release it slowly from the PET backing", "Remove excess moisture from the cake surface before applying", "Reseal unused sheets immediately"] },
     { title: "Frequently Asked Questions", summary: "Key guidance on printers, storage, shelf life and custom orders.", bullets: ["Do not use a standard printer; use an edible-ink printer and edible ink", "Keep away from direct sunlight, heat and humidity; reseal after opening", "Shelf life is 18 months from the date of manufacture", "Remove excess surface moisture before applying", "Custom production and bulk orders are available"] },
-    { title: "Icing Sheet Renewal V.10", summary: "Updated to improve print quality and handling while helping reduce bubbling.", bullets: ["Dual-processing structure designed to reduce bubbling and backing separation", "Approx. 0.45–0.55mm thickness for balanced handling", "Contains HPMC, a cellulose-derived food ingredient", "Designed for more consistent handling under normal seasonal conditions", "Cut, peel and place using edible-printing equipment and ink"] },
+    { title: "Icing Sheet Renewal V.10", summary: "Updated to improve print quality and handling while helping reduce bubbling.", bullets: ["Dual-processing structure designed to reduce bubbling and backing separation", "Actual product thickness: 0.40 mm", "Contains HPMC, a cellulose-derived food ingredient", "Designed for more consistent handling under normal seasonal conditions", "Cut, peel and place using edible-printing equipment and ink"] },
   ],
   ja: [
     { title: "食用アイシングシート 総合ガイド", summary: "写真・ロゴ・イラストをケーキやデザートに鮮明に表現できる食用イメージシートです。", bullets: ["食品用途の原料を使用", "鮮明な食用プリントと、はがして載せる作業に適したシート", "ケーキ、クッキー、チョコレート、マシュマロなどに使用可能", "A4 210×297mm、A3 297×420mm、別注サイズに対応", "消費期限は製造日から18か月。密封して保管"] },
@@ -111,7 +111,7 @@ const guideDetails: Record<Lang, Array<{ title: string; summary: string; bullets
     { title: "3ステップの使い方", summary: "食用プリンターで印刷し、カットしてからケーキにのせるだけです。", bullets: ["1. 食用インク専用プリンターで画像を印刷", "2. 好きな形に切り、PETフィルムからゆっくりはがす", "3. なめらかなケーキ表面に軽く密着", "作業前に手を洗い、十分に乾かす"] },
     { title: "フィルムからはがして貼り付ける", summary: "必要な分だけ取り出して印刷し、保護フィルムからゆっくりはがして貼り付けます。", bullets: ["印刷面を傷つけないよう端を持つ", "PET保護フィルムからゆっくりはがす", "ケーキ表面の余分な水分を取り除いてから貼る", "残ったシートはすぐに密封して保管"] },
     { title: "購入前のよくある質問", summary: "プリンター、保管、保存期間、オーダーに関する基本案内です。", bullets: ["一般プリンターではなく、食用インク専用プリンターを使用", "直射日光と高温多湿を避け、開封後は密封", "保存期間は製造日から18か月", "ケーキ表面の余分な水分を取り除いてから貼り付け", "別注制作・大量注文の相談が可能"] },
-    { title: "アイシングシート リニューアル V.10", summary: "気泡を抑え、印刷品質と作業性を改善するよう設計されています。", bullets: ["気泡や台紙のはがれを抑えるための二重加工構造", "扱いやすさに配慮した約0.45〜0.55mmの厚さ", "セルロース由来の食品原料HPMCを配合", "通常の季節環境でも扱いやすいよう設計", "食品印刷専用機器と食用インクを使用"] },
+    { title: "アイシングシート リニューアル V.10", summary: "気泡を抑え、印刷品質と作業性を改善するよう設計されています。", bullets: ["気泡や台紙のはがれを抑えるための二重加工構造", "実製品の厚さ：0.40mm", "セルロース由来の食品原料HPMCを配合", "通常の季節環境でも扱いやすいよう設計", "食品印刷専用機器と食用インクを使用"] },
   ],
   zh: [
     { title: "可食用糖霜纸完整指南", summary: "可将照片、标志和插画清晰呈现在蛋糕与甜点上的可食用图像纸。", bullets: ["采用食品用途原料制成", "适用于清晰的可食用图像打印，易于揭膜并贴附", "可用于蛋糕、饼干、巧克力、棉花糖等甜点", "提供A4 210×297mm、A3 297×420mm及定制尺寸", "保质期为自生产之日起18个月，请密封保存"] },
@@ -120,7 +120,7 @@ const guideDetails: Record<Lang, Array<{ title: string; summary: string; bullets
     { title: "三步完成装饰", summary: "打印、裁切并揭膜后，轻轻放在蛋糕表面即可。", bullets: ["1. 使用食用墨水专用打印机打印图像", "2. 裁成所需形状，再从PET底膜上慢慢揭下", "3. 轻轻贴合在平整的蛋糕表面", "操作前请洗净双手并充分擦干"] },
     { title: "揭膜并贴合蛋糕", summary: "只取出所需糖霜纸，打印后慢慢揭下底膜，再贴到蛋糕上。", bullets: ["握住纸张边缘，避免损伤打印表面", "从PET保护膜上缓慢揭下", "贴合前先去除蛋糕表面多余水分", "未使用的糖霜纸应立即重新密封"] },
     { title: "购买前常见问题", summary: "关于打印机、储存、保质期和定制订单的核心说明。", bullets: ["不可使用普通打印机；请使用食用墨水专用打印机", "避免阳光直射、高温和潮湿，开封后请密封", "保质期为自生产之日起18个月", "贴合前请先去除蛋糕表面多余水分", "支持定制生产和批量订购"] },
-    { title: "糖霜纸升级版 V.10", summary: "采用旨在减少起泡并改善打印质量和操作性的升级设计。", bullets: ["双重加工结构旨在减少气泡及与底膜分离", "约0.45–0.55mm厚度，兼顾打印和操作", "配方含有纤维素来源的食品原料HPMC", "设计上更适应一般季节环境下的使用", "请使用食品打印专用设备和食用墨水"] },
+    { title: "糖霜纸升级版 V.10", summary: "采用旨在减少起泡并改善打印质量和操作性的升级设计。", bullets: ["双重加工结构旨在减少气泡及与底膜分离", "实际产品厚度：0.40mm", "配方含有纤维素来源的食品原料HPMC", "设计上更适应一般季节环境下的使用", "请使用食品打印专用设备和食用墨水"] },
   ],
 };
 
@@ -167,25 +167,42 @@ const candyMoments: Record<Lang, { kicker: string; title: string; intro: string;
 };
 const candyImages = ["/candy-love.png", "/candy-celebrate.png", "/candy-thank-you.png"];
 const petiteDesserts: Record<Lang, { cookieKicker: string; cookieTitle: string; cookieIntro: string; macaronKicker: string; macaronTitle: string; macaronIntro: string; cookieLabels: string[]; macaronLabels: string[]; cookieAlts: string[]; macaronAlts: string[] }> = {
-  ko: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "한 장의 이미지로\n쿠키에 이야기를 더하세요.", cookieIntro: "답례품, 시즌 행사, 기업 프로모션에 맞춘 식용 이미지를 쿠키 위에 선명하게 표현합니다.", macaronKicker: "MACARON COLLECTION", macaronTitle: "작고 섬세한 마카롱을\n특별한 메시지로 완성하세요.", macaronIntro: "웨딩, 기념일, 브랜드 선물에 어울리는 식용 이미지로 마카롱 한 상자를 더 기억에 남게 만듭니다.", cookieLabels: ["사랑의 답례품", "축하 이벤트", "감사의 선물"], macaronLabels: ["기념일 컬렉션", "축하 컬렉션", "플로럴 기프트"], cookieAlts: ["루비 오렌지 LOVE 식용 이미지 쿠키", "블루 바이올렛 CELEBRATE 식용 이미지 쿠키", "에메랄드 로즈 THANK YOU 식용 이미지 쿠키"], macaronAlts: ["루비 오렌지 기념일 식용 이미지 마카롱", "블루 바이올렛 축하 식용 이미지 마카롱", "에메랄드 로즈 플로럴 식용 이미지 마카롱"] },
-  en: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "Give every cookie\na story of its own.", cookieIntro: "Add crisp edible images to cookies for favors, seasonal events and brand promotions.", macaronKicker: "MACARON COLLECTION", macaronTitle: "Finish delicate macarons\nwith a meaningful message.", macaronIntro: "Make wedding, anniversary and branded gift boxes more memorable with custom edible imagery.", cookieLabels: ["Love favors", "Celebration events", "Thank-you gifts"], macaronLabels: ["Anniversary collection", "Celebration collection", "Floral gift collection"], cookieAlts: ["Ruby-orange LOVE edible image cookies", "Blue-violet CELEBRATE edible image cookies", "Emerald-rose THANK YOU edible image cookies"], macaronAlts: ["Ruby-orange anniversary edible image macarons", "Blue-violet celebration edible image macarons", "Emerald-rose floral edible image macarons"] },
+  ko: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "한 장의 이미지로\n쿠키에 이야기를 더하세요.", cookieIntro: "답례품, 시즌 행사, 기업 프로모션에 맞춘 식용 이미지를 쿠키 위에 선명하게 표현합니다.", macaronKicker: "MACARON COLLECTION", macaronTitle: "작고 섬세한 마카롱을\n특별한 메시지로 완성하세요.", macaronIntro: "실제 0.40mm의 얇은 아이싱시트가 마카롱 표면에 자연스럽게 밀착되어 웨딩, 기념일, 브랜드 선물을 섬세하게 완성합니다.", cookieLabels: ["사랑의 답례품", "축하 이벤트", "감사의 선물"], macaronLabels: ["기념일 컬렉션", "축하 컬렉션", "플로럴 기프트"], cookieAlts: ["루비 오렌지 LOVE 식용 이미지 쿠키", "블루 바이올렛 CELEBRATE 식용 이미지 쿠키", "에메랄드 로즈 THANK YOU 식용 이미지 쿠키"], macaronAlts: ["0.40mm의 얇은 아이싱시트를 올린 루비 오렌지 기념일 마카롱", "0.40mm의 얇은 아이싱시트를 올린 블루 바이올렛 축하 마카롱", "0.40mm의 얇은 아이싱시트를 올린 에메랄드 로즈 플로럴 마카롱"] },
+  en: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "Give every cookie\na story of its own.", cookieIntro: "Add crisp edible images to cookies for favors, seasonal events and brand promotions.", macaronKicker: "MACARON COLLECTION", macaronTitle: "Finish delicate macarons\nwith a meaningful message.", macaronIntro: "A paper-thin 0.40 mm icing sheet settles naturally onto each macaron for refined weddings, anniversaries and branded gifts.", cookieLabels: ["Love favors", "Celebration events", "Thank-you gifts"], macaronLabels: ["Anniversary collection", "Celebration collection", "Floral gift collection"], cookieAlts: ["Ruby-orange LOVE edible image cookies", "Blue-violet CELEBRATE edible image cookies", "Emerald-rose THANK YOU edible image cookies"], macaronAlts: ["Ruby-orange anniversary macarons with thin 0.40 mm icing sheets", "Blue-violet celebration macarons with thin 0.40 mm icing sheets", "Emerald-rose floral macarons with thin 0.40 mm icing sheets"] },
   ja: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "一枚のイメージで\nクッキーに物語を。", cookieIntro: "プチギフト、季節イベント、企業プロモーションに合わせた食用イメージを鮮明に表現します。", macaronKicker: "MACARON COLLECTION", macaronTitle: "小さく繊細なマカロンを\n特別なメッセージで。", macaronIntro: "ウェディング、記念日、ブランドギフトに合う食用イメージで、ひと箱をより印象的に仕上げます。", cookieLabels: ["愛のプチギフト", "お祝いイベント", "感謝のギフト"], macaronLabels: ["記念日コレクション", "お祝いコレクション", "フローラルギフト"], cookieAlts: ["ルビーオレンジのLOVE食用イメージクッキー", "ブルーバイオレットのCELEBRATE食用イメージクッキー", "エメラルドローズのTHANK YOU食用イメージクッキー"], macaronAlts: ["ルビーオレンジの記念日食用イメージマカロン", "ブルーバイオレットのお祝い食用イメージマカロン", "エメラルドローズのフローラル食用イメージマカロン"] },
   zh: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "用一张可食用图像\n为曲奇增添故事。", cookieIntro: "为回礼、季节活动与企业推广制作清晰精致的可食用曲奇图案。", macaronKicker: "MACARON COLLECTION", macaronTitle: "以特别的信息\n点亮精致马卡龙。", macaronIntro: "用定制可食用图像，让婚礼、纪念日和品牌礼盒更加令人难忘。", cookieLabels: ["爱意回礼", "庆祝活动", "感谢礼物"], macaronLabels: ["纪念日系列", "庆祝系列", "花卉礼盒"], cookieAlts: ["宝石红橙色LOVE可食用图像曲奇", "蓝紫色CELEBRATE可食用图像曲奇", "祖母绿玫红THANK YOU可食用图像曲奇"], macaronAlts: ["宝石红橙色纪念日可食用图像马卡龙", "蓝紫色庆祝可食用图像马卡龙", "祖母绿玫红花卉可食用图像马卡龙"] },
 };
 const cookieImages = ["/cookie-love.png", "/cookie-celebrate.png", "/cookie-thank-you.png"];
-const macaronImages = ["/macaron-disc-anniversary.png", "/macaron-disc-celebrate.png", "/macaron-disc-floral.png"];
-const dessertMoments: Record<Lang, { kicker: string; title: string; intro: string; items: Array<[string, string]>; alts: string[] }> = {
-  ko: { kicker: "SEASONAL CAKE INSPIRATION", title: "익숙한 디저트도\n새로운 작품으로.", intro: "컬러풀한 붕어 식용 이미지를 올린 붕어 모양 케이크부터 풍성한 제철 과일까지, 아이싱시트 한 장으로 케이크의 이야기와 계절감을 확장합니다.", items: [["컬러 붕어 케이크", "부드러운 붕어 모양 케이크 위에 보석빛 수채화 붕어 아이싱시트를 더한 시그니처 디저트"], ["과일 케이크", "보석처럼 선명한 과일과 플로럴 아이싱시트가 어우러진 축하 케이크"]], alts: ["컬러풀한 수채화 붕어 식용 이미지를 장식한 붕어 모양 케이크", "과일 화환 아이싱시트와 제철 과일을 장식한 과일 케이크"] },
-  en: { kicker: "SEASONAL CAKE INSPIRATION", title: "Turn familiar desserts\ninto new edible art.", intro: "From a fish-shaped cake topped with colorful edible art to abundant seasonal fruit, one icing sheet expands every cake’s story.", items: [["Colorful Fish Cake", "A smooth fish-shaped cake finished with a jewel-toned watercolor fish icing sheet"], ["Jewel Fruit Cake", "A celebration cake combining vivid seasonal fruit with a floral fruit-wreath icing sheet"]], alts: ["Fish-shaped cake decorated with a colorful watercolor edible fish image", "Fruit cake decorated with seasonal fruit and a fruit-wreath icing sheet"] },
-  ja: { kicker: "SEASONAL CAKE INSPIRATION", title: "親しみのあるデザートを\n新しい作品へ。", intro: "カラフルな食用イメージをのせた魚型ケーキから豊かな旬のフルーツまで、アイシングシートで物語を広げます。", items: [["カラフルフィッシュケーキ", "なめらかな魚型ケーキに宝石色の水彩フィッシュアイシングシートを飾ったデザート"], ["ジュエルフルーツケーキ", "色鮮やかな旬のフルーツとフルーツリースのアイシングシートを飾ったケーキ"]], alts: ["カラフルな水彩の魚の食用イメージを飾った魚型ケーキ", "旬のフルーツとフルーツリースのアイシングシートを飾ったケーキ"] },
-  zh: { kicker: "SEASONAL CAKE INSPIRATION", title: "让熟悉的甜点\n成为全新作品。", intro: "从装饰彩色可食用鱼图案的鱼形蛋糕到丰盛的时令水果，一张糖霜纸即可拓展蛋糕的故事。", items: [["彩色鱼形蛋糕", "在细腻的鱼形蛋糕上装饰宝石色水彩鱼图案糖霜纸"], ["宝石水果蛋糕", "以缤纷时令水果和水果花环糖霜纸装饰的庆祝蛋糕"]], alts: ["装饰彩色水彩鱼可食用图像的鱼形蛋糕", "以时令水果和水果花环糖霜纸装饰的水果蛋糕"] },
+const macaronImages = ["/macaron-thin-anniversary.png", "/macaron-thin-celebrate.png", "/macaron-thin-floral.png"];
+const ideaCollections: Record<Lang, { kicker: string; title: string; intro: string; action: string; items: Array<[string, string, string]> }> = {
+  ko: { kicker: "MORE WAYS TO CREATE", title: "한 장의 아이싱시트로\n더 다양한 순간을 디자인하세요.", intro: "제품보다 먼저 사용 목적을 선택해 보세요. 행사와 브랜드에 맞는 크기, 이미지, 디저트 구성을 1:1로 제안합니다.", action: "이 아이디어로 문의", items: [["WEDDING", "웨딩 디저트 컬렉션", "마카롱·쿠키·초콜릿을 하나의 디자인으로 연결한 웨딩 테이블"], ["BRAND", "기업 프로모션 세트", "로고 캔디·쿠키·컵케이크로 구성하는 행사 및 브랜드 캠페인"], ["CELEBRATION", "돌잔치·답례품", "사진, 이름, 날짜를 담아 기억에 남는 소량 맞춤 선물 제작"], ["PETIT DESSERT", "초콜릿·컵케이크", "작은 디저트에도 선명하게 표현되는 메시지와 시즌 디자인"], ["HOSPITALITY", "호텔 웰컴 디저트", "객실 환영 문구, 행사 BI, VIP 메시지를 담은 프리미엄 구성"], ["PREVIEW", "맞춤 디자인 미리보기", "사진이나 로고를 보내면 적용 디저트와 권장 규격을 상담해 드립니다."]] },
+  en: { kicker: "MORE WAYS TO CREATE", title: "Design more meaningful moments\nwith a single icing sheet.", intro: "Start with the occasion, not the product. We recommend the right size, artwork and dessert mix for each event or brand.", action: "Ask about this idea", items: [["WEDDING", "Wedding Dessert Collection", "Unify macarons, cookies and chocolates with one elegant wedding design."], ["BRAND", "Corporate Promotion Set", "Build campaigns with coordinated logo candy, cookies and cupcakes."], ["CELEBRATION", "First Birthday & Favors", "Create memorable small-batch gifts with a photo, name and date."], ["PETIT DESSERT", "Chocolate & Cupcakes", "Add crisp messages and seasonal artwork to petite desserts."], ["HOSPITALITY", "Hotel Welcome Desserts", "Present welcome notes, event identities and VIP messages with polish."], ["PREVIEW", "Custom Design Preview", "Send a photo or logo to receive dessert and size recommendations."]] },
+  ja: { kicker: "MORE WAYS TO CREATE", title: "一枚のアイシングシートで\n多彩なシーンをデザイン。", intro: "商品ではなく用途から選択。イベントやブランドに合うサイズ、イメージ、デザート構成をご提案します。", action: "このアイデアを相談", items: [["WEDDING", "ウェディングデザート", "マカロン、クッキー、チョコレートを統一デザインで演出。"], ["BRAND", "企業プロモーション", "ロゴキャンディ、クッキー、カップケーキでキャンペーンを構成。"], ["CELEBRATION", "一歳祝い・プチギフト", "写真、名前、日付を入れた小ロットの記念ギフト。"], ["PETIT DESSERT", "チョコレート・カップケーキ", "小さなデザートにも鮮明なメッセージと季節のデザイン。"], ["HOSPITALITY", "ホテルウェルカムデザート", "客室メッセージ、イベントBI、VIP向けの上質な演出。"], ["PREVIEW", "オーダーデザインプレビュー", "写真やロゴから適したデザートとサイズをご提案。"]] },
+  zh: { kicker: "MORE WAYS TO CREATE", title: "用一张可食用糖霜纸\n设计更多重要时刻。", intro: "从使用场景而不是产品开始选择，我们将为活动与品牌推荐合适的尺寸、图案和甜点组合。", action: "咨询此创意", items: [["WEDDING", "婚礼甜点系列", "以统一设计连接马卡龙、曲奇与巧克力。"], ["BRAND", "企业推广组合", "用品牌棒棒糖、曲奇与纸杯蛋糕打造推广活动。"], ["CELEBRATION", "周岁宴与回礼", "以照片、姓名和日期制作小批量纪念礼物。"], ["PETIT DESSERT", "巧克力与纸杯蛋糕", "在精致小甜点上呈现清晰信息与季节图案。"], ["HOSPITALITY", "酒店欢迎甜点", "呈现客房欢迎语、活动标识与VIP信息。"], ["PREVIEW", "定制设计预览", "发送照片或标志，获取甜点与尺寸建议。"]] },
 };
-const dessertImages = ["/bungeoppang-cake-rainbow.png", "/fruit-cake.png"];
+const designFormCopy: Record<Lang, { title: string; intro: string; name: string; contact: string; details: string; file: string; fileHelp: string; submit: string; print: string; selected: string }> = {
+  ko: { title: "맞춤 디자인 요청 보내기", intro: "아이디어를 선택하고 요청사항을 입력하면 이메일 문의 내용이 자동으로 작성되며, 프린팅 서비스 주문 페이지도 함께 열립니다.", name: "이름·회사명", contact: "연락처", details: "원하는 문구·크기·수량·납기", file: "사진·로고 파일 선택", fileHelp: "보안상 파일은 이메일 화면에서 직접 첨부해 주세요.", submit: "이메일 전송 준비 + 프린팅 서비스", print: "프린팅 서비스만 보기", selected: "선택한 디자인" },
+  en: { title: "Send a custom design request", intro: "Choose an idea and enter the brief. A ready-to-send email and the printing-service order page will open together.", name: "Name / company", contact: "Contact details", details: "Message, size, quantity and due date", file: "Choose photo or logo", fileHelp: "For security, attach the selected file directly in the email window.", submit: "Prepare email + open printing service", print: "View printing service only", selected: "Selected design" },
+  ja: { title: "オーダーデザインを送信", intro: "アイデアと要望を入力すると、問い合わせメールとプリントサービス注文ページが同時に開きます。", name: "お名前・会社名", contact: "連絡先", details: "文字・サイズ・数量・希望納期", file: "写真・ロゴを選択", fileHelp: "安全のため、ファイルはメール画面で直接添付してください。", submit: "メール作成＋プリントサービス", print: "プリントサービスを見る", selected: "選択したデザイン" },
+  zh: { title: "发送定制设计需求", intro: "选择创意并填写需求后，将自动生成咨询邮件，同时打开打印服务订购页面。", name: "姓名／公司", contact: "联系方式", details: "文字、尺寸、数量与交期", file: "选择照片或标志", fileHelp: "为确保安全，请在邮件窗口中直接添加附件。", submit: "准备邮件＋打开打印服务", print: "仅查看打印服务", selected: "已选设计" },
+};
+const dessertMoments: Record<Lang, { kicker: string; title: string; intro: string; items: Array<[string, string]>; alts: string[] }> = {
+  ko: { kicker: "SEASONAL CAKE INSPIRATION", title: "익숙한 디저트도\n새로운 작품으로.", intro: "컬러풀한 붕어 식용 이미지, 따뜻한 붕어빵 구성, 풍성한 제철 과일까지 아이싱시트로 다양한 케이크 이야기를 완성합니다.", items: [["컬러 붕어 케이크", "부드러운 붕어 모양 케이크 위에 보석빛 수채화 붕어 아이싱시트를 더한 시그니처 디저트"], ["붕어빵 케이크", "붕어빵·팥·밤과 수채화 아이싱시트를 조합한 따뜻하고 친숙한 겨울 디저트"], ["과일 케이크", "보석처럼 선명한 과일과 플로럴 아이싱시트가 어우러진 축하 케이크"]], alts: ["컬러풀한 수채화 붕어 식용 이미지를 장식한 붕어 모양 케이크", "수채화 붕어빵 아이싱시트와 붕어빵을 장식한 케이크", "과일 화환 아이싱시트와 제철 과일을 장식한 과일 케이크"] },
+  en: { kicker: "SEASONAL CAKE INSPIRATION", title: "Turn familiar desserts\ninto new edible art.", intro: "Colorful fish artwork, nostalgic bungeoppang and abundant seasonal fruit show three different stories made with edible icing sheets.", items: [["Colorful Fish Cake", "A smooth fish-shaped cake finished with a jewel-toned watercolor fish icing sheet"], ["Bungeoppang Cake", "A warm winter cake combining fish-shaped pastries, red bean, chestnut and watercolor edible art"], ["Jewel Fruit Cake", "A celebration cake combining vivid seasonal fruit with a floral fruit-wreath icing sheet"]], alts: ["Fish-shaped cake decorated with a colorful watercolor edible fish image", "Cake decorated with bungeoppang and watercolor edible icing-sheet art", "Fruit cake decorated with seasonal fruit and a fruit-wreath icing sheet"] },
+  ja: { kicker: "SEASONAL CAKE INSPIRATION", title: "親しみのあるデザートを\n新しい作品へ。", intro: "カラフルな魚の食用イメージ、懐かしいプンオパン、豊かな旬のフルーツで三つの物語を表現します。", items: [["カラフルフィッシュケーキ", "なめらかな魚型ケーキに宝石色の水彩フィッシュアイシングシートを飾ったデザート"], ["プンオパンケーキ", "プンオパン、小豆、栗、水彩の食用イメージを組み合わせた温かな冬のデザート"], ["ジュエルフルーツケーキ", "色鮮やかな旬のフルーツとフルーツリースのアイシングシートを飾ったケーキ"]], alts: ["カラフルな水彩の魚の食用イメージを飾った魚型ケーキ", "プンオパンと水彩の食用アイシングシートを飾ったケーキ", "旬のフルーツとフルーツリースのアイシングシートを飾ったケーキ"] },
+  zh: { kicker: "SEASONAL CAKE INSPIRATION", title: "让熟悉的甜点\n成为全新作品。", intro: "彩色鱼图案、怀旧鲫鱼饼与丰盛时令水果，以可食用糖霜纸呈现三种不同的蛋糕故事。", items: [["彩色鱼形蛋糕", "在细腻的鱼形蛋糕上装饰宝石色水彩鱼图案糖霜纸"], ["鲫鱼饼蛋糕", "结合鲫鱼饼、红豆、栗子与水彩可食用图像的温暖冬季甜点"], ["宝石水果蛋糕", "以缤纷时令水果和水果花环糖霜纸装饰的庆祝蛋糕"]], alts: ["装饰彩色水彩鱼可食用图像的鱼形蛋糕", "以鲫鱼饼和水彩可食用糖霜纸装饰的蛋糕", "以时令水果和水果花环糖霜纸装饰的水果蛋糕"] },
+};
+const dessertImages = ["/bungeoppang-cake-rainbow.png", "/bungeoppang-cake.png", "/fruit-cake.png"];
 const Lines = ({ children }: { children: string }) => <>{children.replace(/\s*\n\s*/g, " ")}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("ko");
+  const [selectedIdea, setSelectedIdea] = useState(0);
+  const [designName, setDesignName] = useState("");
+  const [designContact, setDesignContact] = useState("");
+  const [designDetails, setDesignDetails] = useState("");
+  const [designFile, setDesignFile] = useState("");
   const t: Copy = copy[lang];
   const g = guideCopy[lang];
   const details = guideDetails[lang];
@@ -196,14 +213,32 @@ export default function Home() {
   const cocktails = cocktailMoments[lang];
   const candy = candyMoments[lang];
   const petite = petiteDesserts[lang];
+  const ideas = ideaCollections[lang];
+  const form = designFormCopy[lang];
   const desserts = dessertMoments[lang];
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
+  const submitDesignRequest = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const selected = ideas.items[selectedIdea];
+    const subject = `[Cake Salon] ${selected[1]} 맞춤 디자인 문의`;
+    const body = [
+      `${form.selected}: ${selected[1]} (${selected[0]})`,
+      `${form.name}: ${designName || "-"}`,
+      `${form.contact}: ${designContact || "-"}`,
+      `${form.details}: ${designDetails || "-"}`,
+      `${form.file}: ${designFile || "-"}`,
+      "",
+      form.fileHelp,
+    ].join("\n");
+    window.open(productUrls.custom, "_blank", "noopener,noreferrer");
+    window.location.href = `mailto:cakecnc@daum.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
 
   return <main lang={lang}>
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="Cake Salon home"><b>CAKE</b><i>SALON</i></a>
-      <nav aria-label="Main navigation">{t.nav.map((item, index) => <a key={item} href={["#products", "#gallery", "#how", "#company", "#contact"][index]}>{item}</a>)}</nav>
+      <nav aria-label="Main navigation">{t.nav.map((item, index) => <a key={item} className={index === 4 ? "custom-nav" : undefined} href={["#products", "#gallery", "#how", "#company", "#custom-design", "#contact"][index]}>{item}</a>)}</nav>
       <div className="header-tools">
         <label><span className="sr-only">Language</span><select aria-label="Language" value={lang} onChange={(event) => setLang(event.target.value as Lang)}><option value="ko">KR</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select></label>
         <a className="header-shop" href={storeUrl} target="_blank" rel="noreferrer">{t.shop} <Arrow /></a>
@@ -283,6 +318,21 @@ export default function Home() {
     <section className="macaron-showcase petite-showcase">
       <div className="petite-heading"><p className="kicker">{petite.macaronKicker}</p><h2><Lines>{petite.macaronTitle}</Lines></h2><p>{petite.macaronIntro}</p></div>
       <div className="petite-grid">{macaronImages.map((src, index) => <figure key={src}><img src={src} alt={petite.macaronAlts[index]} /><figcaption><span>0{index + 1}</span><b>{petite.macaronLabels[index]}</b></figcaption></figure>)}</div>
+    </section>
+
+    <section className="ideas-section">
+      <div className="ideas-heading"><div><p className="kicker">{ideas.kicker}</p><h2><Lines>{ideas.title}</Lines></h2></div><p>{ideas.intro}</p></div>
+      <div className="ideas-grid">{ideas.items.map(([eyebrow, title, description], index) => <article key={eyebrow} className={`idea-card idea-${index + 1}${selectedIdea === index ? " is-selected" : ""}`}><span>0{index + 1}</span><small>{eyebrow}</small><h3>{title}</h3><p>{description}</p><button type="button" onClick={() => setSelectedIdea(index)}>{ideas.action} <Arrow /></button></article>)}</div>
+      <form className="design-request" id="custom-design" onSubmit={submitDesignRequest}>
+        <div className="design-request-heading"><small>{form.selected}</small><b>{ideas.items[selectedIdea][1]}</b><h3>{form.title}</h3><p>{form.intro}</p></div>
+        <div className="design-fields">
+          <label><span>{form.name}</span><input value={designName} onChange={(event) => setDesignName(event.target.value)} required /></label>
+          <label><span>{form.contact}</span><input value={designContact} onChange={(event) => setDesignContact(event.target.value)} required /></label>
+          <label className="wide-field"><span>{form.details}</span><textarea value={designDetails} onChange={(event) => setDesignDetails(event.target.value)} rows={4} required /></label>
+          <label className="wide-field file-field"><span>{form.file}</span><input type="file" accept="image/*,.pdf" onChange={(event) => setDesignFile(event.target.files?.[0]?.name || "")} /><small>{designFile || form.fileHelp}</small></label>
+          <div className="design-actions wide-field"><button className="button button-dark" type="submit">{form.submit} <Arrow /></button><a href={productUrls.custom} target="_blank" rel="noreferrer">{form.print} <Arrow /></a></div>
+        </div>
+      </form>
     </section>
 
     <section className="proof-section"><div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div><div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div></section>
