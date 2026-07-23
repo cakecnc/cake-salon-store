@@ -976,6 +976,11 @@ main img {
 
 /* Keep the website-only editorial note readable against the dark footer. */
 footer .footer-editorial-note {
+  max-width: 1240px;
+  justify-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
   color: rgba(255,255,255,.86);
   font-size: clamp(9px,.72vw,11px);
   line-height: 1.75;
