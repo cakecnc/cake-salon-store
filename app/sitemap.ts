@@ -26,6 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "https://cakesalon.kr/macaron-celebrate.png",
       "https://cakesalon.kr/macaron-floral.png",
       "https://cakesalon.kr/bungeoppang-cake.png",
+      "https://cakesalon.kr/bungeoppang-cake-rainbow.png",
       "https://cakesalon.kr/fruit-cake.png",
     ],
   }];

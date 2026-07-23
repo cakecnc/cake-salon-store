@@ -934,6 +934,57 @@ main img {
   line-height: 1.75;
 }
 
+/* Airier captions and a diagonal pastel-rainbow dessert canvas */
+.coffee-moments-grid figcaption { padding-top: 31px; padding-bottom: 31px; }
+.cocktail-grid figcaption,
+.candy-grid figcaption { min-height: 86px; padding-top: 22px; padding-bottom: 22px; }
+.petite-grid figcaption { min-height: 82px; padding-top: 28px; padding-bottom: 28px; }
+.dessert-grid figcaption { padding-top: 32px; padding-bottom: 35px; }
+.dessert-stories {
+  position: relative;
+  color: #43364f;
+  background:
+    linear-gradient(145deg,
+      rgba(255,218,224,.88) 0%,
+      rgba(255,231,201,.9) 20%,
+      rgba(255,247,205,.88) 38%,
+      rgba(215,242,224,.88) 57%,
+      rgba(211,232,250,.9) 76%,
+      rgba(229,216,246,.9) 100%);
+}
+.dessert-stories::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(145deg,rgba(255,255,255,.2) 0 2px,transparent 2px 90px);
+}
+.dessert-stories > * { position: relative; z-index: 1; }
+.dessert-heading h2 { color: #66465f; }
+.dessert-heading > p { color: #725f6b; }
+.dessert-grid figure { background: rgba(255,255,255,.72); box-shadow: 0 28px 65px rgba(91,66,88,.14); }
+.dessert-grid h3 { color: #684257; }
+.dessert-grid p { color: #76666d; }
+.dessert-grid figcaption > span { color: #b35d70; }
+
+/* Compact official product guide */
+@media (min-width:1101px) {
+  .guide-section { padding-top: 78px; padding-bottom: 82px; }
+  .guide-heading { margin-bottom: 38px; align-items: center; }
+  .guide-heading h2 { font-size: clamp(42px,3.6vw,58px); }
+  .guide-heading .guide-language-note { margin-top: 12px; padding-top: 11px; padding-bottom: 11px; }
+  .feature-grid { max-width: 1400px; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 14px; }
+  .feature-card,
+  .feature-card:nth-child(4),
+  .feature-card:nth-child(5) { grid-column: auto; padding: 22px 20px; }
+  .feature-card > span { width: 32px; height: 32px; }
+  .feature-card h3 { margin: 14px 0 9px; font-size: 19px; }
+  .feature-card p { min-height: 44px; line-height: 1.65; }
+  .feature-card ul { margin-top: 13px; }
+  .feature-card li { padding-top: 7px; padding-bottom: 7px; line-height: 1.4; }
+  .feature-card li::before { top: 12px; }
+}
+
 @media (max-width:900px) {
   .how-section {
     grid-template-columns: 1fr;
