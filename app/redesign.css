@@ -743,3 +743,94 @@ main img {
   .company-logo { min-height: 280px; padding: 32px; }
   .company-logo img { width: min(370px,90%); }
 }
+
+/* Warm, grid-aligned how-to section */
+.how-section {
+  width: 100%;
+  padding: 110px max(6vw,40px);
+  grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr);
+  gap: clamp(60px,8vw,120px);
+  align-items: stretch;
+  background:
+    radial-gradient(circle at 9% 15%,rgba(210,130,83,.14),transparent 25rem),
+    radial-gradient(circle at 92% 84%,rgba(157,77,82,.11),transparent 27rem),
+    linear-gradient(135deg,#fbf4ea,#f4e7db 58%,#efe0d7);
+}
+.how-title {
+  min-width: 0;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  align-content: stretch;
+}
+.how-title .kicker {
+  margin-bottom: 20px;
+  color: #a55d3d;
+}
+.how-title h2 {
+  max-width: 590px;
+  margin-bottom: 42px;
+  color: #74384a;
+  font-size: clamp(43px,4.3vw,65px);
+  line-height: 1.08;
+}
+.how-title h2 span:last-child { color: #bf6d48; }
+.how-thumb {
+  align-self: end;
+  width: 100%;
+  height: 300px;
+  margin: 0;
+  border-radius: 150px 150px 20px 20px;
+  object-fit: cover;
+  box-shadow: 0 24px 55px rgba(100,58,46,.14);
+}
+.how-section ol {
+  height: 100%;
+  display: grid;
+  grid-template-rows: repeat(3,minmax(0,1fr));
+  align-content: stretch;
+}
+.how-section li {
+  min-height: 0;
+  padding: 28px 0;
+  grid-template-columns: 52px minmax(0,1fr);
+  gap: 24px;
+  align-items: center;
+  border-color: rgba(123,71,59,.24);
+}
+.how-section li:first-child { padding-top: 28px; border-top: 1px solid rgba(123,71,59,.24); }
+.how-section li > span {
+  width: 44px;
+  height: 44px;
+  color: white;
+  background: linear-gradient(135deg,#8d4655,#c9794f);
+  box-shadow: 0 8px 20px rgba(128,64,67,.16);
+}
+.how-section h3 {
+  margin: 0 0 9px;
+  color: #74384a;
+  font-size: 23px;
+}
+.how-section li p {
+  max-width: 560px;
+  color: #806b61;
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+@media (max-width:900px) {
+  .how-section {
+    grid-template-columns: 1fr;
+    gap: 58px;
+    padding: 90px 40px;
+  }
+  .how-thumb { height: 380px; }
+  .how-section ol { min-height: 420px; }
+}
+
+@media (max-width:620px) {
+  .how-section { padding: 78px 22px; gap: 45px; }
+  .how-title h2 { margin-bottom: 32px; font-size: 40px; }
+  .how-thumb { height: 270px; border-radius: 120px 120px 18px 18px; }
+  .how-section ol { min-height: 0; display: block; }
+  .how-section li,.how-section li:first-child { min-height: 138px; padding: 24px 0; }
+}
