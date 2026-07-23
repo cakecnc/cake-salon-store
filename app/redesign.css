@@ -965,6 +965,30 @@ main img {
   }
 }
 
+/* Remove the dark edge marks embedded at both sides of the supplied C&C logo. */
+.company-logo {
+  border: 0;
+}
+
+.company-logo img {
+  clip-path: inset(0 10px);
+}
+
+/* Keep the website-only editorial note readable against the dark footer. */
+footer .footer-editorial-note {
+  color: rgba(255,255,255,.86);
+  font-size: clamp(9px,.72vw,11px);
+  line-height: 1.75;
+  letter-spacing: .01em;
+}
+
+@media (max-width:620px) {
+  footer .footer-editorial-note {
+    font-size: 8.5px;
+    line-height: 1.7;
+  }
+}
+
 @media (prefers-reduced-motion:reduce) {
   main img,
   .product-card,

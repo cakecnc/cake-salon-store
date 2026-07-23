@@ -23,10 +23,12 @@ export const metadata: Metadata = {
     "칵테일 식용 토퍼", "칵테일 로고 장식", "호텔 칵테일 이벤트", "웨딩 칵테일 토퍼",
     "캔디 식용 이미지", "롤리팝 식용 프린팅", "로고 캔디", "맞춤 사탕", "기업 캔디 제작",
     "솜사탕 식용 스티커", "솜사탕 맞춤 스티커", "행사 솜사탕 스티커", "식용 스티커 제작",
-    "동물 얼굴 솜사탕", "토끼 솜사탕", "곰 얼굴 솜사탕", "고양이 얼굴 솜사탕",
+    "동물 얼굴 솜사탕", "토끼 얼굴 솜사탕", "곰 얼굴 솜사탕", "고양이 얼굴 솜사탕",
+    "솜사탕 눈 코 입", "대형 솜사탕 장식", "캐릭터 솜사탕 스티커", "이벤트 솜사탕",
     "쿠키 식용 이미지", "포토 쿠키", "로고 쿠키", "답례품 쿠키", "맞춤 쿠키 프린팅",
     "마카롱 식용 이미지", "로고 마카롱", "맞춤 마카롱", "웨딩 마카롱", "기업 선물 마카롱",
     "붕어빵 케이크", "붕어빵 케익", "과일 케이크", "과일 아이싱시트", "시즌 케이크 디자인",
+    "FDA 등록 아이싱시트", "ISO 22000 등록", "씨엔씨코퍼레이션", "C&C Corporation",
     "edible icing sheet", "edible image sheet", "edible cake printing", "custom cake printing",
     "アイシングシート", "食用プリント", "食用糖霜纸", "蛋糕食用打印"
   ],
@@ -46,7 +48,7 @@ export const metadata: Metadata = {
 const structuredData = { "@context": "https://schema.org", "@graph": [
   { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "C&C Corporation", alternateName: ["Cake Salon", "케익살롱"], url: siteUrl, email: "cakecnc@daum.net", telephone: "+82-80-664-7077", logo: `${siteUrl}/cnc-logo.jpeg`, sameAs: ["https://smartstore.naver.com/cake"] },
   { "@type": "WebSite", "@id": `${siteUrl}/#website`, url: siteUrl, name: "Cake Salon", alternateName: ["케익살롱", "케이크살롱"], inLanguage: ["ko", "en", "ja", "zh-CN"], publisher: { "@id": `${siteUrl}/#organization` } },
-  { "@type": "WebPage", "@id": `${siteUrl}/#webpage`, url: siteUrl, name: "케익살롱 식용 아이싱시트와 맞춤 프린팅", description: "포토케이크용 식용 아이싱시트와 맞춤 식용 이미지 프린팅 안내", isPartOf: { "@id": `${siteUrl}/#website` }, about: { "@id": `${siteUrl}/#product` }, inLanguage: ["ko", "en", "ja", "zh-CN"] },
+  { "@type": "WebPage", "@id": `${siteUrl}/#webpage`, url: siteUrl, name: "케익살롱 식용 아이싱시트와 맞춤 프린팅", description: "포토케이크·솜사탕·마카롱·쿠키·음료용 식용 아이싱시트와 맞춤 식용 이미지 프린팅 안내", keywords: "케익살롱, 식용 아이싱시트, 포토케이크, 맞춤 식용 프린팅, 솜사탕 식용 스티커, 마카롱 식용 이미지, 쿠키 식용 이미지, 커피 토퍼, 칵테일 토퍼", isPartOf: { "@id": `${siteUrl}/#website` }, about: { "@id": `${siteUrl}/#product` }, inLanguage: ["ko", "en", "ja", "zh-CN"] },
   { "@type": "Product", "@id": `${siteUrl}/#product`, name: "케익살롱 A4 식용 아이싱시트 25장", alternateName: ["Cake Salon Edible Icing Sheet A4 25 Sheets", "케익살롱 아이싱시트 1팩"], description: "식용 프린터로 사진과 이미지를 출력해 포토케이크와 디저트 장식에 사용하는 A4 식용 아이싱시트 25장 구성", image: `${siteUrl}/cake-salon-a4-25.png`, category: "식용 아이싱시트", brand: { "@type": "Brand", name: "Cake Salon" }, sku: "237929418", url: icingSheetUrl, offers: { "@type": "Offer", url: icingSheetUrl, priceCurrency: "KRW", price: "40000", availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition", seller: { "@id": `${siteUrl}/#organization` } } },
   { "@type": "Service", name: "Custom Edible Cake Printing", alternateName: "맞춤 식용 프린팅 서비스", serviceType: "Custom edible image printing", provider: { "@id": `${siteUrl}/#organization` }, url: `${siteUrl}/#contact` },
 ] };

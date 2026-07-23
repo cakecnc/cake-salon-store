@@ -143,42 +143,42 @@ const certificationCopy: Record<Lang, {
   title: string;
   note: string;
   open: string;
-  items: Array<[string, string, string, string]>;
+  items: Array<[string, string]>;
 }> = {
   ko: {
     title: "인증·등록 자료",
-    note: "제공된 원본 문서의 기재 내용을 기준으로 안내합니다.",
+    note: "원본 문서를 간단히 확인할 수 있습니다.",
     open: "원본 PDF 보기",
     items: [
-      ["FDA", "미국 FDA 식품시설 등록 자료", "문서 기재 유효기간", "2024.12.31"],
-      ["ISO", "ISO 22000 식품안전경영 인증 이력", "인증서 기재 유효기간", "2023.01.06"],
+      ["FDA", "FDA 등록"],
+      ["ISO", "ISO 22000 등록"],
     ],
   },
   en: {
-    title: "Registration & certification documents",
-    note: "Details are shown as stated in the supplied original documents.",
+    title: "Registration documents",
+    note: "Open the original documents for reference.",
     open: "View original PDF",
     items: [
-      ["FDA", "U.S. FDA Food Facility Registration record", "Expiry stated in document", "2024.12.31"],
-      ["ISO", "ISO 22000 food-safety certification record", "Expiry stated in certificate", "2023.01.06"],
+      ["FDA", "FDA Registration"],
+      ["ISO", "ISO 22000 Registration"],
     ],
   },
   ja: {
-    title: "登録・認証資料",
-    note: "ご提供いただいた原本書類の記載内容に基づく案内です。",
+    title: "登録資料",
+    note: "原本資料を簡単に確認できます。",
     open: "原本PDFを見る",
     items: [
-      ["FDA", "米国FDA 食品施設登録資料", "書類記載の有効期限", "2024.12.31"],
-      ["ISO", "ISO 22000 食品安全マネジメント認証履歴", "証明書記載の有効期限", "2023.01.06"],
+      ["FDA", "FDA登録"],
+      ["ISO", "ISO 22000登録"],
     ],
   },
   zh: {
-    title: "注册与认证资料",
-    note: "以下信息以所提供原始文件中的记载为准。",
+    title: "注册资料",
+    note: "可快速查看原始文件。",
     open: "查看原始PDF",
     items: [
-      ["FDA", "美国FDA食品设施注册资料", "文件标注有效期", "2024.12.31"],
-      ["ISO", "ISO 22000食品安全管理认证记录", "证书标注有效期", "2023.01.06"],
+      ["FDA", "FDA注册"],
+      ["ISO", "ISO 22000注册"],
     ],
   },
 };
@@ -509,8 +509,8 @@ export default function Home() {
       <div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div>
       <div className="certification-docs">
         <div className="certification-title"><b>{certificates.title}</b><span>{certificates.note}</span></div>
-        {certificates.items.map(([mark, title, label, date], index) => <a className="certification-document" href={index === 0 ? "/documents/cnc-fda-registration-2024.pdf" : "/documents/cnc-iso22000-certificate.pdf"} target="_blank" rel="noreferrer" key={mark}>
-          <small>{mark}</small><span><b>{title}</b><i>{label} · {date}</i></span><em>{certificates.open} <Arrow /></em>
+        {certificates.items.map(([mark, title], index) => <a className="certification-document" href={index === 0 ? "/documents/cnc-fda-registration-2024.pdf" : "/documents/cnc-iso22000-certificate.pdf"} target="_blank" rel="noreferrer" key={mark}>
+          <small>{mark}</small><span><b>{title}</b></span><em>{certificates.open} <Arrow /></em>
         </a>)}
       </div>
     </section>
