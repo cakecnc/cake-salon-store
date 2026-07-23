@@ -35,7 +35,7 @@ const copy = {
     companyKicker: "C&C CORPORATION", companyTitle: "식용 프린팅의 가능성을\n세계 시장으로 확장합니다.",
     companyText: "주식회사 씨엔씨코퍼레이션은 케익살롱을 통해 아이싱시트 제조·유통과 식용 프린팅 솔루션을 제공하며, 국내 온라인 판매에서 글로벌 수출까지 사업을 확장하고 있습니다.",
     companyCta: "스마트스토어 방문", final: "오늘의 케이크를\n기억에 남는 작품으로.", finalText: "케익살롱의 제품과 맞춤 프린팅을 지금 만나보세요.", phone: "전화 상담 080-664-7077", email: "이메일 문의 cakecnc@daum.net",
-    editorialNote: "셰익스피어가 일깨워 주듯, “과거는 서막이다.” 이러한 취지에서 본 문서의 일부는 AI 보조 자료를 참고하여 작성되었습니다. 본 저작물에 관한 모든 권리, 라이선스 및 편집 책임은 저자인 Sungjae Lim, Director of Planning에게 있습니다.",
+    editorialNote: "셰익스피어가 일깨워 주듯, “What’s past is prologue.” 이러한 취지에서 본 문서의 일부는 AI 보조 자료를 참고하여 작성되었습니다. 본 저작물에 관한 모든 권리, 라이선스 및 편집 책임은 저자인 Sungjae Lim, Director of Planning에게 있습니다.",
   },
   en: {
     nav: ["Products", "Inspiration", "How it works", "Company", "Custom Design", "CONTACT"], shop: "Smart Store",
@@ -63,7 +63,7 @@ const copy = {
     proKicker: "FOR PROFESSIONALS", proTitle: "カフェ・ホテル・ブランド向け\n食用コンテンツ。", proText: "新商品、VIPイベント、季節メニュー、企業プロモーションまで食用イメージでブランド体験を作ります。", proCta: "B2Bオーダー相談",
     trust: [["FDA", "関連登録案内"], ["18 MONTHS", "賞味期間"], ["4.8 RATING", "Amazon平均"], ["WORLDWIDE", "輸出販売"]],
     companyKicker: "C&C CORPORATION", companyTitle: "食用プリントの可能性を\n世界市場へ。", companyText: "C&C Corporationはケーキサロンを通じてアイシングシートと食用プリントソリューションを提供し、グローバル輸出へ事業を拡大しています。", companyCta: "ストアを見る", final: "今日のケーキを\n記憶に残る作品へ。", finalText: "ケーキサロンの商品とオーダープリントをご覧ください。", phone: "電話 +82 80-664-7077", email: "メール cakecnc@daum.net",
-    editorialNote: "シェイクスピアが「過去は序章にすぎない」と示したように、その趣旨に基づき、本書の一部はAI支援資料を参考に作成されています。本書に関するすべての権利、ライセンスおよび編集責任は、著者 Sungjae Lim, Director of Planning に帰属します。",
+    editorialNote: "シェイクスピアが示したように、“What’s past is prologue.” その趣旨に基づき、本書の一部はAI支援資料を参考に作成されています。本書に関するすべての権利、ライセンスおよび編集責任は、著者 Sungjae Lim, Director of Planning に帰属します。",
   },
   zh: {
     nav: ["产品", "应用", "使用方法", "公司介绍", "定制设计", "CONTACT"], shop: "智能商店",
@@ -76,7 +76,7 @@ const copy = {
     proKicker: "FOR PROFESSIONALS", proTitle: "为咖啡馆、酒店与品牌\n打造可食用内容。", proText: "从新品发布、VIP活动到季节菜单和企业推广，让标志与信息成为可品尝的品牌体验。", proCta: "咨询B2B定制",
     trust: [["FDA", "相关注册说明"], ["18 MONTHS", "保质期"], ["4.8 RATING", "亚马逊平均"], ["WORLDWIDE", "出口销售"]],
     companyKicker: "C&C CORPORATION", companyTitle: "将可食用打印的可能性\n拓展至全球市场。", companyText: "C&C Corporation 通过 Cake Salon 提供糖霜纸制造、销售与完整的可食用打印方案，并持续拓展全球出口。", companyCta: "访问商店", final: "让今天的蛋糕\n成为难忘的艺术品。", finalText: "立即了解 Cake Salon 产品与定制打印。", phone: "电话 +82 80-664-7077", email: "邮箱 cakecnc@daum.net",
-    editorialNote: "正如莎士比亚所言：“过去皆为序章。”秉持这一精神，本文部分内容参考了AI辅助资料编写。与本作品相关的所有权利、许可及编辑责任均归作者 Sungjae Lim, Director of Planning 所有。",
+    editorialNote: "正如莎士比亚所言：“What’s past is prologue.” 秉持这一精神，本文部分内容参考了AI辅助资料编写。与本作品相关的所有权利、许可及编辑责任均归作者 Sungjae Lim, Director of Planning 所有。",
   },
 };
 
