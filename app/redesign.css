@@ -476,3 +476,111 @@ footer { background: linear-gradient(100deg,#073d35,#231650 52%,#761b45); }
   .guide-section { background: linear-gradient(155deg,#142879,#4c197f 62%,#742978); }
   .company-section { background: linear-gradient(145deg,#075b4b,#b93b70); }
 }
+
+/* Comfortable luxury palette */
+:root {
+  --ruby: #7f344a;
+  --orange: #c7784e;
+  --sapphire: #4b5d78;
+  --violet: #6b587a;
+  --emerald-jewel: #315e55;
+  --jewel-rose: #b56b7d;
+  --jewel-gold: #d8b77c;
+  --luxury-ivory: #f7f1e8;
+  --luxury-plum: #3f2d48;
+}
+
+body {
+  background:
+    radial-gradient(circle at 8% 5%,rgba(199,120,78,.12),transparent 28rem),
+    radial-gradient(circle at 92% 24%,rgba(107,88,122,.1),transparent 32rem),
+    var(--luxury-ivory);
+}
+.site-header {
+  background: linear-gradient(100deg,rgba(91,38,54,.97),rgba(63,45,72,.96) 58%,rgba(42,82,73,.96));
+  box-shadow: 0 12px 35px rgba(50,35,48,.14);
+}
+.header-shop { background: linear-gradient(100deg,#ead2a1,#d69b72); box-shadow: 0 7px 20px rgba(111,67,43,.18); }
+.hero {
+  background:
+    radial-gradient(circle at 18% 25%,rgba(224,170,101,.3),transparent 24rem),
+    radial-gradient(circle at 43% 76%,rgba(127,52,74,.34),transparent 28rem),
+    linear-gradient(135deg,#663044 0%,#87465a 46%,#b86f50 100%);
+}
+.hero::after { background: linear-gradient(transparent,rgba(72,36,51,.2)); }
+.hero-photo,.hero-shade { box-shadow: 0 38px 90px rgba(61,39,50,.28); }
+.promise-bar { background: linear-gradient(100deg,#43536e,#675578); box-shadow: 0 24px 55px rgba(55,53,87,.2); }
+.shop-section {
+  background:
+    radial-gradient(circle at 85% 20%,rgba(199,120,78,.12),transparent 24rem),
+    linear-gradient(180deg,#faf5ee,#f5e9df);
+}
+.product-card { box-shadow: 0 26px 60px rgba(87,56,62,.09); }
+.guide-section {
+  background:
+    radial-gradient(circle at 10% 20%,rgba(93,112,151,.27),transparent 28rem),
+    radial-gradient(circle at 88% 80%,rgba(130,102,148,.23),transparent 30rem),
+    linear-gradient(145deg,#374963,#594768 70%,#6e516b);
+}
+.feature-card { background: linear-gradient(145deg,rgba(255,255,255,.12),rgba(255,255,255,.055)); box-shadow: 0 22px 55px rgba(31,32,52,.18); }
+.gallery-section {
+  background:
+    radial-gradient(circle at 78% 16%,rgba(181,107,125,.26),transparent 28rem),
+    radial-gradient(circle at 12% 84%,rgba(75,126,111,.23),transparent 30rem),
+    linear-gradient(145deg,#294f48,#354e52 54%,#563b55);
+}
+.dessert-stories {
+  background:
+    radial-gradient(circle at 8% 28%,rgba(199,120,78,.28),transparent 28rem),
+    radial-gradient(circle at 88% 76%,rgba(181,107,125,.25),transparent 30rem),
+    linear-gradient(135deg,#693449 0%,#514267 52%,#315e55 100%);
+}
+.how-section {
+  background:
+    radial-gradient(circle at 15% 18%,rgba(75,93,120,.08),transparent 24rem),
+    linear-gradient(135deg,#f2f3f5,#f2edf5);
+}
+.pro-copy {
+  background:
+    radial-gradient(circle at 90% 10%,rgba(199,120,78,.22),transparent 20rem),
+    linear-gradient(145deg,#4b5d78,#68587a 58%,#956078);
+}
+.coffee-moments {
+  background:
+    radial-gradient(circle at 10% 25%,rgba(75,93,120,.09),transparent 26rem),
+    radial-gradient(circle at 90% 80%,rgba(107,88,122,.1),transparent 28rem),
+    #f2f0f5;
+}
+.cocktail-showcase {
+  background:
+    radial-gradient(circle at 8% 72%,rgba(160,78,92,.24),transparent 28rem),
+    radial-gradient(circle at 48% 10%,rgba(75,93,120,.28),transparent 30rem),
+    radial-gradient(circle at 90% 70%,rgba(49,94,85,.25),transparent 27rem),
+    linear-gradient(135deg,#402936,#303b5a 52%,#294f48);
+}
+.proof-section {
+  background:
+    radial-gradient(circle at 14% 70%,rgba(49,94,85,.08),transparent 25rem),
+    radial-gradient(circle at 88% 20%,rgba(181,107,125,.09),transparent 27rem),
+    #eef4f0;
+}
+.reviews-section {
+  background:
+    radial-gradient(circle at 82% 16%,rgba(181,107,125,.2),transparent 26rem),
+    linear-gradient(135deg,#294f48,#315e55 54%,#684158);
+}
+.company-section { background: linear-gradient(135deg,#315e55 0%,#3f7468 52%,#a45f77 100%); }
+.final-shade {
+  background:
+    linear-gradient(90deg,rgba(41,79,72,.94),rgba(104,65,88,.62) 58%,rgba(104,65,88,.08)),
+    linear-gradient(0deg,rgba(181,107,125,.14),transparent);
+}
+footer { background: linear-gradient(100deg,#294f48,#3f2d48 52%,#663449); }
+.mobile-cta a:first-child { background: linear-gradient(100deg,#7f344a,#c7784e); }
+.mobile-cta a:last-child { background: linear-gradient(100deg,#4b5d78,#6b587a); }
+
+@media (max-width: 620px) {
+  .hero { background: linear-gradient(160deg,#663044 0%,#87465a 52%,#b86f50 100%); }
+  .guide-section { background: linear-gradient(155deg,#374963,#594768 62%,#6e516b); }
+  .company-section { background: linear-gradient(145deg,#315e55,#a45f77); }
+}
