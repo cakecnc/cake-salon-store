@@ -152,6 +152,13 @@ const coffeeMoments: Record<Lang, { kicker: string; title: string; intro: string
   zh: { kicker: "EDIBLE MESSAGE MOMENTS", title: "在一杯咖啡上\n传递心意。", intro: "将爱、祝贺与感谢印在可食用图像装饰上，创造值得纪念的咖啡时刻。", labels: ["表达爱意", "送上祝贺", "传递感谢"], alts: ["放有I LOVE YOU可食用装饰的拿铁", "放有CONGRATS可食用装饰的卡布奇诺", "放有THANK YOU可食用装饰的拿铁"] },
 };
 const coffeeImages = ["/coffee-i-love-you.png", "/coffee-congrats.png", "/coffee-thank-you.png"];
+const cocktailMoments: Record<Lang, { kicker: string; title: string; intro: string; labels: string[]; alts: string[] }> = {
+  ko: { kicker: "COCKTAIL CELEBRATION", title: "한 잔의 칵테일을\n행사의 주인공으로.", intro: "선명한 색의 칵테일과 맞춤 식용 메시지 토퍼를 결합해 파티, 기념일, 호텔 이벤트에 기억에 남는 장면을 만듭니다.", labels: ["건배와 파티", "특별한 축하", "기념일과 웨딩"], alts: ["CHEERS 식용 토퍼를 올린 루비 레드 칵테일", "CELEBRATE 식용 토퍼를 올린 블루 바이올렛 칵테일", "ANNIVERSARY 식용 토퍼를 올린 에메랄드 로즈 칵테일"] },
+  en: { kicker: "COCKTAIL CELEBRATION", title: "Make every cocktail\nthe center of the occasion.", intro: "Pair vibrant cocktails with custom edible message toppers for parties, anniversaries, hotel events and memorable brand moments.", labels: ["Cheers & parties", "A special celebration", "Anniversaries & weddings"], alts: ["Ruby-red cocktail with a CHEERS edible topper", "Blue-violet cocktail with a CELEBRATE edible topper", "Emerald and rose cocktail with an ANNIVERSARY edible topper"] },
+  ja: { kicker: "COCKTAIL CELEBRATION", title: "一杯のカクテルを\nイベントの主役に。", intro: "鮮やかなカクテルと食用メッセージトッパーで、パーティー、記念日、ホテルイベントを印象的に演出します。", labels: ["乾杯とパーティー", "特別なお祝い", "記念日とウェディング"], alts: ["CHEERS食用トッパーをのせたルビーレッドカクテル", "CELEBRATE食用トッパーをのせたブルーバイオレットカクテル", "ANNIVERSARY食用トッパーをのせたエメラルドローズカクテル"] },
+  zh: { kicker: "COCKTAIL CELEBRATION", title: "让一杯鸡尾酒\n成为活动主角。", intro: "以缤纷鸡尾酒搭配定制可食用信息装饰，为派对、纪念日、酒店活动和品牌场景留下难忘画面。", labels: ["举杯与派对", "特别的祝贺", "纪念日与婚礼"], alts: ["放有CHEERS可食用装饰的宝石红鸡尾酒", "放有CELEBRATE可食用装饰的蓝紫色鸡尾酒", "放有ANNIVERSARY可食用装饰的祖母绿玫红鸡尾酒"] },
+};
+const cocktailImages = ["/cocktail-cheers.png", "/cocktail-celebrate.png", "/cocktail-anniversary.png"];
 const Lines = ({ children }: { children: string }) => <>{children.split("\n").map((line, index) => <span key={`${line}-${index}`}>{line}{index === 0 && <br />}</span>)}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -164,6 +171,7 @@ export default function Home() {
   const c = conversionCopy[lang];
   const reviews = verifiedReviews[lang];
   const coffee = coffeeMoments[lang];
+  const cocktails = cocktailMoments[lang];
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
 
@@ -225,6 +233,11 @@ export default function Home() {
     <section className="coffee-moments">
       <div className="coffee-moments-heading"><p className="kicker">{coffee.kicker}</p><h2><Lines>{coffee.title}</Lines></h2><p>{coffee.intro}</p></div>
       <div className="coffee-moments-grid">{coffeeImages.map((src, index) => <figure key={src}><img src={src} alt={coffee.alts[index]} /><figcaption><span>0{index + 1}</span><b>{["I LOVE YOU", "CONGRATS", "THANK YOU"][index]}</b><small>{coffee.labels[index]}</small></figcaption></figure>)}</div>
+    </section>
+
+    <section className="cocktail-showcase">
+      <div className="cocktail-heading"><p className="kicker light-kicker">{cocktails.kicker}</p><h2><Lines>{cocktails.title}</Lines></h2><p>{cocktails.intro}</p><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
+      <div className="cocktail-grid">{cocktailImages.map((src, index) => <figure key={src} className={`cocktail-${index + 1}`}><img src={src} alt={cocktails.alts[index]} /><figcaption><span>0{index + 1}</span><div><b>{["CHEERS", "CELEBRATE", "ANNIVERSARY"][index]}</b><small>{cocktails.labels[index]}</small></div></figcaption></figure>)}</div>
     </section>
 
     <section className="proof-section"><div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div><div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div></section>
