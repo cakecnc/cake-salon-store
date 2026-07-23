@@ -7,7 +7,7 @@ type Copy = typeof copy.ko;
 
 const storeUrl = "https://smartstore.naver.com/cake";
 const productUrls = {
-  a4: `${storeUrl}/products/5838269156`,
+  a4: "https://smartstore.naver.com/cake/products/237929418",
   a3: `${storeUrl}/products/12030000093`,
   custom: `${storeUrl}/products/5874096848`,
 };
