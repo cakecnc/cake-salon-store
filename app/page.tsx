@@ -21,7 +21,7 @@ const copy = {
     promises: [["18개월", "넉넉한 소비기한"], ["4.8 / 5", "아마존 평균 별점"], ["GLOBAL", "전 세계 수출"], ["080-664-7077", "제품·맞춤 상담"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "필요한 두 가지를\n명확하게 선택하세요.", shopIntro: "아이싱시트 1팩과 맞춤 프린팅 서비스, 케익살롱의 대표 상품만 간결하게 안내합니다.",
     products: [
-      ["아이싱시트 1팩", "가정·소량 제작에 필요한 만큼 사용하는 식용 아이싱시트", "A4 · 50 SHEETS", "a4"],
+      ["A4 아이싱시트 1팩", "가정·소량 제작에 필요한 만큼 사용하는 식용 아이싱시트", "A4 · 25 SHEETS", "a4"],
       ["맞춤 프린팅 서비스", "사진·로고·문구를 원하는 크기와 형태로 제작", "CUSTOM PRINT", "custom"],
     ],
     view: "제품 자세히 보기", galleryKicker: "REAL APPLICATION", galleryTitle: "한 장의 이미지가\n케이크의 가치를 바꿉니다.",
@@ -43,7 +43,7 @@ const copy = {
     primary: "Shop products", secondary: "Custom order", heroNote: "Edible image sheets that peel cleanly from PET backing",
     promises: [["18 months", "Generous shelf life"], ["4.8 / 5", "Amazon average"], ["GLOBAL", "Worldwide export"], ["+82 80-664-7077", "Product support"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "Two clear choices\nfor your cake project.", shopIntro: "Explore Cake Salon’s two signature offers: a single pack of icing sheets and custom edible printing.",
-    products: [["Icing Sheet · 1 Pack", "A practical single pack for home bakers and small-batch projects", "A4 · 50 SHEETS", "a4"], ["Custom Printing Service", "Photos, logos and messages printed to your requested size and shape", "CUSTOM PRINT", "custom"]],
+    products: [["A4 Icing Sheet · 1 Pack", "A practical single pack for home bakers and small-batch projects", "A4 · 25 SHEETS", "a4"], ["Custom Printing Service", "Photos, logos and messages printed to your requested size and shape", "CUSTOM PRINT", "custom"]],
     view: "View product", galleryKicker: "REAL APPLICATION", galleryTitle: "One printed image can\ntransform the whole cake.", galleryIntro: "Classic art, floral patterns, celebration photos and brand logos—see the color and detail Cake Salon can deliver.", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "Print, peel and\nsimply place.", steps: [["01", "Prepare your design", "Set your photo, illustration or logo to size."], ["02", "Peel from the film", "Gently release the sheet from its PET backing."], ["03", "Finish the cake", "Place it on a smooth surface and serve."]],
     proKicker: "FOR PROFESSIONALS", proTitle: "Edible brand content for\ncafés, hotels and events.", proText: "From launches and VIP events to seasonal menus and promotions, turn logos and messages into an edible brand experience.", proCta: "Ask about B2B orders",
@@ -55,7 +55,7 @@ const copy = {
     kicker: "PREMIUM EDIBLE PRINTING", title: "想像したデザインを、\nいちばん美味しい作品へ。", intro: "ケーキサロンのアイシングシートで写真・イラスト・ロゴを鮮やかに表現できます。", primary: "商品を見る", secondary: "オーダー相談", heroNote: "PETフィルムからはがして使う食用イメージシート",
     promises: [["18か月", "余裕のある賞味期間"], ["4.8 / 5", "Amazon平均評価"], ["GLOBAL", "世界へ輸出"], ["+82 80-664-7077", "商品相談"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "必要な二つを\n分かりやすく選択。", shopIntro: "アイシングシート1パックとオーダープリントサービスのみをご案内します。",
-    products: [["アイシングシート 1パック", "ホームベーキングや少量制作に便利な1パック", "A4 · 50 SHEETS", "a4"], ["オーダープリントサービス", "写真・ロゴ・文字を希望のサイズと形で制作", "CUSTOM PRINT", "custom"]],
+    products: [["A4アイシングシート 1パック", "ホームベーキングや少量制作に便利な1パック", "A4 · 25 SHEETS", "a4"], ["オーダープリントサービス", "写真・ロゴ・文字を希望のサイズと形で制作", "CUSTOM PRINT", "custom"]],
     view: "商品を見る", galleryKicker: "REAL APPLICATION", galleryTitle: "一枚のイメージが\nケーキの価値を変えます。", galleryIntro: "クラシックアート、花柄、記念写真、ブランドロゴまで鮮やかに表現します。", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "プリントして、はがして、\nのせるだけ。", steps: [["01", "デザイン準備", "写真・イラスト・ロゴを準備します。"], ["02", "フィルムからはがす", "PETフィルムからゆっくりはがします。"], ["03", "ケーキ完成", "なめらかな表面にのせて仕上げます。"]],
     proKicker: "FOR PROFESSIONALS", proTitle: "カフェ・ホテル・ブランド向け\n食用コンテンツ。", proText: "新商品、VIPイベント、季節メニュー、企業プロモーションまで食用イメージでブランド体験を作ります。", proCta: "B2Bオーダー相談",
@@ -67,7 +67,7 @@ const copy = {
     kicker: "PREMIUM EDIBLE PRINTING", title: "将想象中的设计，\n变成美味的艺术品。", intro: "使用 Cake Salon 糖霜纸与可食用打印方案，将照片、插画和标志清晰呈现在蛋糕上。", primary: "浏览产品", secondary: "咨询定制", heroNote: "从PET底膜揭下即可使用的可食用图像纸",
     promises: [["18个月", "充足保质期"], ["4.8 / 5", "亚马逊平均评分"], ["GLOBAL", "出口全球"], ["+82 80-664-7077", "产品咨询"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "两项代表服务，\n选择更简单。", shopIntro: "仅展示单包装糖霜纸与定制可食用打印服务。",
-    products: [["糖霜纸 1包装", "适合家庭烘焙与小批量制作的单包装", "A4 · 50 SHEETS", "a4"], ["定制打印服务", "按所需尺寸和形状打印照片、标志与文字", "CUSTOM PRINT", "custom"]],
+    products: [["A4糖霜纸 1包装", "适合家庭烘焙与小批量制作的单包装", "A4 · 25 SHEETS", "a4"], ["定制打印服务", "按所需尺寸和形状打印照片、标志与文字", "CUSTOM PRINT", "custom"]],
     view: "查看产品", galleryKicker: "REAL APPLICATION", galleryTitle: "一张图像，\n改变蛋糕的价值。", galleryIntro: "从古典艺术、花卉图案到照片和品牌标志，展现清晰色彩与细节。", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "打印、揭下、\n轻轻放上。", steps: [["01", "准备设计", "准备照片、插画或品牌标志。"], ["02", "揭下底膜", "从PET底膜上慢慢揭下。"], ["03", "完成蛋糕", "放在平滑表面即可完成。"]],
     proKicker: "FOR PROFESSIONALS", proTitle: "为咖啡馆、酒店与品牌\n打造可食用内容。", proText: "从新品发布、VIP活动到季节菜单和企业推广，让标志与信息成为可品尝的品牌体验。", proCta: "咨询B2B定制",
@@ -77,7 +77,7 @@ const copy = {
 };
 
 const productImage = ["/cake-floral.jpeg", "/cake-portrait.jpeg", "/cake-renaissance.jpeg"];
-const productCardImage = ["/product-hero-sheet.jpeg", "/cake-portrait.jpeg"];
+const productCardImage = ["/cake-salon-a4-25.png", "/cake-portrait.jpeg"];
 const guideCopy = {
   ko: { kicker: "OFFICIAL PRODUCT GUIDE", title: "실제 판매 자료로\n제품을 더 자세히 확인하세요.", intro: "제품 특징, 규격, 사용법과 보관법을 케익살롱 공식 이미지로 확인할 수 있습니다.", translationNote: "현재 선택한 언어에 맞춘 제품 안내 이미지입니다.", labels: ["제품 전체 안내", "프리미엄 품질", "규격과 추천 구성", "3단계 사용법", "출력·박리·장식", "구매 전 FAQ", "아이싱시트 리뉴얼 V.10"], open: "크게 보기", close: "닫기", translatedHeading: "제품 주요 안내", originalNote: "제품 표시와 인증 정보는 실제 제품 라벨 및 최신 판매 안내를 기준으로 확인해 주세요.", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "커피와 음료 위에도\n브랜드를 선명하게.", cafeText: "로고와 메시지를 담은 식용 토퍼로 카페 시그니처 메뉴, 호텔 행사와 브랜드 프로모션을 완성하세요." },
   en: { kicker: "OFFICIAL PRODUCT GUIDE", title: "Explore the product through\nofficial sales materials.", intro: "Review product features, sizes, use and storage in Cake Salon’s official visual guide.", translationNote: "This product guide is presented in your selected language.", labels: ["Complete guide", "Premium quality", "Sizes & recommendations", "Three-step use", "Print, peel & place", "FAQ", "Icing Sheet Renewal V.10"], open: "Enlarge", close: "Close", translatedHeading: "Product Highlights", originalNote: "For labeling and compliance details, refer to the current product packaging and official sales information.", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "Put your brand on\ncoffee and drinks, too.", cafeText: "Create signature café menus, hotel events and brand promotions with custom edible logo toppers." },
@@ -134,10 +134,16 @@ const conversionCopy: Record<Lang, {
   purchase: string; inquiry: string; currentPrice: string; specs: string; order: string;
   productMeta: Array<[string, string, string]>; guideNote: string; proofKicker: string; proofTitle: string; proofText: string;
 }> = {
-  ko: { purchase: "네이버 스마트스토어에서 구매하기", inquiry: "1:1 맞춤 제작 문의", currentPrice: "최신 판매가 확인", specs: "구성·규격", order: "주문 조건", productMeta: [["스마트스토어 실시간 판매가", "A4 · 50장 구성", "최소 주문 1팩"], ["옵션별 판매가", "원형 9cm · 10cm", "주문 단위는 상품 옵션 기준"]], guideNote: "이미지 속 작은 글씨 대신 검색과 확대가 가능한 웹 텍스트로 안내합니다.", proofKicker: "VERIFIED PROOF", proofTitle: "확인 가능한 정보와\n실제 적용 사례만 담았습니다.", proofText: "케익살롱이 제공한 공식 제품 정보와 실제 제작 이미지를 기준으로 구성했습니다. 확인되지 않은 후기나 제휴사는 표시하지 않습니다." },
-  en: { purchase: "Buy on Naver Smart Store", inquiry: "Request a Custom Quote", currentPrice: "Check current price", specs: "Pack & size", order: "Order terms", productMeta: [["Live Smart Store price", "A4 · 50 sheets", "Minimum order: 1 pack"], ["Price varies by option", "Round · 9cm / 10cm", "Order unit follows store options"]], guideNote: "Product information is provided as searchable, responsive web text instead of small text embedded in an image.", proofKicker: "VERIFIED PROOF", proofTitle: "Only verified facts and\nreal applications.", proofText: "This section uses official Cake Salon product information and supplied production images. Unverified reviews or partner logos are not displayed." },
-  ja: { purchase: "NAVERスマートストアで購入", inquiry: "1:1オーダー相談", currentPrice: "最新価格を確認", specs: "構成・サイズ", order: "注文条件", productMeta: [["ストアのリアルタイム価格", "A4 · 50枚", "最小注文：1パック"], ["オプション別価格", "円形 · 9cm / 10cm", "注文単位は商品オプション基準"]], guideNote: "画像内の小さな文字ではなく、検索・拡大できるレスポンシブなWebテキストでご案内します。", proofKicker: "VERIFIED PROOF", proofTitle: "確認できる情報と\n実際の制作例だけを掲載。", proofText: "ケーキサロンの公式商品情報と提供された制作画像を使用し、未確認のレビューや提携ロゴは掲載していません。" },
-  zh: { purchase: "前往NAVER智能商店购买", inquiry: "1对1定制咨询", currentPrice: "查看最新价格", specs: "包装与规格", order: "订购条件", productMeta: [["智能商店实时价格", "A4 · 50张", "最低订购：1包装"], ["价格因选项而异", "圆形 · 9cm / 10cm", "订购单位以商品选项为准"]], guideNote: "产品信息采用可搜索、可缩放的响应式网页文字，不再依赖图片中的小字。", proofKicker: "VERIFIED PROOF", proofTitle: "仅展示可核实信息与\n真实应用案例。", proofText: "内容基于 Cake Salon 官方产品资料和已提供的制作图片，不展示未经核实的评价或合作品牌。" },
+  ko: { purchase: "네이버 스마트스토어에서 구매하기", inquiry: "1:1 맞춤 제작 문의", currentPrice: "판매가", specs: "구성·규격", order: "주문 조건", productMeta: [["40,000원", "A4 · 25장 구성", "최소 주문 1팩"], ["6,840원부터", "A4 맞춤 프린팅", "주문 단위는 상품 옵션 기준"]], guideNote: "이미지 속 작은 글씨 대신 검색과 확대가 가능한 웹 텍스트로 안내합니다.", proofKicker: "VERIFIED PROOF", proofTitle: "확인 가능한 정보와\n실제 적용 사례만 담았습니다.", proofText: "케익살롱이 제공한 공식 제품 정보와 실제 제작 이미지를 기준으로 구성했습니다. 확인되지 않은 후기나 제휴사는 표시하지 않습니다. 판매가는 스마트스토어 옵션과 행사에 따라 변경될 수 있습니다." },
+  en: { purchase: "Buy on Naver Smart Store", inquiry: "Request a Custom Quote", currentPrice: "Price", specs: "Pack & size", order: "Order terms", productMeta: [["KRW 40,000", "A4 · 25 sheets", "Minimum order: 1 pack"], ["From KRW 6,840", "A4 custom print", "Order unit follows store options"]], guideNote: "Product information is provided as searchable, responsive web text instead of small text embedded in an image.", proofKicker: "VERIFIED PROOF", proofTitle: "Only verified facts and\nreal applications.", proofText: "This section uses official Cake Salon product information and supplied production images. Prices may change depending on Smart Store options and promotions." },
+  ja: { purchase: "NAVERスマートストアで購入", inquiry: "1:1オーダー相談", currentPrice: "販売価格", specs: "構成・サイズ", order: "注文条件", productMeta: [["40,000ウォン", "A4 · 25枚", "最小注文：1パック"], ["6,840ウォン〜", "A4オーダープリント", "注文単位は商品オプション基準"]], guideNote: "画像内の小さな文字ではなく、検索・拡大できるレスポンシブなWebテキストでご案内します。", proofKicker: "VERIFIED PROOF", proofTitle: "確認できる情報と\n実際の制作例だけを掲載。", proofText: "公式商品情報と実際の制作画像を使用しています。価格はストアのオプションやキャンペーンにより変更される場合があります。" },
+  zh: { purchase: "前往NAVER智能商店购买", inquiry: "1对1定制咨询", currentPrice: "售价", specs: "包装与规格", order: "订购条件", productMeta: [["40,000韩元", "A4 · 25张", "最低订购：1包装"], ["6,840韩元起", "A4定制打印", "订购单位以商品选项为准"]], guideNote: "产品信息采用可搜索、可缩放的响应式网页文字，不再依赖图片中的小字。", proofKicker: "VERIFIED PROOF", proofTitle: "仅展示可核实信息与\n真实应用案例。", proofText: "内容基于官方产品资料和真实制作图片。价格可能因商店选项和促销活动而变化。" },
+};
+const verifiedReviews: Record<Lang, { kicker: string; title: string; items: Array<{ product: string; quote: string; author: string; date: string }> }> = {
+  ko: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "실제 구매자가 남긴\n확인된 후기", items: [{ product: "A4 아이싱시트 25장", quote: "두 번째 구매인데 조금씩 다르긴 하지만 대체로 만족합니다.", author: "luni****", date: "2026.07.02" }, { product: "A4 맞춤 프린팅", quote: "포장이 꼼꼼하고 사장님이 정말 친절하십니다. 재구매하겠습니다.", author: "dase********", date: "2026.07.16" }] },
+  en: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "Verified reviews from\nreal customers", items: [{ product: "A4 Icing Sheets · 25", quote: "This is my second purchase. There are slight differences, but overall I am satisfied.", author: "luni****", date: "2026.07.02" }, { product: "A4 Custom Printing", quote: "The packaging was careful and the owner was very kind. I will purchase again.", author: "dase********", date: "2026.07.16" }] },
+  ja: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "実際の購入者による\n確認済みレビュー", items: [{ product: "A4アイシングシート 25枚", quote: "2回目の購入です。多少の違いはありますが、全体的に満足しています。", author: "luni****", date: "2026.07.02" }, { product: "A4オーダープリント", quote: "梱包が丁寧で、店長さんもとても親切でした。また購入します。", author: "dase********", date: "2026.07.16" }] },
+  zh: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "真实买家留下的\n已验证评价", items: [{ product: "A4糖霜纸 25张", quote: "这是第二次购买。虽然略有差异，但总体上很满意。", author: "luni****", date: "2026.07.02" }, { product: "A4定制打印", quote: "包装很仔细，店主也非常亲切。我会再次购买。", author: "dase********", date: "2026.07.16" }] },
 };
 const Lines = ({ children }: { children: string }) => <>{children.split("\n").map((line, index) => <span key={`${line}-${index}`}>{line}{index === 0 && <br />}</span>)}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
@@ -149,6 +155,7 @@ export default function Home() {
   const details = guideDetails[lang];
   const alts = imageAlts[lang];
   const c = conversionCopy[lang];
+  const reviews = verifiedReviews[lang];
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
 
@@ -198,7 +205,7 @@ export default function Home() {
     </section>
 
     <section className="how-section" id="how">
-      <div className="how-title"><p className="kicker">{t.useKicker}</p><h2><Lines>{t.useTitle}</Lines></h2><img className="how-thumb" src="/product-peel.jpeg" alt={alts.how} /></div>
+      <div className="how-title"><p className="kicker">{t.useKicker}</p><h2><Lines>{t.useTitle}</Lines></h2><img className="how-thumb" src="/icing-sheet-process.png" alt={alts.how} /></div>
       <ol>{t.steps.map(([number, title, description]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
     </section>
 
@@ -208,6 +215,8 @@ export default function Home() {
     </section>
 
     <section className="proof-section"><div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div><div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div></section>
+
+    <section className="reviews-section"><div className="reviews-heading"><p className="kicker">{reviews.kicker}</p><h2><Lines>{reviews.title}</Lines></h2></div><div className="reviews-grid">{reviews.items.map((review) => <blockquote key={`${review.author}-${review.date}`}><span>{review.product}</span><p>“{review.quote}”</p><div className="review-meta"><b>{review.author}</b><time>{review.date}</time></div></blockquote>)}</div></section>
 
     <section className="company-section" id="company">
       <div className="company-copy"><p className="kicker">{t.companyKicker}</p><h2><Lines>{t.companyTitle}</Lines></h2><p>{t.companyText}</p><div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={inquiryUrl}>{c.inquiry}</a></div></div>
