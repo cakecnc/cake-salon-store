@@ -209,6 +209,72 @@ const candyMoments: Record<Lang, { kicker: string; title: string; intro: string;
   zh: { kicker: "EDIBLE CANDY ART", title: "把品牌与心意\n放进透明糖果。", intro: "将标志、庆祝语和感谢信息制作成可食用图像，让棒棒糖成为令人难忘的礼物与推广载体。", labels: ["充满爱意的礼物", "活动与品牌推广", "表达感谢的回礼"], alts: ["宝石红橙色LOVE可食用图像棒棒糖", "蓝紫色CELEBRATE可食用图像棒棒糖", "祖母绿玫红THANK YOU可食用图像棒棒糖"] },
 };
 const candyImages = ["/candy-love.png", "/candy-celebrate.png", "/candy-thank-you.png"];
+const cottonCandyCaseCopy: Record<Lang, {
+  kicker: string;
+  title: string;
+  intro: string;
+  recordLabel: string;
+  recordTitle: string;
+  recordMeta: string;
+  exampleLabel: string;
+  exampleTitle: string;
+  exampleText: string;
+  imageAlt: string;
+  rightsNote: string;
+}> = {
+  ko: {
+    kicker: "COTTON CANDY APPLICATION",
+    title: "솜사탕에도\n맞춤 식용 스티커를.",
+    intro: "실제 제작 이력은 글자로 명확하게 안내하고, 시각 자료는 특정 캐릭터나 포장 디자인을 사용하지 않은 오리지널 활용 이미지로 구성했습니다.",
+    recordLabel: "실제 제작 이력",
+    recordTitle: "빵빵이 솜사탕용 스티커 제작",
+    recordMeta: "식용 스티커 인쇄·가공 · C&C Corporation",
+    exampleLabel: "재구성 활용 예시",
+    exampleTitle: "솜사탕 선물·행사 스티커",
+    exampleText: "하트, 별, 꽃과 축하 모티프를 활용한 오리지널 연출 이미지입니다.",
+    imageAlt: "오리지널 하트, 별, 꽃 식용 스티커를 적용한 파스텔 솜사탕 선물 세트",
+    rightsNote: "‘빵빵이 솜사탕’은 실제 제작 대상을 식별하기 위한 텍스트 표기입니다. 관련 캐릭터와 제품명에 관한 권리는 각 권리자에게 있으며, 본 표기는 공식 제휴·후원을 의미하지 않습니다.",
+  },
+  en: {
+    kicker: "COTTON CANDY APPLICATION",
+    title: "Custom edible stickers\nfor cotton candy.",
+    intro: "The verified production record is presented in text, while the visual is a newly created application concept without protected characters or package designs.",
+    recordLabel: "Production record",
+    recordTitle: "Edible sticker production for “빵빵이 솜사탕”",
+    recordMeta: "Edible sticker printing & finishing · C&C Corporation",
+    exampleLabel: "Recreated application example",
+    exampleTitle: "Cotton-candy gifts and event stickers",
+    exampleText: "An original styled image using hearts, stars, flowers and celebration motifs.",
+    imageAlt: "Pastel cotton-candy gift set with original heart, star and floral edible stickers",
+    rightsNote: "“빵빵이 솜사탕” appears only as text identifying an actual production subject. Related character and product-name rights belong to their respective owners; this reference does not imply official affiliation or sponsorship.",
+  },
+  ja: {
+    kicker: "COTTON CANDY APPLICATION",
+    title: "わたあめにも\nオーダー食用ステッカーを。",
+    intro: "実際の制作実績は文字のみで案内し、ビジュアルは特定のキャラクターやパッケージを使用しないオリジナル活用例です。",
+    recordLabel: "実際の制作実績",
+    recordTitle: "「빵빵이 솜사탕」用食用ステッカー制作",
+    recordMeta: "食用ステッカー印刷・加工 · C&C Corporation",
+    exampleLabel: "再構成した活用例",
+    exampleTitle: "わたあめギフト・イベントステッカー",
+    exampleText: "ハート、星、花、お祝いのモチーフを使ったオリジナル演出画像です。",
+    imageAlt: "オリジナルのハート、星、花の食用ステッカーを使ったパステルカラーのわたあめギフト",
+    rightsNote: "「빵빵이 솜사탕」は実際の制作対象を特定するための文字表記です。関連するキャラクターおよび商品名の権利は各権利者に帰属し、公式な提携・協賛を示すものではありません。",
+  },
+  zh: {
+    kicker: "COTTON CANDY APPLICATION",
+    title: "为棉花糖增添\n定制可食用贴纸。",
+    intro: "真实制作记录仅以文字说明，视觉内容则采用不含特定角色或包装设计的原创应用示意图。",
+    recordLabel: "真实制作记录",
+    recordTitle: "“빵빵이 솜사탕”可食用贴纸制作",
+    recordMeta: "可食用贴纸印刷与加工 · C&C Corporation",
+    exampleLabel: "重新构成的应用示例",
+    exampleTitle: "棉花糖礼品与活动贴纸",
+    exampleText: "使用爱心、星星、花朵与庆祝元素创作的原创陈列图。",
+    imageAlt: "使用原创爱心、星星和花卉可食用贴纸的粉彩棉花糖礼品套装",
+    rightsNote: "“빵빵이 솜사탕”仅作为识别实际制作对象的文字说明。相关角色及产品名称权利归各权利人所有，本说明不代表官方合作或赞助。",
+  },
+};
 const petiteDesserts: Record<Lang, { cookieKicker: string; cookieTitle: string; cookieIntro: string; macaronKicker: string; macaronTitle: string; macaronIntro: string; cookieLabels: string[]; macaronLabels: string[]; cookieAlts: string[]; macaronAlts: string[] }> = {
   ko: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "한 장의 이미지로\n쿠키에 이야기를 더하세요.", cookieIntro: "답례품, 시즌 행사, 기업 프로모션에 맞춘 식용 이미지를 쿠키 위에 선명하게 표현합니다.", macaronKicker: "MACARON COLLECTION", macaronTitle: "작고 섬세한 마카롱을\n특별한 메시지로 완성하세요.", macaronIntro: "실제 0.40mm의 얇은 아이싱시트가 마카롱 표면에 자연스럽게 밀착되어 웨딩, 기념일, 브랜드 선물을 섬세하게 완성합니다.", cookieLabels: ["사랑의 답례품", "축하 이벤트", "감사의 선물"], macaronLabels: ["기념일 컬렉션", "축하 컬렉션", "플로럴 기프트"], cookieAlts: ["루비 오렌지 LOVE 식용 이미지 쿠키", "블루 바이올렛 CELEBRATE 식용 이미지 쿠키", "에메랄드 로즈 THANK YOU 식용 이미지 쿠키"], macaronAlts: ["0.40mm의 얇은 아이싱시트를 올린 루비 오렌지 기념일 마카롱", "0.40mm의 얇은 아이싱시트를 올린 블루 바이올렛 축하 마카롱", "0.40mm의 얇은 아이싱시트를 올린 에메랄드 로즈 플로럴 마카롱"] },
   en: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "Give every cookie\na story of its own.", cookieIntro: "Add crisp edible images to cookies for favors, seasonal events and brand promotions.", macaronKicker: "MACARON COLLECTION", macaronTitle: "Finish delicate macarons\nwith a meaningful message.", macaronIntro: "A paper-thin 0.40 mm icing sheet settles naturally onto each macaron for refined weddings, anniversaries and branded gifts.", cookieLabels: ["Love favors", "Celebration events", "Thank-you gifts"], macaronLabels: ["Anniversary collection", "Celebration collection", "Floral gift collection"], cookieAlts: ["Ruby-orange LOVE edible image cookies", "Blue-violet CELEBRATE edible image cookies", "Emerald-rose THANK YOU edible image cookies"], macaronAlts: ["Ruby-orange anniversary macarons with thin 0.40 mm icing sheets", "Blue-violet celebration macarons with thin 0.40 mm icing sheets", "Emerald-rose floral macarons with thin 0.40 mm icing sheets"] },
@@ -260,6 +326,7 @@ export default function Home() {
   const coffee = coffeeMoments[lang];
   const cocktails = cocktailMoments[lang];
   const candy = candyMoments[lang];
+  const cottonCandyCase = cottonCandyCaseCopy[lang];
   const petite = petiteDesserts[lang];
   const ideas = ideaCollections[lang];
   const form = designFormCopy[lang];
@@ -360,6 +427,24 @@ export default function Home() {
     <section className="candy-showcase">
       <div className="candy-heading"><p className="kicker light-kicker">{candy.kicker}</p><h2><Lines>{candy.title}</Lines></h2><p>{candy.intro}</p><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
       <div className="candy-grid">{candyImages.map((src, index) => <figure key={src} className={`candy-${index + 1}`}><img src={src} alt={candy.alts[index]} /><figcaption><span>0{index + 1}</span><div><b>{["LOVE", "CELEBRATE", "THANK YOU"][index]}</b><small>{candy.labels[index]}</small></div></figcaption></figure>)}</div>
+    </section>
+
+    <section className="cotton-candy-case">
+      <div className="cotton-candy-copy">
+        <p className="kicker">{cottonCandyCase.kicker}</p>
+        <h2><Lines>{cottonCandyCase.title}</Lines></h2>
+        <p className="cotton-candy-intro">{cottonCandyCase.intro}</p>
+        <article className="production-record">
+          <small>{cottonCandyCase.recordLabel}</small>
+          <h3>{cottonCandyCase.recordTitle}</h3>
+          <p>{cottonCandyCase.recordMeta}</p>
+        </article>
+        <p className="rights-note">{cottonCandyCase.rightsNote}</p>
+      </div>
+      <figure className="cotton-candy-visual">
+        <div><img src="/cotton-candy-use-case.png" alt={cottonCandyCase.imageAlt} /></div>
+        <figcaption><span>{cottonCandyCase.exampleLabel}</span><div><b>{cottonCandyCase.exampleTitle}</b><small>{cottonCandyCase.exampleText}</small></div></figcaption>
+      </figure>
     </section>
 
     <section className="cookie-showcase petite-showcase">

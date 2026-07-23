@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       "https://cakesalon.kr/candy-love.png",
       "https://cakesalon.kr/candy-celebrate.png",
       "https://cakesalon.kr/candy-thank-you.png",
+      "https://cakesalon.kr/cotton-candy-use-case.png",
       "https://cakesalon.kr/cookie-love.png",
       "https://cakesalon.kr/cookie-celebrate.png",
       "https://cakesalon.kr/cookie-thank-you.png",
