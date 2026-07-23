@@ -198,6 +198,48 @@ p,li,dd,figcaption,blockquote {
 .cocktail-grid figure { border-radius: 22px; border: 0; box-shadow: 0 25px 60px rgba(0,0,0,.28); }
 .cocktail-grid .cocktail-1 { border-radius: 250px 250px 22px 22px; }
 
+.candy-showcase {
+  padding: 145px 6vw;
+  display: grid;
+  grid-template-columns: minmax(280px,.72fr) minmax(0,1.28fr);
+  gap: clamp(48px,7vw,110px);
+  align-items: center;
+  color: #fff8ef;
+  background:
+    radial-gradient(circle at 12% 20%,rgba(199,120,78,.48),transparent 31rem),
+    radial-gradient(circle at 84% 74%,rgba(181,107,125,.38),transparent 28rem),
+    linear-gradient(135deg,#44263d 0%,#263f48 58%,#315e55 100%);
+}
+.candy-heading h2 { margin: 18px 0 26px; font-size: clamp(48px,5vw,76px); color: #fff8ef; }
+.candy-heading > p:not(.kicker) { max-width: 530px; color: rgba(255,248,239,.78); }
+.candy-heading .button { margin-top: 34px; }
+.candy-grid { display: grid; grid-template-columns: 1.08fr .92fr; grid-template-rows: repeat(2,330px); gap: 22px; }
+.candy-grid figure { margin: 0; position: relative; overflow: hidden; border-radius: 22px; box-shadow: 0 25px 60px rgba(17,15,29,.3); background: #251d2b; }
+.candy-grid .candy-1 { grid-row: 1/3; border-radius: 240px 240px 22px 22px; }
+.candy-grid img { width: 100%; height: 100%; object-fit: cover; }
+.candy-grid figcaption { position: absolute; z-index: 3; inset: auto 0 0; display: flex; align-items: flex-end; gap: 16px; padding: 25px; color: white; background: linear-gradient(transparent,rgba(20,13,24,.88)); }
+.candy-grid figcaption span { font-size: 12px; letter-spacing: .18em; color: var(--champagne); }
+.candy-grid figcaption div { display: grid; gap: 4px; }
+.candy-grid figcaption b { letter-spacing: .12em; }
+.candy-grid figcaption small { color: rgba(255,255,255,.72); }
+
+.petite-showcase { padding: 140px 6vw; }
+.petite-heading { display: grid; grid-template-columns: minmax(280px,.8fr) minmax(300px,1.2fr); gap: 5vw; align-items: end; margin-bottom: 54px; }
+.petite-heading h2 { margin: 14px 0 0; font-size: clamp(46px,5vw,74px); color: var(--emerald); }
+.petite-heading > p:last-child { max-width: 590px; justify-self: end; }
+.petite-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.petite-grid figure { margin: 0; overflow: hidden; border-radius: 22px; background: #fffaf3; box-shadow: 0 22px 54px rgba(74,44,32,.11); }
+.petite-grid img { width: 100%; aspect-ratio: 1/1.05; object-fit: cover; }
+.petite-grid figcaption { display: flex; align-items: center; gap: 16px; padding: 24px; }
+.petite-grid figcaption span { font-size: 12px; letter-spacing: .18em; color: var(--ruby); }
+.cookie-showcase { background: radial-gradient(circle at 8% 22%,rgba(199,120,78,.18),transparent 24rem),linear-gradient(180deg,#fbf3e8,#f7e6dc); }
+.cookie-showcase .petite-grid figure:nth-child(1) { border-radius: 190px 190px 22px 22px; }
+.cookie-showcase .petite-grid figure:nth-child(2) { transform: translateY(34px); }
+.macaron-showcase { background: radial-gradient(circle at 90% 18%,rgba(181,107,125,.16),transparent 28rem),linear-gradient(150deg,#edf3ee,#f4e8ed); }
+.macaron-showcase .petite-heading h2 { color: #4f4468; }
+.macaron-showcase .petite-grid figure:nth-child(2) { border-radius: 190px 190px 22px 22px; }
+.macaron-showcase .petite-grid figure:nth-child(3) { transform: translateY(-30px); }
+
 .proof-section { padding-top: 130px; background: white; }
 .proof-heading h2 { color: var(--emerald); }
 .proof-section .trust-grid { overflow: hidden; border: 0; border-radius: 18px; box-shadow: 0 20px 55px rgba(74,44,32,.09); }
@@ -687,7 +729,82 @@ main img {
   }
 }
 
+/* Keep gallery copy outside photographs */
+.cocktail-grid figure,
+.candy-grid figure {
+  display: grid;
+  grid-template-rows: minmax(0,1fr) auto;
+  background: #211d2c;
+}
+.cocktail-grid img,
+.candy-grid img {
+  min-height: 0;
+}
+.cocktail-grid figcaption,
+.candy-grid figcaption {
+  position: static;
+  inset: auto;
+  min-height: 78px;
+  padding: 18px 22px;
+  align-items: center;
+  color: #fff8ef;
+  background: #211d2c;
+}
+.candy-grid figcaption small,
+.cocktail-grid figcaption small { color: rgba(255,248,239,.72); }
+.petite-grid figure { display: grid; grid-template-rows: minmax(0,1fr) auto; }
+.petite-grid figcaption { min-height: 74px; background: #fffaf3; }
+
 /* Compact, aligned company section */
+.candy-grid figure,
+.petite-grid figure {
+  position: relative;
+  overflow: hidden;
+  transition: transform .45s ease,box-shadow .45s ease;
+}
+.candy-grid figure::after,
+.petite-grid figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: linear-gradient(115deg,transparent 20%,rgba(255,255,255,.22) 47%,transparent 72%);
+  transform: translateX(-70%);
+  transition: transform .8s cubic-bezier(.2,.72,.2,1),opacity .35s ease;
+}
+@media (hover:hover) and (pointer:fine) {
+  .candy-grid figure:hover img { transform: translate3d(0,-8px,0) scale(1.06) rotate(.35deg); filter: saturate(1.12) contrast(1.03); }
+  .petite-grid figure:hover img { transform: translate3d(0,-7px,0) scale(1.055); filter: saturate(1.1); }
+  .candy-grid figure:hover::after,
+  .petite-grid figure:hover::after { opacity: 1; transform: translateX(70%); }
+  .candy-grid figure:hover,
+  .petite-grid figure:hover { transform: translateY(-7px); box-shadow: 0 34px 75px rgba(47,36,57,.22); }
+}
+@media (max-width: 900px) {
+  .candy-showcase { grid-template-columns: 1fr; }
+  .petite-heading { grid-template-columns: 1fr; }
+  .petite-heading > p:last-child { justify-self: start; }
+}
+@media (max-width: 680px) {
+  .candy-showcase,.petite-showcase { padding: 92px 22px; }
+  .candy-grid { grid-template-columns: 1fr; grid-template-rows: repeat(3,360px); }
+  .candy-grid .candy-1 { grid-row: auto; }
+  .candy-grid figure,.candy-grid .candy-1 { border-radius: 150px 150px 18px 18px; }
+  .petite-grid { grid-template-columns: 1fr; }
+  .cookie-showcase .petite-grid figure:nth-child(2),
+  .macaron-showcase .petite-grid figure:nth-child(3) { transform: none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .candy-grid figure,
+  .petite-grid figure,
+  .candy-grid figure::after,
+  .petite-grid figure::after {
+    transition: none !important;
+    transform: none !important;
+  }
+}
 .company-section {
   width: min(1320px,calc(100% - 8vw));
   min-height: 510px;

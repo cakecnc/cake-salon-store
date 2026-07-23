@@ -159,6 +159,21 @@ const cocktailMoments: Record<Lang, { kicker: string; title: string; intro: stri
   zh: { kicker: "COCKTAIL CELEBRATION", title: "让一杯鸡尾酒\n成为活动主角。", intro: "以缤纷鸡尾酒搭配定制可食用信息装饰，为派对、纪念日、酒店活动和品牌场景留下难忘画面。", labels: ["举杯与派对", "特别的祝贺", "纪念日与婚礼"], alts: ["放有CHEERS可食用装饰的宝石红鸡尾酒", "放有CELEBRATE可食用装饰的蓝紫色鸡尾酒", "放有ANNIVERSARY可食用装饰的祖母绿玫红鸡尾酒"] },
 };
 const cocktailImages = ["/cocktail-cheers.png", "/cocktail-celebrate.png", "/cocktail-anniversary.png"];
+const candyMoments: Record<Lang, { kicker: string; title: string; intro: string; labels: string[]; alts: string[] }> = {
+  ko: { kicker: "EDIBLE CANDY ART", title: "투명한 캔디 안에\n브랜드와 마음을 담으세요.", intro: "로고, 축하 문구, 감사 메시지를 식용 이미지로 제작해 롤리팝을 프로모션과 선물의 주인공으로 완성합니다.", labels: ["사랑을 담은 선물", "행사와 브랜드 프로모션", "감사를 전하는 답례품"], alts: ["루비 오렌지 LOVE 식용 이미지 롤리팝", "블루 바이올렛 CELEBRATE 식용 이미지 롤리팝", "에메랄드 로즈 THANK YOU 식용 이미지 롤리팝"] },
+  en: { kicker: "EDIBLE CANDY ART", title: "Put a message and identity\ninside clear candy.", intro: "Turn logos, celebration notes and gratitude into edible images that make lollipops memorable gifts and promotional pieces.", labels: ["A gift made with love", "Events & brand promotions", "Thoughtful thank-you favors"], alts: ["Ruby-orange LOVE edible image lollipops", "Blue-violet CELEBRATE edible image lollipops", "Emerald-rose THANK YOU edible image lollipops"] },
+  ja: { kicker: "EDIBLE CANDY ART", title: "透明なキャンディに\nブランドと想いを。", intro: "ロゴやお祝い、感謝のメッセージを食用イメージにして、ロリポップを印象的なギフトやプロモーションに仕上げます。", labels: ["愛を込めたギフト", "イベントとブランド販促", "感謝を伝えるプチギフト"], alts: ["ルビーオレンジのLOVE食用イメージロリポップ", "ブルーバイオレットのCELEBRATE食用イメージロリポップ", "エメラルドローズのTHANK YOU食用イメージロリポップ"] },
+  zh: { kicker: "EDIBLE CANDY ART", title: "把品牌与心意\n放进透明糖果。", intro: "将标志、庆祝语和感谢信息制作成可食用图像，让棒棒糖成为令人难忘的礼物与推广载体。", labels: ["充满爱意的礼物", "活动与品牌推广", "表达感谢的回礼"], alts: ["宝石红橙色LOVE可食用图像棒棒糖", "蓝紫色CELEBRATE可食用图像棒棒糖", "祖母绿玫红THANK YOU可食用图像棒棒糖"] },
+};
+const candyImages = ["/candy-love.png", "/candy-celebrate.png", "/candy-thank-you.png"];
+const petiteDesserts: Record<Lang, { cookieKicker: string; cookieTitle: string; cookieIntro: string; macaronKicker: string; macaronTitle: string; macaronIntro: string; cookieLabels: string[]; macaronLabels: string[]; cookieAlts: string[]; macaronAlts: string[] }> = {
+  ko: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "한 장의 이미지로\n쿠키에 이야기를 더하세요.", cookieIntro: "답례품, 시즌 행사, 기업 프로모션에 맞춘 식용 이미지를 쿠키 위에 선명하게 표현합니다.", macaronKicker: "MACARON COLLECTION", macaronTitle: "작고 섬세한 마카롱을\n특별한 메시지로 완성하세요.", macaronIntro: "웨딩, 기념일, 브랜드 선물에 어울리는 식용 이미지로 마카롱 한 상자를 더 기억에 남게 만듭니다.", cookieLabels: ["사랑의 답례품", "축하 이벤트", "감사의 선물"], macaronLabels: ["기념일 컬렉션", "축하 컬렉션", "플로럴 기프트"], cookieAlts: ["루비 오렌지 LOVE 식용 이미지 쿠키", "블루 바이올렛 CELEBRATE 식용 이미지 쿠키", "에메랄드 로즈 THANK YOU 식용 이미지 쿠키"], macaronAlts: ["루비 오렌지 기념일 식용 이미지 마카롱", "블루 바이올렛 축하 식용 이미지 마카롱", "에메랄드 로즈 플로럴 식용 이미지 마카롱"] },
+  en: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "Give every cookie\na story of its own.", cookieIntro: "Add crisp edible images to cookies for favors, seasonal events and brand promotions.", macaronKicker: "MACARON COLLECTION", macaronTitle: "Finish delicate macarons\nwith a meaningful message.", macaronIntro: "Make wedding, anniversary and branded gift boxes more memorable with custom edible imagery.", cookieLabels: ["Love favors", "Celebration events", "Thank-you gifts"], macaronLabels: ["Anniversary collection", "Celebration collection", "Floral gift collection"], cookieAlts: ["Ruby-orange LOVE edible image cookies", "Blue-violet CELEBRATE edible image cookies", "Emerald-rose THANK YOU edible image cookies"], macaronAlts: ["Ruby-orange anniversary edible image macarons", "Blue-violet celebration edible image macarons", "Emerald-rose floral edible image macarons"] },
+  ja: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "一枚のイメージで\nクッキーに物語を。", cookieIntro: "プチギフト、季節イベント、企業プロモーションに合わせた食用イメージを鮮明に表現します。", macaronKicker: "MACARON COLLECTION", macaronTitle: "小さく繊細なマカロンを\n特別なメッセージで。", macaronIntro: "ウェディング、記念日、ブランドギフトに合う食用イメージで、ひと箱をより印象的に仕上げます。", cookieLabels: ["愛のプチギフト", "お祝いイベント", "感謝のギフト"], macaronLabels: ["記念日コレクション", "お祝いコレクション", "フローラルギフト"], cookieAlts: ["ルビーオレンジのLOVE食用イメージクッキー", "ブルーバイオレットのCELEBRATE食用イメージクッキー", "エメラルドローズのTHANK YOU食用イメージクッキー"], macaronAlts: ["ルビーオレンジの記念日食用イメージマカロン", "ブルーバイオレットのお祝い食用イメージマカロン", "エメラルドローズのフローラル食用イメージマカロン"] },
+  zh: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "用一张可食用图像\n为曲奇增添故事。", cookieIntro: "为回礼、季节活动与企业推广制作清晰精致的可食用曲奇图案。", macaronKicker: "MACARON COLLECTION", macaronTitle: "以特别的信息\n点亮精致马卡龙。", macaronIntro: "用定制可食用图像，让婚礼、纪念日和品牌礼盒更加令人难忘。", cookieLabels: ["爱意回礼", "庆祝活动", "感谢礼物"], macaronLabels: ["纪念日系列", "庆祝系列", "花卉礼盒"], cookieAlts: ["宝石红橙色LOVE可食用图像曲奇", "蓝紫色CELEBRATE可食用图像曲奇", "祖母绿玫红THANK YOU可食用图像曲奇"], macaronAlts: ["宝石红橙色纪念日可食用图像马卡龙", "蓝紫色庆祝可食用图像马卡龙", "祖母绿玫红花卉可食用图像马卡龙"] },
+};
+const cookieImages = ["/cookie-love.png", "/cookie-celebrate.png", "/cookie-thank-you.png"];
+const macaronImages = ["/macaron-anniversary.png", "/macaron-celebrate.png", "/macaron-floral.png"];
 const dessertMoments: Record<Lang, { kicker: string; title: string; intro: string; items: Array<[string, string]>; alts: string[] }> = {
   ko: { kicker: "SEASONAL CAKE INSPIRATION", title: "익숙한 디저트도\n새로운 작품으로.", intro: "한국적인 붕어빵과 풍성한 제철 과일까지, 아이싱시트 한 장으로 케이크의 이야기와 계절감을 확장합니다.", items: [["붕어빵 케이크", "붕어빵·팥·밤과 수채화 아이싱시트를 조합한 따뜻한 겨울 디저트"], ["과일 케이크", "보석처럼 선명한 과일과 플로럴 아이싱시트가 어우러진 축하 케이크"]], alts: ["수채화 붕어빵 아이싱시트를 장식한 붕어빵 케이크", "과일 화환 아이싱시트와 제철 과일을 장식한 과일 케이크"] },
   en: { kicker: "SEASONAL CAKE INSPIRATION", title: "Turn familiar desserts\ninto new edible art.", intro: "From Korean bungeoppang to abundant seasonal fruit, one icing sheet expands the cake’s story and sense of season.", items: [["Bungeoppang Cake", "A warm winter cake with fish-shaped pastries, red bean, chestnut and a watercolor icing sheet"], ["Jewel Fruit Cake", "A celebration cake combining vivid seasonal fruit with a floral fruit-wreath icing sheet"]], alts: ["Bungeoppang cake decorated with a watercolor edible icing sheet", "Fruit cake decorated with seasonal fruit and a fruit-wreath icing sheet"] },
@@ -179,6 +194,8 @@ export default function Home() {
   const reviews = verifiedReviews[lang];
   const coffee = coffeeMoments[lang];
   const cocktails = cocktailMoments[lang];
+  const candy = candyMoments[lang];
+  const petite = petiteDesserts[lang];
   const desserts = dessertMoments[lang];
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
@@ -251,6 +268,21 @@ export default function Home() {
     <section className="cocktail-showcase">
       <div className="cocktail-heading"><p className="kicker light-kicker">{cocktails.kicker}</p><h2><Lines>{cocktails.title}</Lines></h2><p>{cocktails.intro}</p><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
       <div className="cocktail-grid">{cocktailImages.map((src, index) => <figure key={src} className={`cocktail-${index + 1}`}><img src={src} alt={cocktails.alts[index]} /><figcaption><span>0{index + 1}</span><div><b>{["CHEERS", "CELEBRATE", "ANNIVERSARY"][index]}</b><small>{cocktails.labels[index]}</small></div></figcaption></figure>)}</div>
+    </section>
+
+    <section className="candy-showcase">
+      <div className="candy-heading"><p className="kicker light-kicker">{candy.kicker}</p><h2><Lines>{candy.title}</Lines></h2><p>{candy.intro}</p><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
+      <div className="candy-grid">{candyImages.map((src, index) => <figure key={src} className={`candy-${index + 1}`}><img src={src} alt={candy.alts[index]} /><figcaption><span>0{index + 1}</span><div><b>{["LOVE", "CELEBRATE", "THANK YOU"][index]}</b><small>{candy.labels[index]}</small></div></figcaption></figure>)}</div>
+    </section>
+
+    <section className="cookie-showcase petite-showcase">
+      <div className="petite-heading"><p className="kicker">{petite.cookieKicker}</p><h2><Lines>{petite.cookieTitle}</Lines></h2><p>{petite.cookieIntro}</p></div>
+      <div className="petite-grid">{cookieImages.map((src, index) => <figure key={src}><img src={src} alt={petite.cookieAlts[index]} /><figcaption><span>0{index + 1}</span><b>{petite.cookieLabels[index]}</b></figcaption></figure>)}</div>
+    </section>
+
+    <section className="macaron-showcase petite-showcase">
+      <div className="petite-heading"><p className="kicker">{petite.macaronKicker}</p><h2><Lines>{petite.macaronTitle}</Lines></h2><p>{petite.macaronIntro}</p></div>
+      <div className="petite-grid">{macaronImages.map((src, index) => <figure key={src}><img src={src} alt={petite.macaronAlts[index]} /><figcaption><span>0{index + 1}</span><b>{petite.macaronLabels[index]}</b></figcaption></figure>)}</div>
     </section>
 
     <section className="proof-section"><div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div><div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div></section>
