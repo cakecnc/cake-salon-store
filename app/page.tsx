@@ -145,6 +145,13 @@ const verifiedReviews: Record<Lang, { kicker: string; title: string; items: Arra
   ja: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "実際の購入者による\n確認済みレビュー", items: [{ product: "A4アイシングシート 25枚", quote: "2回目の購入です。多少の違いはありますが、全体的に満足しています。", author: "luni****", date: "2026.07.02" }, { product: "A4オーダープリント", quote: "梱包が丁寧で、店長さんもとても親切でした。また購入します。", author: "dase********", date: "2026.07.16" }] },
   zh: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "真实买家留下的\n已验证评价", items: [{ product: "A4糖霜纸 25张", quote: "这是第二次购买。虽然略有差异，但总体上很满意。", author: "luni****", date: "2026.07.02" }, { product: "A4定制打印", quote: "包装很仔细，店主也非常亲切。我会再次购买。", author: "dase********", date: "2026.07.16" }] },
 };
+const coffeeMoments: Record<Lang, { kicker: string; title: string; intro: string; labels: string[]; alts: string[] }> = {
+  ko: { kicker: "EDIBLE MESSAGE MOMENTS", title: "커피 한 잔에\n마음을 전하세요.", intro: "사랑, 축하, 감사의 메시지를 식용 이미지 토퍼에 담아 특별한 순간을 완성합니다.", labels: ["사랑을 전하는 순간", "축하를 전하는 순간", "감사를 전하는 순간"], alts: ["I LOVE YOU 식용 토퍼를 올린 라테", "CONGRATS 식용 토퍼를 올린 카푸치노", "THANK YOU 식용 토퍼를 올린 라테"] },
+  en: { kicker: "EDIBLE MESSAGE MOMENTS", title: "Put a meaningful message\non every cup.", intro: "Turn love, congratulations and gratitude into memorable café moments with custom edible image toppers.", labels: ["A moment of love", "A moment to celebrate", "A moment of gratitude"], alts: ["Latte with an I LOVE YOU edible topper", "Cappuccino with a CONGRATS edible topper", "Latte with a THANK YOU edible topper"] },
+  ja: { kicker: "EDIBLE MESSAGE MOMENTS", title: "一杯のコーヒーに\n想いを添えて。", intro: "愛、祝福、感謝のメッセージを食用イメージトッパーにして、特別な時間を演出します。", labels: ["愛を伝える瞬間", "祝福を伝える瞬間", "感謝を伝える瞬間"], alts: ["I LOVE YOU食用トッパーをのせたラテ", "CONGRATS食用トッパーをのせたカプチーノ", "THANK YOU食用トッパーをのせたラテ"] },
+  zh: { kicker: "EDIBLE MESSAGE MOMENTS", title: "在一杯咖啡上\n传递心意。", intro: "将爱、祝贺与感谢印在可食用图像装饰上，创造值得纪念的咖啡时刻。", labels: ["表达爱意", "送上祝贺", "传递感谢"], alts: ["放有I LOVE YOU可食用装饰的拿铁", "放有CONGRATS可食用装饰的卡布奇诺", "放有THANK YOU可食用装饰的拿铁"] },
+};
+const coffeeImages = ["/coffee-i-love-you.png", "/coffee-congrats.png", "/coffee-thank-you.png"];
 const Lines = ({ children }: { children: string }) => <>{children.split("\n").map((line, index) => <span key={`${line}-${index}`}>{line}{index === 0 && <br />}</span>)}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -156,6 +163,7 @@ export default function Home() {
   const alts = imageAlts[lang];
   const c = conversionCopy[lang];
   const reviews = verifiedReviews[lang];
+  const coffee = coffeeMoments[lang];
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
 
@@ -212,6 +220,11 @@ export default function Home() {
     <section className="pro-section">
       <div className="pro-image"><img src="/product-coffee.jpeg" alt={alts.coffee} /><span>CAKE SALON · CAFÉ &amp; HOTEL</span></div>
       <div className="pro-copy"><p className="kicker">{g.cafeKicker}</p><h2><Lines>{g.cafeTitle}</Lines></h2><p>{g.cafeText}</p><a className="button button-dark" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
+    </section>
+
+    <section className="coffee-moments">
+      <div className="coffee-moments-heading"><p className="kicker">{coffee.kicker}</p><h2><Lines>{coffee.title}</Lines></h2><p>{coffee.intro}</p></div>
+      <div className="coffee-moments-grid">{coffeeImages.map((src, index) => <figure key={src}><img src={src} alt={coffee.alts[index]} /><figcaption><span>0{index + 1}</span><b>{["I LOVE YOU", "CONGRATS", "THANK YOU"][index]}</b><small>{coffee.labels[index]}</small></figcaption></figure>)}</div>
     </section>
 
     <section className="proof-section"><div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div><div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div></section>
