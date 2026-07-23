@@ -9,7 +9,7 @@ const storeUrl = "https://smartstore.naver.com/cake";
 const productUrls = {
   a4: "https://smartstore.naver.com/cake/products/237929418",
   a3: `${storeUrl}/products/12030000093`,
-  custom: `${storeUrl}/products/5874096848`,
+  custom: `${storeUrl}/products/568462601`,
 };
 
 const copy = {
@@ -175,16 +175,16 @@ const petiteDesserts: Record<Lang, { cookieKicker: string; cookieTitle: string; 
 const cookieImages = ["/cookie-love.png", "/cookie-celebrate.png", "/cookie-thank-you.png"];
 const macaronImages = ["/macaron-thin-anniversary.png", "/macaron-thin-celebrate.png", "/macaron-thin-floral.png"];
 const ideaCollections: Record<Lang, { kicker: string; title: string; intro: string; action: string; items: Array<[string, string, string]> }> = {
-  ko: { kicker: "MORE WAYS TO CREATE", title: "한 장의 아이싱시트로\n더 다양한 순간을 디자인하세요.", intro: "제품보다 먼저 사용 목적을 선택해 보세요. 행사와 브랜드에 맞는 크기, 이미지, 디저트 구성을 1:1로 제안합니다.", action: "이 아이디어로 문의", items: [["WEDDING", "웨딩 디저트 컬렉션", "마카롱·쿠키·초콜릿을 하나의 디자인으로 연결한 웨딩 테이블"], ["BRAND", "기업 프로모션 세트", "로고 캔디·쿠키·컵케이크로 구성하는 행사 및 브랜드 캠페인"], ["CELEBRATION", "돌잔치·답례품", "사진, 이름, 날짜를 담아 기억에 남는 소량 맞춤 선물 제작"], ["PETIT DESSERT", "초콜릿·컵케이크", "작은 디저트에도 선명하게 표현되는 메시지와 시즌 디자인"], ["HOSPITALITY", "호텔 웰컴 디저트", "객실 환영 문구, 행사 BI, VIP 메시지를 담은 프리미엄 구성"], ["PREVIEW", "맞춤 디자인 미리보기", "사진이나 로고를 보내면 적용 디저트와 권장 규격을 상담해 드립니다."]] },
-  en: { kicker: "MORE WAYS TO CREATE", title: "Design more meaningful moments\nwith a single icing sheet.", intro: "Start with the occasion, not the product. We recommend the right size, artwork and dessert mix for each event or brand.", action: "Ask about this idea", items: [["WEDDING", "Wedding Dessert Collection", "Unify macarons, cookies and chocolates with one elegant wedding design."], ["BRAND", "Corporate Promotion Set", "Build campaigns with coordinated logo candy, cookies and cupcakes."], ["CELEBRATION", "First Birthday & Favors", "Create memorable small-batch gifts with a photo, name and date."], ["PETIT DESSERT", "Chocolate & Cupcakes", "Add crisp messages and seasonal artwork to petite desserts."], ["HOSPITALITY", "Hotel Welcome Desserts", "Present welcome notes, event identities and VIP messages with polish."], ["PREVIEW", "Custom Design Preview", "Send a photo or logo to receive dessert and size recommendations."]] },
-  ja: { kicker: "MORE WAYS TO CREATE", title: "一枚のアイシングシートで\n多彩なシーンをデザイン。", intro: "商品ではなく用途から選択。イベントやブランドに合うサイズ、イメージ、デザート構成をご提案します。", action: "このアイデアを相談", items: [["WEDDING", "ウェディングデザート", "マカロン、クッキー、チョコレートを統一デザインで演出。"], ["BRAND", "企業プロモーション", "ロゴキャンディ、クッキー、カップケーキでキャンペーンを構成。"], ["CELEBRATION", "一歳祝い・プチギフト", "写真、名前、日付を入れた小ロットの記念ギフト。"], ["PETIT DESSERT", "チョコレート・カップケーキ", "小さなデザートにも鮮明なメッセージと季節のデザイン。"], ["HOSPITALITY", "ホテルウェルカムデザート", "客室メッセージ、イベントBI、VIP向けの上質な演出。"], ["PREVIEW", "オーダーデザインプレビュー", "写真やロゴから適したデザートとサイズをご提案。"]] },
-  zh: { kicker: "MORE WAYS TO CREATE", title: "用一张可食用糖霜纸\n设计更多重要时刻。", intro: "从使用场景而不是产品开始选择，我们将为活动与品牌推荐合适的尺寸、图案和甜点组合。", action: "咨询此创意", items: [["WEDDING", "婚礼甜点系列", "以统一设计连接马卡龙、曲奇与巧克力。"], ["BRAND", "企业推广组合", "用品牌棒棒糖、曲奇与纸杯蛋糕打造推广活动。"], ["CELEBRATION", "周岁宴与回礼", "以照片、姓名和日期制作小批量纪念礼物。"], ["PETIT DESSERT", "巧克力与纸杯蛋糕", "在精致小甜点上呈现清晰信息与季节图案。"], ["HOSPITALITY", "酒店欢迎甜点", "呈现客房欢迎语、活动标识与VIP信息。"], ["PREVIEW", "定制设计预览", "发送照片或标志，获取甜点与尺寸建议。"]] },
+  ko: { kicker: "CUSTOM PRODUCTION WORK ORDER", title: "맞춤 제작 작업지시서", intro: "사용 목적을 선택한 뒤 제작 대상, 규격, 수량, 납기와 디자인 파일을 순서대로 입력하세요. 입력 내용은 이메일 작업지시서로 정리됩니다.", action: "용도로 선택", items: [["WEDDING", "웨딩·기념일", "웨딩 케이크, 마카롱, 쿠키와 답례품"], ["BRAND", "기업·브랜드 행사", "로고, BI, 프로모션과 대량 제작"], ["CELEBRATION", "돌잔치·생일", "사진, 이름, 날짜가 들어간 기념 디자인"], ["PETIT DESSERT", "소형 디저트", "마카롱, 쿠키, 초콜릿과 컵케이크"], ["HOSPITALITY", "카페·호텔", "커피, 칵테일, 웰컴 디저트와 VIP 행사"], ["OTHER", "기타 맞춤 제작", "별도 용도와 규격을 작업 내용에 직접 입력"]] },
+  en: { kicker: "CUSTOM PRODUCTION WORK ORDER", title: "Custom Production Work Order", intro: "Select the purpose, then specify the application, size, quantity, due date and design file. The details are formatted into an email work order.", action: "Select purpose", items: [["WEDDING", "Wedding & Anniversary", "Wedding cakes, macarons, cookies and favors"], ["BRAND", "Corporate & Brand Event", "Logos, brand identity, promotions and volume production"], ["CELEBRATION", "Birthday Celebration", "Commemorative designs with a photo, name and date"], ["PETIT DESSERT", "Petite Desserts", "Macarons, cookies, chocolates and cupcakes"], ["HOSPITALITY", "Café & Hotel", "Coffee, cocktails, welcome desserts and VIP events"], ["OTHER", "Other Custom Project", "Describe a separate application and specification in the brief"]] },
+  ja: { kicker: "CUSTOM PRODUCTION WORK ORDER", title: "オーダー制作指示書", intro: "用途を選び、対象、サイズ、数量、納期、デザインファイルを順番に入力してください。メール用の制作指示書に整理されます。", action: "用途を選択", items: [["WEDDING", "ウェディング・記念日", "ケーキ、マカロン、クッキー、プチギフト"], ["BRAND", "企業・ブランドイベント", "ロゴ、BI、プロモーション、大量制作"], ["CELEBRATION", "誕生日・お祝い", "写真、名前、日付を入れた記念デザイン"], ["PETIT DESSERT", "小型デザート", "マカロン、クッキー、チョコレート、カップケーキ"], ["HOSPITALITY", "カフェ・ホテル", "コーヒー、カクテル、ウェルカムデザート、VIPイベント"], ["OTHER", "その他のオーダー", "用途と仕様を指示内容に直接入力"]] },
+  zh: { kicker: "CUSTOM PRODUCTION WORK ORDER", title: "定制制作工作指示单", intro: "选择用途后，依次填写应用产品、尺寸、数量、交期和设计文件，系统将整理为邮件工作指示单。", action: "选择用途", items: [["WEDDING", "婚礼与纪念日", "蛋糕、马卡龙、曲奇与回礼"], ["BRAND", "企业与品牌活动", "标志、品牌识别、推广与批量制作"], ["CELEBRATION", "生日与庆祝", "包含照片、姓名和日期的纪念设计"], ["PETIT DESSERT", "小型甜点", "马卡龙、曲奇、巧克力与纸杯蛋糕"], ["HOSPITALITY", "咖啡馆与酒店", "咖啡、鸡尾酒、欢迎甜点与VIP活动"], ["OTHER", "其他定制制作", "在工作内容中直接填写用途与规格"]] },
 };
-const designFormCopy: Record<Lang, { title: string; intro: string; name: string; contact: string; details: string; file: string; fileHelp: string; submit: string; print: string; selected: string }> = {
-  ko: { title: "맞춤 디자인 요청 보내기", intro: "아이디어를 선택하고 요청사항을 입력하면 이메일 문의 내용이 자동으로 작성되며, 프린팅 서비스 주문 페이지도 함께 열립니다.", name: "이름·회사명", contact: "연락처", details: "원하는 문구·크기·수량·납기", file: "사진·로고 파일 선택", fileHelp: "보안상 파일은 이메일 화면에서 직접 첨부해 주세요.", submit: "이메일 전송 준비 + 프린팅 서비스", print: "프린팅 서비스만 보기", selected: "선택한 디자인" },
-  en: { title: "Send a custom design request", intro: "Choose an idea and enter the brief. A ready-to-send email and the printing-service order page will open together.", name: "Name / company", contact: "Contact details", details: "Message, size, quantity and due date", file: "Choose photo or logo", fileHelp: "For security, attach the selected file directly in the email window.", submit: "Prepare email + open printing service", print: "View printing service only", selected: "Selected design" },
-  ja: { title: "オーダーデザインを送信", intro: "アイデアと要望を入力すると、問い合わせメールとプリントサービス注文ページが同時に開きます。", name: "お名前・会社名", contact: "連絡先", details: "文字・サイズ・数量・希望納期", file: "写真・ロゴを選択", fileHelp: "安全のため、ファイルはメール画面で直接添付してください。", submit: "メール作成＋プリントサービス", print: "プリントサービスを見る", selected: "選択したデザイン" },
-  zh: { title: "发送定制设计需求", intro: "选择创意并填写需求后，将自动生成咨询邮件，同时打开打印服务订购页面。", name: "姓名／公司", contact: "联系方式", details: "文字、尺寸、数量与交期", file: "选择照片或标志", fileHelp: "为确保安全，请在邮件窗口中直接添加附件。", submit: "准备邮件＋打开打印服务", print: "仅查看打印服务", selected: "已选设计" },
+const designFormCopy: Record<Lang, { title: string; intro: string; name: string; contact: string; product: string; size: string; quantity: string; due: string; details: string; file: string; fileHelp: string; submit: string; print: string; selected: string; steps: string[] }> = {
+  ko: { title: "제작 정보를 입력하세요", intro: "필수 제작 조건을 작성하면 이메일에 작업지시서 형식으로 정리되고 프린팅 서비스 주문 페이지가 함께 열립니다.", name: "이름·회사명", contact: "연락처·이메일", product: "적용 제품·디저트", size: "완성 규격", quantity: "수량", due: "희망 납기", details: "인쇄 문구·색상·커팅 형태·기타 요청", file: "사진·로고 파일 선택", fileHelp: "보안상 선택한 파일은 이메일 화면에서 직접 첨부해 주세요.", submit: "작업지시서 이메일 작성", print: "프린팅 서비스 바로가기", selected: "선택 용도", steps: ["용도 선택", "제작 정보", "파일 확인", "전송·주문"] },
+  en: { title: "Enter production details", intro: "The required production details are formatted as an email work order, and the printing-service order page opens with it.", name: "Name / company", contact: "Phone / email", product: "Application / dessert", size: "Finished size", quantity: "Quantity", due: "Requested due date", details: "Print copy, colors, cut shape and other notes", file: "Choose photo or logo", fileHelp: "For security, attach the selected file directly in the email window.", submit: "Prepare work-order email", print: "Open printing service", selected: "Selected purpose", steps: ["Purpose", "Production details", "File check", "Send & order"] },
+  ja: { title: "制作情報を入力", intro: "制作条件をメール用の指示書に整理し、プリントサービス注文ページも同時に開きます。", name: "お名前・会社名", contact: "電話・メール", product: "対象商品・デザート", size: "仕上がりサイズ", quantity: "数量", due: "希望納期", details: "印刷文字・色・カット形状・その他", file: "写真・ロゴを選択", fileHelp: "安全のため、選択したファイルはメール画面で直接添付してください。", submit: "指示書メールを作成", print: "プリントサービスへ", selected: "選択用途", steps: ["用途選択", "制作情報", "ファイル確認", "送信・注文"] },
+  zh: { title: "填写制作信息", intro: "制作条件将整理为邮件工作指示单，并同时打开打印服务订购页面。", name: "姓名／公司", contact: "电话／邮箱", product: "应用产品／甜点", size: "成品尺寸", quantity: "数量", due: "期望交期", details: "印刷文字、颜色、裁切形状及其他要求", file: "选择照片或标志", fileHelp: "为确保安全，请在邮件窗口中直接添加所选文件。", submit: "生成工作指示邮件", print: "前往打印服务", selected: "已选用途", steps: ["选择用途", "制作信息", "文件确认", "发送与订购"] },
 };
 const dessertMoments: Record<Lang, { kicker: string; title: string; intro: string; items: Array<[string, string]>; alts: string[] }> = {
   ko: { kicker: "SEASONAL CAKE INSPIRATION", title: "익숙한 디저트도\n새로운 작품으로.", intro: "컬러풀한 붕어 식용 이미지, 따뜻한 붕어빵 구성, 풍성한 제철 과일까지 아이싱시트로 다양한 케이크 이야기를 완성합니다.", items: [["컬러 붕어 케이크", "부드러운 붕어 모양 케이크 위에 보석빛 수채화 붕어 아이싱시트를 더한 시그니처 디저트"], ["붕어빵 케이크", "붕어빵·팥·밤과 수채화 아이싱시트를 조합한 따뜻하고 친숙한 겨울 디저트"], ["과일 케이크", "보석처럼 선명한 과일과 플로럴 아이싱시트가 어우러진 축하 케이크"]], alts: ["컬러풀한 수채화 붕어 식용 이미지를 장식한 붕어 모양 케이크", "수채화 붕어빵 아이싱시트와 붕어빵을 장식한 케이크", "과일 화환 아이싱시트와 제철 과일을 장식한 과일 케이크"] },
@@ -201,6 +201,10 @@ export default function Home() {
   const [selectedIdea, setSelectedIdea] = useState(0);
   const [designName, setDesignName] = useState("");
   const [designContact, setDesignContact] = useState("");
+  const [designProduct, setDesignProduct] = useState("");
+  const [designSize, setDesignSize] = useState("");
+  const [designQuantity, setDesignQuantity] = useState("");
+  const [designDue, setDesignDue] = useState("");
   const [designDetails, setDesignDetails] = useState("");
   const [designFile, setDesignFile] = useState("");
   const t: Copy = copy[lang];
@@ -226,6 +230,10 @@ export default function Home() {
       `${form.selected}: ${selected[1]} (${selected[0]})`,
       `${form.name}: ${designName || "-"}`,
       `${form.contact}: ${designContact || "-"}`,
+      `${form.product}: ${designProduct || "-"}`,
+      `${form.size}: ${designSize || "-"}`,
+      `${form.quantity}: ${designQuantity || "-"}`,
+      `${form.due}: ${designDue || "-"}`,
       `${form.details}: ${designDetails || "-"}`,
       `${form.file}: ${designFile || "-"}`,
       "",
@@ -322,15 +330,25 @@ export default function Home() {
 
     <section className="ideas-section">
       <div className="ideas-heading"><div><p className="kicker">{ideas.kicker}</p><h2><Lines>{ideas.title}</Lines></h2></div><p>{ideas.intro}</p></div>
-      <div className="ideas-grid">{ideas.items.map(([eyebrow, title, description], index) => <article key={eyebrow} className={`idea-card idea-${index + 1}${selectedIdea === index ? " is-selected" : ""}`}><span>0{index + 1}</span><small>{eyebrow}</small><h3>{title}</h3><p>{description}</p><button type="button" onClick={() => setSelectedIdea(index)}>{ideas.action} <Arrow /></button></article>)}</div>
-      <form className="design-request" id="custom-design" onSubmit={submitDesignRequest}>
-        <div className="design-request-heading"><small>{form.selected}</small><b>{ideas.items[selectedIdea][1]}</b><h3>{form.title}</h3><p>{form.intro}</p></div>
-        <div className="design-fields">
-          <label><span>{form.name}</span><input value={designName} onChange={(event) => setDesignName(event.target.value)} required /></label>
-          <label><span>{form.contact}</span><input value={designContact} onChange={(event) => setDesignContact(event.target.value)} required /></label>
-          <label className="wide-field"><span>{form.details}</span><textarea value={designDetails} onChange={(event) => setDesignDetails(event.target.value)} rows={4} required /></label>
-          <label className="wide-field file-field"><span>{form.file}</span><input type="file" accept="image/*,.pdf" onChange={(event) => setDesignFile(event.target.files?.[0]?.name || "")} /><small>{designFile || form.fileHelp}</small></label>
-          <div className="design-actions wide-field"><button className="button button-dark" type="submit">{form.submit} <Arrow /></button><a href={productUrls.custom} target="_blank" rel="noreferrer">{form.print} <Arrow /></a></div>
+      <form className="design-request work-order" id="custom-design" onSubmit={submitDesignRequest}>
+        <ol className="work-order-steps">{form.steps.map((step, index) => <li key={step}><span>0{index + 1}</span>{step}</li>)}</ol>
+        <fieldset className="work-purpose">
+          <legend><span>01</span>{form.steps[0]}</legend>
+          <div className="purpose-grid">{ideas.items.map(([eyebrow, title, description], index) => <button key={eyebrow} type="button" aria-pressed={selectedIdea === index} className={selectedIdea === index ? "is-selected" : ""} onClick={() => setSelectedIdea(index)}><small>{eyebrow}</small><b>{title}</b><span>{description}</span><i>{selectedIdea === index ? "✓" : "＋"}</i></button>)}</div>
+        </fieldset>
+        <div className="design-request-body">
+          <div className="design-request-heading"><small>{form.selected}</small><b>{ideas.items[selectedIdea][1]}</b><h3>{form.title}</h3><p>{form.intro}</p></div>
+          <div className="design-fields">
+            <label><span>{form.name}</span><input value={designName} onChange={(event) => setDesignName(event.target.value)} required /></label>
+            <label><span>{form.contact}</span><input value={designContact} onChange={(event) => setDesignContact(event.target.value)} required /></label>
+            <label><span>{form.product}</span><input value={designProduct} onChange={(event) => setDesignProduct(event.target.value)} placeholder="Cake / Macaron / Cookie / Drink" required /></label>
+            <label><span>{form.size}</span><input value={designSize} onChange={(event) => setDesignSize(event.target.value)} placeholder="예: 원형 90mm" required /></label>
+            <label><span>{form.quantity}</span><input type="number" min="1" value={designQuantity} onChange={(event) => setDesignQuantity(event.target.value)} required /></label>
+            <label><span>{form.due}</span><input type="date" value={designDue} onChange={(event) => setDesignDue(event.target.value)} required /></label>
+            <label className="wide-field"><span>{form.details}</span><textarea value={designDetails} onChange={(event) => setDesignDetails(event.target.value)} rows={4} required /></label>
+            <label className="wide-field file-field"><span>{form.file}</span><input type="file" accept="image/*,.pdf" onChange={(event) => setDesignFile(event.target.files?.[0]?.name || "")} /><small>{designFile || form.fileHelp}</small></label>
+            <div className="design-actions wide-field"><button className="button button-dark" type="submit">{form.submit} <Arrow /></button><a href={productUrls.custom} target="_blank" rel="noreferrer">{form.print} <Arrow /></a></div>
+          </div>
         </div>
       </form>
     </section>
