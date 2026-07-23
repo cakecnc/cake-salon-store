@@ -367,7 +367,13 @@ export default function Home() {
       <div className="final-shade" /><div className="final-copy"><p className="kicker light-kicker">CAKE SALON</p><h2><Lines>{t.final}</Lines></h2><p>{t.finalText}</p><div className="final-actions"><a className="button button-light" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div><div className="final-contacts"><span>{t.phone}</span><span>{t.email}</span></div></div>
     </section>
 
-    <footer><a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a><p>© 2026 C&amp;C CORPORATION · SEOUL, KOREA</p><span>cakecnc@daum.net</span><a href={productUrls.a4} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a></footer>
+    <footer>
+      <a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a>
+      <p>© 2026 C&amp;C CORPORATION · SEOUL, KOREA</p>
+      <span>cakecnc@daum.net</span>
+      <a href={productUrls.a4} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a>
+      <p className="footer-editorial-note">As Shakespeare reminds us, “What’s past is prologue.” In that spirit, certain portions of this document have been prepared with reference to AI-assisted materials. All rights, licenses, and editorial responsibility pertaining to this work are retained by its author, Sungjae Lim, Director of Planning.</p>
+    </footer>
     <div className="mobile-cta" aria-label="Quick actions"><a href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase}</a><a href={inquiryUrl}>{c.inquiry}</a></div>
   </main>;
 }
