@@ -1075,3 +1075,320 @@ main img {
   .how-section ol { min-height: 0; display: block; }
   .how-section li,.how-section li:first-child { min-height: 138px; padding: 24px 0; }
 }
+
+/* Unified grid and tighter page rhythm */
+:root { --content-max: 1320px; }
+
+.section-heading,
+.product-grid,
+.guide-heading,
+.feature-grid,
+.gallery-copy,
+.gallery-grid,
+.dessert-heading,
+.dessert-grid,
+.coffee-moments-grid,
+.cocktail-heading,
+.cocktail-grid,
+.petite-heading,
+.petite-grid,
+.ideas-heading,
+.design-request {
+  width: 100%;
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shop-section,
+.gallery-section,
+.dessert-stories,
+.coffee-moments,
+.cocktail-showcase,
+.candy-showcase,
+.petite-showcase,
+.ideas-section {
+  padding: 104px 6vw;
+}
+
+.section-heading,
+.gallery-copy,
+.dessert-heading,
+.coffee-moments-heading,
+.cocktail-heading,
+.petite-heading,
+.ideas-heading {
+  margin-bottom: 44px;
+}
+
+.gallery-copy { margin-left: auto; }
+.gallery-copy h2,
+.gallery-copy > p:last-child { max-width: 880px; }
+.gallery-grid {
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 20px;
+}
+.gallery-item,
+.gallery-2,
+.gallery-3 { margin-top: 0; }
+.gallery-item img,
+.gallery-2 img,
+.gallery-3 img {
+  height: 460px;
+  border-radius: 190px 190px 18px 18px;
+}
+
+.product-grid,
+.dessert-grid,
+.coffee-moments-grid,
+.petite-grid { gap: 20px; }
+.cookie-showcase .petite-grid figure:nth-child(2),
+.macaron-showcase .petite-grid figure:nth-child(3) { transform: none; }
+
+.how-section {
+  padding: 96px max(6vw,40px);
+  gap: clamp(48px,6vw,88px);
+}
+.pro-section {
+  width: min(var(--content-max),calc(100% - 12vw));
+  min-height: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.coffee-moments { padding-top: 104px; }
+.cocktail-grid,
+.candy-grid { gap: 20px; }
+.proof-section,
+.reviews-section { padding: 96px 6vw; }
+.proof-heading,
+.reviews-heading { margin-bottom: 42px; }
+
+.company-section {
+  width: min(var(--content-max),calc(100% - 12vw));
+  min-height: 430px;
+  margin: 60px auto;
+}
+.company-copy { padding: 54px clamp(38px,4.2vw,64px); }
+.company-logo {
+  min-height: 430px;
+  padding: 32px;
+}
+.final-section {
+  width: min(var(--content-max),calc(100% - 12vw));
+  height: 620px;
+  margin: 0 auto 36px;
+}
+
+/* Compact certification documents */
+.certification-docs {
+  width: 100%;
+  max-width: 1100px;
+  margin: 22px auto 0;
+  display: grid;
+  grid-template-columns: .82fr 1fr 1fr;
+  border: 1px solid rgba(49,94,85,.16);
+  border-radius: 16px;
+  overflow: hidden;
+  background: rgba(255,255,255,.72);
+}
+.certification-title {
+  padding: 20px 22px;
+  display: grid;
+  align-content: center;
+  gap: 7px;
+  background: rgba(49,94,85,.08);
+}
+.certification-title b {
+  color: var(--emerald-jewel);
+  font: 20px Georgia,"Nanum Myeongjo",serif;
+}
+.certification-title span {
+  color: #6e746f;
+  font-size: 9px;
+  line-height: 1.55;
+}
+.certification-document {
+  min-width: 0;
+  padding: 18px 20px;
+  display: grid;
+  grid-template-columns: auto minmax(0,1fr);
+  gap: 6px 14px;
+  align-items: center;
+  border-left: 1px solid rgba(49,94,85,.14);
+  background: rgba(255,255,255,.55);
+  transition: background .2s ease;
+}
+.certification-document:hover { background: white; }
+.certification-document > small {
+  grid-row: 1 / 3;
+  min-width: 37px;
+  padding: 9px 7px;
+  color: white;
+  background: linear-gradient(135deg,#4b5d78,#315e55);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-align: center;
+}
+.certification-document > span { min-width: 0; display: grid; gap: 5px; }
+.certification-document > span b {
+  color: #314b45;
+  font-size: 10px;
+  line-height: 1.45;
+}
+.certification-document > span i {
+  color: #77726e;
+  font-size: 8px;
+  font-style: normal;
+}
+.certification-document > em {
+  grid-column: 2;
+  color: #7f344a;
+  font-size: 8px;
+  font-style: normal;
+  font-weight: 800;
+}
+
+/* Compact, aligned footer */
+footer {
+  min-height: 0;
+  padding: 20px max(28px,4.5vw) 16px;
+  display: grid;
+  grid-template-columns: auto minmax(220px,1fr) auto auto;
+  align-items: center;
+  column-gap: clamp(18px,3vw,46px);
+  row-gap: 12px;
+}
+footer .footer-mark { justify-self: start; }
+footer > p:not(.footer-editorial-note) { margin: 0; justify-self: center; }
+footer > span,
+footer > a:last-of-type { justify-self: end; }
+.footer-editorial-note {
+  grid-column: 1 / -1;
+  width: auto;
+  margin: 0;
+  padding-top: 13px;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+@media (min-width:761px) and (max-width:1100px) {
+  .product-grid { max-width: 900px; grid-template-columns: 1fr; }
+  .product-card {
+    display: grid;
+    grid-template-columns: .9fr 1.1fr;
+    min-height: 390px;
+  }
+  .product-art {
+    height: 100%;
+    min-height: 390px;
+    border-radius: 24px 0 0 24px;
+  }
+  .product-copy { min-height: 0; }
+}
+
+@media (max-width:900px) {
+  .shop-section,
+  .gallery-section,
+  .dessert-stories,
+  .coffee-moments,
+  .cocktail-showcase,
+  .candy-showcase,
+  .petite-showcase,
+  .ideas-section,
+  .proof-section,
+  .reviews-section { padding: 82px 40px; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-3 { grid-column: 1 / 3; }
+  .gallery-item img,
+  .gallery-2 img,
+  .gallery-3 img { height: 390px; }
+  .how-section { padding: 76px 40px; gap: 36px; }
+  .how-thumb { height: 300px; }
+  .how-section ol { min-height: 0; }
+  .company-section,
+  .pro-section,
+  .final-section { width: calc(100% - 40px); }
+  .company-section { min-height: 0; margin: 46px auto; }
+  .company-logo { min-height: 300px; }
+  .final-section { height: 570px; margin-bottom: 20px; }
+  .certification-docs { grid-template-columns: 1fr 1fr; }
+  .certification-title { grid-column: 1 / -1; }
+  .certification-document:first-of-type { border-left: 0; }
+  footer {
+    padding: 20px 28px 16px;
+    grid-template-columns: auto minmax(0,1fr) auto;
+    column-gap: 24px;
+    row-gap: 6px;
+  }
+  footer .footer-mark { grid-column: 1; grid-row: 1 / 3; }
+  footer > p:not(.footer-editorial-note) { grid-column: 2; grid-row: 1; justify-self: start; }
+  footer > span { grid-column: 2; grid-row: 2; justify-self: start; }
+  footer > a:last-of-type { grid-column: 3; grid-row: 1 / 3; }
+  .footer-editorial-note { grid-column: 1 / -1; grid-row: 3; margin-top: 6px; }
+}
+
+@media (max-width:620px) {
+  .shop-section,
+  .gallery-section,
+  .dessert-stories,
+  .coffee-moments,
+  .cocktail-showcase,
+  .candy-showcase,
+  .petite-showcase,
+  .ideas-section,
+  .proof-section,
+  .reviews-section { padding: 72px 22px; }
+  .section-heading,
+  .gallery-copy,
+  .dessert-heading,
+  .coffee-moments-heading,
+  .cocktail-heading,
+  .petite-heading,
+  .ideas-heading,
+  .proof-heading,
+  .reviews-heading { margin-bottom: 36px; }
+  .gallery-grid { display: block; }
+  .gallery-item,
+  .gallery-2,
+  .gallery-3 { margin-bottom: 18px; }
+  .gallery-item img,
+  .gallery-2 img,
+  .gallery-3 img { height: 340px; }
+  .how-section { padding: 68px 22px; gap: 32px; }
+  .how-thumb { height: 250px; }
+  .how-section li,
+  .how-section li:first-child { min-height: 0; padding: 21px 0; }
+  .pro-section,
+  .company-section,
+  .final-section { width: calc(100% - 28px); }
+  .pro-image { height: 320px; }
+  .pro-copy,
+  .company-copy { padding: 54px 24px; }
+  .company-logo { min-height: 235px; padding: 24px; }
+  .final-section { height: 540px; margin: 0 auto 14px; }
+  .certification-docs { display: block; }
+  .certification-title { padding: 18px; }
+  .certification-document {
+    padding: 16px 18px;
+    border-left: 0;
+    border-top: 1px solid rgba(49,94,85,.14);
+  }
+  footer {
+    padding: 20px 22px 16px;
+    grid-template-columns: 1fr auto;
+    column-gap: 16px;
+    row-gap: 8px;
+  }
+  footer .footer-mark { grid-column: 1; grid-row: 1; }
+  footer > a:last-of-type { grid-column: 2; grid-row: 1; align-self: center; }
+  footer > p:not(.footer-editorial-note) { grid-column: 1 / -1; grid-row: 2; margin: 0; }
+  footer > span { grid-column: 1 / -1; grid-row: 3; }
+  .footer-editorial-note {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    margin: 4px 0 0;
+    padding-top: 12px;
+    font-size: 7.5px;
+  }
+}

@@ -139,6 +139,49 @@ const conversionCopy: Record<Lang, {
   ja: { purchase: "NAVERスマートストアで購入", inquiry: "1:1オーダー相談", currentPrice: "販売価格", specs: "構成・サイズ", order: "注文条件", productMeta: [["40,000ウォン", "A4 · 25枚", "最小注文：1パック"], ["6,840ウォン〜", "A4オーダープリント", "注文単位は商品オプション基準"]], guideNote: "商品の特徴、サイズ、使い方をひと目で確認できます。", proofKicker: "VERIFIED PROOF", proofTitle: "確認できる情報と\n実際の制作例だけを掲載。", proofText: "公式商品情報と実際の制作画像を使用しています。価格はストアのオプションやキャンペーンにより変更される場合があります。" },
   zh: { purchase: "前往NAVER智能商店购买", inquiry: "1对1定制咨询", currentPrice: "售价", specs: "包装与规格", order: "订购条件", productMeta: [["40,000韩元", "A4 · 25张", "最低订购：1包装"], ["6,840韩元起", "A4定制打印", "订购单位以商品选项为准"]], guideNote: "产品特点、规格和使用方法一目了然。", proofKicker: "VERIFIED PROOF", proofTitle: "仅展示可核实信息与\n真实应用案例。", proofText: "内容基于官方产品资料和真实制作图片。价格可能因商店选项和促销活动而变化。" },
 };
+const certificationCopy: Record<Lang, {
+  title: string;
+  note: string;
+  open: string;
+  items: Array<[string, string, string, string]>;
+}> = {
+  ko: {
+    title: "인증·등록 자료",
+    note: "제공된 원본 문서의 기재 내용을 기준으로 안내합니다.",
+    open: "원본 PDF 보기",
+    items: [
+      ["FDA", "미국 FDA 식품시설 등록 자료", "문서 기재 유효기간", "2024.12.31"],
+      ["ISO", "ISO 22000 식품안전경영 인증 이력", "인증서 기재 유효기간", "2023.01.06"],
+    ],
+  },
+  en: {
+    title: "Registration & certification documents",
+    note: "Details are shown as stated in the supplied original documents.",
+    open: "View original PDF",
+    items: [
+      ["FDA", "U.S. FDA Food Facility Registration record", "Expiry stated in document", "2024.12.31"],
+      ["ISO", "ISO 22000 food-safety certification record", "Expiry stated in certificate", "2023.01.06"],
+    ],
+  },
+  ja: {
+    title: "登録・認証資料",
+    note: "ご提供いただいた原本書類の記載内容に基づく案内です。",
+    open: "原本PDFを見る",
+    items: [
+      ["FDA", "米国FDA 食品施設登録資料", "書類記載の有効期限", "2024.12.31"],
+      ["ISO", "ISO 22000 食品安全マネジメント認証履歴", "証明書記載の有効期限", "2023.01.06"],
+    ],
+  },
+  zh: {
+    title: "注册与认证资料",
+    note: "以下信息以所提供原始文件中的记载为准。",
+    open: "查看原始PDF",
+    items: [
+      ["FDA", "美国FDA食品设施注册资料", "文件标注有效期", "2024.12.31"],
+      ["ISO", "ISO 22000食品安全管理认证记录", "证书标注有效期", "2023.01.06"],
+    ],
+  },
+};
 const verifiedReviews: Record<Lang, { kicker: string; title: string; items: Array<{ product: string; quote: string; author: string; date: string }> }> = {
   ko: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "실제 구매자가 남긴\n확인된 후기", items: [{ product: "A4 아이싱시트 25장", quote: "만족합니다. 고맙습니다.", author: "skal****", date: "2026.05.30" }, { product: "A4 맞춤 프린팅", quote: "포장이 꼼꼼하고 사장님이 정말 친절하십니다. 재구매하겠습니다.", author: "dase********", date: "2026.07.16" }] },
   en: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "Verified reviews from\nreal customers", items: [{ product: "A4 Icing Sheets · 25", quote: "I am satisfied. Thank you.", author: "skal****", date: "2026.05.30" }, { product: "A4 Custom Printing", quote: "The packaging was careful and the owner was very kind. I will purchase again.", author: "dase********", date: "2026.07.16" }] },
@@ -212,6 +255,7 @@ export default function Home() {
   const details = guideDetails[lang];
   const alts = imageAlts[lang];
   const c = conversionCopy[lang];
+  const certificates = certificationCopy[lang];
   const reviews = verifiedReviews[lang];
   const coffee = coffeeMoments[lang];
   const cocktails = cocktailMoments[lang];
@@ -353,7 +397,16 @@ export default function Home() {
       </form>
     </section>
 
-    <section className="proof-section"><div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div><div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div></section>
+    <section className="proof-section">
+      <div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div>
+      <div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div>
+      <div className="certification-docs">
+        <div className="certification-title"><b>{certificates.title}</b><span>{certificates.note}</span></div>
+        {certificates.items.map(([mark, title, label, date], index) => <a className="certification-document" href={index === 0 ? "/documents/cnc-fda-registration-2024.pdf" : "/documents/cnc-iso22000-certificate.pdf"} target="_blank" rel="noreferrer" key={mark}>
+          <small>{mark}</small><span><b>{title}</b><i>{label} · {date}</i></span><em>{certificates.open} <Arrow /></em>
+        </a>)}
+      </div>
+    </section>
 
     <section className="reviews-section"><div className="reviews-heading"><p className="kicker">{reviews.kicker}</p><h2><Lines>{reviews.title}</Lines></h2></div><div className="reviews-grid">{reviews.items.map((review) => <blockquote key={`${review.author}-${review.date}`}><span>{review.product}</span><p>“{review.quote}”</p><div className="review-meta"><b>{review.author}</b><time>{review.date}</time></div></blockquote>)}</div></section>
 
