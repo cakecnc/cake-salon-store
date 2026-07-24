@@ -44,7 +44,7 @@ const copy = {
     steps: [["01", "디자인 준비", "사진·일러스트·로고를 원하는 크기로 준비합니다."], ["02", "필름에서 분리", "아이싱시트를 PET 필름에서 천천히 분리합니다."], ["03", "케이크 완성", "매끄러운 표면에 올려 손쉽게 마무리합니다."]],
     proKicker: "FOR PROFESSIONALS", proTitle: "카페·호텔·브랜드를 위한\n맞춤형 식용 콘텐츠.",
     proText: "신제품 론칭, VIP 행사, 시즌 메뉴와 기업 프로모션까지. 로고와 메시지가 담긴 식용 이미지를 브랜드 경험으로 연결합니다.", proCta: "B2B 맞춤 제작 문의",
-    trust: [["FDA", "관련 등록 안내"], ["18 MONTHS", "소비기한"], ["4.8 RATING", "아마존 평균"], ["WORLDWIDE", "수출 판매"]],
+    trust: [["FDA", "FDA 등록"], ["18 MONTHS", "소비기한"], ["4.8 RATING", "아마존 평균"], ["WORLDWIDE", "수출 판매"]],
     companyKicker: "C&C CORPORATION", companyTitle: "식용 프린팅의 가능성을\n세계 시장으로 확장합니다.",
     companyText: "주식회사 씨엔씨코퍼레이션은 케익살롱을 통해 아이싱시트 제조·유통과 식용 프린팅 솔루션을 제공하며, 국내 온라인 판매에서 글로벌 수출까지 사업을 확장하고 있습니다.",
     companyCta: "스마트스토어 방문", final: "오늘의 케이크를\n기억에 남는 작품으로.", finalText: "케익살롱의 제품과 맞춤 프린팅을 지금 만나보세요.", phone: "전화 상담 080-664-7077", email: "이메일 문의 cakecnc@daum.net",
@@ -61,7 +61,7 @@ const copy = {
     view: "View product", galleryKicker: "REAL APPLICATION", galleryTitle: "One printed image can\ntransform the whole cake.", galleryIntro: "Classic art, floral patterns, celebration photos and brand logos—see the color and detail Cake Salon can deliver.", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "Print, peel and\nsimply place.", steps: [["01", "Prepare your design", "Set your photo, illustration or logo to size."], ["02", "Peel from the film", "Gently release the sheet from its PET backing."], ["03", "Finish the cake", "Place it on a smooth surface and serve."]],
     proKicker: "FOR PROFESSIONALS", proTitle: "Edible brand content for\ncafés, hotels and events.", proText: "From launches and VIP events to seasonal menus and promotions, turn logos and messages into an edible brand experience.", proCta: "Ask about B2B orders",
-    trust: [["FDA", "Registration guidance"], ["18 MONTHS", "Shelf life"], ["4.8 RATING", "Amazon average"], ["WORLDWIDE", "Export sales"]],
+    trust: [["FDA", "FDA Registration"], ["18 MONTHS", "Shelf life"], ["4.8 RATING", "Amazon average"], ["WORLDWIDE", "Export sales"]],
     companyKicker: "C&C CORPORATION", companyTitle: "Expanding edible printing\nto the global market.", companyText: "C&C Corporation manufactures and distributes icing sheets through Cake Salon, offering complete edible-printing solutions from Korean ecommerce to global export.", companyCta: "Visit Smart Store", final: "Turn today’s cake into\na lasting work of art.", finalText: "Discover Cake Salon products and custom edible printing.", phone: "Call +82 80-664-7077", email: "Email cakecnc@daum.net",
     editorialNote: "As Shakespeare reminds us, “What’s past is prologue.” In that spirit, certain portions of this document have been prepared with reference to AI-assisted materials. All rights, licenses, and editorial responsibility pertaining to this work are retained by its author, Sungjae Lim, Director of Planning.",
   },
@@ -74,7 +74,7 @@ const copy = {
     view: "商品を見る", galleryKicker: "REAL APPLICATION", galleryTitle: "一枚のイメージが\nケーキの価値を変えます。", galleryIntro: "クラシックアート、花柄、記念写真、ブランドロゴまで鮮やかに表現します。", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "プリントして、はがして、\nのせるだけ。", steps: [["01", "デザイン準備", "写真・イラスト・ロゴを準備します。"], ["02", "フィルムからはがす", "PETフィルムからゆっくりはがします。"], ["03", "ケーキ完成", "なめらかな表面にのせて仕上げます。"]],
     proKicker: "FOR PROFESSIONALS", proTitle: "カフェ・ホテル・ブランド向け\n食用コンテンツ。", proText: "新商品、VIPイベント、季節メニュー、企業プロモーションまで食用イメージでブランド体験を作ります。", proCta: "B2Bオーダー相談",
-    trust: [["FDA", "関連登録案内"], ["18 MONTHS", "賞味期間"], ["4.8 RATING", "Amazon平均"], ["WORLDWIDE", "輸出販売"]],
+    trust: [["FDA", "FDA登録"], ["18 MONTHS", "賞味期間"], ["4.8 RATING", "Amazon平均"], ["WORLDWIDE", "輸出販売"]],
     companyKicker: "C&C CORPORATION", companyTitle: "食用プリントの可能性を\n世界市場へ。", companyText: "C&C Corporationはケーキサロンを通じてアイシングシートと食用プリントソリューションを提供し、グローバル輸出へ事業を拡大しています。", companyCta: "ストアを見る", final: "今日のケーキを\n記憶に残る作品へ。", finalText: "ケーキサロンの商品とオーダープリントをご覧ください。", phone: "電話 +82 80-664-7077", email: "メール cakecnc@daum.net",
     editorialNote: "シェイクスピアが示したように、“What’s past is prologue.” その趣旨に基づき、本書の一部はAI支援資料を参考に作成されています。本書に関するすべての権利、ライセンスおよび編集責任は、著者 Sungjae Lim, Director of Planning に帰属します。",
   },
@@ -87,7 +87,7 @@ const copy = {
     view: "查看产品", galleryKicker: "REAL APPLICATION", galleryTitle: "一张图像，\n改变蛋糕的价值。", galleryIntro: "从古典艺术、花卉图案到照片和品牌标志，展现清晰色彩与细节。", galleryLabels: ["CLASSIC ART", "ROMANTIC PORTRAIT", "FLORAL DESIGN"],
     useKicker: "3 SIMPLE STEPS", useTitle: "打印、揭下、\n轻轻放上。", steps: [["01", "准备设计", "准备照片、插画或品牌标志。"], ["02", "揭下底膜", "从PET底膜上慢慢揭下。"], ["03", "完成蛋糕", "放在平滑表面即可完成。"]],
     proKicker: "FOR PROFESSIONALS", proTitle: "为咖啡馆、酒店与品牌\n打造可食用内容。", proText: "从新品发布、VIP活动到季节菜单和企业推广，让标志与信息成为可品尝的品牌体验。", proCta: "咨询B2B定制",
-    trust: [["FDA", "相关注册说明"], ["18 MONTHS", "保质期"], ["4.8 RATING", "亚马逊平均"], ["WORLDWIDE", "出口销售"]],
+    trust: [["FDA", "FDA注册"], ["18 MONTHS", "保质期"], ["4.8 RATING", "亚马逊平均"], ["WORLDWIDE", "出口销售"]],
     companyKicker: "C&C CORPORATION", companyTitle: "将可食用打印的可能性\n拓展至全球市场。", companyText: "C&C Corporation 通过 Cake Salon 提供糖霜纸制造、销售与完整的可食用打印方案，并持续拓展全球出口。", companyCta: "访问商店", final: "让今天的蛋糕\n成为难忘的艺术品。", finalText: "立即了解 Cake Salon 产品与定制打印。", phone: "电话 +82 80-664-7077", email: "邮箱 cakecnc@daum.net",
     editorialNote: "正如莎士比亚所言：“What’s past is prologue.” 秉持这一精神，本文部分内容参考了AI辅助资料编写。与本作品相关的所有权利、许可及编辑责任均归作者 Sungjae Lim, Director of Planning 所有。",
   },
@@ -159,44 +159,22 @@ const conversionCopy: Record<Lang, {
 const certificationCopy: Record<Lang, {
   title: string;
   note: string;
-  open: string;
-  items: Array<[string, string]>;
 }> = {
   ko: {
-    title: "인증·등록 자료",
-    note: "원본 문서를 간단히 확인할 수 있습니다.",
-    open: "원본 PDF 보기",
-    items: [
-      ["FDA", "FDA 등록"],
-      ["ISO", "ISO 22000 등록"],
-    ],
+    title: "FDA 등록",
+    note: "미국 FDA 식품시설 등록",
   },
   en: {
-    title: "Registration documents",
-    note: "Open the original documents for reference.",
-    open: "View original PDF",
-    items: [
-      ["FDA", "FDA Registration"],
-      ["ISO", "ISO 22000 Registration"],
-    ],
+    title: "FDA Registration",
+    note: "U.S. FDA food facility registration",
   },
   ja: {
-    title: "登録資料",
-    note: "原本資料を簡単に確認できます。",
-    open: "原本PDFを見る",
-    items: [
-      ["FDA", "FDA登録"],
-      ["ISO", "ISO 22000登録"],
-    ],
+    title: "FDA登録",
+    note: "米国FDA食品施設登録",
   },
   zh: {
-    title: "注册资料",
-    note: "可快速查看原始文件。",
-    open: "查看原始PDF",
-    items: [
-      ["FDA", "FDA注册"],
-      ["ISO", "ISO 22000注册"],
-    ],
+    title: "FDA注册",
+    note: "美国FDA食品设施注册",
   },
 };
 const coffeeMoments: Record<Lang, { kicker: string; title: string; intro: string; labels: string[]; alts: string[] }> = {
@@ -519,10 +497,7 @@ export default function Home() {
       <div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div>
       <div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div>
       <div className="certification-docs">
-        <div className="certification-title"><b>{certificates.title}</b><span>{certificates.note}</span></div>
-        {certificates.items.map(([mark, title], index) => <a className="certification-document" href={index === 0 ? "/documents/cnc-fda-registration-2024.pdf" : "/documents/cnc-iso22000-certificate.pdf"} target="_blank" rel="noreferrer" key={mark}>
-          <small>{mark}</small><span><b>{title}</b></span><em>{certificates.open} <Arrow /></em>
-        </a>)}
+        <div className="certification-title"><small>FDA</small><span><b>{certificates.title}</b><i>{certificates.note}</i></span></div>
       </div>
     </section>
 

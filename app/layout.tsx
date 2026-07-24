@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     "쿠키 식용 이미지", "포토 쿠키", "로고 쿠키", "답례품 쿠키", "맞춤 쿠키 프린팅",
     "마카롱 식용 이미지", "로고 마카롱", "맞춤 마카롱", "웨딩 마카롱", "기업 선물 마카롱",
     "붕어빵 케이크", "붕어빵 케익", "과일 케이크", "과일 아이싱시트", "시즌 케이크 디자인",
-    "FDA 등록 아이싱시트", "ISO 22000 등록", "씨엔씨코퍼레이션", "C&C Corporation",
+    "FDA 등록 아이싱시트", "씨엔씨코퍼레이션", "C&C Corporation",
     "edible icing sheet", "edible image sheet", "edible cake printing", "custom cake printing",
     "アイシングシート", "食用プリント", "食用糖霜纸", "蛋糕食用打印"
   ],
