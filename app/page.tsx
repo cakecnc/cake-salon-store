@@ -524,7 +524,7 @@ export default function Home() {
 
     <footer>
       <a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a>
-      <p>© 2026 C&amp;C CORPORATION · SEOUL, KOREA</p>
+      <p>© 2026 C&amp;C Corporation. All rights reserved.</p>
       <span>cakecnc@daum.net</span>
       <a href={productUrls.a4} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a>
       <p className="footer-editorial-note">{t.editorialNote}</p>
