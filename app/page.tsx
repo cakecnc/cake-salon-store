@@ -11,6 +11,20 @@ const productUrls = {
   a3: `${storeUrl}/products/12030000093`,
   custom: `${storeUrl}/products/568462601`,
 };
+const legalCompany = {
+  name: "주식회사 씨엔씨코퍼레이션",
+  representative: "임은준",
+  registrationNumber: "140-81-50087",
+  address: "경기도 부천시 원미구 부천로198번길 36(춘의동, 춘의테크노파크 102-208)",
+  phone: "080-664-7077",
+  email: "cakecnc@daum.net",
+};
+const businessLabels: Record<Lang, { title: string; company: string; representative: string; registration: string; address: string; phone: string; email: string }> = {
+  ko: { title: "사업자 정보", company: "상호명", representative: "대표자", registration: "사업자등록번호", address: "사업장 주소", phone: "고객센터", email: "이메일" },
+  en: { title: "Company information", company: "Legal company", representative: "Representative", registration: "Business registration", address: "Registered address", phone: "Customer service", email: "Email" },
+  ja: { title: "事業者情報", company: "法人名", representative: "代表者", registration: "事業者登録番号", address: "事業所住所", phone: "カスタマーサービス", email: "メール" },
+  zh: { title: "企业信息", company: "法定公司名称", representative: "代表人", registration: "营业登记号码", address: "注册地址", phone: "客户服务", email: "邮箱" },
+};
 
 const copy = {
   ko: {
@@ -345,6 +359,7 @@ export default function Home() {
   const ideas = ideaCollections[lang];
   const form = designFormCopy[lang];
   const desserts = dessertMoments[lang];
+  const business = businessLabels[lang];
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
   const submitDesignRequest = (event: React.FormEvent<HTMLFormElement>) => {
@@ -513,7 +528,18 @@ export default function Home() {
     </section>
 
     <section className="company-section" id="company">
-      <div className="company-copy"><p className="kicker">{t.companyKicker}</p><h2><Lines>{t.companyTitle}</Lines></h2><p>{t.companyText}</p><div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={inquiryUrl}>{c.inquiry}</a></div></div>
+      <div className="company-copy">
+        <p className="kicker">{t.companyKicker}</p>
+        <h2><Lines>{t.companyTitle}</Lines></h2>
+        <p>{t.companyText}</p>
+        <dl className="company-facts" aria-label={business.title}>
+          <div><dt>{business.company}</dt><dd>{legalCompany.name}</dd></div>
+          <div><dt>{business.representative}</dt><dd>{legalCompany.representative}</dd></div>
+          <div><dt>{business.registration}</dt><dd>{legalCompany.registrationNumber}</dd></div>
+          <div className="wide"><dt>{business.address}</dt><dd>{legalCompany.address}</dd></div>
+        </dl>
+        <div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={inquiryUrl}>{c.inquiry}</a></div>
+      </div>
       <div className="company-logo"><img src="/cnc-logo.jpeg" alt={alts.logo} /></div>
     </section>
 
@@ -522,11 +548,20 @@ export default function Home() {
       <div className="final-shade" /><div className="final-copy"><p className="kicker light-kicker">CAKE SALON</p><h2><Lines>{t.final}</Lines></h2><p>{t.finalText}</p><div className="final-actions"><a className="button button-light" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div><div className="final-contacts"><span>{t.phone}</span><span>{t.email}</span></div></div>
     </section>
 
-    <footer>
-      <a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a>
-      <p>© 2026 C&amp;C Corporation. All rights reserved.</p>
-      <span>cakecnc@daum.net</span>
-      <a href={productUrls.a4} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a>
+    <footer className="site-footer">
+      <div className="footer-brand">
+        <a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a>
+        <p>© 2026 C&amp;C Corporation. All rights reserved.</p>
+      </div>
+      <div className="footer-business" aria-label={business.title}>
+        <p><b>{business.company}</b><span>{legalCompany.name}</span></p>
+        <p><b>{business.representative}</b><span>{legalCompany.representative}</span></p>
+        <p><b>{business.registration}</b><span>{legalCompany.registrationNumber}</span></p>
+        <p className="wide"><b>{business.address}</b><span>{legalCompany.address}</span></p>
+        <p><b>{business.phone}</b><a href={`tel:${legalCompany.phone}`}>{legalCompany.phone}</a></p>
+        <p><b>{business.email}</b><a href={`mailto:${legalCompany.email}`}>{legalCompany.email}</a></p>
+      </div>
+      <a className="footer-store" href={productUrls.a4} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a>
       <p className="footer-editorial-note">{t.editorialNote}</p>
     </footer>
     <div className="mobile-cta" aria-label="Quick actions"><a href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase}</a><a href={inquiryUrl}>{c.inquiry}</a></div>

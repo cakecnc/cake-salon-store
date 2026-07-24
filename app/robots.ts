@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "Yeti", allow: "/" },
       { userAgent: "Googlebot", allow: "/" },
     ],
-    sitemap: "https://cakesalon.kr/sitemap.xml",
-    host: "https://cakesalon.kr",
+    sitemap: "https://www.edibleicingsheet.com/sitemap.xml",
+    host: "https://www.edibleicingsheet.com",
   };
 }

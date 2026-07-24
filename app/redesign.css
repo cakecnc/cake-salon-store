@@ -1617,3 +1617,138 @@ footer > a:last-of-type { justify-self: end; }
     font-size: 7.5px;
   }
 }
+
+/* Verified business identity for Naver Ads review */
+.company-facts {
+  max-width: 660px;
+  margin: 28px 0 30px;
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  border-top: 1px solid rgba(255,255,255,.28);
+  border-bottom: 1px solid rgba(255,255,255,.28);
+}
+.company-facts div {
+  min-width: 0;
+  padding: 9px 18px 9px 0;
+  display: grid;
+  grid-template-columns: minmax(82px,auto) 1fr;
+  gap: 12px;
+  align-items: start;
+}
+.company-facts .wide { grid-column: 1 / -1; }
+.company-facts dt {
+  color: #ffd98f;
+  font-size: 11px;
+  font-weight: 800;
+}
+.company-facts dd {
+  margin: 0;
+  color: white;
+  font-size: 12px;
+  line-height: 1.55;
+}
+.site-footer {
+  padding: 27px max(28px,4.5vw) 20px;
+  display: grid;
+  grid-template-columns: minmax(190px,.5fr) minmax(520px,1.5fr) auto;
+  gap: 24px 44px;
+  align-items: start;
+}
+.site-footer .footer-brand {
+  display: grid;
+  gap: 15px;
+}
+.site-footer .footer-brand p {
+  margin: 0;
+  color: #e8dbd2;
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: .02em;
+}
+.site-footer .footer-business {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 7px 24px;
+}
+.site-footer .footer-business p {
+  min-width: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(92px,auto) 1fr;
+  gap: 10px;
+  color: #f5e9e2;
+  font-size: 12px;
+  line-height: 1.55;
+  letter-spacing: 0;
+}
+.site-footer .footer-business p.wide { grid-column: 1 / -1; }
+.site-footer .footer-business b {
+  color: #ffd58c;
+  font-size: 11px;
+}
+.site-footer .footer-business span,
+.site-footer .footer-business a { color: #f5e9e2; }
+.site-footer .footer-store {
+  align-self: start;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255,255,255,.5);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.site-footer .footer-editorial-note {
+  grid-column: 1 / -1;
+  grid-row: auto;
+  margin: 0;
+  padding-top: 15px;
+  border-top: 1px solid rgba(255,255,255,.16);
+  color: #cfc3bd;
+  font-size: 9px;
+  line-height: 1.6;
+  letter-spacing: 0;
+}
+
+@media (max-width:1100px) {
+  .site-footer {
+    grid-template-columns: minmax(180px,.45fr) minmax(0,1.55fr);
+  }
+  .site-footer .footer-store {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+  .site-footer .footer-editorial-note { grid-column: 1 / -1; }
+}
+
+@media (max-width:760px) {
+  .company-facts { grid-template-columns: 1fr; }
+  .company-facts .wide { grid-column: auto; }
+  .company-facts div {
+    padding-right: 0;
+    grid-template-columns: 92px 1fr;
+  }
+  .site-footer {
+    padding: 28px 22px 82px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 24px 18px;
+  }
+  .site-footer .footer-brand { grid-column: 1; grid-row: 1; }
+  .site-footer .footer-store { grid-column: 2; grid-row: 1; }
+  .site-footer .footer-business {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+  .site-footer .footer-business p,
+  .site-footer .footer-business p.wide { grid-column: auto; }
+  .site-footer .footer-editorial-note {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    padding-top: 16px;
+    font-size: 9px;
+  }
+}

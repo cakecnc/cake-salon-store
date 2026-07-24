@@ -4,7 +4,7 @@ import "./globals.css";
 import "./guide.css";
 import "./redesign.css";
 
-const siteUrl = "https://cakesalon.kr";
+const siteUrl = "https://www.edibleicingsheet.com";
 const icingSheetUrl = "https://smartstore.naver.com/cake/products/237929418";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -46,7 +46,34 @@ export const metadata: Metadata = {
 };
 
 const structuredData = { "@context": "https://schema.org", "@graph": [
-  { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "C&C Corporation", alternateName: ["Cake Salon", "케익살롱"], url: siteUrl, email: "cakecnc@daum.net", telephone: "+82-80-664-7077", logo: `${siteUrl}/cnc-logo.jpeg`, sameAs: ["https://smartstore.naver.com/cake"] },
+  {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    name: "주식회사 씨엔씨코퍼레이션",
+    legalName: "주식회사 씨엔씨코퍼레이션",
+    alternateName: ["C&C Corporation", "Cake Salon", "케익살롱"],
+    url: siteUrl,
+    email: "cakecnc@daum.net",
+    telephone: "+82-80-664-7077",
+    taxID: "140-81-50087",
+    identifier: { "@type": "PropertyValue", name: "사업자등록번호", value: "140-81-50087" },
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: "KR",
+      addressRegion: "경기도",
+      addressLocality: "부천시 원미구",
+      streetAddress: "부천로198번길 36(춘의동, 춘의테크노파크 102-208)",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      telephone: "+82-80-664-7077",
+      email: "cakecnc@daum.net",
+      availableLanguage: ["Korean", "English", "Japanese", "Chinese"],
+    },
+    logo: `${siteUrl}/cnc-logo.jpeg`,
+    sameAs: ["https://smartstore.naver.com/cake"],
+  },
   { "@type": "WebSite", "@id": `${siteUrl}/#website`, url: siteUrl, name: "Cake Salon", alternateName: ["케익살롱", "케이크살롱"], inLanguage: ["ko", "en", "ja", "zh-CN"], publisher: { "@id": `${siteUrl}/#organization` } },
   { "@type": "WebPage", "@id": `${siteUrl}/#webpage`, url: siteUrl, name: "케익살롱 식용 아이싱시트와 맞춤 프린팅", description: "포토케이크·솜사탕·마카롱·쿠키·음료용 식용 아이싱시트와 맞춤 식용 이미지 프린팅 안내", keywords: "케익살롱, 식용 아이싱시트, 포토케이크, 맞춤 식용 프린팅, 솜사탕 식용 스티커, 마카롱 식용 이미지, 쿠키 식용 이미지, 커피 토퍼, 칵테일 토퍼", isPartOf: { "@id": `${siteUrl}/#website` }, about: { "@id": `${siteUrl}/#product` }, inLanguage: ["ko", "en", "ja", "zh-CN"] },
   { "@type": "Product", "@id": `${siteUrl}/#product`, name: "케익살롱 A4 식용 아이싱시트 25장", alternateName: ["Cake Salon Edible Icing Sheet A4 25 Sheets", "케익살롱 아이싱시트 1팩"], description: "식용 프린터로 사진과 이미지를 출력해 포토케이크와 디저트 장식에 사용하는 A4 식용 아이싱시트 25장 구성", image: `${siteUrl}/cake-salon-a4-25.png`, category: "식용 아이싱시트", brand: { "@type": "Brand", name: "Cake Salon" }, sku: "237929418", url: icingSheetUrl, offers: { "@type": "Offer", url: icingSheetUrl, priceCurrency: "KRW", price: "40000", availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition", seller: { "@id": `${siteUrl}/#organization` } } },
