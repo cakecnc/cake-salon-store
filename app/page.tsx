@@ -13,17 +13,16 @@ const productUrls = {
 };
 const legalCompany = {
   name: "주식회사 씨엔씨코퍼레이션",
-  representative: "임은준",
   registrationNumber: "140-81-50087",
   address: "경기도 부천시 원미구 부천로198번길 36(춘의동, 춘의테크노파크 102-208)",
   phone: "080-664-7077",
   email: "cakecnc@daum.net",
 };
-const businessLabels: Record<Lang, { title: string; company: string; representative: string; registration: string; address: string; phone: string; email: string }> = {
-  ko: { title: "사업자 정보", company: "상호명", representative: "대표자", registration: "사업자등록번호", address: "사업장 주소", phone: "고객센터", email: "이메일" },
-  en: { title: "Company information", company: "Legal company", representative: "Representative", registration: "Business registration", address: "Registered address", phone: "Customer service", email: "Email" },
-  ja: { title: "事業者情報", company: "法人名", representative: "代表者", registration: "事業者登録番号", address: "事業所住所", phone: "カスタマーサービス", email: "メール" },
-  zh: { title: "企业信息", company: "法定公司名称", representative: "代表人", registration: "营业登记号码", address: "注册地址", phone: "客户服务", email: "邮箱" },
+const businessLabels: Record<Lang, { title: string; company: string; registration: string; address: string; phone: string; email: string }> = {
+  ko: { title: "사업자 정보", company: "상호명", registration: "사업자등록번호", address: "사업장 주소", phone: "고객센터", email: "이메일" },
+  en: { title: "Company information", company: "Legal company", registration: "Business registration", address: "Registered address", phone: "Customer service", email: "Email" },
+  ja: { title: "事業者情報", company: "法人名", registration: "事業者登録番号", address: "事業所住所", phone: "カスタマーサービス", email: "メール" },
+  zh: { title: "企业信息", company: "法定公司名称", registration: "营业登记号码", address: "注册地址", phone: "客户服务", email: "邮箱" },
 };
 
 const copy = {
@@ -536,12 +535,6 @@ export default function Home() {
       </div>
       <div className="company-logo">
         <img src="/cnc-logo.jpeg" alt={alts.logo} />
-        <dl className="company-logo-identity" aria-label={business.title}>
-          <div className="wide"><dt>{business.company}</dt><dd>{legalCompany.name}</dd></div>
-          <div><dt>{business.representative}</dt><dd>{legalCompany.representative}</dd></div>
-          <div><dt>{business.registration}</dt><dd>{legalCompany.registrationNumber}</dd></div>
-          <div className="wide"><dt>{business.address}</dt><dd>{legalCompany.address}</dd></div>
-        </dl>
       </div>
     </section>
 
@@ -557,7 +550,6 @@ export default function Home() {
       </div>
       <div className="footer-business" aria-label={business.title}>
         <p><b>{business.company}</b><span>{legalCompany.name}</span></p>
-        <p><b>{business.representative}</b><span>{legalCompany.representative}</span></p>
         <p><b>{business.registration}</b><span>{legalCompany.registrationNumber}</span></p>
         <p className="wide"><b>{business.address}</b><span>{legalCompany.address}</span></p>
         <p><b>{business.phone}</b><a href={`tel:${legalCompany.phone}`}>{legalCompany.phone}</a></p>

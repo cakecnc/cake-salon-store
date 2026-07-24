@@ -1627,39 +1627,6 @@ footer > a:last-of-type { justify-self: end; }
   gap: 20px;
 }
 .company-logo > img { width: min(430px,82%); }
-.company-logo-identity {
-  width: min(540px,90%);
-  margin: 0;
-  padding: 16px 18px;
-  display: grid;
-  grid-template-columns: .72fr 1.28fr;
-  gap: 10px 22px;
-  border-top: 1px solid rgba(49,94,85,.2);
-  border-bottom: 1px solid rgba(49,94,85,.2);
-}
-.company-logo-identity div {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: minmax(82px,auto) 1fr;
-  gap: 10px;
-  align-items: start;
-}
-.company-logo-identity .wide { grid-column: 1 / -1; }
-.company-logo-identity dt {
-  color: #7f344a;
-  font-size: 10px;
-  font-weight: 800;
-  line-height: 1.55;
-}
-.company-logo-identity dd {
-  min-width: 0;
-  margin: 0;
-  color: #315e55;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.55;
-  word-break: keep-all;
-}
 .site-footer {
   padding: 27px max(28px,4.5vw) 20px;
   display: grid;
@@ -1737,17 +1704,6 @@ footer > a:last-of-type { justify-self: end; }
 @media (max-width:760px) {
   .company-logo { gap: 16px; }
   .company-logo > img { width: min(360px,88%); }
-  .company-logo-identity {
-    width: 100%;
-    padding: 14px 0;
-    grid-template-columns: 1fr;
-    gap: 9px;
-  }
-  .company-logo-identity div,
-  .company-logo-identity .wide {
-    grid-column: auto;
-    grid-template-columns: 96px 1fr;
-  }
   .site-footer {
     padding: 28px 22px 82px;
     display: grid;
