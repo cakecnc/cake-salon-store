@@ -532,15 +532,17 @@ export default function Home() {
         <p className="kicker">{t.companyKicker}</p>
         <h2><Lines>{t.companyTitle}</Lines></h2>
         <p>{t.companyText}</p>
-        <dl className="company-facts" aria-label={business.title}>
-          <div><dt>{business.company}</dt><dd>{legalCompany.name}</dd></div>
+        <div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={inquiryUrl}>{c.inquiry}</a></div>
+      </div>
+      <div className="company-logo">
+        <img src="/cnc-logo.jpeg" alt={alts.logo} />
+        <dl className="company-logo-identity" aria-label={business.title}>
+          <div className="wide"><dt>{business.company}</dt><dd>{legalCompany.name}</dd></div>
           <div><dt>{business.representative}</dt><dd>{legalCompany.representative}</dd></div>
           <div><dt>{business.registration}</dt><dd>{legalCompany.registrationNumber}</dd></div>
           <div className="wide"><dt>{business.address}</dt><dd>{legalCompany.address}</dd></div>
         </dl>
-        <div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={inquiryUrl}>{c.inquiry}</a></div>
       </div>
-      <div className="company-logo"><img src="/cnc-logo.jpeg" alt={alts.logo} /></div>
     </section>
 
     <section className="final-section" id="contact">
