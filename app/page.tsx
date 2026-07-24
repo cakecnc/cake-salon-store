@@ -186,12 +186,6 @@ const certificationCopy: Record<Lang, {
     ],
   },
 };
-const verifiedReviews: Record<Lang, { kicker: string; title: string; items: Array<{ product: string; quote: string; author: string; date: string }> }> = {
-  ko: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "실제 구매자가 남긴\n확인된 후기", items: [{ product: "A4 아이싱시트 25장", quote: "만족합니다. 고맙습니다.", author: "skal****", date: "2026.05.30" }, { product: "A4 맞춤 프린팅", quote: "포장이 꼼꼼하고 사장님이 정말 친절하십니다. 재구매하겠습니다.", author: "dase********", date: "2026.07.16" }] },
-  en: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "Verified reviews from\nreal customers", items: [{ product: "A4 Icing Sheets · 25", quote: "I am satisfied. Thank you.", author: "skal****", date: "2026.05.30" }, { product: "A4 Custom Printing", quote: "The packaging was careful and the owner was very kind. I will purchase again.", author: "dase********", date: "2026.07.16" }] },
-  ja: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "実際の購入者による\n確認済みレビュー", items: [{ product: "A4アイシングシート 25枚", quote: "満足しています。ありがとうございます。", author: "skal****", date: "2026.05.30" }, { product: "A4オーダープリント", quote: "梱包が丁寧で、店長さんもとても親切でした。また購入します。", author: "dase********", date: "2026.07.16" }] },
-  zh: { kicker: "VERIFIED SMARTSTORE REVIEWS", title: "真实买家留下的\n已验证评价", items: [{ product: "A4糖霜纸 25张", quote: "很满意，谢谢。", author: "skal****", date: "2026.05.30" }, { product: "A4定制打印", quote: "包装很仔细，店主也非常亲切。我会再次购买。", author: "dase********", date: "2026.07.16" }] },
-};
 const coffeeMoments: Record<Lang, { kicker: string; title: string; intro: string; labels: string[]; alts: string[] }> = {
   ko: { kicker: "EDIBLE MESSAGE MOMENTS", title: "커피 한 잔에\n마음을 전하세요.", intro: "사랑, 축하, 감사의 메시지를 식용 이미지 토퍼에 담아 특별한 순간을 완성합니다.", labels: ["사랑을 전하는 순간", "축하를 전하는 순간", "감사를 전하는 순간"], alts: ["I LOVE YOU 식용 토퍼를 올린 라테", "CONGRATS 식용 토퍼를 올린 카푸치노", "THANK YOU 식용 토퍼를 올린 라테"] },
   en: { kicker: "EDIBLE MESSAGE MOMENTS", title: "Put a meaningful message\non every cup.", intro: "Turn love, congratulations and gratitude into memorable café moments with custom edible image toppers.", labels: ["A moment of love", "A moment to celebrate", "A moment of gratitude"], alts: ["Latte with an I LOVE YOU edible topper", "Cappuccino with a CONGRATS edible topper", "Latte with a THANK YOU edible topper"] },
@@ -343,7 +337,6 @@ export default function Home() {
   const alts = imageAlts[lang];
   const c = conversionCopy[lang];
   const certificates = certificationCopy[lang];
-  const reviews = verifiedReviews[lang];
   const coffee = coffeeMoments[lang];
   const cocktails = cocktailMoments[lang];
   const candy = candyMoments[lang];
@@ -518,8 +511,6 @@ export default function Home() {
         </a>)}
       </div>
     </section>
-
-    <section className="reviews-section"><div className="reviews-heading"><p className="kicker">{reviews.kicker}</p><h2><Lines>{reviews.title}</Lines></h2></div><div className="reviews-grid">{reviews.items.map((review) => <blockquote key={`${review.author}-${review.date}`}><span>{review.product}</span><p>“{review.quote}”</p><div className="review-meta"><b>{review.author}</b><time>{review.date}</time></div></blockquote>)}</div></section>
 
     <section className="company-section" id="company">
       <div className="company-copy"><p className="kicker">{t.companyKicker}</p><h2><Lines>{t.companyTitle}</Lines></h2><p>{t.companyText}</p><div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={inquiryUrl}>{c.inquiry}</a></div></div>
