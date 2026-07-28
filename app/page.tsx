@@ -437,15 +437,6 @@ export default function Home() {
     window.location.href = `mailto:cakecnc@daum.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
-  const applicationImages = [
-    ["/cake-floral.jpeg", alts.final],
-    ["/coffee-thank-you.png", coffee.alts[2]],
-    ["/cocktail-cheers.png", cocktails.alts[0]],
-    ["/candy-love.png", candy.alts[0]],
-    ["/cookie-celebrate.png", petite.cookieAlts[1]],
-    ["/macaron-thin-floral.png", petite.macaronAlts[2]],
-  ];
-
   return <main lang={lang}>
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="Cake Salon home"><b>CAKE</b><i>SALON</i></a>
@@ -509,19 +500,112 @@ export default function Home() {
       </div>
     </section>
 
-    <section className="application-section" id="applications">
-      <div className="application-heading">
-        <p className="kicker light-kicker">{e.applications}</p>
-        <h2>{e.applicationsTitle}</h2>
-        <p>{e.applicationsIntro}</p>
-      </div>
-      <div className="application-grid">
-        {applicationImages.map(([src, alt], index) => <figure key={src}>
-          <img src={src} alt={alt} />
-          <figcaption><span>0{index + 1}</span><b>{e.applicationLabels[index]}</b></figcaption>
-        </figure>)}
-      </div>
-    </section>
+    <div id="applications" className="application-stories">
+      <section className="story-section cake-story">
+        <div className="story-heading">
+          <p className="kicker">{desserts.kicker}</p>
+          <h2><Lines>{desserts.title}</Lines></h2>
+          <p>{desserts.intro}</p>
+        </div>
+        <div className="story-grid detailed-story-grid">
+          {dessertImages.map((src, index) => <figure key={src}>
+            <img src={src} alt={desserts.alts[index]} />
+            <figcaption><span>0{index + 1}</span><b>{desserts.items[index][0]}</b><p>{desserts.items[index][1]}</p></figcaption>
+          </figure>)}
+        </div>
+      </section>
+
+      <section className="story-section coffee-story">
+        <div className="story-heading">
+          <p className="kicker">{coffee.kicker}</p>
+          <h2><Lines>{coffee.title}</Lines></h2>
+          <p>{coffee.intro}</p>
+        </div>
+        <div className="story-grid">
+          {coffeeImages.map((src, index) => <figure key={src}>
+            <img src={src} alt={coffee.alts[index]} />
+            <figcaption><span>0{index + 1}</span><b>{["I LOVE YOU", "CONGRATS", "THANK YOU"][index]}</b><p>{coffee.labels[index]}</p></figcaption>
+          </figure>)}
+        </div>
+      </section>
+
+      <section className="story-section cocktail-story">
+        <div className="story-heading">
+          <p className="kicker light-kicker">{cocktails.kicker}</p>
+          <h2><Lines>{cocktails.title}</Lines></h2>
+          <p>{cocktails.intro}</p>
+        </div>
+        <div className="story-grid">
+          {cocktailImages.map((src, index) => <figure key={src}>
+            <img src={src} alt={cocktails.alts[index]} />
+            <figcaption><span>0{index + 1}</span><b>{["CHEERS", "CELEBRATE", "ANNIVERSARY"][index]}</b><p>{cocktails.labels[index]}</p></figcaption>
+          </figure>)}
+        </div>
+        <a className="button button-outline story-action" href="#custom-design">{c.inquiry} <Arrow /></a>
+      </section>
+
+      <section className="story-section candy-story">
+        <div className="story-heading">
+          <p className="kicker">{candy.kicker}</p>
+          <h2><Lines>{candy.title}</Lines></h2>
+          <p>{candy.intro}</p>
+        </div>
+        <div className="story-grid">
+          {candyImages.map((src, index) => <figure key={src}>
+            <img src={src} alt={candy.alts[index]} />
+            <figcaption><span>0{index + 1}</span><b>{["LOVE", "CELEBRATE", "THANK YOU"][index]}</b><p>{candy.labels[index]}</p></figcaption>
+          </figure>)}
+        </div>
+      </section>
+
+      <section className="story-section cotton-story">
+        <div className="story-heading">
+          <p className="kicker">{cottonCandyCase.kicker}</p>
+          <h2><Lines>{cottonCandyCase.title}</Lines></h2>
+          <p>{cottonCandyCase.intro}</p>
+        </div>
+        <div className="cotton-record">
+          <small>{cottonCandyCase.recordLabel}</small>
+          <h3>{cottonCandyCase.recordTitle}</h3>
+          <p>{cottonCandyCase.recordMeta}</p>
+        </div>
+        <div className="story-grid detailed-story-grid">
+          {cottonFaceImages.map((src, index) => <figure key={src}>
+            <img src={src} alt={cottonCandyCase.examples[index][3]} />
+            <figcaption><span>0{index + 1}</span><b>{cottonCandyCase.examples[index][1]}</b><p>{cottonCandyCase.examples[index][2]}</p></figcaption>
+          </figure>)}
+        </div>
+        <p className="rights-note">{cottonCandyCase.rightsNote}</p>
+      </section>
+
+      <section className="story-section cookie-story">
+        <div className="story-heading">
+          <p className="kicker">{petite.cookieKicker}</p>
+          <h2><Lines>{petite.cookieTitle}</Lines></h2>
+          <p>{petite.cookieIntro}</p>
+        </div>
+        <div className="story-grid">
+          {cookieImages.map((src, index) => <figure key={src}>
+            <img src={src} alt={petite.cookieAlts[index]} />
+            <figcaption><span>0{index + 1}</span><b>{petite.cookieLabels[index]}</b></figcaption>
+          </figure>)}
+        </div>
+      </section>
+
+      <section className="story-section macaron-story">
+        <div className="story-heading">
+          <p className="kicker">{petite.macaronKicker}</p>
+          <h2><Lines>{petite.macaronTitle}</Lines></h2>
+          <p>{petite.macaronIntro}</p>
+        </div>
+        <div className="story-grid">
+          {macaronImages.map((src, index) => <figure key={src}>
+            <img src={src} alt={petite.macaronAlts[index]} />
+            <figcaption><span>0{index + 1}</span><b>{petite.macaronLabels[index]}</b></figcaption>
+          </figure>)}
+        </div>
+      </section>
+    </div>
 
     <section className="how-section" id="how">
       <div className="how-title">
