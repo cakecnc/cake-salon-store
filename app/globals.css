@@ -1930,6 +1930,463 @@ img {
   }
 }
 
+/* Balanced responsive type scale
+   Keeps the editorial hierarchy while preventing oversized headings
+   and unreadably small interface, card, and footer copy. */
+:root {
+  --type-hero: clamp(48px, 4.8vw, 72px);
+  --type-section: clamp(38px, 3.7vw, 58px);
+  --type-body: 15px;
+  --type-support: 13px;
+  --type-ui: 12px;
+  --type-note: 11px;
+}
+
+.wordmark b {
+  font-size: 22px;
+}
+
+.wordmark i {
+  font-size: var(--type-ui);
+}
+
+.site-header nav a,
+.header-shop,
+.header-tools select {
+  font-size: var(--type-ui);
+}
+
+.kicker {
+  font-size: var(--type-note);
+  line-height: 1.35;
+}
+
+.hero h1 {
+  margin-inline: auto;
+  font-size: var(--type-hero);
+  line-height: 1.08;
+}
+
+.hero-intro {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.button,
+.text-action {
+  font-size: var(--type-ui);
+  line-height: 1.35;
+}
+
+.button {
+  gap: 24px;
+}
+
+.hero-caption p {
+  font-size: var(--type-note);
+  line-height: 1.4;
+}
+
+.promise-bar b {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.promise-bar span {
+  font-size: var(--type-ui);
+  line-height: 1.4;
+}
+
+.section-heading h2,
+.application-heading h2,
+.story-heading h2,
+.how-title h2,
+.business-copy h2,
+.ideas-heading h2,
+.proof-heading h2,
+.company-copy h2 {
+  font-size: var(--type-section);
+  line-height: 1.12;
+}
+
+.section-intro,
+.ideas-heading > p,
+.story-heading > p:last-child,
+.business-copy > p:not(.kicker),
+.proof-heading > p:last-child,
+.company-copy > p:not(.kicker) {
+  font-size: var(--type-body);
+  line-height: 1.62;
+}
+
+.availability-strip span {
+  font-size: var(--type-ui);
+}
+
+.availability-strip p {
+  font-size: var(--type-support);
+  line-height: 1.55;
+}
+
+.product-art > small {
+  font-size: var(--type-note);
+  line-height: 1.3;
+}
+
+.product-copy h3 {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.product-copy > p {
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+.product-meta dt {
+  font-size: var(--type-ui);
+  line-height: 1.4;
+}
+
+.product-meta dd {
+  font-size: var(--type-support);
+  line-height: 1.5;
+}
+
+.product-copy > a {
+  font-size: var(--type-ui);
+  line-height: 1.4;
+}
+
+.story-grid figcaption span {
+  font-size: var(--type-ui);
+  line-height: 1.3;
+}
+
+.story-grid figcaption b {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+.story-grid figcaption p {
+  font-size: var(--type-support);
+  line-height: 1.52;
+}
+
+.cotton-record small,
+.purpose-grid small,
+.design-request-heading small,
+.design-fields label > span,
+.file-field small {
+  font-size: var(--type-note);
+  line-height: 1.4;
+}
+
+.cotton-record p,
+.rights-note {
+  font-size: var(--type-support);
+  line-height: 1.55;
+}
+
+.how-title > p:not(.kicker) {
+  font-size: var(--type-body);
+  line-height: 1.58;
+}
+
+.how-section h3 {
+  font-size: 23px;
+  line-height: 1.25;
+}
+
+.how-section li p {
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.work-purpose legend {
+  font-size: var(--type-support);
+  line-height: 1.45;
+}
+
+.purpose-grid b {
+  font-size: 21px;
+  line-height: 1.25;
+}
+
+.purpose-grid button > span {
+  font-size: var(--type-support);
+  line-height: 1.5;
+}
+
+.design-request-heading > b {
+  font-size: 21px;
+  line-height: 1.3;
+}
+
+.design-request-heading h3 {
+  font-size: 34px;
+  line-height: 1.15;
+}
+
+.design-request-heading p {
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+.design-fields input,
+.design-fields textarea {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.design-actions > a {
+  font-size: var(--type-ui);
+  line-height: 1.4;
+}
+
+.trust-grid span {
+  font-size: var(--type-ui);
+  line-height: 1.4;
+}
+
+.certification-title b {
+  font-size: var(--type-support);
+  line-height: 1.4;
+}
+
+.certification-title i {
+  font-size: var(--type-ui);
+  line-height: 1.5;
+}
+
+.footer-brand p,
+.footer-business p,
+.footer-store {
+  font-size: var(--type-ui);
+  line-height: 1.5;
+}
+
+.footer-editorial-note {
+  font-size: var(--type-note);
+  line-height: 1.58;
+}
+
+main[lang="ko"] .hero h1,
+main[lang="ko"] .section-heading h2,
+main[lang="ko"] .story-heading h2,
+main[lang="ko"] .how-title h2,
+main[lang="ko"] .business-copy h2,
+main[lang="ko"] .ideas-heading h2,
+main[lang="ko"] .proof-heading h2,
+main[lang="ko"] .company-copy h2,
+main[lang="ja"] .hero h1,
+main[lang="ja"] .section-heading h2,
+main[lang="ja"] .story-heading h2,
+main[lang="ja"] .how-title h2,
+main[lang="ja"] .business-copy h2,
+main[lang="ja"] .ideas-heading h2,
+main[lang="ja"] .proof-heading h2,
+main[lang="ja"] .company-copy h2,
+main[lang="zh"] .hero h1,
+main[lang="zh"] .section-heading h2,
+main[lang="zh"] .story-heading h2,
+main[lang="zh"] .how-title h2,
+main[lang="zh"] .business-copy h2,
+main[lang="zh"] .ideas-heading h2,
+main[lang="zh"] .proof-heading h2,
+main[lang="zh"] .company-copy h2 {
+  letter-spacing: -0.012em;
+}
+
+@media (min-width: 621px) and (max-width: 900px) {
+  :root {
+    --type-hero: clamp(44px, 7vw, 60px);
+    --type-section: clamp(34px, 5.4vw, 46px);
+    --type-body: 14px;
+    --type-support: 13px;
+  }
+
+  .hero-intro {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 620px) {
+  :root {
+    --type-hero: clamp(36px, 10.2vw, 44px);
+    --type-section: clamp(30px, 8.4vw, 38px);
+    --type-body: 14px;
+    --type-support: 12px;
+    --type-ui: 12px;
+    --type-note: 10px;
+  }
+
+  .wordmark b {
+    font-size: 19px;
+  }
+
+  .wordmark i {
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    line-height: 1.08;
+  }
+
+  .hero-intro {
+    font-size: var(--type-body);
+    line-height: 1.55;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+    gap: 14px 18px;
+  }
+
+  .button {
+    gap: 14px;
+  }
+
+  .hero-caption p {
+    font-size: 10px;
+  }
+
+  .promise-bar b {
+    font-size: 17px;
+  }
+
+  .promise-bar span {
+    font-size: var(--type-note);
+  }
+
+  .section-heading h2,
+  .story-heading h2,
+  .how-title h2,
+  .business-copy h2,
+  .ideas-heading h2,
+  .proof-heading h2,
+  .company-copy h2 {
+    line-height: 1.12;
+  }
+
+  .section-intro,
+  .ideas-heading > p,
+  .story-heading > p:last-child,
+  .business-copy > p:not(.kicker),
+  .proof-heading > p:last-child,
+  .company-copy > p:not(.kicker) {
+    font-size: var(--type-body);
+    line-height: 1.55;
+  }
+
+  .availability-strip p {
+    font-size: var(--type-support);
+    line-height: 1.5;
+  }
+
+  .product-copy h3 {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+
+  .product-copy > p,
+  .product-meta dd {
+    font-size: var(--type-support);
+    line-height: 1.5;
+  }
+
+  .product-copy > a {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .product-art > small {
+    font-size: 10px;
+  }
+
+  .story-grid figcaption b {
+    font-size: 18px;
+  }
+
+  .story-grid figcaption p {
+    font-size: var(--type-support);
+    line-height: 1.5;
+  }
+
+  .cotton-record p,
+  .rights-note {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .how-title > p:not(.kicker),
+  .how-section li p,
+  .design-request-heading p {
+    font-size: 13px;
+    line-height: 1.52;
+  }
+
+  .how-section h3 {
+    font-size: 19px;
+    line-height: 1.2;
+  }
+
+  .purpose-grid b {
+    font-size: 17px;
+    line-height: 1.2;
+  }
+
+  .purpose-grid button > span {
+    font-size: var(--type-support);
+    line-height: 1.45;
+  }
+
+  .design-request-heading > b {
+    font-size: 18px;
+  }
+
+  .design-request-heading h3 {
+    font-size: 28px;
+    line-height: 1.14;
+  }
+
+  .design-fields input,
+  .design-fields textarea {
+    font-size: 16px;
+  }
+
+  .trust-grid span,
+  .certification-title i {
+    font-size: 11px;
+  }
+
+  .footer-business p,
+  .footer-business p.wide {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .footer-editorial-note {
+    font-size: 10px;
+    line-height: 1.55;
+  }
+
+  .mobile-cta a {
+    font-size: var(--type-ui);
+    line-height: 1.35;
+  }
+}
+
+@media (max-width: 410px) {
+  .product-copy h3 {
+    font-size: 20px;
+  }
+
+  .product-copy {
+    padding: 18px 14px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
