@@ -1046,6 +1046,7 @@ img {
   color: var(--muted-dark);
   font-size: 12px;
   line-height: 1.62;
+  white-space: pre-line;
 }
 
 .trust-grid {
