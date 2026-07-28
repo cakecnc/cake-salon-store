@@ -4,7 +4,7 @@ import "./globals.css";
 import "./guide.css";
 import "./redesign.css";
 
-const siteUrl = "https://www.edibleicingsheet.com";
+const siteUrl = "https://cakesalon.kr";
 const icingSheetUrl = "https://smartstore.naver.com/cake/products/237929418";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
@@ -37,7 +37,14 @@ export const metadata: Metadata = {
   openGraph: { type: "website", locale: "ko_KR", alternateLocale: ["en_US", "ja_JP", "zh_CN"], url: siteUrl, siteName: "Cake Salon 케익살롱", title: "케익살롱 식용 아이싱시트 | 포토케이크 맞춤 프린팅", description: "A4 식용 아이싱시트 25장과 사진·로고 맞춤 프린팅. 포토케이크와 케이크 데코를 위한 식용 이미지 솔루션.", images: [{ url: "/cake-renaissance.jpeg", width: 1536, height: 864, alt: "케익살롱 식용 아이싱시트를 적용한 포토케이크" }] },
   twitter: { card: "summary_large_image", title: "Cake Salon Edible Icing Sheet", description: "Edible icing sheets and custom cake printing by Cake Salon.", images: ["/cake-renaissance.jpeg"] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon-cnc-64.png", sizes: "64x64", type: "image/png" },
+      { url: "/favicon-cnc.png", sizes: "1254x1254", type: "image/png" },
+    ],
+    shortcut: "/favicon-cnc-64.png",
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   other: {
     "geo.region": "KR-41",
     "geo.placename": "Bucheon-si, Gyeonggi-do",
