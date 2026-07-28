@@ -39,11 +39,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   icons: {
     icon: [
-      { url: "/favicon-cnc-64.png", sizes: "64x64", type: "image/png" },
-      { url: "/favicon-cnc.png", sizes: "1254x1254", type: "image/png" },
+      { url: "/favicon-cnc-rounded-v2-64.png", sizes: "64x64", type: "image/png" },
+      { url: "/favicon-cnc-rounded-v2.png", sizes: "1254x1254", type: "image/png" },
     ],
-    shortcut: "/favicon-cnc-64.png",
-    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    shortcut: "/favicon-cnc-rounded-v2-64.png",
+    apple: [{ url: "/apple-touch-icon-rounded-v2.png", sizes: "180x180", type: "image/png" }],
   },
   other: {
     "geo.region": "KR-41",
