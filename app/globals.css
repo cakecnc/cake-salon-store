@@ -2405,3 +2405,148 @@ main[lang="zh"] .company-copy h2 {
     transform: none;
   }
 }
+
+/* Balanced process and company sections across desktop and mobile. */
+.how-section {
+  padding: clamp(64px, 6vw, 88px) clamp(24px, 7vw, 112px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(42px, 6vw, 88px);
+  align-items: center;
+}
+
+.how-title {
+  width: 100%;
+  max-width: 620px;
+  margin-inline: auto;
+}
+
+.how-title h2 {
+  max-width: 570px;
+  margin-inline: auto;
+}
+
+.how-title > p:not(.kicker) {
+  margin-top: 18px;
+}
+
+.how-thumb {
+  width: min(470px, 100%);
+  margin-top: 26px;
+}
+
+.how-section ol {
+  width: min(100%, 680px);
+  margin-inline: auto;
+  align-self: stretch;
+  display: grid;
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.how-section li,
+.how-section li:first-child {
+  padding-block: 24px;
+  align-items: center;
+}
+
+.company-section {
+  min-height: 0;
+  align-items: stretch;
+}
+
+.company-copy {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.company-copy .kicker,
+.company-copy h2,
+.company-copy > p:not(.kicker) {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.company-copy h2 {
+  max-width: 660px;
+}
+
+.company-actions {
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.company-logo {
+  place-items: center;
+  overflow: hidden;
+}
+
+.company-logo img {
+  display: block;
+  margin-inline: auto;
+  clip-path: inset(0 1%);
+}
+
+@media (max-width: 900px) {
+  .how-section {
+    grid-template-columns: 1fr;
+    padding: 58px clamp(22px, 6vw, 48px);
+    gap: 26px;
+  }
+
+  .how-section ol {
+    max-width: 620px;
+    align-self: auto;
+    display: block;
+  }
+
+  .company-copy {
+    padding: 64px clamp(24px, 7vw, 56px);
+  }
+
+  .company-logo {
+    min-height: clamp(250px, 46vw, 340px);
+    padding: 36px 24px;
+  }
+}
+
+@media (max-width: 620px) {
+  .how-section {
+    padding: 44px 18px;
+    gap: 20px;
+  }
+
+  .how-title > p:not(.kicker) {
+    margin-top: 10px;
+  }
+
+  .how-thumb {
+    margin-top: 16px;
+  }
+
+  .how-section li,
+  .how-section li:first-child {
+    padding-block: 14px;
+  }
+
+  .company-copy {
+    padding: 50px 20px;
+  }
+
+  .company-copy > p:not(.kicker) {
+    margin: 16px auto 22px;
+  }
+
+  .company-actions {
+    gap: 14px 18px;
+  }
+
+  .company-logo {
+    min-height: 220px;
+    padding: 28px 20px;
+  }
+
+  .company-logo img {
+    width: min(360px, 92%);
+  }
+}
