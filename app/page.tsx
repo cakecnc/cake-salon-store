@@ -1,9 +1,77 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Lang = "ko" | "en" | "ja" | "zh";
 type Copy = typeof copy.ko;
+type ThemePresetId = "burgundy" | "rose" | "gold";
+
+const defaultThemeColor = "#581B2A";
+const themeStorageKey = "cake-salon-theme-color";
+const themePresets: Array<{ id: ThemePresetId; color: string }> = [
+  { id: "burgundy", color: defaultThemeColor },
+  { id: "rose", color: "#913F53" },
+  { id: "gold", color: "#C49A57" },
+];
+const themeLabels: Record<Lang, {
+  button: string;
+  title: string;
+  close: string;
+  custom: string;
+  reset: string;
+  presets: Record<ThemePresetId, string>;
+}> = {
+  ko: { button: "테마", title: "상단 메인 색상", close: "테마 닫기", custom: "직접 선택", reset: "기본색으로", presets: { burgundy: "버건디", rose: "로즈", gold: "골드" } },
+  en: { button: "Theme", title: "Main header color", close: "Close theme picker", custom: "Custom color", reset: "Reset", presets: { burgundy: "Burgundy", rose: "Rose", gold: "Gold" } },
+  ja: { button: "テーマ", title: "上部のメインカラー", close: "テーマを閉じる", custom: "カラーを選択", reset: "初期色に戻す", presets: { burgundy: "バーガンディ", rose: "ローズ", gold: "ゴールド" } },
+  zh: { button: "主题", title: "顶部主色", close: "关闭主题选择器", custom: "自定义颜色", reset: "恢复默认", presets: { burgundy: "酒红", rose: "玫瑰", gold: "金色" } },
+};
+
+function normalizeHex(value: string) {
+  return /^#[0-9a-f]{6}$/i.test(value) ? value.toUpperCase() : defaultThemeColor;
+}
+
+function hexToRgb(value: string) {
+  const hex = normalizeHex(value).slice(1);
+  return [
+    Number.parseInt(hex.slice(0, 2), 16),
+    Number.parseInt(hex.slice(2, 4), 16),
+    Number.parseInt(hex.slice(4, 6), 16),
+  ] as const;
+}
+
+function mixWithBlack(value: string, amount = 0.52) {
+  const [red, green, blue] = hexToRgb(value);
+  const channel = (color: number) => Math.round(color * (1 - amount));
+  return [channel(red), channel(green), channel(blue)] as const;
+}
+
+function getThemeTokens(value: string) {
+  const normalized = normalizeHex(value);
+  const [red, green, blue] = hexToRgb(normalized);
+  const linear = [red, green, blue].map((channel) => {
+    const ratio = channel / 255;
+    return ratio <= 0.04045 ? ratio / 12.92 : ((ratio + 0.055) / 1.055) ** 2.4;
+  });
+  const luminance = (0.2126 * linear[0]) + (0.7152 * linear[1]) + (0.0722 * linear[2]);
+  const lightTheme = luminance > 0.179;
+  const onPrimary = lightTheme ? "#000000" : "#FFFFFF";
+  const onPrimaryRgb = lightTheme ? "0 0 0" : "255 255 255";
+  const accent = lightTheme ? "#581B2A" : "#F2CB8C";
+  const deep = mixWithBlack(normalized);
+
+  return {
+    normalized,
+    style: {
+      "--theme-primary": normalized,
+      "--theme-primary-rgb": `${red} ${green} ${blue}`,
+      "--theme-deep-rgb": `${deep[0]} ${deep[1]} ${deep[2]}`,
+      "--theme-on-primary": onPrimary,
+      "--theme-on-primary-rgb": onPrimaryRgb,
+      "--theme-accent": accent,
+    } as React.CSSProperties,
+  };
+}
 
 const storeUrl = "https://smartstore.naver.com/cake";
 const productUrls = {
@@ -389,6 +457,9 @@ const editorialCopy: Record<Lang, {
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("ko");
+  const [themeColor, setThemeColor] = useState(defaultThemeColor);
+  const [themeOpen, setThemeOpen] = useState(false);
+  const themeTriggerRef = useRef<HTMLButtonElement>(null);
   const [selectedIdea, setSelectedIdea] = useState(0);
   const [designName, setDesignName] = useState("");
   const [designContact, setDesignContact] = useState("");
@@ -414,8 +485,41 @@ export default function Home() {
   const desserts = dessertMoments[lang];
   const business = businessLabels[lang];
   const e = editorialCopy[lang];
+  const themeText = themeLabels[lang];
+  const theme = getThemeTokens(themeColor);
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
+
+  useEffect(() => {
+    let storedTheme: string | null = null;
+    try {
+      storedTheme = window.localStorage.getItem(themeStorageKey);
+    } catch {
+      // The theme remains usable for this visit when storage is unavailable.
+    }
+
+    if (!storedTheme || !/^#[0-9a-f]{6}$/i.test(storedTheme)) return;
+    const savedTheme = normalizeHex(storedTheme);
+    const timer = window.setTimeout(() => setThemeColor(savedTheme), 0);
+    return () => window.clearTimeout(timer);
+  }, []);
+
+  const closeTheme = () => {
+    setThemeOpen(false);
+    themeTriggerRef.current?.focus();
+  };
+
+  const applyTheme = (value: string, closeAfter = false) => {
+    const nextTheme = normalizeHex(value);
+    setThemeColor(nextTheme);
+    try {
+      window.localStorage.setItem(themeStorageKey, nextTheme);
+    } catch {
+      // Keep the selected theme in memory when storage is unavailable.
+    }
+    if (closeAfter) closeTheme();
+  };
+
   const submitDesignRequest = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const selected = ideas.items[selectedIdea];
@@ -437,7 +541,7 @@ export default function Home() {
     window.location.href = `mailto:cakecnc@daum.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
-  return <main lang={lang}>
+  return <main lang={lang} style={theme.style}>
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="Cake Salon home"><b>CAKE</b><i>SALON</i></a>
       <nav aria-label="Main navigation">
@@ -448,6 +552,50 @@ export default function Home() {
         <a href="#custom-design">{t.nav[4]}</a>
       </nav>
       <div className="header-tools">
+        <div className={`theme-control${themeOpen ? " is-open" : ""}`} onKeyDown={(event) => {
+          if (event.key === "Escape") closeTheme();
+        }}>
+          <button
+            ref={themeTriggerRef}
+            className="theme-toggle"
+            type="button"
+            aria-label={themeText.title}
+            aria-expanded={themeOpen}
+            aria-controls="theme-panel"
+            onClick={() => setThemeOpen((open) => !open)}
+          >
+            <span className="theme-current" style={{ backgroundColor: theme.normalized }} aria-hidden="true" />
+            <span className="theme-toggle-label">{themeText.button}</span>
+          </button>
+          {themeOpen && <div className="theme-panel" id="theme-panel" role="dialog" aria-label={themeText.title}>
+            <div className="theme-panel-heading">
+              <b>{themeText.title}</b>
+              <button type="button" onClick={closeTheme} aria-label={themeText.close}>×</button>
+            </div>
+            <div className="theme-swatches" role="group" aria-label={themeText.title}>
+              {themePresets.map((preset) => <button
+                className={theme.normalized === preset.color ? "theme-swatch is-selected" : "theme-swatch"}
+                key={preset.id}
+                type="button"
+                title={themeText.presets[preset.id]}
+                aria-label={themeText.presets[preset.id]}
+                aria-pressed={theme.normalized === preset.color}
+                style={{ backgroundColor: preset.color }}
+                onClick={() => applyTheme(preset.color, true)}
+              />)}
+            </div>
+            <label className="theme-custom">
+              <span>{themeText.custom}</span>
+              <input
+                type="color"
+                value={theme.normalized}
+                aria-label={themeText.custom}
+                onChange={(event) => applyTheme(event.target.value)}
+              />
+            </label>
+            <button className="theme-reset" type="button" onClick={() => applyTheme(defaultThemeColor, true)}>{themeText.reset}</button>
+          </div>}
+        </div>
         <label><span className="sr-only">Language</span><select aria-label="Language" value={lang} onChange={(event) => setLang(event.target.value as Lang)}><option value="ko">KR</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select></label>
         <a className="header-shop" href={storeUrl} target="_blank" rel="noreferrer">{t.shop} <Arrow /></a>
       </div>
