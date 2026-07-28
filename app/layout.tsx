@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import "./guide.css";
-import "./redesign.css";
 
 const siteUrl = "https://cakesalon.kr";
 const icingSheetUrl = "https://smartstore.naver.com/cake/products/237929418";

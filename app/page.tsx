@@ -310,6 +310,82 @@ const dessertMoments: Record<Lang, { kicker: string; title: string; intro: strin
 const dessertImages = ["/bungeoppang-cake-rainbow.png", "/bungeoppang-cake.png", "/fruit-cake.png"];
 const Lines = ({ children }: { children: string }) => <>{children.replace(/\s*\n\s*/g, " ")}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
+const editorialCopy: Record<Lang, {
+  madeIn: string;
+  collection: string;
+  current: string;
+  currentDetail: string;
+  consult: string;
+  consultDetail: string;
+  applications: string;
+  applicationsTitle: string;
+  applicationsIntro: string;
+  applicationLabels: string[];
+  processNote: string;
+  business: string;
+  custom: string;
+}> = {
+  ko: {
+    madeIn: "국내 제조 · 전 세계 50개국 이상 수출 경험",
+    collection: "CORE COLLECTION",
+    current: "현재 바로 주문",
+    currentDetail: "A4 25장 구성 · 원형 35mm / 55mm 맞춤 프린팅",
+    consult: "별도 제작 상담",
+    consultDetail: "그 외 규격 · 대량 생산 · 브랜드 및 행사 프로젝트",
+    applications: "SELECTED APPLICATIONS",
+    applicationsTitle: "실제 결과로 확인하는 식용 프린팅.",
+    applicationsIntro: "케이크부터 커피, 칵테일, 쿠키와 마카롱까지 제품이 실제로 사용되는 장면만 선별했습니다.",
+    applicationLabels: ["케이크", "커피 토퍼", "칵테일", "캔디", "쿠키", "마카롱"],
+    processNote: "출력부터 장식까지, 작업 흐름은 세 단계로 간결합니다.",
+    business: "HOSPITALITY & BRAND",
+    custom: "CUSTOM PRODUCTION",
+  },
+  en: {
+    madeIn: "Made in Korea · Export experience across 50+ countries",
+    collection: "CORE COLLECTION",
+    current: "Available now",
+    currentDetail: "A4 pack of 25 · custom round printing in 35 mm / 55 mm",
+    consult: "Made by consultation",
+    consultDetail: "Other sizes · volume production · brand and event projects",
+    applications: "SELECTED APPLICATIONS",
+    applicationsTitle: "See edible printing in real use.",
+    applicationsIntro: "A focused edit of real applications across cakes, coffee, cocktails, cookies and macarons.",
+    applicationLabels: ["Cake", "Coffee topper", "Cocktail", "Candy", "Cookie", "Macaron"],
+    processNote: "A clear three-step workflow from printing to decoration.",
+    business: "HOSPITALITY & BRAND",
+    custom: "CUSTOM PRODUCTION",
+  },
+  ja: {
+    madeIn: "韓国製造 · 50か国以上への輸出実績",
+    collection: "CORE COLLECTION",
+    current: "現在ご注文可能",
+    currentDetail: "A4・25枚 · 円形35mm / 55mmオーダープリント",
+    consult: "個別制作相談",
+    consultDetail: "その他のサイズ · 大量生産 · ブランド・イベント案件",
+    applications: "SELECTED APPLICATIONS",
+    applicationsTitle: "実際の使用例で見る食用プリント。",
+    applicationsIntro: "ケーキ、コーヒー、カクテル、クッキー、マカロンの実際の活用例を厳選しました。",
+    applicationLabels: ["ケーキ", "コーヒートッパー", "カクテル", "キャンディ", "クッキー", "マカロン"],
+    processNote: "プリントからデコレーションまで、分かりやすい3ステップです。",
+    business: "HOSPITALITY & BRAND",
+    custom: "CUSTOM PRODUCTION",
+  },
+  zh: {
+    madeIn: "韩国制造 · 具有出口至50多个国家的经验",
+    collection: "CORE COLLECTION",
+    current: "目前可直接订购",
+    currentDetail: "A4・25张 · 35mm / 55mm圆形定制打印",
+    consult: "单独制作咨询",
+    consultDetail: "其他尺寸 · 批量生产 · 品牌与活动项目",
+    applications: "SELECTED APPLICATIONS",
+    applicationsTitle: "通过实际应用了解可食用打印。",
+    applicationsIntro: "精选蛋糕、咖啡、鸡尾酒、曲奇和马卡龙的真实应用场景。",
+    applicationLabels: ["蛋糕", "咖啡装饰", "鸡尾酒", "糖果", "曲奇", "马卡龙"],
+    processNote: "从打印到装饰，只需清晰的三个步骤。",
+    business: "HOSPITALITY & BRAND",
+    custom: "CUSTOM PRODUCTION",
+  },
+};
 
 export default function Home() {
   const [lang, setLang] = useState<Lang>("ko");
@@ -337,6 +413,7 @@ export default function Home() {
   const form = designFormCopy[lang];
   const desserts = dessertMoments[lang];
   const business = businessLabels[lang];
+  const e = editorialCopy[lang];
   const inquiryUrl = `mailto:cakecnc@daum.net?subject=${encodeURIComponent("Cake Salon Custom Order Inquiry")}`;
   const productLink = (key: string) => key === "store" ? storeUrl : productUrls[key as keyof typeof productUrls];
   const submitDesignRequest = (event: React.FormEvent<HTMLFormElement>) => {
@@ -360,10 +437,25 @@ export default function Home() {
     window.location.href = `mailto:cakecnc@daum.net?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   };
 
+  const applicationImages = [
+    ["/cake-floral.jpeg", alts.final],
+    ["/coffee-thank-you.png", coffee.alts[2]],
+    ["/cocktail-cheers.png", cocktails.alts[0]],
+    ["/candy-love.png", candy.alts[0]],
+    ["/cookie-celebrate.png", petite.cookieAlts[1]],
+    ["/macaron-thin-floral.png", petite.macaronAlts[2]],
+  ];
+
   return <main lang={lang}>
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="Cake Salon home"><b>CAKE</b><i>SALON</i></a>
-      <nav aria-label="Main navigation">{t.nav.map((item, index) => <a key={item} className={index === 4 ? "custom-nav" : undefined} href={["#products", "#gallery", "#how", "#company", "#custom-design", "#contact"][index]}>{item}</a>)}</nav>
+      <nav aria-label="Main navigation">
+        <a href="#products">{t.nav[0]}</a>
+        <a href="#applications">{t.nav[1]}</a>
+        <a href="#how">{t.nav[2]}</a>
+        <a href="#business">{t.nav[3]}</a>
+        <a href="#custom-design">{t.nav[4]}</a>
+      </nav>
       <div className="header-tools">
         <label><span className="sr-only">Language</span><select aria-label="Language" value={lang} onChange={(event) => setLang(event.target.value as Lang)}><option value="ko">KR</option><option value="en">EN</option><option value="ja">JP</option><option value="zh">CN</option></select></label>
         <a className="header-shop" href={storeUrl} target="_blank" rel="noreferrer">{t.shop} <Arrow /></a>
@@ -371,113 +463,101 @@ export default function Home() {
     </header>
 
     <section className="hero" id="top">
-      <img className="hero-photo" src="/cake-renaissance.jpeg" alt={alts.hero} />
+      <img className="hero-photo" src="/cake-floral.jpeg" alt={alts.final} />
       <div className="hero-shade" />
       <div className="hero-copy">
         <p className="kicker light-kicker">{t.kicker}</p>
         <h1><Lines>{t.title}</Lines></h1>
         <p className="hero-intro">{t.intro}</p>
-        <div className="hero-actions"><a className="button button-light" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
+        <div className="hero-actions">
+          <a className="button button-light" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a>
+          <a className="text-action light-action" href="#custom-design">{c.inquiry}</a>
+        </div>
       </div>
-      <div className="hero-caption"><span>01</span><p>{t.heroNote}</p></div>
+      <div className="hero-caption"><span>01</span><p>{e.madeIn}</p></div>
     </section>
 
-    <section className="promise-bar" aria-label="Product highlights">{t.promises.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</section>
+    <section className="promise-bar" aria-label="Product highlights">
+      {t.promises.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}
+    </section>
 
     <section className="shop-section" id="products">
-      <div className="section-heading"><div><p className="kicker">{t.shopKicker}</p><h2><Lines>{t.shopTitle}</Lines></h2></div><p className="section-intro">{t.shopIntro}</p></div>
-      <div className="product-grid">{t.products.map((product, index) => <article className={`product-card card-${index + 1}`} key={product[0]}>
-        <a className="product-art" href={index === 0 ? productLink(product[3]) : inquiryUrl} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}>
-          <img src={productCardImage[index]} alt="" />
-          <span className="product-index">0{index + 1}</span><small>{product[2]}</small>
-        </a>
-        <div className="product-copy"><h3>{product[0]}</h3><p>{product[1]}</p><dl className="product-meta"><div><dt>{c.currentPrice}</dt><dd>{c.productMeta[index][0]}</dd></div><div><dt>{c.specs}</dt><dd>{c.productMeta[index][1]}</dd></div><div><dt>{c.order}</dt><dd>{c.productMeta[index][2]}</dd></div></dl><a href={index === 0 ? productLink(product[3]) : inquiryUrl} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}>{index === 0 ? c.purchase : c.inquiry} <Arrow /></a></div>
-      </article>)}</div>
+      <div className="section-heading">
+        <div><p className="kicker">{e.collection}</p><h2><Lines>{t.shopTitle}</Lines></h2></div>
+        <p className="section-intro">{t.shopIntro}</p>
+      </div>
+      <div className="availability-strip">
+        <div><span>{e.current}</span><p>{e.currentDetail}</p></div>
+        <div><span>{e.consult}</span><p>{e.consultDetail}</p></div>
+      </div>
+      <div className="product-grid">
+        {t.products.map((product, index) => <article className={`product-card card-${index + 1}`} key={product[0]}>
+          <a className="product-art" href={index === 0 ? productLink(product[3]) : "#custom-design"} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}>
+            <img src={productCardImage[index]} alt={product[0]} />
+            <span className="product-index">0{index + 1}</span><small>{product[2]}</small>
+          </a>
+          <div className="product-copy">
+            <h3>{product[0]}</h3><p>{product[1]}</p>
+            <dl className="product-meta">
+              <div><dt>{c.currentPrice}</dt><dd>{c.productMeta[index][0]}</dd></div>
+              <div><dt>{c.specs}</dt><dd>{c.productMeta[index][1]}</dd></div>
+              <div><dt>{c.order}</dt><dd>{c.productMeta[index][2]}</dd></div>
+            </dl>
+            <a href={index === 0 ? productLink(product[3]) : "#custom-design"} target={index === 0 ? "_blank" : undefined} rel={index === 0 ? "noreferrer" : undefined}>{index === 0 ? c.purchase : c.inquiry} <Arrow /></a>
+          </div>
+        </article>)}
+      </div>
     </section>
 
-    <section className="guide-section" id="guide">
-      <div className="guide-heading"><div><p className="kicker">{g.kicker}</p><h2><Lines>{g.title}</Lines></h2></div><div><p>{g.intro}</p><p className="guide-language-note">{c.guideNote}</p></div></div>
-      <div className="feature-grid">{details.slice(0, 5).map((item, index) => <article className="feature-card" key={item.title}><span>0{index + 1}</span><h3>{item.title}</h3><p>{item.summary}</p><ul>{item.bullets.slice(0, 4).map((bullet) => <li key={bullet}>{bullet}</li>)}</ul></article>)}</div>
-    </section>
-
-    <section className="gallery-section" id="gallery">
-      <div className="gallery-copy"><p className="kicker light-kicker">{t.galleryKicker}</p><h2><Lines>{t.galleryTitle}</Lines></h2><p>{t.galleryIntro}</p></div>
-      <div className="gallery-grid">{productImage.map((src, index) => <figure key={src} className={`gallery-item gallery-${index + 1}`}><img src={src} alt={alts.gallery[index]} /><figcaption><span>0{index + 1}</span>{t.galleryLabels[index]}</figcaption></figure>)}</div>
-    </section>
-
-    <section className="dessert-stories">
-      <div className="dessert-heading"><p className="kicker">{desserts.kicker}</p><h2><Lines>{desserts.title}</Lines></h2><p>{desserts.intro}</p></div>
-      <div className="dessert-grid">{dessertImages.map((src, index) => <figure key={src} className={`dessert-${index + 1}`}><img src={src} alt={desserts.alts[index]} /><figcaption><span>0{index + 1}</span><div><h3>{desserts.items[index][0]}</h3><p>{desserts.items[index][1]}</p></div></figcaption></figure>)}</div>
+    <section className="application-section" id="applications">
+      <div className="application-heading">
+        <p className="kicker light-kicker">{e.applications}</p>
+        <h2>{e.applicationsTitle}</h2>
+        <p>{e.applicationsIntro}</p>
+      </div>
+      <div className="application-grid">
+        {applicationImages.map(([src, alt], index) => <figure key={src}>
+          <img src={src} alt={alt} />
+          <figcaption><span>0{index + 1}</span><b>{e.applicationLabels[index]}</b></figcaption>
+        </figure>)}
+      </div>
     </section>
 
     <section className="how-section" id="how">
-      <div className="how-title"><p className="kicker">{t.useKicker}</p><h2><Lines>{t.useTitle}</Lines></h2><img className="how-thumb" src="/icing-sheet-process.png" alt={alts.how} /></div>
+      <div className="how-title">
+        <p className="kicker">{t.useKicker}</p>
+        <h2><Lines>{t.useTitle}</Lines></h2>
+        <p>{e.processNote}</p>
+        <img className="how-thumb" src="/icing-sheet-process.png" alt={alts.how} />
+      </div>
       <ol>{t.steps.map(([number, title, description]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
     </section>
 
-    <section className="pro-section">
-      <div className="pro-image"><img src="/product-coffee.jpeg" alt={alts.coffee} /><span>CAKE SALON · CAFÉ &amp; HOTEL</span></div>
-      <div className="pro-copy"><p className="kicker">{g.cafeKicker}</p><h2><Lines>{g.cafeTitle}</Lines></h2><p>{g.cafeText}</p><a className="button button-dark" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
-    </section>
-
-    <section className="coffee-moments">
-      <div className="coffee-moments-heading"><p className="kicker">{coffee.kicker}</p><h2><Lines>{coffee.title}</Lines></h2><p>{coffee.intro}</p></div>
-      <div className="coffee-moments-grid">{coffeeImages.map((src, index) => <figure key={src}><img src={src} alt={coffee.alts[index]} /><figcaption><span>0{index + 1}</span><b>{["I LOVE YOU", "CONGRATS", "THANK YOU"][index]}</b><small>{coffee.labels[index]}</small></figcaption></figure>)}</div>
-    </section>
-
-    <section className="cocktail-showcase">
-      <div className="cocktail-heading"><p className="kicker light-kicker">{cocktails.kicker}</p><h2><Lines>{cocktails.title}</Lines></h2><p>{cocktails.intro}</p><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
-      <div className="cocktail-grid">{cocktailImages.map((src, index) => <figure key={src} className={`cocktail-${index + 1}`}><img src={src} alt={cocktails.alts[index]} /><figcaption><span>0{index + 1}</span><div><b>{["CHEERS", "CELEBRATE", "ANNIVERSARY"][index]}</b><small>{cocktails.labels[index]}</small></div></figcaption></figure>)}</div>
-    </section>
-
-    <section className="candy-showcase">
-      <div className="candy-heading"><p className="kicker light-kicker">{candy.kicker}</p><h2><Lines>{candy.title}</Lines></h2><p>{candy.intro}</p><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div>
-      <div className="candy-grid">{candyImages.map((src, index) => <figure key={src} className={`candy-${index + 1}`}><img src={src} alt={candy.alts[index]} /><figcaption><span>0{index + 1}</span><div><b>{["LOVE", "CELEBRATE", "THANK YOU"][index]}</b><small>{candy.labels[index]}</small></div></figcaption></figure>)}</div>
-    </section>
-
-    <section className="cotton-candy-case">
-      <div className="cotton-candy-header">
-        <div className="cotton-candy-copy">
-          <p className="kicker">{cottonCandyCase.kicker}</p>
-          <h2><Lines>{cottonCandyCase.title}</Lines></h2>
-          <p className="cotton-candy-intro">{cottonCandyCase.intro}</p>
-        </div>
-        <div className="cotton-candy-record">
-          <article className="production-record">
-            <small>{cottonCandyCase.recordLabel}</small>
-            <h3>{cottonCandyCase.recordTitle}</h3>
-            <p>{cottonCandyCase.recordMeta}</p>
-          </article>
-          <p className="rights-note">{cottonCandyCase.rightsNote}</p>
-        </div>
+    <section className="business-section" id="business">
+      <div className="business-image"><img src="/product-coffee.jpeg" alt={alts.coffee} /></div>
+      <div className="business-copy">
+        <p className="kicker light-kicker">{e.business}</p>
+        <h2><Lines>{g.cafeTitle}</Lines></h2>
+        <p>{g.cafeText}</p>
+        <a className="button button-light" href="#custom-design">{c.inquiry} <Arrow /></a>
       </div>
-      <div className="cotton-example-heading"><span>{cottonCandyCase.exampleLabel}</span><div><h3>{cottonCandyCase.exampleTitle}</h3><p>{cottonCandyCase.exampleText}</p></div></div>
-      <div className="cotton-face-grid">{cottonFaceImages.map((src, index) => <figure className="cotton-face-card" key={src}>
-        <div className="cotton-face-image"><img src={src} alt={cottonCandyCase.examples[index][3]} /></div>
-        <figcaption><span>0{index + 1}</span><div><small>{cottonCandyCase.examples[index][0]}</small><b>{cottonCandyCase.examples[index][1]}</b><p>{cottonCandyCase.examples[index][2]}</p></div></figcaption>
-      </figure>)}</div>
-    </section>
-
-    <section className="cookie-showcase petite-showcase">
-      <div className="petite-heading"><p className="kicker">{petite.cookieKicker}</p><h2><Lines>{petite.cookieTitle}</Lines></h2><p>{petite.cookieIntro}</p></div>
-      <div className="petite-grid">{cookieImages.map((src, index) => <figure key={src}><img src={src} alt={petite.cookieAlts[index]} /><figcaption><span>0{index + 1}</span><b>{petite.cookieLabels[index]}</b></figcaption></figure>)}</div>
-    </section>
-
-    <section className="macaron-showcase petite-showcase">
-      <div className="petite-heading"><p className="kicker">{petite.macaronKicker}</p><h2><Lines>{petite.macaronTitle}</Lines></h2><p>{petite.macaronIntro}</p></div>
-      <div className="petite-grid">{macaronImages.map((src, index) => <figure key={src}><img src={src} alt={petite.macaronAlts[index]} /><figcaption><span>0{index + 1}</span><b>{petite.macaronLabels[index]}</b></figcaption></figure>)}</div>
     </section>
 
     <section className="ideas-section">
-      <div className="ideas-heading"><div><p className="kicker">{ideas.kicker}</p><h2><Lines>{ideas.title}</Lines></h2></div><p>{ideas.intro}</p></div>
+      <div className="ideas-heading">
+        <div><p className="kicker">{e.custom}</p><h2><Lines>{ideas.title}</Lines></h2></div>
+        <p>{ideas.intro}</p>
+      </div>
       <form className="design-request work-order" id="custom-design" onSubmit={submitDesignRequest}>
-        <ol className="work-order-steps">{form.steps.map((step, index) => <li key={step}><span>0{index + 1}</span>{step}</li>)}</ol>
         <fieldset className="work-purpose">
           <legend><span>01</span>{form.steps[0]}</legend>
           <div className="purpose-grid">{ideas.items.map(([eyebrow, title, description], index) => <button key={eyebrow} type="button" aria-pressed={selectedIdea === index} className={selectedIdea === index ? "is-selected" : ""} onClick={() => setSelectedIdea(index)}><small>{eyebrow}</small><b>{title}</b><span>{description}</span><i>{selectedIdea === index ? "✓" : "＋"}</i></button>)}</div>
         </fieldset>
         <div className="design-request-body">
-          <div className="design-request-heading"><small>{form.selected}</small><b>{ideas.items[selectedIdea][1]}</b><h3>{form.title}</h3><p>{form.intro}</p></div>
+          <div className="design-request-heading">
+            <small>{form.selected}</small><b>{ideas.items[selectedIdea][1]}</b>
+            <h3>{form.title}</h3><p>{form.intro}</p>
+          </div>
           <div className="design-fields">
             <label><span>{form.name}</span><input value={designName} onChange={(event) => setDesignName(event.target.value)} required /></label>
             <label><span>{form.contact}</span><input value={designContact} onChange={(event) => setDesignContact(event.target.value)} required /></label>
@@ -496,9 +576,7 @@ export default function Home() {
     <section className="proof-section">
       <div className="proof-heading"><p className="kicker">{c.proofKicker}</p><h2><Lines>{c.proofTitle}</Lines></h2><p>{c.proofText}</p></div>
       <div className="trust-grid">{t.trust.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}</div>
-      <div className="certification-docs">
-        <div className="certification-title"><small>FDA</small><span><b>{certificates.title}</b><i>{certificates.note}</i></span></div>
-      </div>
+      <div className="certification-title"><small>FDA</small><span><b>{certificates.title}</b><i>{certificates.note}</i></span></div>
     </section>
 
     <section className="company-section" id="company">
@@ -506,19 +584,12 @@ export default function Home() {
         <p className="kicker">{t.companyKicker}</p>
         <h2><Lines>{t.companyTitle}</Lines></h2>
         <p>{t.companyText}</p>
-        <div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={inquiryUrl}>{c.inquiry}</a></div>
+        <div className="company-actions"><a className="button button-dark" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="text-action" href={`mailto:${legalCompany.email}`}>{c.inquiry}</a></div>
       </div>
-      <div className="company-logo">
-        <img src="/cnc-logo.jpeg" alt={alts.logo} />
-      </div>
+      <div className="company-logo"><img src="/cnc-logo.jpeg" alt={alts.logo} /></div>
     </section>
 
-    <section className="final-section" id="contact">
-      <img src="/cake-floral.jpeg" alt={alts.final} />
-      <div className="final-shade" /><div className="final-copy"><p className="kicker light-kicker">CAKE SALON</p><h2><Lines>{t.final}</Lines></h2><p>{t.finalText}</p><div className="final-actions"><a className="button button-light" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a><a className="button button-outline" href={inquiryUrl}>{c.inquiry} <Arrow /></a></div><div className="final-contacts"><span>{t.phone}</span><span>{t.email}</span></div></div>
-    </section>
-
-    <footer className="site-footer">
+    <footer className="site-footer" id="contact">
       <div className="footer-brand">
         <a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a>
         <p>© 2026 C&amp;C Corporation. All rights reserved.</p>
@@ -533,6 +604,6 @@ export default function Home() {
       <a className="footer-store" href={productUrls.a4} target="_blank" rel="noreferrer">SMARTSTORE <Arrow /></a>
       <p className="footer-editorial-note">{t.editorialNote}</p>
     </footer>
-    <div className="mobile-cta" aria-label="Quick actions"><a href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase}</a><a href={inquiryUrl}>{c.inquiry}</a></div>
+    <div className="mobile-cta" aria-label="Quick actions"><a href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase}</a><a href="#custom-design">{c.inquiry}</a></div>
   </main>;
 }
