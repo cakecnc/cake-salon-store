@@ -569,12 +569,20 @@ img {
 .story-grid figure {
   min-width: 0;
   margin: 0;
+  overflow: hidden;
+  border-radius: 38px 38px 0 0;
+  transition: transform 420ms cubic-bezier(0.2, 0.72, 0.2, 1),
+    box-shadow 420ms cubic-bezier(0.2, 0.72, 0.2, 1);
+  transform: translateZ(0);
 }
 
 .story-grid img {
   width: 100%;
   aspect-ratio: 4 / 3;
   object-fit: cover;
+  border-radius: 38px 38px 0 0;
+  transition: transform 560ms cubic-bezier(0.2, 0.72, 0.2, 1);
+  transform: scale(1.001);
 }
 
 .story-grid figcaption {
@@ -633,6 +641,21 @@ img {
 
 .cocktail-story .story-grid figcaption span {
   color: #efb8ad;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .story-grid figure:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 22px 42px rgba(73, 43, 39, 0.14);
+  }
+
+  .story-grid figure:hover img {
+    transform: scale(1.035);
+  }
+
+  .cocktail-story .story-grid figure:hover {
+    box-shadow: 0 22px 46px rgba(0, 0, 0, 0.28);
+  }
 }
 
 .story-action {
@@ -1553,11 +1576,13 @@ img {
 
   .story-grid figure {
     flex: 0 0 82%;
+    border-radius: 26px 26px 0 0;
     scroll-snap-align: center;
   }
 
   .story-grid img {
     aspect-ratio: 4 / 3;
+    border-radius: 26px 26px 0 0;
   }
 
   .story-grid figcaption {
@@ -1888,5 +1913,11 @@ img {
   *::after {
     scroll-behavior: auto !important;
     transition: none !important;
+  }
+
+  .story-grid figure,
+  .story-grid figure:hover,
+  .story-grid figure:hover img {
+    transform: none;
   }
 }
