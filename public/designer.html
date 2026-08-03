@@ -1,0 +1,2449 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#581b2a">
+  <meta name="description" content="Cake Salon과 Making Sweet 고객을 위한 무료 A4 식용 이미지 디자이너. 사진과 로고를 브라우저 안에서 배치하고 PNG 또는 실제 크기 인쇄로 준비하세요.">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://www.edibleicingsheet.com/designer">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="무료 식용 이미지 디자이너 | Cake Salon">
+  <meta property="og:description" content="이미지를 서버에 올리지 않고 A4 식용 이미지 레이아웃을 무료로 만드세요.">
+  <meta property="og:url" content="https://www.edibleicingsheet.com/designer">
+  <title>무료 식용 이미지 디자이너 | Cake Salon</title>
+  <style id="pageRule">@page { size: A4 portrait; margin: 0; }</style>
+  <style>
+    :root {
+      --ink: #35131d;
+      --muted: #63323e;
+      --paper: #fff8f5;
+      --cream: #f7ebe7;
+      --line: rgba(88, 27, 42, 0.2);
+      --accent: #8b5f22;
+      --accent-dark: #581b2a;
+      --sage: #f0d9d5;
+      --sage-dark: #63323e;
+      --rose: #a84b60;
+      --rose-deep: #7f3043;
+      --burgundy: #581b2a;
+      --gold-light: #f2cb8c;
+      --warning: #9b5d08;
+      --danger: #a4332a;
+      --shadow: 0 20px 60px rgba(53, 19, 29, 0.18);
+      --print-width: 210mm;
+      --print-height: 297mm;
+      --serif: Georgia, "Times New Roman", "Nanum Myeongjo", serif;
+      --sans: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--cream);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background:
+        radial-gradient(circle at 88% 6%, rgba(242, 203, 140, 0.22), transparent 26rem),
+        linear-gradient(180deg, var(--rose) 0%, #913f53 54%, var(--burgundy) 100%);
+    }
+
+    button, input, select, a { font: inherit; }
+
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    button:focus-visible,
+    input:focus-visible,
+    a:focus-visible,
+    canvas:focus-visible {
+      outline: 3px solid rgba(196, 154, 87, 0.42);
+      outline-offset: 3px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      min-height: 76px;
+      padding: 0 clamp(18px, 4vw, 56px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+      color: #fff;
+      background: rgba(88, 27, 42, 0.97);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      border: 1px solid var(--gold-light);
+      color: var(--gold-light);
+      background: transparent;
+      font-family: var(--serif);
+      font-size: 19px;
+      letter-spacing: -1px;
+    }
+
+    .brand strong,
+    .brand span { display: block; }
+
+    .brand strong {
+      color: #fff;
+      font-family: var(--serif);
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+
+    .brand span {
+      margin-top: 2px;
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .prototype-badge {
+      padding: 7px 10px;
+      border: 1px solid rgba(242, 203, 140, 0.5);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--gold-light);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: end;
+      gap: 30px;
+      max-width: 1540px;
+      margin: 0 auto;
+      padding: 40px clamp(18px, 4vw, 56px) 26px;
+      color: #fff;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--gold-light);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 820px;
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(34px, 4.2vw, 66px);
+      font-weight: 500;
+      line-height: 0.99;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-copy {
+      max-width: 610px;
+      margin: 18px 0 0;
+      color: #f0d9d5;
+      font-size: 15px;
+      line-height: 1.72;
+    }
+
+    .privacy-note {
+      max-width: 330px;
+      padding: 16px 18px;
+      border: 1px solid rgba(242, 203, 140, 0.42);
+      border-radius: 18px;
+      background: rgba(53, 19, 29, 0.38);
+      color: var(--paper);
+      backdrop-filter: blur(10px);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .privacy-note strong { display: block; margin-bottom: 3px; }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(270px, 350px) minmax(420px, 1fr) minmax(250px, 320px);
+      gap: 18px;
+      max-width: 1540px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 4vw, 56px) 46px;
+    }
+
+    .panel {
+      min-width: 0;
+      border: 1px solid rgba(88, 27, 42, 0.18);
+      border-radius: 24px;
+      background: rgba(255, 248, 245, 0.97);
+      box-shadow: 0 12px 38px rgba(53, 19, 29, 0.12);
+    }
+
+    .controls,
+    .output-panel {
+      align-self: start;
+      padding: 20px;
+      position: sticky;
+      top: 96px;
+    }
+
+    .section + .section {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .section-title h2,
+    .section-title h3 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+    }
+
+    .step-number {
+      color: var(--accent);
+      font-family: var(--serif);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .upload {
+      display: grid;
+      gap: 8px;
+      padding: 18px;
+      border: 1.5px dashed rgba(88, 27, 42, 0.42);
+      border-radius: 18px;
+      background: #f9ece8;
+      cursor: pointer;
+      transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+    }
+
+    .upload:hover {
+      border-color: var(--accent);
+      background: #f5e1dd;
+      transform: translateY(-1px);
+    }
+
+    .upload:has(input:focus-visible),
+    .segment label:has(input:focus-visible) {
+      outline: 3px solid rgba(196, 154, 87, 0.42);
+      outline-offset: 3px;
+    }
+
+    .upload input {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+    }
+
+    .upload strong { font-size: 14px; }
+
+    .upload span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .file-meta {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    fieldset {
+      min-width: 0;
+      margin: 0;
+      padding: 0;
+      border: 0;
+    }
+
+    legend {
+      margin-bottom: 9px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .segment {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      padding: 5px;
+      border-radius: 14px;
+      background: #efddda;
+    }
+
+    .segment label {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 38px;
+      padding: 8px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .segment input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .segment label:has(input:checked) {
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: 0 2px 8px rgba(53, 19, 29, 0.12);
+    }
+
+    .templates {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+    }
+
+    .template-button {
+      min-height: 72px;
+      padding: 9px 5px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.25;
+      cursor: pointer;
+    }
+
+    .template-button::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 31px;
+      margin: 0 auto 6px;
+      border: 1.5px solid currentColor;
+      border-radius: 2px;
+    }
+
+    .template-button[data-template="circle"]::before {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+
+    .template-button[aria-pressed="true"] {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+      background: #f5e1dd;
+      box-shadow: inset 0 0 0 1px var(--accent);
+    }
+
+    .field { margin-top: 14px; }
+
+    .custom-circle-control {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto auto;
+      gap: 7px;
+      margin-top: 9px;
+    }
+
+    .custom-circle-control input,
+    .custom-circle-control select {
+      min-width: 0;
+      min-height: 40px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      color: var(--ink);
+      background: #fff;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .custom-circle-note {
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .field-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 7px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .field output {
+      color: var(--accent-dark);
+      font-variant-numeric: tabular-nums;
+    }
+
+    input[type="range"] {
+      width: 100%;
+      height: 5px;
+      margin: 8px 0;
+      border-radius: 99px;
+      accent-color: var(--accent);
+      cursor: pointer;
+    }
+
+    .button-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .button-row.three { grid-template-columns: repeat(3, 1fr); }
+
+    .tool-button,
+    .primary-button,
+    .secondary-button {
+      min-height: 44px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+    }
+
+    .tool-button {
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .tool-button[aria-pressed="true"] {
+      border-color: var(--burgundy);
+      color: #fff;
+      background: var(--burgundy);
+    }
+
+    .tool-button:hover,
+    .primary-button:hover,
+    .secondary-button:hover { transform: translateY(-1px); }
+
+    .checks {
+      display: grid;
+      gap: 9px;
+      margin-top: 14px;
+    }
+
+    .check {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    .check input {
+      width: 17px;
+      height: 17px;
+      margin: 0;
+      accent-color: var(--accent);
+    }
+
+    .stage-panel {
+      display: grid;
+      min-height: 720px;
+      overflow: hidden;
+    }
+
+    .stage-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 55px;
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      background: rgba(255, 248, 245, 0.96);
+      font-size: 12px;
+    }
+
+    .stage-toolbar strong { color: var(--ink); }
+
+    .stage-wrap {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      min-height: 665px;
+      padding: clamp(18px, 4vw, 44px);
+      overflow: auto;
+      background:
+        linear-gradient(45deg, #e9e2d8 25%, transparent 25%),
+        linear-gradient(-45deg, #e9e2d8 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e9e2d8 75%),
+        linear-gradient(-45deg, transparent 75%, #e9e2d8 75%),
+        #f2ede5;
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+    }
+
+    .canvas-shell {
+      display: grid;
+      place-items: center;
+      width: min(100%, 660px);
+      min-width: 260px;
+      filter: drop-shadow(0 22px 28px rgba(45, 29, 20, 0.22));
+    }
+
+    #designCanvas {
+      display: block;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 74vh;
+      border-radius: 2px;
+      background: #fff;
+      cursor: grab;
+      touch-action: none;
+      user-select: none;
+    }
+
+    #designCanvas[data-dragging="true"] { cursor: grabbing; }
+
+    .status-card {
+      padding: 14px 15px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+    }
+
+    .status-card + .status-card { margin-top: 10px; }
+
+    .status-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin: 0 0 5px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #a99c8e;
+    }
+
+    .status-card[data-tone="good"] .status-dot { background: #418052; }
+
+    .status-card[data-tone="warning"] .status-dot { background: #dd8f25; }
+
+    .status-card[data-tone="danger"] .status-dot { background: var(--danger); }
+
+    .status-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.48;
+    }
+
+    .primary-button,
+    .secondary-button {
+      width: 100%;
+      padding: 11px 14px;
+    }
+
+    .primary-button {
+      border: 1px solid var(--burgundy);
+      color: #fff;
+      background: var(--burgundy);
+      box-shadow: 0 9px 18px rgba(88, 27, 42, 0.2);
+    }
+
+    .secondary-button {
+      margin-top: 8px;
+      border: 1px solid var(--line);
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .print-help {
+      margin: 12px 0 0;
+      padding: 12px;
+      border-radius: 13px;
+      color: var(--muted);
+      background: #f7e8d1;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .cta-stack {
+      display: grid;
+      gap: 8px;
+    }
+
+    .cta {
+      display: block;
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--ink);
+      background: #fff;
+      text-decoration: none;
+      transition: transform 150ms ease, border-color 150ms ease, background 150ms ease;
+    }
+
+    .cta:hover {
+      border-color: var(--accent);
+      background: #f9ece8;
+      transform: translateY(-1px);
+    }
+
+    .cta strong,
+    .cta span { display: block; }
+
+    .cta strong { font-size: 12px; }
+
+    .cta span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .keyboard-help {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .keyboard-help kbd {
+      padding: 1px 5px;
+      border: 1px solid #cfc3b4;
+      border-bottom-width: 2px;
+      border-radius: 5px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 10px;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      max-width: 1540px;
+      margin: 0 auto;
+      padding: 0 clamp(18px, 4vw, 56px) 36px;
+      color: #f0d9d5;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .membership {
+      max-width: 1428px;
+      margin: 0 auto 42px;
+      padding: 0 clamp(18px, 4vw, 56px);
+    }
+
+    .membership-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      overflow: hidden;
+      border: 1px solid rgba(88, 27, 42, 0.18);
+      border-radius: 28px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .membership-card {
+      padding: clamp(24px, 4vw, 44px);
+    }
+
+    .membership-card.pro {
+      color: #fff;
+      background:
+        radial-gradient(circle at 86% 12%, rgba(242, 203, 140, 0.22), transparent 17rem),
+        var(--burgundy);
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .membership.is-recommended .membership-card.pro {
+      border-color: var(--gold-light);
+      box-shadow: 0 0 0 4px rgba(242, 203, 140, 0.18), 0 22px 54px rgba(53, 19, 29, 0.24);
+    }
+
+    .membership-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 18px;
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--burgundy);
+      background: #f3dfdc;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .membership-card.pro .membership-status {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--gold-light);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .membership-card h2,
+    .membership-card h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-size: clamp(26px, 3vw, 40px);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+    }
+
+    .membership-card > p {
+      max-width: 580px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .membership-card.pro > p { color: rgba(255, 255, 255, 0.68); }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 20px;
+      margin: 22px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefits li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .membership-card.pro .benefits li { color: rgba(255, 255, 255, 0.82); }
+
+    .benefits li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .pro-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      margin-top: 24px;
+      padding: 12px 18px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 13px;
+      color: var(--ink);
+      background: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      text-decoration: none;
+    }
+
+    .pro-disclaimer {
+      display: block;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.54);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    #printSheet { display: none; }
+
+    @media (max-width: 1160px) {
+      .workspace {
+        grid-template-columns: minmax(260px, 330px) minmax(430px, 1fr);
+      }
+
+      .output-panel {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+        position: static;
+      }
+
+      .output-panel .section + .section {
+        margin: 0;
+        padding: 0 0 0 16px;
+        border-top: 0;
+        border-left: 1px solid var(--line);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .topbar { position: static; }
+
+      .prototype-badge { display: none; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 28px;
+      }
+
+      .privacy-note { max-width: none; }
+
+      .workspace { grid-template-columns: 1fr; }
+
+      .controls,
+      .output-panel { position: static; }
+
+      .stage-panel { min-height: 520px; }
+
+      .stage-wrap {
+        min-height: 460px;
+        padding: 18px;
+      }
+
+      #designCanvas { max-height: 68vh; }
+
+      .output-panel {
+        display: block;
+        grid-column: auto;
+      }
+
+      .output-panel .section + .section {
+        margin-top: 20px;
+        padding: 20px 0 0;
+        border-top: 1px solid var(--line);
+        border-left: 0;
+      }
+
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .membership-shell { grid-template-columns: 1fr; }
+
+      .benefits { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      html,
+      body {
+        width: var(--print-width);
+        height: var(--print-height);
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+      }
+
+      body > :not(#printSheet) { display: none !important; }
+
+      #printSheet {
+        display: block !important;
+        position: fixed;
+        inset: 0;
+        width: var(--print-width);
+        height: var(--print-height);
+        overflow: hidden;
+        background: #fff;
+      }
+
+      #printCanvas {
+        display: block;
+        width: var(--print-width) !important;
+        height: var(--print-height) !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Cake Salon 홈페이지로 이동">
+      <div class="brand-mark" aria-hidden="true">C&amp;C</div>
+      <div>
+        <strong>Cake Salon</strong>
+        <span>Edible Image Studio</span>
+      </div>
+    </a>
+    <span class="prototype-badge">FREE BETA · 무료 베타</span>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="pageTitle">
+      <div>
+        <p class="eyebrow">Design locally. Print with confidence.</p>
+        <h1 id="pageTitle">식용 이미지를<br>한 장의 시트로.</h1>
+        <p class="hero-copy">
+          Cake Salon·Making Sweet 고객이 사진과 로고를 브라우저에서 배치하고 실제 크기로 인쇄할 수 있는 무료 편집기입니다.
+          Create a print-ready A4 edible-image layout without installing an app.
+        </p>
+      </div>
+      <aside class="privacy-note">
+        <strong>개인정보 보호 · Private by default</strong>
+        불러온 이미지는 이 기기 안에서만 처리되며 서버로 자동 전송되지 않습니다.
+        Your image stays in this browser unless you choose to contact us. 사용 권한이 있는 이미지만 이용해 주세요.
+      </aside>
+    </section>
+
+    <section class="workspace" aria-label="Edible image designer workspace">
+      <aside class="panel controls" aria-label="Design controls">
+        <section class="section">
+          <div class="section-title">
+            <h2>이미지 불러오기 · Upload</h2>
+            <span class="step-number">01</span>
+          </div>
+          <label class="upload" for="imageInput">
+            <input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp">
+            <strong>JPG, PNG 또는 WebP 선택</strong>
+            <span>Choose a photo or logo · 최대 15MB / 16MP · HEIC는 JPG/PNG로 변환</span>
+          </label>
+          <p class="file-meta" id="fileMeta">아직 선택된 이미지가 없습니다.</p>
+        </section>
+
+        <section class="section">
+          <div class="section-title">
+            <h2>시트 설정 · Sheet</h2>
+            <span class="step-number">02</span>
+          </div>
+          <fieldset>
+            <legend>A4 방향 · Orientation</legend>
+            <div class="segment">
+              <label>
+                <input type="radio" name="orientation" value="portrait" checked>
+                세로 · Portrait
+              </label>
+              <label>
+                <input type="radio" name="orientation" value="landscape">
+                가로 · Landscape
+              </label>
+            </div>
+          </fieldset>
+
+          <fieldset class="field">
+            <legend>배치 방식 · Template</legend>
+            <div class="templates">
+              <button class="template-button" type="button" data-template="single" aria-pressed="true">한 장<br>Full sheet</button>
+              <button class="template-button" type="button" data-template="circle" data-circle-diameter="130" data-circle-unit="cm" aria-pressed="false">13cm<br>Center</button>
+              <button class="template-button" type="button" data-template="circle" data-circle-diameter="160" data-circle-unit="cm" aria-pressed="false">16cm<br>Circles</button>
+              <button class="template-button" type="button" data-template="circle" data-circle-diameter="180" data-circle-unit="cm" aria-pressed="false">18cm<br>Circles</button>
+              <button class="template-button" type="button" data-template="circle" data-circle-diameter="35" data-circle-unit="mm" data-standard-jig="true" aria-pressed="false">35mm<br>Standard jig</button>
+              <button class="template-button" type="button" data-template="circle" data-circle-diameter="55" data-circle-unit="mm" data-standard-jig="true" aria-pressed="false">55mm<br>Standard jig</button>
+            </div>
+            <div class="custom-circle-control">
+              <input
+                id="customCircleInput"
+                type="number"
+                min="0.5"
+                max="20.5"
+                step="1"
+                value="13"
+                inputmode="decimal"
+                aria-label="Custom circle diameter"
+              >
+              <select id="customCircleUnit" aria-label="Custom circle diameter unit">
+                <option value="cm" selected>cm</option>
+                <option value="mm">mm</option>
+              </select>
+              <button id="customCircleApply" class="tool-button" type="button" aria-pressed="false">원형 적용 · Apply</button>
+            </div>
+            <p class="custom-circle-note">13·16·18cm는 자동배치 · 35·55mm는 제공 템플릿(실제 지그와 출력 전 확인) · 직접입력은 1cm(10mm) 간격, 최대 20.5cm</p>
+          </fieldset>
+        </section>
+
+        <section class="section">
+          <div class="section-title">
+            <h2>이미지 조정 · Adjust</h2>
+            <span class="step-number">03</span>
+          </div>
+
+          <div class="button-row">
+            <button id="fitButton" class="tool-button" type="button" aria-pressed="true">맞춤 · Fit</button>
+            <button id="fillButton" class="tool-button" type="button" aria-pressed="false">채우기 · Fill</button>
+          </div>
+
+          <div class="field">
+            <div class="field-row">
+              <label for="zoomInput">확대 · Zoom</label>
+              <output id="zoomOutput" for="zoomInput">100%</output>
+            </div>
+            <input id="zoomInput" type="range" min="50" max="300" step="1" value="100">
+          </div>
+
+          <div class="field">
+            <div class="field-row">
+              <label for="rotationInput">회전 · Rotate</label>
+              <output id="rotationOutput" for="rotationInput">0°</output>
+            </div>
+            <input id="rotationInput" type="range" min="-180" max="180" step="1" value="0">
+          </div>
+
+          <div class="button-row three">
+            <button id="rotateLeft" class="tool-button" type="button" aria-label="Rotate 90 degrees counterclockwise">−90°</button>
+            <button id="centerButton" class="tool-button" type="button">중앙 · Center</button>
+            <button id="rotateRight" class="tool-button" type="button" aria-label="Rotate 90 degrees clockwise">+90°</button>
+          </div>
+
+          <div class="checks">
+            <label class="check">
+              <input id="safeAreaInput" type="checkbox" checked>
+              <span>안전영역·잘림 표시 · Show safe area and crop preview</span>
+            </label>
+            <label class="check">
+              <input id="scaleBarInput" type="checkbox" checked>
+              <span>출력에 50mm 검증선 포함 · Include 50mm print check</span>
+            </label>
+          </div>
+        </section>
+      </aside>
+
+      <section class="panel stage-panel" aria-label="Canvas preview">
+        <div class="stage-toolbar">
+          <span><strong id="sheetLabel">A4 Portrait</strong> · <span id="canvasSizeLabel">210 × 297mm</span></span>
+          <span><span id="pixelSizeLabel">1240 × 1754px</span> · <span id="repeatLabel">1 image</span></span>
+        </div>
+        <div class="stage-wrap">
+          <div class="canvas-shell">
+            <canvas
+              id="designCanvas"
+              width="1240"
+              height="1754"
+              tabindex="0"
+              role="application"
+              aria-roledescription="edible image design canvas"
+              aria-label="A4 edible image design preview. Upload an image, then drag to reposition."
+              aria-describedby="interactionHelp liveStatus"
+            ></canvas>
+          </div>
+        </div>
+      </section>
+
+      <aside class="panel output-panel" aria-label="Output and next actions">
+        <section class="section">
+          <div class="section-title">
+            <h2>품질 확인 · Quality</h2>
+            <span class="step-number">04</span>
+          </div>
+          <div class="status-card" id="resolutionCard" data-tone="neutral">
+            <p class="status-label"><span class="status-dot" aria-hidden="true"></span><span id="resolutionTitle">이미지를 선택하세요</span></p>
+            <p id="resolutionText">A4 실제 크기를 기준으로 원본 이미지의 예상 PPI를 확인합니다.</p>
+          </div>
+          <div class="status-card" id="coverageCard" data-tone="neutral">
+            <p class="status-label"><span class="status-dot" aria-hidden="true"></span><span id="coverageTitle">출력 영역 확인 대기</span></p>
+            <p id="coverageText">빈 출력이나 Fill 모드의 미채움 영역을 확인합니다.</p>
+          </div>
+          <div class="status-card" id="localCard" data-tone="good">
+            <p class="status-label"><span class="status-dot" aria-hidden="true"></span>로컬 처리 · Local only</p>
+            <p>자동 업로드나 네트워크 전송이 없습니다.</p>
+          </div>
+          <p id="liveStatus" class="keyboard-help" role="status" aria-live="polite">편집기를 준비했습니다.</p>
+        </section>
+
+        <section class="section">
+          <div class="section-title">
+            <h2>저장 및 인쇄 · Output</h2>
+            <span class="step-number">05</span>
+          </div>
+          <button id="downloadButton" class="primary-button" type="button">PNG 저장 · Download PNG</button>
+          <button id="printButton" class="secondary-button" type="button">실제 크기 인쇄 · Print 100%</button>
+          <p class="print-help">
+            인쇄창에서 용지 A4, 여백 없음, 배율 <strong>100% 또는 Actual Size</strong>를 선택하세요.
+            PNG는 픽셀 파일이며 물리 크기 메타데이터를 보장하지 않습니다. 실제 A4 크기는 인쇄/PDF를 사용하고,
+            출력 후 50mm 검증선을 자로 확인해야 합니다.
+          </p>
+          <p class="keyboard-help" id="interactionHelp">
+            드래그/터치: 이동 · 휠/두 손가락: 확대 ·
+            <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd>: 1mm 이동 ·
+            <kbd>Shift</kbd>: 5mm
+          </p>
+        </section>
+
+        <section class="section">
+          <div class="section-title">
+            <h2>다음 단계 · Next</h2>
+            <span class="step-number">06</span>
+          </div>
+          <div class="cta-stack">
+            <a class="cta" id="storeCta" href="https://smartstore.naver.com/cake" target="_blank" rel="noopener noreferrer">
+              <strong>Cake Salon 스토어 보기 · Visit store</strong>
+              <span>스토어에서 A4 아이싱시트 상품을 선택하세요.</span>
+            </a>
+            <a class="cta" id="customPrintCta" href="https://talk.naver.com/ct/wcb39e#nafullscreen" target="_blank" rel="noopener noreferrer">
+              <strong>맞춤 인쇄 톡톡 문의 · Naver TalkTalk</strong>
+              <span>저장한 PNG와 수량을 케익살롱 톡톡 상담창에 보내 주세요.</span>
+            </a>
+            <a class="cta" id="palletCta" href="mailto:sales@edibleicingsheet.com?subject=A4%20icing%20sheet%20bulk%20supply%20inquiry">
+              <strong>유통·대량 공급 문의 · Distributor</strong>
+              <span>A4 icing sheet bulk supply</span>
+            </a>
+          </div>
+          <p class="keyboard-help">톡톡 상담창에는 파일이 자동 첨부되지 않습니다. 저장한 PNG를 사용자가 직접 추가해야 합니다.</p>
+        </section>
+      </aside>
+    </section>
+
+    <section class="membership" id="membershipSection" aria-labelledby="membershipTitle">
+      <div class="membership-shell">
+        <article class="membership-card">
+          <span class="membership-status">Available now · 현재 사용 가능</span>
+          <h2 id="membershipTitle">Free A4 Editor</h2>
+          <p>
+            Cake Salon·Making Sweet 고객과 edibleicingsheet.com 방문자는 무료 베타 기간에 가입이나 결제 없이
+            이미지 배치, 반복 템플릿, PNG 저장과 실제 크기 인쇄를 사용할 수 있습니다.
+          </p>
+          <ul class="benefits">
+            <li>A4 세로·가로</li>
+            <li>로컬 이미지 편집</li>
+            <li>PNG 저장</li>
+            <li>실제 크기 인쇄/PDF</li>
+          </ul>
+        </article>
+        <article class="membership-card pro">
+          <span class="membership-status">Planned · Early access</span>
+          <h3>Cake Salon Pro</h3>
+          <p>
+            반복 주문과 브랜드 운영을 위한 유료 멤버십을 검토 중입니다. 아래 기능은 아직 활성화되지 않았으며,
+            가격·출시일·결제는 확정되지 않았습니다.
+          </p>
+          <p id="proNudge" role="status" aria-live="polite">
+            무료 A4 결과를 먼저 완성해 보세요. 첫 저장 또는 인쇄 뒤 다음 작업을 줄이는 Pro를 안내합니다.
+          </p>
+          <ul class="benefits">
+            <li>A3 작업판</li>
+            <li>프로젝트 저장</li>
+            <li>브랜드·텍스트 레이어</li>
+            <li>배치 레이아웃</li>
+            <li>우선 지원</li>
+          </ul>
+          <a
+            class="pro-cta"
+            href="mailto:sales@edibleicingsheet.com?subject=Cake%20Salon%20Pro%20early%20access"
+          >Pro 사전등록 문의 · Join early access</a>
+          <span class="pro-disclaimer">문의 메일만 열립니다. 계정 생성·결제·자동 전송은 발생하지 않습니다.</span>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>C&amp;C Corporation / Cake Salon · South Korea · sales@edibleicingsheet.com</span>
+    <span id="selfCheck" aria-live="polite">편집기 점검 중 · Checking editor</span>
+  </footer>
+
+  <div id="printSheet" aria-hidden="true">
+    <canvas id="printCanvas"></canvas>
+  </div>
+
+  <script>
+    "use strict";
+
+    const DPI = 150;
+    const MM_PER_INCH = 25.4;
+    const A4 = Object.freeze({ width: 210, height: 297 });
+    const PAGE_MARGIN_MM = Object.freeze({ top: 10, right: 2, bottom: 3, left: 2 });
+    const CIRCLE_GAP_MM = 3;
+    const MIN_CIRCLE_DIAMETER_MM = 5;
+    const MAX_CIRCLE_DIAMETER_MM = 205;
+    const CUSTOM_CIRCLE_PRESETS_MM = Object.freeze([130, 160, 180]);
+    const STANDARD_CIRCLE_JIGS_MM = Object.freeze({
+      35: Object.freeze({
+        columns: Object.freeze([28.893, 66.594, 104.648, 142.701, 180.579]),
+        rows: Object.freeze([28.219, 64.55, 101.058, 137.565, 174.249, 210.581, 247.088])
+      }),
+      55: Object.freeze({
+        columns: Object.freeze([41.753, 104.824, 167.718]),
+        rows: Object.freeze([39.682, 101.587, 163.491, 225.572])
+      })
+    });
+    const MAX_FILE_BYTES = 15 * 1024 * 1024;
+    const MAX_IMAGE_PIXELS = 16_000_000;
+    const PREVIEW_MAX_EDGE = 1800;
+    const MIN_RECOMMENDED_DPI = 150;
+    const ACCEPTED_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
+    const ACCEPTED_EXTENSIONS = /\.(jpe?g|png|webp)$/i;
+    const REFERRAL_SOURCES = new Set(["cakesalon", "edibleicingsheet", "makingsweet"]);
+    const requestedReferral = new URLSearchParams(window.location.search).get("ref");
+    const hostReferral = window.location.hostname.includes("edibleicingsheet")
+      ? "edibleicingsheet"
+      : window.location.hostname.includes("cakesalon")
+        ? "cakesalon"
+        : null;
+    const referralSource = REFERRAL_SOURCES.has(requestedReferral)
+      ? requestedReferral
+      : hostReferral || "edibleicingsheet";
+
+    function campaignUrl(rawUrl) {
+      const url = new URL(rawUrl);
+      url.searchParams.set("utm_source", referralSource);
+      url.searchParams.set("utm_medium", "web_tool");
+      url.searchParams.set("utm_campaign", "free_edible_image_designer");
+      return url.toString();
+    }
+
+    const state = {
+      orientation: "portrait",
+      template: "single",
+      circleDiameterMm: 35,
+      circleLayoutMode: "custom",
+      fitMode: "fit",
+      zoom: 1,
+      rotation: 0,
+      offsetXmm: 0,
+      offsetYmm: 0,
+      showSafeArea: true,
+      showScaleBar: true,
+      image: null,
+      previewImage: null,
+      imageName: "",
+      imageWidth: 0,
+      imageHeight: 0
+    };
+
+    const canvas = document.getElementById("designCanvas");
+    const context = canvas.getContext("2d", { alpha: false });
+    const printCanvas = document.getElementById("printCanvas");
+    const pageRule = document.getElementById("pageRule");
+    const rootStyle = document.documentElement.style;
+    const imageInput = document.getElementById("imageInput");
+    const fileMeta = document.getElementById("fileMeta");
+    const zoomInput = document.getElementById("zoomInput");
+    const zoomOutput = document.getElementById("zoomOutput");
+    const rotationInput = document.getElementById("rotationInput");
+    const rotationOutput = document.getElementById("rotationOutput");
+    const resolutionCard = document.getElementById("resolutionCard");
+    const resolutionTitle = document.getElementById("resolutionTitle");
+    const resolutionText = document.getElementById("resolutionText");
+    const coverageCard = document.getElementById("coverageCard");
+    const coverageTitle = document.getElementById("coverageTitle");
+    const coverageText = document.getElementById("coverageText");
+    const liveStatus = document.getElementById("liveStatus");
+    const sheetLabel = document.getElementById("sheetLabel");
+    const canvasSizeLabel = document.getElementById("canvasSizeLabel");
+    const pixelSizeLabel = document.getElementById("pixelSizeLabel");
+    const repeatLabel = document.getElementById("repeatLabel");
+    const fitButton = document.getElementById("fitButton");
+    const fillButton = document.getElementById("fillButton");
+    const customCircleInput = document.getElementById("customCircleInput");
+    const customCircleUnit = document.getElementById("customCircleUnit");
+    const customCircleApply = document.getElementById("customCircleApply");
+    const membershipSection = document.getElementById("membershipSection");
+    const proNudge = document.getElementById("proNudge");
+
+    const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+    const mmToPx = (mm) => mm * DPI / MM_PER_INCH;
+    const pxToMm = (px) => px * MM_PER_INCH / DPI;
+
+    function getPageSize() {
+      return state.orientation === "portrait"
+        ? { width: A4.width, height: A4.height }
+        : { width: A4.height, height: A4.width };
+    }
+
+    function computeGridLayout(pageWidthMm, pageHeightMm, widthMm, heightMm) {
+      const availableWidth = pageWidthMm - PAGE_MARGIN_MM.left - PAGE_MARGIN_MM.right;
+      const availableHeight = pageHeightMm - PAGE_MARGIN_MM.top - PAGE_MARGIN_MM.bottom;
+      const columns = Math.max(1, Math.floor((availableWidth + CIRCLE_GAP_MM) / (widthMm + CIRCLE_GAP_MM)));
+      const rows = Math.max(1, Math.floor((availableHeight + CIRCLE_GAP_MM) / (heightMm + CIRCLE_GAP_MM)));
+      const horizontalGap = columns > 1 ? (availableWidth - columns * widthMm) / (columns - 1) : 0;
+      const verticalGap = rows > 1 ? (availableHeight - rows * heightMm) / (rows - 1) : 0;
+      const startX = columns > 1
+        ? PAGE_MARGIN_MM.left + widthMm / 2
+        : PAGE_MARGIN_MM.left + availableWidth / 2;
+      const startY = rows > 1
+        ? PAGE_MARGIN_MM.top + heightMm / 2
+        : PAGE_MARGIN_MM.top + availableHeight / 2;
+      const cells = [];
+
+      for (let row = 0; row < rows; row += 1) {
+        for (let column = 0; column < columns; column += 1) {
+          cells.push({
+            x: startX + column * (widthMm + horizontalGap),
+            y: startY + row * (heightMm + verticalGap),
+            width: widthMm,
+            height: heightMm
+          });
+        }
+      }
+
+      return { columns, rows, horizontalGap, verticalGap, cells };
+    }
+
+    function computeCircleLayout(pageWidthMm, pageHeightMm, diameterMm) {
+      if (diameterMm === 130) {
+        return {
+          columns: 1,
+          rows: 1,
+          horizontalGap: 0,
+          verticalGap: 0,
+          cells: [{ x: pageWidthMm / 2, y: pageHeightMm / 2, diameter: diameterMm }]
+        };
+      }
+
+      const layout = computeGridLayout(pageWidthMm, pageHeightMm, diameterMm, diameterMm);
+      return {
+        ...layout,
+        cells: layout.cells.map((cell) => ({ x: cell.x, y: cell.y, diameter: diameterMm }))
+      };
+    }
+
+    function getStandardCircleJigCells(diameterMm) {
+      const jig = STANDARD_CIRCLE_JIGS_MM[diameterMm];
+      if (!jig) return null;
+      return jig.rows.flatMap((y) => jig.columns.map((x) => ({ x, y, diameter: diameterMm })));
+    }
+
+    function configureCanvas() {
+      const page = getPageSize();
+      canvas.width = Math.round(mmToPx(page.width));
+      canvas.height = Math.round(mmToPx(page.height));
+      canvas.style.aspectRatio = `${page.width} / ${page.height}`;
+      rootStyle.setProperty("--print-width", `${page.width}mm`);
+      rootStyle.setProperty("--print-height", `${page.height}mm`);
+      pageRule.textContent = `@page { size: A4 ${state.orientation}; margin: 0; }`;
+      sheetLabel.textContent = state.orientation === "portrait" ? "A4 Portrait" : "A4 Landscape";
+      canvasSizeLabel.textContent = `${page.width} × ${page.height}mm`;
+      pixelSizeLabel.textContent = `${canvas.width} × ${canvas.height}px`;
+      render();
+    }
+
+    function getTemplateCells() {
+      const page = getPageSize();
+      if (state.template === "circle") {
+        const standardJigCells = state.circleLayoutMode === "standard"
+          ? getStandardCircleJigCells(state.circleDiameterMm)
+          : null;
+        const cells = standardJigCells || computeCircleLayout(page.width, page.height, state.circleDiameterMm).cells;
+        return cells.map((cell) => ({ ...cell, shape: "circle" }));
+      }
+      return [{
+        x: page.width / 2,
+        y: page.height / 2,
+        width: page.width,
+        height: page.height,
+        shape: "rectangle"
+      }];
+    }
+
+    function getTargetSizePx() {
+      if (state.template === "circle") {
+        return { width: mmToPx(state.circleDiameterMm), height: mmToPx(state.circleDiameterMm) };
+      }
+      return { width: canvas.width, height: canvas.height };
+    }
+
+    function getRotatedBounds(width, height, rotationDegrees) {
+      const angle = rotationDegrees * Math.PI / 180;
+      const cosine = Math.abs(Math.cos(angle));
+      const sine = Math.abs(Math.sin(angle));
+      return {
+        width: width * cosine + height * sine,
+        height: width * sine + height * cosine
+      };
+    }
+
+    function getBaseScale(targetWidth, targetHeight, imageWidth = state.imageWidth, imageHeight = state.imageHeight) {
+      if (!imageWidth || !imageHeight) return 1;
+      const bounds = getRotatedBounds(imageWidth, imageHeight, state.rotation);
+      const fitScale = Math.min(targetWidth / bounds.width, targetHeight / bounds.height);
+      const angle = state.rotation * Math.PI / 180;
+      const cosine = Math.abs(Math.cos(angle));
+      const sine = Math.abs(Math.sin(angle));
+      const fillScale = Math.max(
+        (targetWidth * cosine + targetHeight * sine) / imageWidth,
+        (targetWidth * sine + targetHeight * cosine) / imageHeight
+      );
+      return state.fitMode === "fill" ? fillScale : fitScale;
+    }
+
+    function constrainOffsets() {
+      const target = getTargetSizePx();
+      const minimumVisible = mmToPx(Math.min(5, pxToMm(Math.min(target.width, target.height)) / 4));
+      const limitX = Math.max(0, target.width / 2 - minimumVisible);
+      const limitY = Math.max(0, target.height / 2 - minimumVisible);
+      state.offsetXmm = pxToMm(clamp(mmToPx(state.offsetXmm), -limitX, limitX));
+      state.offsetYmm = pxToMm(clamp(mmToPx(state.offsetYmm), -limitY, limitY));
+    }
+
+    function drawTransformedImage(
+      targetContext,
+      centerX,
+      centerY,
+      targetWidth,
+      targetHeight,
+      clipShape,
+      sourceImage,
+      sourceWidth,
+      sourceHeight
+    ) {
+      if (!sourceImage) return;
+
+      targetContext.save();
+      targetContext.beginPath();
+      if (clipShape === "circle") {
+        targetContext.arc(centerX, centerY, targetWidth / 2, 0, Math.PI * 2);
+      } else {
+        targetContext.rect(centerX - targetWidth / 2, centerY - targetHeight / 2, targetWidth, targetHeight);
+      }
+      targetContext.clip();
+
+      const scale = getBaseScale(targetWidth, targetHeight, sourceWidth, sourceHeight) * state.zoom;
+      targetContext.translate(centerX + mmToPx(state.offsetXmm), centerY + mmToPx(state.offsetYmm));
+      targetContext.rotate(state.rotation * Math.PI / 180);
+      targetContext.scale(scale, scale);
+      targetContext.drawImage(sourceImage, -sourceWidth / 2, -sourceHeight / 2);
+      targetContext.restore();
+    }
+
+    function drawPlaceholder(targetContext, width, height) {
+      const centerX = width / 2;
+      const centerY = height / 2;
+      targetContext.save();
+      targetContext.fillStyle = "#fffdf8";
+      targetContext.fillRect(0, 0, width, height);
+      targetContext.strokeStyle = "#d8cbbc";
+      targetContext.setLineDash([10, 10]);
+      targetContext.lineWidth = 2;
+      targetContext.strokeRect(width * 0.12, height * 0.18, width * 0.76, height * 0.64);
+      targetContext.setLineDash([]);
+      targetContext.textAlign = "center";
+      targetContext.fillStyle = "#211a18";
+      targetContext.font = `600 ${Math.max(25, width * 0.038)}px Georgia, serif`;
+      targetContext.fillText("C&C Edible Image Studio", centerX, centerY - 18);
+      targetContext.fillStyle = "#746961";
+      targetContext.font = `500 ${Math.max(16, width * 0.019)}px -apple-system, sans-serif`;
+      targetContext.fillText("Upload a JPG, PNG or WebP image", centerX, centerY + 28);
+      targetContext.restore();
+    }
+
+    function drawSafeArea(targetContext, width, height) {
+      const top = mmToPx(PAGE_MARGIN_MM.top);
+      const right = mmToPx(PAGE_MARGIN_MM.right);
+      const bottom = mmToPx(PAGE_MARGIN_MM.bottom);
+      const left = mmToPx(PAGE_MARGIN_MM.left);
+      targetContext.save();
+      targetContext.fillStyle = "rgba(164, 51, 42, 0.045)";
+      targetContext.fillRect(0, 0, width, top);
+      targetContext.fillRect(0, height - bottom, width, bottom);
+      targetContext.fillRect(0, top, left, height - top - bottom);
+      targetContext.fillRect(width - right, top, right, height - top - bottom);
+      targetContext.strokeStyle = "rgba(164, 51, 42, 0.8)";
+      targetContext.lineWidth = Math.max(1.5, mmToPx(0.25));
+      targetContext.setLineDash([mmToPx(2), mmToPx(1.4)]);
+      targetContext.strokeRect(left, top, width - left - right, height - top - bottom);
+      targetContext.setLineDash([]);
+      targetContext.fillStyle = "rgba(164, 51, 42, 0.85)";
+      targetContext.font = `700 ${Math.max(12, mmToPx(2.5))}px -apple-system, sans-serif`;
+      targetContext.fillText("MARGINS T10 · L/R2 · B3mm", left + mmToPx(2), top - mmToPx(1.4));
+      targetContext.restore();
+    }
+
+    function drawCircleOutlines(targetContext, cells) {
+      targetContext.save();
+      targetContext.strokeStyle = "rgba(164, 51, 42, 0.68)";
+      targetContext.lineWidth = Math.max(1.3, mmToPx(0.22));
+      targetContext.setLineDash([mmToPx(1.5), mmToPx(1)]);
+      for (const cell of cells) {
+        targetContext.beginPath();
+        targetContext.arc(mmToPx(cell.x), mmToPx(cell.y), mmToPx(cell.diameter / 2), 0, Math.PI * 2);
+        targetContext.stroke();
+      }
+      targetContext.restore();
+    }
+
+    function getScaleBarGeometry(pageWidthMm, pageHeightMm) {
+      return {
+        x: Math.max(PAGE_MARGIN_MM.left + 2, pageWidthMm - PAGE_MARGIN_MM.right - 52),
+        y: pageHeightMm - PAGE_MARGIN_MM.bottom - 3.5,
+        length: 50,
+        tick: 2.5
+      };
+    }
+
+    function drawScaleBar(targetContext, pageWidthMm, pageHeightMm) {
+      const geometry = getScaleBarGeometry(pageWidthMm, pageHeightMm);
+      const lineLength = mmToPx(geometry.length);
+      const tick = mmToPx(geometry.tick);
+      const x = mmToPx(geometry.x);
+      const y = mmToPx(geometry.y);
+      targetContext.save();
+      targetContext.strokeStyle = "#211a18";
+      targetContext.fillStyle = "rgba(255, 255, 255, 0.88)";
+      targetContext.fillRect(x - mmToPx(2), y - mmToPx(4.8), lineLength + mmToPx(4), mmToPx(7));
+      targetContext.lineWidth = Math.max(1.5, mmToPx(0.28));
+      targetContext.beginPath();
+      targetContext.moveTo(x, y);
+      targetContext.lineTo(x + lineLength, y);
+      targetContext.moveTo(x, y - tick);
+      targetContext.lineTo(x, y + tick);
+      targetContext.moveTo(x + lineLength, y - tick);
+      targetContext.lineTo(x + lineLength, y + tick);
+      targetContext.stroke();
+      targetContext.fillStyle = "#211a18";
+      targetContext.textAlign = "center";
+      targetContext.font = `700 ${Math.max(11, mmToPx(2.2))}px -apple-system, sans-serif`;
+      targetContext.fillText("50mm · PRINT AT 100%", x + lineLength / 2, y - mmToPx(1.6));
+      targetContext.restore();
+    }
+
+    function renderArtwork(targetCanvas, options = {}) {
+      const { guides = false, scaleBar = state.showScaleBar, preview = false } = options;
+      const targetContext = targetCanvas.getContext("2d", { alpha: false });
+      const page = getPageSize();
+      const sourceImage = preview && state.previewImage ? state.previewImage : state.image;
+      const sourceWidth = sourceImage ? (sourceImage.naturalWidth || sourceImage.width) : 0;
+      const sourceHeight = sourceImage ? (sourceImage.naturalHeight || sourceImage.height) : 0;
+      targetContext.clearRect(0, 0, targetCanvas.width, targetCanvas.height);
+      targetContext.fillStyle = "#ffffff";
+      targetContext.fillRect(0, 0, targetCanvas.width, targetCanvas.height);
+
+      if (!sourceImage) {
+        drawPlaceholder(targetContext, targetCanvas.width, targetCanvas.height);
+      } else if (state.template === "single") {
+        drawTransformedImage(
+          targetContext,
+          targetCanvas.width / 2,
+          targetCanvas.height / 2,
+          targetCanvas.width,
+          targetCanvas.height,
+          "rectangle",
+          sourceImage,
+          sourceWidth,
+          sourceHeight
+        );
+      } else {
+        const cells = getTemplateCells();
+        for (const cell of cells) {
+          const targetWidth = mmToPx(cell.diameter || cell.width);
+          const targetHeight = mmToPx(cell.diameter || cell.height);
+          drawTransformedImage(
+            targetContext,
+            mmToPx(cell.x),
+            mmToPx(cell.y),
+            targetWidth,
+            targetHeight,
+            cell.shape,
+            sourceImage,
+            sourceWidth,
+            sourceHeight
+          );
+        }
+      }
+
+      if (guides && state.showSafeArea) {
+        drawSafeArea(targetContext, targetCanvas.width, targetCanvas.height);
+        const cells = getTemplateCells();
+        if (state.template === "circle") drawCircleOutlines(targetContext, cells);
+      }
+      if (scaleBar) drawScaleBar(targetContext, page.width, page.height);
+    }
+
+    function render() {
+      constrainOffsets();
+      renderArtwork(canvas, { guides: true, preview: true });
+      updateQualityStatus();
+      updateCoverageStatus();
+      updateTemplateCount();
+      updateCtaLinks();
+      updateCanvasAria();
+    }
+
+    let renderFrame = 0;
+
+    function scheduleRender() {
+      if (renderFrame) return;
+      renderFrame = requestAnimationFrame(() => {
+        renderFrame = 0;
+        render();
+      });
+    }
+
+    function updateTemplateCount() {
+      const count = getTemplateCells().length;
+      repeatLabel.textContent = state.template === "circle"
+        ? `${count} circles · Ø${formatCircleDiameter(state.circleDiameterMm)}${state.circleLayoutMode === "standard" ? " · standard jig" : ""}`
+        : count === 1 ? "1 image" : `${count} repeated images`;
+    }
+
+    function estimateEffectiveDpi() {
+      if (!state.image) return null;
+      const target = getTargetSizePx();
+      const scale = getBaseScale(target.width, target.height) * state.zoom;
+      return DPI / scale;
+    }
+
+    function rotatePoint(x, y, angle) {
+      const cosine = Math.cos(angle);
+      const sine = Math.sin(angle);
+      return { x: x * cosine - y * sine, y: x * sine + y * cosine };
+    }
+
+    function getTransformGeometry() {
+      const target = getTargetSizePx();
+      const scale = getBaseScale(target.width, target.height) * state.zoom;
+      const angle = state.rotation * Math.PI / 180;
+      const halfWidth = state.imageWidth * scale / 2;
+      const halfHeight = state.imageHeight * scale / 2;
+      const offsetX = mmToPx(state.offsetXmm);
+      const offsetY = mmToPx(state.offsetYmm);
+      const corners = [
+        [-halfWidth, -halfHeight],
+        [halfWidth, -halfHeight],
+        [halfWidth, halfHeight],
+        [-halfWidth, halfHeight]
+      ].map(([x, y]) => {
+        const rotated = rotatePoint(x, y, angle);
+        return { x: rotated.x + offsetX, y: rotated.y + offsetY };
+      });
+
+      return { target, scale, angle, halfWidth, halfHeight, offsetX, offsetY, corners };
+    }
+
+    function projectPolygon(points, axis) {
+      const values = points.map((point) => point.x * axis.x + point.y * axis.y);
+      return { min: Math.min(...values), max: Math.max(...values) };
+    }
+
+    function polygonsOverlap(first, second) {
+      const polygons = [first, second];
+      for (const polygon of polygons) {
+        for (let index = 0; index < polygon.length; index += 1) {
+          const current = polygon[index];
+          const next = polygon[(index + 1) % polygon.length];
+          const edge = { x: next.x - current.x, y: next.y - current.y };
+          const length = Math.hypot(edge.x, edge.y) || 1;
+          const axis = { x: -edge.y / length, y: edge.x / length };
+          const firstProjection = projectPolygon(first, axis);
+          const secondProjection = projectPolygon(second, axis);
+          if (firstProjection.max < secondProjection.min || secondProjection.max < firstProjection.min) return false;
+        }
+      }
+      return true;
+    }
+
+    function targetRectCorners(target) {
+      return [
+        { x: -target.width / 2, y: -target.height / 2 },
+        { x: target.width / 2, y: -target.height / 2 },
+        { x: target.width / 2, y: target.height / 2 },
+        { x: -target.width / 2, y: target.height / 2 }
+      ];
+    }
+
+    function pointInImageCoordinates(x, y, geometry) {
+      return rotatePoint(x - geometry.offsetX, y - geometry.offsetY, -geometry.angle);
+    }
+
+    function circleIntersectsImage(geometry) {
+      const radius = geometry.target.width / 2;
+      const center = pointInImageCoordinates(0, 0, geometry);
+      const nearestX = clamp(center.x, -geometry.halfWidth, geometry.halfWidth);
+      const nearestY = clamp(center.y, -geometry.halfHeight, geometry.halfHeight);
+      return Math.hypot(center.x - nearestX, center.y - nearestY) <= radius;
+    }
+
+    function imageCoversTarget(geometry) {
+      if (state.template === "circle") {
+        const radius = geometry.target.width / 2;
+        const center = pointInImageCoordinates(0, 0, geometry);
+        return (
+          Math.abs(center.x) + radius <= geometry.halfWidth + 0.01 &&
+          Math.abs(center.y) + radius <= geometry.halfHeight + 0.01
+        );
+      }
+
+      return targetRectCorners(geometry.target).every((corner) => {
+        const local = pointInImageCoordinates(corner.x, corner.y, geometry);
+        return (
+          Math.abs(local.x) <= geometry.halfWidth + 0.01 &&
+          Math.abs(local.y) <= geometry.halfHeight + 0.01
+        );
+      });
+    }
+
+    function getOutputPreflight() {
+      if (!state.image) {
+        return {
+          ok: false,
+          tone: "neutral",
+          title: "출력 영역 확인 대기",
+          text: "이미지를 불러오면 빈 출력과 미채움 영역을 검사합니다."
+        };
+      }
+
+      const geometry = getTransformGeometry();
+      const overlaps = state.template === "circle"
+        ? circleIntersectsImage(geometry)
+        : polygonsOverlap(geometry.corners, targetRectCorners(geometry.target));
+
+      if (!overlaps) {
+        return {
+          ok: false,
+          tone: "danger",
+          title: "빈 출력 차단 · Blank output",
+          text: "이미지가 인쇄 영역 밖에 있습니다. 중앙 버튼으로 되돌리세요."
+        };
+      }
+
+      if (state.fitMode === "fill" && !imageCoversTarget(geometry)) {
+        return {
+          ok: false,
+          tone: "danger",
+          title: "Fill 영역 미채움",
+          text: "이동 또는 축소 때문에 빈 부분이 생깁니다. 확대하거나 중앙에 맞춰야 저장·인쇄할 수 있습니다."
+        };
+      }
+
+      return {
+        ok: true,
+        tone: "good",
+        title: "출력 영역 준비됨 · Ready",
+        text: state.fitMode === "fit"
+          ? "Fit 모드의 여백은 의도된 결과입니다. 저장 전에 미리보기를 확인하세요."
+          : "Fill 모드가 인쇄 영역을 모두 덮고 있습니다."
+      };
+    }
+
+    function updateCoverageStatus() {
+      const preflight = getOutputPreflight();
+      coverageCard.dataset.tone = preflight.tone;
+      coverageTitle.textContent = preflight.title;
+      coverageText.textContent = preflight.text;
+    }
+
+    function getTemplateLabel() {
+      if (state.template === "circle") {
+        return `${formatCircleDiameter(state.circleDiameterMm)} circles${state.circleLayoutMode === "standard" ? ", standard cutting jig" : ""}`;
+      }
+      return "full sheet";
+    }
+
+    function getTransformSummary() {
+      return `zoom ${Math.round(state.zoom * 100)} percent, rotation ${state.rotation} degrees, horizontal offset ${state.offsetXmm.toFixed(1)} millimeters, vertical offset ${state.offsetYmm.toFixed(1)} millimeters`;
+    }
+
+    function updateCanvasAria() {
+      const preflight = getOutputPreflight();
+      const imageStatus = state.image ? `image ${state.imageName} loaded` : "no image loaded";
+      canvas.setAttribute(
+        "aria-label",
+        `Interactive A4 ${state.orientation} canvas, ${getTemplateLabel()}, ${imageStatus}, ${getTransformSummary()}, output ${preflight.ok ? "ready" : "not ready"}. Drag or use arrow keys to move the image.`
+      );
+    }
+
+    function announceTransform(prefix) {
+      announce(`${prefix} ${getTransformSummary()}.`);
+    }
+
+    function updateQualityStatus() {
+      if (!state.image) {
+        resolutionCard.dataset.tone = "neutral";
+        resolutionTitle.textContent = "이미지를 선택하세요";
+        resolutionText.textContent = `작업 화면은 ${canvas.width} × ${canvas.height}px입니다. 실제 A4 크기는 인쇄/PDF에서 설정합니다.`;
+        return;
+      }
+
+      const effectiveDpi = estimateEffectiveDpi();
+      const roundedDpi = Math.max(1, Math.round(effectiveDpi));
+      if (effectiveDpi < MIN_RECOMMENDED_DPI) {
+        resolutionCard.dataset.tone = "danger";
+        resolutionTitle.textContent = "낮은 해상도 · Low resolution";
+        resolutionText.textContent = `A4 환산 원본 약 ${roundedDpi} PPI입니다. 확대를 줄이거나 더 큰 이미지를 사용하세요. PNG는 ${canvas.width} × ${canvas.height}px입니다.`;
+      } else {
+        resolutionCard.dataset.tone = "good";
+        resolutionTitle.textContent = "원본 해상도 충분 · Source ready";
+        resolutionText.textContent = `A4 환산 원본 약 ${roundedDpi} PPI입니다. 작업 PNG는 ${canvas.width} × ${canvas.height}px이며 물리 크기 메타데이터를 보장하지 않습니다.`;
+      }
+    }
+
+    function updateCtaLinks() {
+      const page = getPageSize();
+      const templateName = state.template === "circle"
+        ? `${formatCircleDiameter(state.circleDiameterMm)} circles${state.circleLayoutMode === "standard" ? " standard cutting jig" : ""}`
+        : "full sheet";
+      const summary = `A4 ${state.orientation}, ${page.width} x ${page.height} mm, ${templateName}`;
+      const palletSubject = "A4 icing sheet bulk supply inquiry";
+      const palletBody = `Hello C&C / Cake Salon,\n\nI am interested in A4 icing sheet bulk supply.\n\nCompany:\nCountry:\nContact name:\nEstimated quantity:\nIntended use / sales channel:\n\nReferral: ${referralSource}\n\nPlease contact me with the next commercial steps.\n\nBest regards,`;
+      document.getElementById("storeCta").href = campaignUrl("https://smartstore.naver.com/cake");
+      document.getElementById("customPrintCta").href = campaignUrl("https://talk.naver.com/ct/wcb39e#nafullscreen");
+      document.getElementById("customPrintCta").setAttribute("aria-label", `네이버 스마트스토어 톡톡 맞춤 인쇄 문의. 현재 디자인: ${summary}`);
+      document.getElementById("palletCta").href = `mailto:sales@edibleicingsheet.com?subject=${encodeURIComponent(palletSubject)}&body=${encodeURIComponent(palletBody)}`;
+    }
+
+    function announce(message) {
+      liveStatus.textContent = message;
+    }
+
+    function resetTransform(announceChange = true) {
+      state.zoom = 1;
+      state.rotation = 0;
+      state.offsetXmm = 0;
+      state.offsetYmm = 0;
+      zoomInput.value = "100";
+      zoomOutput.value = "100%";
+      rotationInput.value = "0";
+      rotationOutput.value = "0°";
+      render();
+      if (announceChange) announceTransform("이미지를 중앙으로 초기화했습니다:");
+    }
+
+    function validateSelectedFile(file) {
+      if (!file) return "파일을 선택하지 않았습니다.";
+      if (file.size > MAX_FILE_BYTES) return "파일이 15MB를 초과합니다.";
+      if (file.type && !ACCEPTED_TYPES.has(file.type)) return "JPG, PNG 또는 WebP 파일만 사용할 수 있습니다.";
+      if (!file.type && !ACCEPTED_EXTENSIONS.test(file.name)) return "확인할 수 없는 이미지 형식입니다.";
+      return "";
+    }
+
+    function readAscii(view, offset, length) {
+      let value = "";
+      for (let index = 0; index < length; index += 1) value += String.fromCharCode(view.getUint8(offset + index));
+      return value;
+    }
+
+    function parsePngDimensions(view) {
+      const signature = [0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a];
+      if (view.byteLength < 24 || !signature.every((value, index) => view.getUint8(index) === value)) return null;
+      if (readAscii(view, 12, 4) !== "IHDR") throw new Error("PNG 헤더에 IHDR 정보가 없습니다.");
+      return { type: "image/png", width: view.getUint32(16, false), height: view.getUint32(20, false) };
+    }
+
+    function parseJpegDimensions(view) {
+      if (view.byteLength < 4 || view.getUint16(0, false) !== 0xffd8) return null;
+      const startOfFrameMarkers = new Set([0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf]);
+      let offset = 2;
+
+      while (offset + 4 <= view.byteLength) {
+        while (offset < view.byteLength && view.getUint8(offset) !== 0xff) offset += 1;
+        while (offset < view.byteLength && view.getUint8(offset) === 0xff) offset += 1;
+        if (offset >= view.byteLength) break;
+
+        const marker = view.getUint8(offset);
+        offset += 1;
+        if (marker === 0xd9 || marker === 0xda) break;
+        if (marker === 0x01 || (marker >= 0xd0 && marker <= 0xd7)) continue;
+        if (offset + 2 > view.byteLength) break;
+
+        const segmentLength = view.getUint16(offset, false);
+        if (segmentLength < 2 || offset + segmentLength > view.byteLength) break;
+        if (startOfFrameMarkers.has(marker)) {
+          if (segmentLength < 7) throw new Error("JPEG 크기 헤더가 손상되었습니다.");
+          return {
+            type: "image/jpeg",
+            height: view.getUint16(offset + 3, false),
+            width: view.getUint16(offset + 5, false)
+          };
+        }
+        offset += segmentLength;
+      }
+
+      throw new Error("JPEG 헤더에서 이미지 크기를 확인할 수 없습니다.");
+    }
+
+    function parseWebpDimensions(view) {
+      if (
+        view.byteLength < 30 ||
+        readAscii(view, 0, 4) !== "RIFF" ||
+        readAscii(view, 8, 4) !== "WEBP"
+      ) return null;
+
+      let offset = 12;
+      while (offset + 8 <= view.byteLength) {
+        const chunk = readAscii(view, offset, 4);
+        const chunkSize = view.getUint32(offset + 4, true);
+        const dataOffset = offset + 8;
+        if (dataOffset + chunkSize > view.byteLength) throw new Error("WebP 청크가 손상되었습니다.");
+
+        if (chunk === "VP8X" && chunkSize >= 10) {
+          const width = 1 + view.getUint8(dataOffset + 4) + (view.getUint8(dataOffset + 5) << 8) + (view.getUint8(dataOffset + 6) << 16);
+          const height = 1 + view.getUint8(dataOffset + 7) + (view.getUint8(dataOffset + 8) << 8) + (view.getUint8(dataOffset + 9) << 16);
+          return { type: "image/webp", width, height };
+        }
+
+        if (chunk === "VP8L" && chunkSize >= 5 && view.getUint8(dataOffset) === 0x2f) {
+          const bits = view.getUint32(dataOffset + 1, true);
+          return {
+            type: "image/webp",
+            width: (bits & 0x3fff) + 1,
+            height: ((bits >>> 14) & 0x3fff) + 1
+          };
+        }
+
+        if (
+          chunk === "VP8 " &&
+          chunkSize >= 10 &&
+          view.getUint8(dataOffset + 3) === 0x9d &&
+          view.getUint8(dataOffset + 4) === 0x01 &&
+          view.getUint8(dataOffset + 5) === 0x2a
+        ) {
+          return {
+            type: "image/webp",
+            width: view.getUint16(dataOffset + 6, true) & 0x3fff,
+            height: view.getUint16(dataOffset + 8, true) & 0x3fff
+          };
+        }
+
+        offset = dataOffset + chunkSize + (chunkSize % 2);
+      }
+
+      throw new Error("WebP 헤더에서 이미지 크기를 확인할 수 없습니다.");
+    }
+
+    function preflightImageDimensions(buffer) {
+      const view = new DataView(buffer);
+      const dimensions = parsePngDimensions(view) || parseJpegDimensions(view) || parseWebpDimensions(view);
+      if (!dimensions) throw new Error("지원되는 JPG, PNG 또는 WebP 헤더가 아닙니다.");
+      if (!dimensions.width || !dimensions.height) throw new Error("이미지 크기 정보가 올바르지 않습니다.");
+      if (dimensions.width * dimensions.height > MAX_IMAGE_PIXELS) {
+        throw new Error("이미지는 최대 16메가픽셀까지 사용할 수 있습니다.");
+      }
+      return dimensions;
+    }
+
+    function createWorkingPreview(image, width, height) {
+      const scale = Math.min(1, PREVIEW_MAX_EDGE / Math.max(width, height));
+      const preview = document.createElement("canvas");
+      preview.width = Math.max(1, Math.round(width * scale));
+      preview.height = Math.max(1, Math.round(height * scale));
+      const previewContext = preview.getContext("2d", { alpha: true });
+      previewContext.imageSmoothingEnabled = true;
+      previewContext.imageSmoothingQuality = "high";
+      previewContext.drawImage(image, 0, 0, preview.width, preview.height);
+      return preview;
+    }
+
+    let imageLoadRequestId = 0;
+
+    async function loadSelectedImage(file) {
+      const requestId = ++imageLoadRequestId;
+      const validationError = validateSelectedFile(file);
+      if (validationError) {
+        imageInput.value = "";
+        fileMeta.textContent = validationError;
+        announce(validationError);
+        return;
+      }
+
+      let objectUrl = "";
+
+      try {
+        fileMeta.textContent = `${file.name} 헤더와 크기를 확인하는 중…`;
+        announce("이미지 크기를 먼저 확인하고 있습니다.");
+        const buffer = await file.arrayBuffer();
+        if (requestId !== imageLoadRequestId) return;
+        const header = preflightImageDimensions(buffer);
+        if (file.type && file.type !== header.type) throw new Error("파일 형식과 이미지 헤더가 일치하지 않습니다.");
+
+        objectUrl = URL.createObjectURL(file);
+        const image = new Image();
+        await new Promise((resolve, reject) => {
+          image.onload = resolve;
+          image.onerror = () => reject(new Error("이미지를 디코딩할 수 없습니다."));
+          image.src = objectUrl;
+        });
+        if (requestId !== imageLoadRequestId) return;
+
+        const decodedWidth = image.naturalWidth;
+        const decodedHeight = image.naturalHeight;
+        const dimensionsMatch = (
+          (decodedWidth === header.width && decodedHeight === header.height) ||
+          (decodedWidth === header.height && decodedHeight === header.width)
+        );
+        if (!dimensionsMatch) {
+          throw new Error("헤더 크기와 디코딩된 이미지 크기가 일치하지 않습니다.");
+        }
+
+        state.image = image;
+        state.previewImage = createWorkingPreview(image, decodedWidth, decodedHeight);
+        state.imageName = file.name;
+        state.imageWidth = decodedWidth;
+        state.imageHeight = decodedHeight;
+        resetTransform(false);
+        fileMeta.textContent = `${file.name} · ${decodedWidth} × ${decodedHeight}px · ${(file.size / 1024 / 1024).toFixed(1)}MB`;
+        announce("이미지를 불러왔습니다. 드래그하거나 방향키로 위치를 조정하세요.");
+      } catch (error) {
+        if (requestId !== imageLoadRequestId) return;
+        imageInput.value = "";
+        fileMeta.textContent = error.message;
+        announce(error.message);
+      } finally {
+        if (objectUrl) URL.revokeObjectURL(objectUrl);
+      }
+    }
+
+    imageInput.addEventListener("change", () => loadSelectedImage(imageInput.files[0]));
+
+    document.querySelectorAll('input[name="orientation"]').forEach((input) => {
+      input.addEventListener("change", () => {
+        if (input.value === "landscape" && state.template === "circle" && state.circleLayoutMode === "standard") {
+          document.querySelector('input[name="orientation"][value="portrait"]').checked = true;
+          announce("35mm·55mm 표준 컷팅 지그는 제공된 A4 세로 원본 좌표로만 사용할 수 있습니다.");
+          return;
+        }
+        state.orientation = input.value;
+        state.offsetXmm = 0;
+        state.offsetYmm = 0;
+        configureCanvas();
+        announce(`A4 ${state.orientation} 방향으로 변경했습니다.`);
+      });
+    });
+
+    document.querySelectorAll(".template-button").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.template = button.dataset.template;
+        if (state.template === "circle") {
+          state.circleDiameterMm = Number(button.dataset.circleDiameter);
+          state.circleLayoutMode = button.dataset.standardJig === "true" ? "standard" : "custom";
+          customCircleUnit.value = button.dataset.circleUnit;
+          customCircleInput.value = button.dataset.circleUnit === "cm"
+            ? formatMillimeters(state.circleDiameterMm / 10)
+            : formatMillimeters(state.circleDiameterMm);
+          updateCustomCircleBounds();
+          if (state.circleLayoutMode === "standard") {
+            state.orientation = "portrait";
+            document.querySelector('input[name="orientation"][value="portrait"]').checked = true;
+          }
+        }
+        state.offsetXmm = 0;
+        state.offsetYmm = 0;
+        document.querySelectorAll(".template-button").forEach((item) => {
+          item.setAttribute("aria-pressed", String(item === button));
+        });
+        customCircleApply.setAttribute("aria-pressed", "false");
+        if (state.template === "circle" && state.circleLayoutMode === "standard") configureCanvas();
+        else render();
+        announce(`${button.textContent.trim().replace(/\s+/g, " ")} 템플릿을 선택했습니다.`);
+      });
+    });
+
+    function formatMillimeters(value) {
+      return Number.isInteger(value) ? String(value) : value.toFixed(1).replace(/\.0$/, "");
+    }
+
+    function formatCircleDiameter(diameterMm) {
+      return diameterMm >= 100 && diameterMm % 10 === 0
+        ? `${formatMillimeters(diameterMm / 10)}cm`
+        : `${formatMillimeters(diameterMm)}mm`;
+    }
+
+    function updateCustomCircleBounds() {
+      const useCentimeters = customCircleUnit.value === "cm";
+      customCircleInput.min = useCentimeters ? "0.5" : "5";
+      customCircleInput.max = useCentimeters ? "20.5" : "205";
+      customCircleInput.step = useCentimeters ? "1" : "10";
+    }
+
+    function applyCustomCircle() {
+      const inputDiameter = Number(customCircleInput.value);
+      const diameterMm = customCircleUnit.value === "cm" ? inputDiameter * 10 : inputDiameter;
+      if (!Number.isFinite(diameterMm) || diameterMm < MIN_CIRCLE_DIAMETER_MM || diameterMm > MAX_CIRCLE_DIAMETER_MM) {
+        announce("원형 지름은 최대 20.5cm 또는 205mm까지 입력하세요.");
+        customCircleInput.focus();
+        return;
+      }
+
+      state.template = "circle";
+      state.circleDiameterMm = Math.round(diameterMm * 10) / 10;
+      state.circleLayoutMode = "custom";
+      state.offsetXmm = 0;
+      state.offsetYmm = 0;
+      const switchedToPortrait = state.orientation === "landscape"
+        && state.circleDiameterMm > A4.width - PAGE_MARGIN_MM.top - PAGE_MARGIN_MM.bottom;
+      if (switchedToPortrait) {
+        state.orientation = "portrait";
+        document.querySelector('input[name="orientation"][value="portrait"]').checked = true;
+      }
+      customCircleInput.value = customCircleUnit.value === "cm"
+        ? formatMillimeters(state.circleDiameterMm / 10)
+        : formatMillimeters(state.circleDiameterMm);
+      document.querySelectorAll(".template-button").forEach((item) => item.setAttribute("aria-pressed", "false"));
+      customCircleApply.setAttribute("aria-pressed", "true");
+      if (switchedToPortrait) configureCanvas();
+      else render();
+      announce(`지름 ${formatCircleDiameter(state.circleDiameterMm)} 원형 템플릿을 적용했습니다.${switchedToPortrait ? " 여백을 지키기 위해 A4 세로로 전환했습니다." : ""}`);
+    }
+
+    customCircleUnit.addEventListener("change", updateCustomCircleBounds);
+    customCircleApply.addEventListener("click", applyCustomCircle);
+    customCircleInput.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter") return;
+      event.preventDefault();
+      applyCustomCircle();
+    });
+
+    function setFitMode(mode) {
+      state.fitMode = mode;
+      fitButton.setAttribute("aria-pressed", String(mode === "fit"));
+      fillButton.setAttribute("aria-pressed", String(mode === "fill"));
+      state.offsetXmm = 0;
+      state.offsetYmm = 0;
+      render();
+      announce(mode === "fit" ? "이미지 전체가 보이도록 맞췄습니다." : "인쇄 영역을 가득 채웠습니다.");
+    }
+
+    fitButton.addEventListener("click", () => setFitMode("fit"));
+    fillButton.addEventListener("click", () => setFitMode("fill"));
+
+    zoomInput.addEventListener("input", () => {
+      state.zoom = Number(zoomInput.value) / 100;
+      zoomOutput.value = `${zoomInput.value}%`;
+      scheduleRender();
+    });
+    zoomInput.addEventListener("change", () => announceTransform("확대 상태:"));
+
+    rotationInput.addEventListener("input", () => {
+      state.rotation = Number(rotationInput.value);
+      rotationOutput.value = `${rotationInput.value}°`;
+      scheduleRender();
+    });
+    rotationInput.addEventListener("change", () => announceTransform("회전 상태:"));
+
+    function setRotation(degrees) {
+      const normalized = ((degrees + 180) % 360 + 360) % 360 - 180;
+      state.rotation = normalized;
+      rotationInput.value = String(normalized);
+      rotationOutput.value = `${normalized}°`;
+      render();
+      announceTransform("회전 상태:");
+    }
+
+    document.getElementById("rotateLeft").addEventListener("click", () => setRotation(state.rotation - 90));
+    document.getElementById("rotateRight").addEventListener("click", () => setRotation(state.rotation + 90));
+    document.getElementById("centerButton").addEventListener("click", () => resetTransform());
+
+    document.getElementById("safeAreaInput").addEventListener("change", (event) => {
+      state.showSafeArea = event.target.checked;
+      render();
+    });
+
+    document.getElementById("scaleBarInput").addEventListener("change", (event) => {
+      state.showScaleBar = event.target.checked;
+      render();
+    });
+
+    const activePointers = new Map();
+    let lastPointer = null;
+    let pinchStart = null;
+
+    function canvasPoint(event) {
+      const bounds = canvas.getBoundingClientRect();
+      return {
+        x: (event.clientX - bounds.left) * canvas.width / bounds.width,
+        y: (event.clientY - bounds.top) * canvas.height / bounds.height
+      };
+    }
+
+    function pointerDistance(points) {
+      const [first, second] = points;
+      return Math.hypot(second.x - first.x, second.y - first.y);
+    }
+
+    canvas.addEventListener("pointerdown", (event) => {
+      if (!state.image) return;
+      canvas.setPointerCapture(event.pointerId);
+      const point = canvasPoint(event);
+      activePointers.set(event.pointerId, point);
+      canvas.dataset.dragging = "true";
+
+      if (activePointers.size === 1) {
+        lastPointer = point;
+      } else if (activePointers.size === 2) {
+        pinchStart = {
+          distance: pointerDistance([...activePointers.values()]),
+          zoom: state.zoom
+        };
+      }
+    });
+
+    canvas.addEventListener("pointermove", (event) => {
+      if (!activePointers.has(event.pointerId)) return;
+      const point = canvasPoint(event);
+      activePointers.set(event.pointerId, point);
+
+      if (activePointers.size === 2 && pinchStart) {
+        const distance = pointerDistance([...activePointers.values()]);
+        state.zoom = clamp(pinchStart.zoom * distance / pinchStart.distance, 0.5, 3);
+        zoomInput.value = String(Math.round(state.zoom * 100));
+        zoomOutput.value = `${Math.round(state.zoom * 100)}%`;
+        scheduleRender();
+        return;
+      }
+
+      if (activePointers.size === 1 && lastPointer) {
+        state.offsetXmm += pxToMm(point.x - lastPointer.x);
+        state.offsetYmm += pxToMm(point.y - lastPointer.y);
+        lastPointer = point;
+        scheduleRender();
+      }
+    });
+
+    function endPointer(event) {
+      activePointers.delete(event.pointerId);
+      pinchStart = null;
+      const remaining = [...activePointers.values()];
+      lastPointer = remaining[0] || null;
+      if (!remaining.length) {
+        canvas.dataset.dragging = "false";
+        announceTransform("이미지 위치:");
+      }
+    }
+
+    canvas.addEventListener("pointerup", endPointer);
+    canvas.addEventListener("pointercancel", endPointer);
+
+    canvas.addEventListener("wheel", (event) => {
+      if (!state.image) return;
+      event.preventDefault();
+      const factor = Math.exp(-event.deltaY * 0.0015);
+      state.zoom = clamp(state.zoom * factor, 0.5, 3);
+      zoomInput.value = String(Math.round(state.zoom * 100));
+      zoomOutput.value = `${Math.round(state.zoom * 100)}%`;
+      scheduleRender();
+    }, { passive: false });
+
+    canvas.addEventListener("keydown", (event) => {
+      if (!state.image) return;
+      const amount = event.shiftKey ? 5 : 1;
+      const movement = {
+        ArrowLeft: [-amount, 0],
+        ArrowRight: [amount, 0],
+        ArrowUp: [0, -amount],
+        ArrowDown: [0, amount]
+      }[event.key];
+
+      if (movement) {
+        event.preventDefault();
+        state.offsetXmm += movement[0];
+        state.offsetYmm += movement[1];
+        render();
+        announceTransform(`${amount}mm 단위로 이미지 위치를 조정했습니다:`);
+        return;
+      }
+
+      if (["+", "=", "-"].includes(event.key)) {
+        event.preventDefault();
+        const direction = event.key === "-" ? -0.05 : 0.05;
+        state.zoom = clamp(state.zoom + direction, 0.5, 3);
+        zoomInput.value = String(Math.round(state.zoom * 100));
+        zoomOutput.value = `${Math.round(state.zoom * 100)}%`;
+        render();
+      }
+    });
+
+    function createOutputCanvas() {
+      const output = document.createElement("canvas");
+      output.width = canvas.width;
+      output.height = canvas.height;
+      renderArtwork(output, { guides: false, scaleBar: state.showScaleBar });
+      return output;
+    }
+
+    function outputIsReady() {
+      constrainOffsets();
+      const preflight = getOutputPreflight();
+      updateCoverageStatus();
+      if (!preflight.ok) {
+        announce(`${preflight.title}: ${preflight.text}`);
+        coverageCard.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
+      return true;
+    }
+
+    function promoteProAfterOutput() {
+      membershipSection.classList.add("is-recommended");
+      proNudge.textContent = "Your A4 design is ready. Save this design and work faster next time — join Cake Salon Pro early access.";
+    }
+
+    document.getElementById("downloadButton").addEventListener("click", () => {
+      if (!outputIsReady()) return;
+
+      const output = createOutputCanvas();
+      const link = document.createElement("a");
+      const templateSlug = state.template === "circle"
+        ? `circle-${formatCircleDiameter(state.circleDiameterMm).replace(".", "p")}${state.circleLayoutMode === "standard" ? "-standard-jig" : ""}`
+        : state.template;
+      link.download = `cnc-a4-${state.orientation}-${templateSlug}.png`;
+      output.toBlob((blob) => {
+        if (!blob) {
+          announce("PNG를 만들지 못했습니다. 브라우저 메모리를 확인하고 다시 시도해 주세요.");
+          return;
+        }
+        const objectUrl = URL.createObjectURL(blob);
+        link.href = objectUrl;
+        link.click();
+        setTimeout(() => URL.revokeObjectURL(objectUrl), 0);
+        promoteProAfterOutput();
+        announce(`${output.width} × ${output.height}px PNG 저장을 요청했습니다. PNG의 물리 크기는 보장되지 않으므로 A4 출력은 인쇄/PDF를 사용하세요.`);
+      }, "image/png");
+    });
+
+    document.getElementById("printButton").addEventListener("click", () => {
+      if (!outputIsReady()) return;
+
+      const output = createOutputCanvas();
+      printCanvas.width = output.width;
+      printCanvas.height = output.height;
+      const printContext = printCanvas.getContext("2d", { alpha: false });
+      printContext.drawImage(output, 0, 0);
+      promoteProAfterOutput();
+      announce("인쇄창에서 A4와 100% 또는 Actual Size를 선택하세요.");
+      window.print();
+    });
+
+    function runGeometrySelfCheck() {
+      const assert = (condition, message) => {
+        if (!condition) throw new Error(message);
+      };
+
+      assert(Math.abs(mmToPx(25.4) - DPI) < 0.0001, "mm-to-pixel conversion failed");
+      const pages = [
+        { name: "portrait", width: 210, height: 297 },
+        { name: "landscape", width: 297, height: 210 }
+      ];
+
+      for (const page of pages) {
+        assert(
+          Math.abs((mmToPx(page.width) / mmToPx(page.height)) - (page.width / page.height)) < 0.000001,
+          `${page.name} A4 ratio mismatch`
+        );
+
+        for (const diameter of CUSTOM_CIRCLE_PRESETS_MM) {
+          const layout = computeCircleLayout(page.width, page.height, diameter);
+          assert(layout.cells.length === layout.columns * layout.rows && layout.cells.length > 0, `${page.name} ${diameter}mm count mismatch`);
+          assert(layout.cells.every((cell) => (
+            cell.x - cell.diameter / 2 >= PAGE_MARGIN_MM.left - 0.001 &&
+            cell.x + cell.diameter / 2 <= page.width - PAGE_MARGIN_MM.right + 0.001 &&
+            cell.y - cell.diameter / 2 >= PAGE_MARGIN_MM.top - 0.001 &&
+            cell.y + cell.diameter / 2 <= page.height - PAGE_MARGIN_MM.bottom + 0.001
+          )), `${page.name} ${diameter}mm circle outside safe area`);
+        }
+
+        const scaleBar = getScaleBarGeometry(page.width, page.height);
+        assert(scaleBar.length === 50, `${page.name} scale bar is not 50mm`);
+        assert(scaleBar.x >= PAGE_MARGIN_MM.left && scaleBar.x + scaleBar.length <= page.width - PAGE_MARGIN_MM.right, `${page.name} scale bar horizontal boundary failed`);
+        assert(scaleBar.y - scaleBar.tick >= PAGE_MARGIN_MM.top && scaleBar.y + scaleBar.tick <= page.height - PAGE_MARGIN_MM.bottom, `${page.name} scale bar vertical boundary failed`);
+      }
+
+      const portraitCounts = new Map([[130, 1], [160, 1], [180, 1]]);
+      for (const [diameter, expectedCount] of portraitCounts) {
+        assert(computeCircleLayout(A4.width, A4.height, diameter).cells.length === expectedCount, `${diameter}mm portrait count changed`);
+      }
+
+      const centered13Cm = computeCircleLayout(A4.width, A4.height, 130).cells[0];
+      assert(centered13Cm.x === A4.width / 2 && centered13Cm.y === A4.height / 2, "130mm circle is not centered");
+
+      const largestCustomCircle = computeCircleLayout(A4.width, A4.height, MAX_CIRCLE_DIAMETER_MM).cells[0];
+      assert(largestCustomCircle.diameter === 205, "custom circle maximum changed");
+      assert(largestCustomCircle.x - largestCustomCircle.diameter / 2 >= PAGE_MARGIN_MM.left, "205mm circle exceeds left margin");
+      assert(largestCustomCircle.x + largestCustomCircle.diameter / 2 <= A4.width - PAGE_MARGIN_MM.right, "205mm circle exceeds right margin");
+      assert(largestCustomCircle.y - largestCustomCircle.diameter / 2 >= PAGE_MARGIN_MM.top, "205mm circle exceeds top margin");
+      assert(largestCustomCircle.y + largestCustomCircle.diameter / 2 <= A4.height - PAGE_MARGIN_MM.bottom, "205mm circle exceeds bottom margin");
+
+      const standardJigCounts = new Map([[35, 35], [55, 12]]);
+      for (const [diameter, expectedCount] of standardJigCounts) {
+        const cells = getStandardCircleJigCells(diameter);
+        assert(cells.length === expectedCount, `${diameter}mm standard jig count changed`);
+        assert(cells.every((cell) => (
+          cell.x - cell.diameter / 2 >= 0 &&
+          cell.x + cell.diameter / 2 <= A4.width &&
+          cell.y - cell.diameter / 2 >= 0 &&
+          cell.y + cell.diameter / 2 <= A4.height
+        )), `${diameter}mm standard jig outside A4 portrait`);
+      }
+
+      const png = new Uint8Array(24);
+      png.set([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a], 0);
+      png.set([0x49, 0x48, 0x44, 0x52], 12);
+      const pngView = new DataView(png.buffer);
+      pngView.setUint32(16, 640, false);
+      pngView.setUint32(20, 480, false);
+      const pngSize = preflightImageDimensions(png.buffer);
+      assert(pngSize.width === 640 && pngSize.height === 480, "PNG header check failed");
+
+      const jpeg = new Uint8Array(21);
+      jpeg.set([0xff, 0xd8, 0xff, 0xc0, 0x00, 0x11, 0x08, 0x01, 0xe0, 0x02, 0x80], 0);
+      const jpegSize = preflightImageDimensions(jpeg.buffer);
+      assert(jpegSize.width === 640 && jpegSize.height === 480, "JPEG header check failed");
+
+      const webp = new Uint8Array(30);
+      webp.set([0x52, 0x49, 0x46, 0x46], 0);
+      webp.set([0x57, 0x45, 0x42, 0x50, 0x56, 0x50, 0x38, 0x58, 0x0a, 0x00, 0x00, 0x00], 8);
+      webp.set([0x7f, 0x02, 0x00, 0xdf, 0x01, 0x00], 24);
+      const webpSize = preflightImageDimensions(webp.buffer);
+      assert(webpSize.width === 640 && webpSize.height === 480, "WebP header check failed");
+      return true;
+    }
+
+    try {
+      runGeometrySelfCheck();
+      document.getElementById("selfCheck").textContent = "편집기 준비 완료 · Ready";
+    } catch (error) {
+      document.getElementById("selfCheck").textContent = "편집기 점검 실패 · 페이지를 다시 불러와 주세요";
+      document.getElementById("selfCheck").style.color = "#a4332a";
+    }
+
+    configureCanvas();
+  </script>
+</body>
+</html>

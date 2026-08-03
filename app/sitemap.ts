@@ -39,5 +39,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       `${siteUrl}/bungeoppang-cake-rainbow.png`,
       `${siteUrl}/fruit-cake.png`,
     ],
+  }, {
+    url: `${siteUrl}/designer`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.9,
   }];
 }

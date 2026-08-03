@@ -40,6 +40,20 @@ const worker = {
       }, allowedWidths);
     }
 
+    if (url.pathname === "/designer" || url.pathname === "/designer/") {
+      if (request.method !== "GET" && request.method !== "HEAD") {
+        return new Response(null, {
+          status: 405,
+          headers: { allow: "GET, HEAD" },
+        });
+      }
+      const assetUrl = new URL("/designer.html", request.url);
+      return env.ASSETS.fetch(new Request(assetUrl, {
+        method: request.method,
+        headers: request.headers,
+      }));
+    }
+
     return handler.fetch(request, env, ctx);
   },
 };

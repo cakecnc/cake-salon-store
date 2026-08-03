@@ -44,6 +44,7 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-touch-icon-rounded-v2.png", sizes: "180x180", type: "image/png" }],
   },
   other: {
+    "codex-preview": "development",
     "geo.region": "KR-41",
     "geo.placename": "Bucheon-si, Gyeonggi-do",
     "content-language": "ko, en, ja, zh-CN",

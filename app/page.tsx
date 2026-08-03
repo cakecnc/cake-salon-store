@@ -95,7 +95,7 @@ const businessLabels: Record<Lang, { title: string; company: string; registratio
 
 const copy = {
   ko: {
-    nav: ["제품", "활용", "사용법", "회사소개", "맞춤디자인", "CONTACT"], shop: "스마트스토어",
+    nav: ["제품", "활용", "사용법", "회사소개", "맞춤디자인", "CONTACT"], designer: "이미지 스튜디오", designerShort: "스튜디오", shop: "스마트스토어",
     kicker: "PREMIUM EDIBLE PRINTING", title: "상상한 디자인을,\n가장 맛있는 작품으로.",
     intro: "케익살롱의 아이싱시트와 식용 프린팅 솔루션으로 사진, 일러스트, 로고를 케이크 위에 선명하게 표현하세요.",
     primary: "판매 제품 보기", secondary: "맞춤 제작 상담", heroNote: "PET 필름에서 분리해 바로 사용하는 식용 이미지 시트",
@@ -119,7 +119,7 @@ const copy = {
     editorialNote: "셰익스피어가 일깨워 주듯, “What’s past is prologue.” 이러한 취지에서 본 문서의 일부는 AI 보조 자료를 참고하여 작성되었습니다. 본 저작물에 관한 모든 권리, 라이선스 및 편집 책임은 저자인 Sungjae Lim, Director of Planning에게 있습니다.",
   },
   en: {
-    nav: ["Products", "Inspiration", "How it works", "Company", "Custom Design", "CONTACT"], shop: "Smart Store",
+    nav: ["Products", "Inspiration", "How it works", "Company", "Custom Design", "CONTACT"], designer: "Image Studio", designerShort: "Studio", shop: "Smart Store",
     kicker: "PREMIUM EDIBLE PRINTING", title: "Turn any design into\na delicious work of art.",
     intro: "Bring photos, illustrations and logos to life on cakes with Cake Salon icing sheets and edible-printing solutions.",
     primary: "Shop products", secondary: "Custom order", heroNote: "Edible image sheets that peel cleanly from PET backing",
@@ -134,7 +134,7 @@ const copy = {
     editorialNote: "As Shakespeare reminds us, “What’s past is prologue.” In that spirit, certain portions of this document have been prepared with reference to AI-assisted materials. All rights, licenses, and editorial responsibility pertaining to this work are retained by its author, Sungjae Lim, Director of Planning.",
   },
   ja: {
-    nav: ["商品", "活用例", "使い方", "会社紹介", "オーダーデザイン", "CONTACT"], shop: "スマートストア",
+    nav: ["商品", "活用例", "使い方", "会社紹介", "オーダーデザイン", "CONTACT"], designer: "画像スタジオ", designerShort: "スタジオ", shop: "スマートストア",
     kicker: "PREMIUM EDIBLE PRINTING", title: "想像したデザインを、\nいちばん美味しい作品へ。", intro: "ケーキサロンのアイシングシートで写真・イラスト・ロゴを鮮やかに表現できます。", primary: "商品を見る", secondary: "オーダー相談", heroNote: "PETフィルムからはがして使う食用イメージシート",
     promises: [["18か月", "余裕のある賞味期間"], ["4.8 / 5", "Amazon平均評価"], ["GLOBAL", "世界へ輸出"], ["+82 80-664-7077", "商品相談"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "必要な二つを\n分かりやすく選択。", shopIntro: "アイシングシート1パックとオーダープリントサービスのみをご案内します。",
@@ -147,7 +147,7 @@ const copy = {
     editorialNote: "シェイクスピアが示したように、“What’s past is prologue.” その趣旨に基づき、本書の一部はAI支援資料を参考に作成されています。本書に関するすべての権利、ライセンスおよび編集責任は、著者 Sungjae Lim, Director of Planning に帰属します。",
   },
   zh: {
-    nav: ["产品", "应用", "使用方法", "公司介绍", "定制设计", "CONTACT"], shop: "智能商店",
+    nav: ["产品", "应用", "使用方法", "公司介绍", "定制设计", "CONTACT"], designer: "图像工作室", designerShort: "工作室", shop: "智能商店",
     kicker: "PREMIUM EDIBLE PRINTING", title: "将想象中的设计，\n变成美味的艺术品。", intro: "使用 Cake Salon 糖霜纸与可食用打印方案，将照片、插画和标志清晰呈现在蛋糕上。", primary: "浏览产品", secondary: "咨询定制", heroNote: "从PET底膜揭下即可使用的可食用图像纸",
     promises: [["18个月", "充足保质期"], ["4.8 / 5", "亚马逊平均评分"], ["GLOBAL", "出口全球"], ["+82 80-664-7077", "产品咨询"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "两项代表服务，\n选择更简单。", shopIntro: "仅展示单包装糖霜纸与定制可食用打印服务。",
@@ -550,8 +550,10 @@ export default function Home() {
         <a href="#how">{t.nav[2]}</a>
         <a href="#business">{t.nav[3]}</a>
         <a href="#custom-design">{t.nav[4]}</a>
+        <a className="designer-nav" href="/designer">{t.designer}</a>
       </nav>
       <div className="header-tools">
+        <a className="header-designer" href="/designer">{t.designerShort}</a>
         <div className={`theme-control${themeOpen ? " is-open" : ""}`} onKeyDown={(event) => {
           if (event.key === "Escape") closeTheme();
         }}>
