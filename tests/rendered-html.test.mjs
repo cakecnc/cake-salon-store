@@ -101,6 +101,17 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.match(html, /이미지는 이 기기 안에서만 처리/);
   assert.match(html, /MAX_IMAGE_PIXELS = 16_000_000/);
   assert.match(html, /\.toBlob\(/);
+  assert.match(html, /aria-label="Cake Salon wordmark"/);
+  assert.match(html, /src="\/cnc-logo\.jpeg" alt="C&amp;C Corporation logo"/);
+  assert.match(html, /프로그램 소스와 UI 디자인에 대한 저작권을 주장합니다/);
+  assert.match(html, /상표·화상디자인·특허 등록을 위한 권리화 절차를 진행 중입니다/);
+  assert.match(html, /patent registration preparations are in progress/);
+  assert.ok(html.includes("As Shakespeare reminds us, “What’s past is prologue.”"));
+  assert.doesNotMatch(html, /셰익스피어가 일깨워 주듯/);
+  const printSheetMarkup = html.match(/<div id="printSheet"[^>]*>[\s\S]*?<\/div>/i)?.[0];
+  assert.ok(printSheetMarkup, "designer must contain its isolated print sheet");
+  assert.doesNotMatch(printSheetMarkup, /cnc-logo|권리 안내|What’s past/i);
+  assert.doesNotMatch(html, /®|patent pending|registered|patented|등록상표|특허등록/i);
   assert.doesNotMatch(html, /INTERNAL PROTOTYPE/);
   assert.doesNotMatch(html, /792 packs/);
   assert.doesNotMatch(html, /<script[^>]+src=/i);
