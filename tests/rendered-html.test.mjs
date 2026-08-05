@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, readFile } from "node:fs/promises";
 import test from "node:test";
 import { Script } from "node:vm";
 
@@ -59,8 +59,12 @@ test("renders verified homepage content and navigation", async () => {
 
 test("serves the free local-only designer from the clean route", async () => {
   const designerHtml = await readFile(
-    new URL("../dist/client/designer.html", import.meta.url),
+    new URL("../dist/client/designer-payload.txt", import.meta.url),
     "utf8",
+  );
+  await assert.rejects(
+    access(new URL("../dist/client/designer.html", import.meta.url)),
+    { code: "ENOENT" },
   );
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("designer-test", `${process.pid}-${Date.now()}`);
@@ -94,7 +98,7 @@ test("serves the free local-only designer from the clean route", async () => {
   );
 
   assert.equal(response.status, 200);
-  assert.deepEqual(requestedAssets, [{ method: "GET", path: "/designer.html" }]);
+  assert.deepEqual(requestedAssets, [{ method: "GET", path: "/designer-payload.txt" }]);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   assert.match(response.headers.get("content-security-policy") ?? "", /connect-src 'none'/);
   assert.equal(response.headers.get("permissions-policy"), "camera=(), geolocation=(), microphone=()");
@@ -112,6 +116,17 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.match(html, /프로그램 소스와 UI 디자인에 대한 저작권을 주장합니다/);
   assert.match(html, /상표·디자인·특허 등록 가능성을 검토하고 있습니다/);
   assert.match(html, /Potential trademark, design and patent registrations are under review/);
+  assert.match(html, /data-circle-preset="two-90"/);
+  assert.match(html, /data-circle-preset="one-100"/);
+  assert.match(html, /data-circle-preset="two-90-one-100"/);
+  assert.match(html, /9cm 원형 2개/);
+  assert.match(html, /10cm 원형 1개/);
+  assert.match(html, /9cm 2개 \+ 10cm 1개/);
+  assert.match(html, /DIAGONAL_CIRCLE_GAP_MM = 5/);
+  assert.match(html, /diameters: Object\.freeze\(\[90, 90\]\)/);
+  assert.match(html, /diameters: Object\.freeze\(\[100\]\)/);
+  assert.match(html, /diameters: Object\.freeze\(\[90, 100, 90\]\)/);
+  assert.match(html, /computeCirclePresetLayout/);
   assert.match(html, /property="og:image" content="https:\/\/www\.edibleicingsheet\.com\/cake-renaissance\.jpeg"/);
   assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.ok(html.includes("As Shakespeare reminds us, “What’s past is prologue.”"));
@@ -137,5 +152,14 @@ test("serves the free local-only designer from the clean route", async () => {
   );
   assert.equal(rejectedMethod.status, 405);
   assert.equal(rejectedMethod.headers.get("allow"), "GET, HEAD");
+  assert.equal(requestedAssets.length, 1);
+
+  const legacyRedirect = await worker.fetch(
+    new Request("http://localhost/designer.html"),
+    env,
+    ctx,
+  );
+  assert.equal(legacyRedirect.status, 308);
+  assert.equal(legacyRedirect.headers.get("location"), "http://localhost/designer");
   assert.equal(requestedAssets.length, 1);
 });

@@ -40,6 +40,10 @@ const worker = {
       }, allowedWidths);
     }
 
+    if (url.pathname === "/designer.html") {
+      return Response.redirect(new URL("/designer", request.url), 308);
+    }
+
     if (url.pathname === "/designer" || url.pathname === "/designer/") {
       if (request.method !== "GET" && request.method !== "HEAD") {
         return new Response(null, {
@@ -47,12 +51,15 @@ const worker = {
           headers: { allow: "GET, HEAD" },
         });
       }
-      const assetUrl = new URL("/designer.html", request.url);
+      // Keep the HTML payload off the clean /designer asset route so Sites falls
+      // through to this Worker, even when Worker-first routing is unavailable.
+      const assetUrl = new URL("/designer-payload.txt", request.url);
       const response = await env.ASSETS.fetch(new Request(assetUrl, {
         method: request.method,
         headers: request.headers,
       }));
       const headers = new Headers(response.headers);
+      headers.set("content-type", "text/html; charset=utf-8");
       headers.set("content-security-policy", "default-src 'self'; img-src 'self' blob: data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'");
       headers.set("permissions-policy", "camera=(), geolocation=(), microphone=()");
       headers.set("referrer-policy", "no-referrer");

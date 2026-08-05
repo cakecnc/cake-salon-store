@@ -1038,6 +1038,9 @@
               <button class="template-button" type="button" data-template="circle" data-circle-diameter="180" data-circle-unit="cm" aria-pressed="false">18cm<br>Circles</button>
               <button class="template-button" type="button" data-template="circle" data-circle-diameter="35" data-circle-unit="mm" data-standard-jig="true" aria-pressed="false">35mm<br>Standard jig</button>
               <button class="template-button" type="button" data-template="circle" data-circle-diameter="55" data-circle-unit="mm" data-standard-jig="true" aria-pressed="false">55mm<br>Standard jig</button>
+              <button class="template-button" type="button" data-template="circle" data-circle-preset="two-90" aria-pressed="false">9cm 원형 2개<br>사선 · 간격 5mm</button>
+              <button class="template-button" type="button" data-template="circle" data-circle-preset="one-100" aria-pressed="false">10cm 원형 1개<br>가운데 배치</button>
+              <button class="template-button" type="button" data-template="circle" data-circle-preset="two-90-one-100" aria-pressed="false">9cm 2개 + 10cm 1개<br>사선 · 간격 5mm</button>
             </div>
             <div class="custom-circle-control">
               <input
@@ -1056,7 +1059,7 @@
               </select>
               <button id="customCircleApply" class="tool-button" type="button" aria-pressed="false">원형 적용 · Apply</button>
             </div>
-            <p class="custom-circle-note">13·16·18cm는 자동배치 · 35·55mm는 제공 템플릿(실제 지그와 출력 전 확인) · 직접입력은 1cm(10mm) 간격, 최대 20.5cm</p>
+            <p class="custom-circle-note">9cm·10cm 구성은 원형 사이 5mm 간격으로 작업판 가운데에 배치 · 13·16·18cm는 자동배치 · 35·55mm는 제공 템플릿(실제 지그와 출력 전 확인) · 직접입력은 1cm(10mm) 간격, 최대 20.5cm</p>
           </fieldset>
         </section>
 
@@ -1275,9 +1278,27 @@
     const A4 = Object.freeze({ width: 210, height: 297 });
     const PAGE_MARGIN_MM = Object.freeze({ top: 10, right: 2, bottom: 3, left: 2 });
     const CIRCLE_GAP_MM = 3;
+    const DIAGONAL_CIRCLE_GAP_MM = 5;
     const MIN_CIRCLE_DIAMETER_MM = 5;
     const MAX_CIRCLE_DIAMETER_MM = 205;
     const CUSTOM_CIRCLE_PRESETS_MM = Object.freeze([130, 160, 180]);
+    const CIRCLE_LAYOUT_PRESETS = Object.freeze({
+      "two-90": Object.freeze({
+        diameters: Object.freeze([90, 90]),
+        label: "2 circles · Ø9cm · diagonal · 5mm gap",
+        slug: "9cm-x2-diagonal"
+      }),
+      "one-100": Object.freeze({
+        diameters: Object.freeze([100]),
+        label: "1 circle · Ø10cm · centered",
+        slug: "10cm-x1-centered"
+      }),
+      "two-90-one-100": Object.freeze({
+        diameters: Object.freeze([90, 100, 90]),
+        label: "3 circles · Ø9cm × 2 + Ø10cm × 1 · diagonal · 5mm gap",
+        slug: "9cm-x2-10cm-x1-diagonal"
+      })
+    });
     const STANDARD_CIRCLE_JIGS_MM = Object.freeze({
       35: Object.freeze({
         columns: Object.freeze([28.893, 66.594, 104.648, 142.701, 180.579]),
@@ -1318,6 +1339,7 @@
       template: "single",
       circleDiameterMm: 35,
       circleLayoutMode: "custom",
+      circlePresetId: "",
       fitMode: "fit",
       zoom: 1,
       rotation: 0,
@@ -1419,6 +1441,25 @@
       };
     }
 
+    function computeCirclePresetLayout(pageWidthMm, pageHeightMm, diameters) {
+      const angle = pageHeightMm >= pageWidthMm ? Math.PI / 3 : Math.PI / 6;
+      const direction = { x: Math.cos(angle), y: Math.sin(angle) };
+      let distance = 0;
+      const cells = diameters.map((diameter, index) => {
+        if (index > 0) {
+          distance += diameters[index - 1] / 2 + DIAGONAL_CIRCLE_GAP_MM + diameter / 2;
+        }
+        return { x: direction.x * distance, y: direction.y * distance, diameter };
+      });
+      const minX = Math.min(...cells.map((cell) => cell.x - cell.diameter / 2));
+      const maxX = Math.max(...cells.map((cell) => cell.x + cell.diameter / 2));
+      const minY = Math.min(...cells.map((cell) => cell.y - cell.diameter / 2));
+      const maxY = Math.max(...cells.map((cell) => cell.y + cell.diameter / 2));
+      const shiftX = pageWidthMm / 2 - (minX + maxX) / 2;
+      const shiftY = pageHeightMm / 2 - (minY + maxY) / 2;
+      return cells.map((cell) => ({ ...cell, x: cell.x + shiftX, y: cell.y + shiftY }));
+    }
+
     function getStandardCircleJigCells(diameterMm) {
       const jig = STANDARD_CIRCLE_JIGS_MM[diameterMm];
       if (!jig) return null;
@@ -1442,6 +1483,11 @@
     function getTemplateCells() {
       const page = getPageSize();
       if (state.template === "circle") {
+        const preset = CIRCLE_LAYOUT_PRESETS[state.circlePresetId];
+        if (preset) {
+          return computeCirclePresetLayout(page.width, page.height, preset.diameters)
+            .map((cell) => ({ ...cell, shape: "circle" }));
+        }
         const standardJigCells = state.circleLayoutMode === "standard"
           ? getStandardCircleJigCells(state.circleDiameterMm)
           : null;
@@ -1459,7 +1505,8 @@
 
     function getTargetSizePx() {
       if (state.template === "circle") {
-        return { width: mmToPx(state.circleDiameterMm), height: mmToPx(state.circleDiameterMm) };
+        const diameter = Math.max(...getTemplateCells().map((cell) => cell.diameter));
+        return { width: mmToPx(diameter), height: mmToPx(diameter) };
       }
       return { width: canvas.width, height: canvas.height };
     }
@@ -1693,7 +1740,7 @@
     function updateTemplateCount() {
       const count = getTemplateCells().length;
       repeatLabel.textContent = state.template === "circle"
-        ? `${count} circles · Ø${formatCircleDiameter(state.circleDiameterMm)}${state.circleLayoutMode === "standard" ? " · standard jig" : ""}`
+        ? getCircleTemplateLabel()
         : count === 1 ? "1 image" : `${count} repeated images`;
     }
 
@@ -1845,7 +1892,7 @@
 
     function getTemplateLabel() {
       if (state.template === "circle") {
-        return `${formatCircleDiameter(state.circleDiameterMm)} circles${state.circleLayoutMode === "standard" ? ", standard cutting jig" : ""}`;
+        return getCircleTemplateLabel();
       }
       return "full sheet";
     }
@@ -1891,7 +1938,7 @@
     function updateCtaLinks() {
       const page = getPageSize();
       const templateName = state.template === "circle"
-        ? `${formatCircleDiameter(state.circleDiameterMm)} circles${state.circleLayoutMode === "standard" ? " standard cutting jig" : ""}`
+        ? getCircleTemplateLabel()
         : "full sheet";
       const summary = `A4 ${state.orientation}, ${page.width} x ${page.height} mm, ${templateName}`;
       const palletSubject = "A4 icing sheet bulk supply inquiry";
@@ -2123,13 +2170,23 @@
     document.querySelectorAll(".template-button").forEach((button) => {
       button.addEventListener("click", () => {
         state.template = button.dataset.template;
+        const presetId = button.dataset.circlePreset || "";
+        const preset = CIRCLE_LAYOUT_PRESETS[presetId];
+        state.circlePresetId = preset ? presetId : "";
         if (state.template === "circle") {
-          state.circleDiameterMm = Number(button.dataset.circleDiameter);
-          state.circleLayoutMode = button.dataset.standardJig === "true" ? "standard" : "custom";
-          customCircleUnit.value = button.dataset.circleUnit;
-          customCircleInput.value = button.dataset.circleUnit === "cm"
-            ? formatMillimeters(state.circleDiameterMm / 10)
-            : formatMillimeters(state.circleDiameterMm);
+          if (preset) {
+            state.circleDiameterMm = Math.max(...preset.diameters);
+            state.circleLayoutMode = "preset";
+            customCircleUnit.value = "cm";
+            customCircleInput.value = formatMillimeters(state.circleDiameterMm / 10);
+          } else {
+            state.circleDiameterMm = Number(button.dataset.circleDiameter);
+            state.circleLayoutMode = button.dataset.standardJig === "true" ? "standard" : "custom";
+            customCircleUnit.value = button.dataset.circleUnit;
+            customCircleInput.value = button.dataset.circleUnit === "cm"
+              ? formatMillimeters(state.circleDiameterMm / 10)
+              : formatMillimeters(state.circleDiameterMm);
+          }
           updateCustomCircleBounds();
           if (state.circleLayoutMode === "standard") {
             state.orientation = "portrait";
@@ -2158,6 +2215,18 @@
         : `${formatMillimeters(diameterMm)}mm`;
     }
 
+    function getCircleTemplateLabel() {
+      const preset = CIRCLE_LAYOUT_PRESETS[state.circlePresetId];
+      if (preset) return preset.label;
+      return `${getTemplateCells().length} circles · Ø${formatCircleDiameter(state.circleDiameterMm)}${state.circleLayoutMode === "standard" ? " · standard jig" : ""}`;
+    }
+
+    function getCircleTemplateSlug() {
+      const preset = CIRCLE_LAYOUT_PRESETS[state.circlePresetId];
+      if (preset) return preset.slug;
+      return `${formatCircleDiameter(state.circleDiameterMm).replace(".", "p")}${state.circleLayoutMode === "standard" ? "-standard-jig" : ""}`;
+    }
+
     function updateCustomCircleBounds() {
       const useCentimeters = customCircleUnit.value === "cm";
       customCircleInput.min = useCentimeters ? "0.5" : "5";
@@ -2177,6 +2246,7 @@
       state.template = "circle";
       state.circleDiameterMm = Math.round(diameterMm * 10) / 10;
       state.circleLayoutMode = "custom";
+      state.circlePresetId = "";
       state.offsetXmm = 0;
       state.offsetYmm = 0;
       const switchedToPortrait = state.orientation === "landscape"
@@ -2393,7 +2463,7 @@
       const output = createOutputCanvas();
       const link = document.createElement("a");
       const templateSlug = state.template === "circle"
-        ? `circle-${formatCircleDiameter(state.circleDiameterMm).replace(".", "p")}${state.circleLayoutMode === "standard" ? "-standard-jig" : ""}`
+        ? `circle-${getCircleTemplateSlug()}`
         : state.template;
       link.download = `cnc-a4-${state.orientation}-${templateSlug}.png`;
       output.toBlob((blob) => {
@@ -2429,6 +2499,10 @@
       };
 
       assert(Math.abs(mmToPx(25.4) - DPI) < 0.0001, "mm-to-pixel conversion failed");
+      assert(DIAGONAL_CIRCLE_GAP_MM === 5, "diagonal circle gap changed");
+      assert(CIRCLE_LAYOUT_PRESETS["two-90"].diameters.join(",") === "90,90", "two-90 preset changed");
+      assert(CIRCLE_LAYOUT_PRESETS["one-100"].diameters.join(",") === "100", "one-100 preset changed");
+      assert(CIRCLE_LAYOUT_PRESETS["two-90-one-100"].diameters.join(",") === "90,100,90", "two-90-one-100 preset changed");
       const pages = [
         { name: "portrait", width: 210, height: 297 },
         { name: "landscape", width: 297, height: 210 }
@@ -2449,6 +2523,32 @@
             cell.y - cell.diameter / 2 >= PAGE_MARGIN_MM.top - 0.001 &&
             cell.y + cell.diameter / 2 <= page.height - PAGE_MARGIN_MM.bottom + 0.001
           )), `${page.name} ${diameter}mm circle outside safe area`);
+        }
+
+        for (const [presetId, preset] of Object.entries(CIRCLE_LAYOUT_PRESETS)) {
+          const cells = computeCirclePresetLayout(page.width, page.height, preset.diameters);
+          assert(cells.length === preset.diameters.length, `${page.name} ${presetId} count mismatch`);
+          assert(cells.every((cell, index) => (
+            cell.diameter === preset.diameters[index] &&
+            cell.x - cell.diameter / 2 >= PAGE_MARGIN_MM.left - 0.001 &&
+            cell.x + cell.diameter / 2 <= page.width - PAGE_MARGIN_MM.right + 0.001 &&
+            cell.y - cell.diameter / 2 >= PAGE_MARGIN_MM.top - 0.001 &&
+            cell.y + cell.diameter / 2 <= page.height - PAGE_MARGIN_MM.bottom + 0.001
+          )), `${page.name} ${presetId} circle outside safe area`);
+          const minX = Math.min(...cells.map((cell) => cell.x - cell.diameter / 2));
+          const maxX = Math.max(...cells.map((cell) => cell.x + cell.diameter / 2));
+          const minY = Math.min(...cells.map((cell) => cell.y - cell.diameter / 2));
+          const maxY = Math.max(...cells.map((cell) => cell.y + cell.diameter / 2));
+          assert(Math.abs((minX + maxX) / 2 - page.width / 2) < 0.001, `${page.name} ${presetId} horizontal center mismatch`);
+          assert(Math.abs((minY + maxY) / 2 - page.height / 2) < 0.001, `${page.name} ${presetId} vertical center mismatch`);
+          for (let index = 1; index < cells.length; index += 1) {
+            const previous = cells[index - 1];
+            const current = cells[index];
+            const edgeGap = Math.hypot(current.x - previous.x, current.y - previous.y)
+              - previous.diameter / 2 - current.diameter / 2;
+            assert(Math.abs(edgeGap - DIAGONAL_CIRCLE_GAP_MM) < 0.001, `${page.name} ${presetId} gap mismatch`);
+            assert(current.x > previous.x && current.y > previous.y, `${page.name} ${presetId} diagonal order mismatch`);
+          }
         }
 
         const scaleBar = getScaleBarGeometry(page.width, page.height);

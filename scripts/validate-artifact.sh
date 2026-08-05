@@ -11,6 +11,8 @@ worker="${SITES_PROJECT_ROOT}/dist/server/index.js"
 wrangler="${SITES_PROJECT_ROOT}/dist/server/wrangler.json"
 hosting="${SITES_PROJECT_ROOT}/dist/.openai/hosting.json"
 static_headers="${SITES_PROJECT_ROOT}/dist/client/_headers"
+designer_payload="${SITES_PROJECT_ROOT}/dist/client/designer-payload.txt"
+designer_route_collision="${SITES_PROJECT_ROOT}/dist/client/designer.html"
 
 [[ -f "${worker}" ]] || {
   echo "Missing Sites Worker entry: dist/server/index.js" >&2
@@ -26,6 +28,14 @@ static_headers="${SITES_PROJECT_ROOT}/dist/client/_headers"
 }
 [[ -f "${static_headers}" ]] || {
   echo "Missing static response headers: dist/client/_headers" >&2
+  exit 66
+}
+[[ -f "${designer_payload}" ]] || {
+  echo "Missing Worker-served designer payload: dist/client/designer-payload.txt" >&2
+  exit 66
+}
+[[ ! -e "${designer_route_collision}" ]] || {
+  echo "Route-colliding static asset must be absent: dist/client/designer.html" >&2
   exit 66
 }
 for expected in \
