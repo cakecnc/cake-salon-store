@@ -8,6 +8,7 @@ if [[ "${SITES_ENV_READY:-}" != "1" ]]; then
 fi
 
 worker="${SITES_PROJECT_ROOT}/dist/server/index.js"
+wrangler="${SITES_PROJECT_ROOT}/dist/server/wrangler.json"
 hosting="${SITES_PROJECT_ROOT}/dist/.openai/hosting.json"
 static_headers="${SITES_PROJECT_ROOT}/dist/client/_headers"
 
@@ -17,6 +18,10 @@ static_headers="${SITES_PROJECT_ROOT}/dist/client/_headers"
 }
 [[ -f "${hosting}" ]] || {
   echo "Missing packaged Sites manifest: dist/.openai/hosting.json" >&2
+  exit 66
+}
+[[ -f "${wrangler}" ]] || {
+  echo "Missing generated Worker config: dist/server/wrangler.json" >&2
   exit 66
 }
 [[ -f "${static_headers}" ]] || {
@@ -35,12 +40,17 @@ for expected in \
   }
 done
 
-node --input-type=module - "${worker}" "${hosting}" <<'NODE'
+node --input-type=module - "${worker}" "${hosting}" "${wrangler}" <<'NODE'
 import { readFile } from "node:fs/promises";
 import { pathToFileURL } from "node:url";
 
-const [workerPath, hostingPath] = process.argv.slice(2);
+const [workerPath, hostingPath, wranglerPath] = process.argv.slice(2);
 JSON.parse(await readFile(hostingPath, "utf8"));
+const wrangler = JSON.parse(await readFile(wranglerPath, "utf8"));
+if (wrangler.assets?.binding !== "ASSETS" ||
+    !["/designer", "/designer/"].every((path) => wrangler.assets?.run_worker_first?.includes(path))) {
+  throw new Error("dist/server/wrangler.json must route /designer through the ASSETS-bound Worker first");
+}
 
 const workerUrl = pathToFileURL(workerPath);
 workerUrl.searchParams.set("sites-validation", `${process.pid}-${Date.now()}`);
