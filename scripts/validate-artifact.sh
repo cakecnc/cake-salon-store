@@ -9,6 +9,7 @@ fi
 
 worker="${SITES_PROJECT_ROOT}/dist/server/index.js"
 hosting="${SITES_PROJECT_ROOT}/dist/.openai/hosting.json"
+static_headers="${SITES_PROJECT_ROOT}/dist/client/_headers"
 
 [[ -f "${worker}" ]] || {
   echo "Missing Sites Worker entry: dist/server/index.js" >&2
@@ -18,6 +19,21 @@ hosting="${SITES_PROJECT_ROOT}/dist/.openai/hosting.json"
   echo "Missing packaged Sites manifest: dist/.openai/hosting.json" >&2
   exit 66
 }
+[[ -f "${static_headers}" ]] || {
+  echo "Missing static response headers: dist/client/_headers" >&2
+  exit 66
+}
+for expected in \
+  "/designer*" \
+  "Content-Security-Policy:" \
+  "Permissions-Policy:" \
+  "Referrer-Policy:" \
+  "X-Content-Type-Options: nosniff"; do
+  grep -Fq "${expected}" "${static_headers}" || {
+    echo "Missing static response header rule: ${expected}" >&2
+    exit 66
+  }
+done
 
 node --input-type=module - "${worker}" "${hosting}" <<'NODE'
 import { readFile } from "node:fs/promises";
