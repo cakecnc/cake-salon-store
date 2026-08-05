@@ -5,6 +5,7 @@ import { Script } from "node:vm";
 
 const developmentPreviewMeta =
   /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
+const manufacturingSecretPattern = /silk[ -]?screen|screen[ -]?print|실크[ -]?스크린|스크린[ -]?인쇄/i;
 
 test("renders verified homepage content and navigation", async () => {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -53,6 +54,7 @@ test("renders verified homepage content and navigation", async () => {
   assert.doesNotMatch(html, /A4 아이싱시트 50팩|A3 아이싱시트 25장/);
   assert.doesNotMatch(html, /빈 카트리지|Empty Cartridges|空カートリッジ|空墨盒/);
   assert.doesNotMatch(html, /localized-guide/);
+  assert.doesNotMatch(html, manufacturingSecretPattern);
 });
 
 test("serves the free local-only designer from the clean route", async () => {
@@ -94,6 +96,10 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.equal(response.status, 200);
   assert.deepEqual(requestedAssets, [{ method: "GET", path: "/designer.html" }]);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+  assert.match(response.headers.get("content-security-policy") ?? "", /connect-src 'none'/);
+  assert.equal(response.headers.get("permissions-policy"), "camera=(), geolocation=(), microphone=()");
+  assert.equal(response.headers.get("referrer-policy"), "no-referrer");
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
   const html = await response.text();
   assert.match(html, /FREE BETA/);
   assert.match(html, /Cake Salon·Making Sweet/);
@@ -104,8 +110,10 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.match(html, /aria-label="Cake Salon wordmark"/);
   assert.match(html, /src="\/cnc-logo\.jpeg" alt="C&amp;C Corporation logo"/);
   assert.match(html, /프로그램 소스와 UI 디자인에 대한 저작권을 주장합니다/);
-  assert.match(html, /상표·화상디자인·특허 등록을 위한 권리화 절차를 진행 중입니다/);
-  assert.match(html, /patent registration preparations are in progress/);
+  assert.match(html, /상표·디자인·특허 등록 가능성을 검토하고 있습니다/);
+  assert.match(html, /Potential trademark, design and patent registrations are under review/);
+  assert.match(html, /property="og:image" content="https:\/\/www\.edibleicingsheet\.com\/cake-renaissance\.jpeg"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
   assert.ok(html.includes("As Shakespeare reminds us, “What’s past is prologue.”"));
   assert.doesNotMatch(html, /셰익스피어가 일깨워 주듯/);
   const printSheetMarkup = html.match(/<div id="printSheet"[^>]*>[\s\S]*?<\/div>/i)?.[0];
@@ -115,6 +123,7 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.doesNotMatch(html, /INTERNAL PROTOTYPE/);
   assert.doesNotMatch(html, /792 packs/);
   assert.doesNotMatch(html, /<script[^>]+src=/i);
+  assert.doesNotMatch(html, manufacturingSecretPattern);
   const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/);
   assert.ok(inlineScript, "designer must contain its local inline script");
   assert.doesNotThrow(() => new Script(inlineScript[1], {

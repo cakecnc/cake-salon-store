@@ -48,10 +48,20 @@ const worker = {
         });
       }
       const assetUrl = new URL("/designer.html", request.url);
-      return env.ASSETS.fetch(new Request(assetUrl, {
+      const response = await env.ASSETS.fetch(new Request(assetUrl, {
         method: request.method,
         headers: request.headers,
       }));
+      const headers = new Headers(response.headers);
+      headers.set("content-security-policy", "default-src 'self'; img-src 'self' blob: data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'");
+      headers.set("permissions-policy", "camera=(), geolocation=(), microphone=()");
+      headers.set("referrer-policy", "no-referrer");
+      headers.set("x-content-type-options", "nosniff");
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
     }
 
     return handler.fetch(request, env, ctx);

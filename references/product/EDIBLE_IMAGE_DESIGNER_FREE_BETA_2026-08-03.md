@@ -35,18 +35,14 @@ custom printing or business-supply inquiry.
 - Search discovery: a canonical URL and sitemap entry for
   `https://www.edibleicingsheet.com/designer`, matching the existing sitemap host.
 
-## Rejected design data
-
-The rejected Liquid Glass treatment is not included in runtime code. Its review state
-is preserved separately in
-`references/rejected/LIQUID_GLASS_LOCAL_REVIEW_2026-08-02.md` as
-`rejected_for_deployment`.
-
 ## Constraints
 
 - Geometry checks in code verify bounds and conversion math, not physical printer or
   cutter alignment. Customers are instructed to print at 100% and check the 50mm
   calibration line.
+- The icing-sheet silk-screen production method and detailed manufacturing process are
+  trade secrets. Do not disclose them or use wording from which they can be inferred in
+  the site, metadata, marketing, attachments or external replies.
 - `FREE BETA` is an operating state, not a promise that future server-backed features
   will remain free.
 - The shared Sites release also serves the Cake Salon hostnames; AIWORK (`aiwork.to`)
