@@ -13,7 +13,10 @@
     "test": "npm run build && node --test tests/rendered-html.test.mjs",
     "validate:artifact": "bash scripts/validate-artifact.sh",
     "lint": "bash scripts/sites-env.sh -- eslint . --ignore-pattern dist --ignore-pattern .next",
-    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate"
+    "db:generate": "bash scripts/sites-env.sh -- drizzle-kit generate",
+    "deploy:staging": "bash scripts/deploy-main-to-branch.sh staging",
+    "deploy:prod": "bash scripts/deploy-main-to-branch.sh prod",
+    "deploy:check": "bash scripts/check-deploy-sha.sh"
   },
   "dependencies": {
     "drizzle-orm": "0.45.2",
@@ -40,5 +43,5 @@
     "wrangler": "4.102.0"
   },
   "type": "module",
-  "displayName": "\ucf00\uc775\uc0b4\ub871 \uc2a4\ub9c8\ud2b8\uc2a4\ud1a0\uc5b4"
+  "displayName": "케익살롱 스마트스토어"
 }
