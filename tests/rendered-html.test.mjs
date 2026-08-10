@@ -55,6 +55,15 @@ test("renders verified homepage content and navigation", async () => {
   assert.doesNotMatch(html, /빈 카트리지|Empty Cartridges|空カートリッジ|空墨盒/);
   assert.doesNotMatch(html, /localized-guide/);
   assert.doesNotMatch(html, manufacturingSecretPattern);
+  assert.match(html, /src=["']\/security-hardening\.js["']/);
+
+  const rightClickScript = await readFile(
+    new URL("../dist/client/security-hardening.js", import.meta.url),
+    "utf8",
+  );
+  assert.match(rightClickScript, /우클릭은 사용할 수 없습니다/);
+  assert.match(rightClickScript, /font-weight:700/);
+  assert.match(rightClickScript, /text-align:center/);
 });
 
 test("serves the free local-only designer from the clean route", async () => {
