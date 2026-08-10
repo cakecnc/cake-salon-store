@@ -86,5 +86,5 @@ const structuredData = { "@context": "https://schema.org", "@graph": [
 ] };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="ko"><body className={`${geistSans.variable} ${geistMono.variable} antialiased`}><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />{children}</body></html>;
+  return <html lang="ko"><body className={`${geistSans.variable} ${geistMono.variable} antialiased`}><script src="/security-hardening.js" defer /><script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />{children}</body></html>;
 }
