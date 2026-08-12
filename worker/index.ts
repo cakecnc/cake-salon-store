@@ -71,6 +71,13 @@ const worker = {
       });
     }
 
+    if (url.pathname === "/webmcp.js" || url.pathname === "/security-hardening.js") {
+      return env.ASSETS.fetch(new Request(new URL(url.pathname, request.url), {
+        method: request.method,
+        headers: request.headers,
+      }));
+    }
+
     return handler.fetch(request, env, ctx);
   },
 };
