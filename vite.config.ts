@@ -16,7 +16,12 @@ const localBindingConfig = {
   compatibility_flags: ["nodejs_compat"],
   assets: {
     binding: "ASSETS",
-    run_worker_first: ["/designer", "/designer/"],
+    run_worker_first: [
+      "/designer",
+      "/designer/",
+      "/security-hardening.js",
+      "/webmcp.js",
+    ],
   },
   d1_databases: d1
     ? [
