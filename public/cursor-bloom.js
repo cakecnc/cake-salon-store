@@ -20,7 +20,7 @@
 
   canvas.id = "siteCursorBloom";
   canvas.setAttribute("aria-hidden", "true");
-  canvas.style.cssText = `position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:2;opacity:${coarsePointer ? ".34" : ".48"};mix-blend-mode:screen`;
+  canvas.style.cssText = `position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:2;opacity:${coarsePointer ? ".58" : ".48"};mix-blend-mode:${coarsePointer ? "normal" : "screen"}`;
   document.body.append(canvas);
 
   const resize = () => {
@@ -72,9 +72,16 @@
     if (!frame) frame = window.requestAnimationFrame(draw);
   };
 
-  window.addEventListener("pointermove", addBloom, { passive: true });
   if (coarsePointer) {
-    window.addEventListener("pointerdown", (event) => addBloom(event, true), { passive: true });
+    const addTouchBloom = (event, force = false) => {
+      const touch = event.touches[0];
+      if (touch) addBloom(touch, force);
+    };
+
+    window.addEventListener("touchstart", (event) => addTouchBloom(event, true), { passive: true });
+    window.addEventListener("touchmove", addTouchBloom, { passive: true });
+  } else {
+    window.addEventListener("pointermove", addBloom, { passive: true });
   }
   window.addEventListener("resize", resize, { passive: true });
   resize();

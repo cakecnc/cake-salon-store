@@ -80,7 +80,9 @@ test("renders verified homepage content and navigation", async () => {
   assert.match(webmcpScript, /registerTool/);
   assert.match(cursorBloomScript, /siteCursorBloom/);
   assert.match(cursorBloomScript, /maxBlooms = coarsePointer \? 8 : 24/);
-  assert.match(cursorBloomScript, /pointerdown/);
+  assert.match(cursorBloomScript, /touchstart/);
+  assert.match(cursorBloomScript, /touchmove/);
+  assert.match(cursorBloomScript, /coarsePointer \? "normal" : "screen"/);
   assert.match(cursorBloomScript, /pointer-events:none/);
 });
 
@@ -170,7 +172,9 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.match(html, /prefers-reduced-motion: reduce/);
   assert.match(html, /pointer: coarse/);
   assert.match(html, /maxBlooms = coarsePointer \? 8 : 24/);
-  assert.match(html, /pointerdown/);
+  assert.match(html, /touchstart/);
+  assert.match(html, /touchmove/);
+  assert.match(html, /coarsePointer \? "normal" : "screen"/);
   assert.match(html, /pointer-events:none/);
   assert.doesNotMatch(html, manufacturingSecretPattern);
   const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/);
