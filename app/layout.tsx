@@ -95,6 +95,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       >
         <script src="/security-hardening.js" defer />
         <script src="/webmcp.js" defer />
+        <script src="/cursor-bloom.js" defer />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

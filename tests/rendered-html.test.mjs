@@ -57,6 +57,7 @@ test("renders verified homepage content and navigation", async () => {
   assert.doesNotMatch(html, manufacturingSecretPattern);
   assert.match(html, /src=["']\/security-hardening\.js["']/);
   assert.match(html, /src=["']\/webmcp\.js["']/);
+  assert.match(html, /src=["']\/cursor-bloom\.js["']/);
 
   const rightClickScript = await readFile(
     new URL("../dist/client/security-hardening.js", import.meta.url),
@@ -66,6 +67,10 @@ test("renders verified homepage content and navigation", async () => {
     new URL("../dist/client/webmcp.js", import.meta.url),
     "utf8",
   );
+  const cursorBloomScript = await readFile(
+    new URL("../dist/client/cursor-bloom.js", import.meta.url),
+    "utf8",
+  );
   assert.match(rightClickScript, /우클릭은 사용할 수 없습니다/);
   assert.match(rightClickScript, /font-weight:700/);
   assert.match(rightClickScript, /text-align:center/);
@@ -73,6 +78,10 @@ test("renders verified homepage content and navigation", async () => {
   assert.match(webmcpScript, /aiwork-page-links/);
   assert.match(webmcpScript, /aiwork-page-sections/);
   assert.match(webmcpScript, /registerTool/);
+  assert.match(cursorBloomScript, /siteCursorBloom/);
+  assert.match(cursorBloomScript, /maxBlooms = coarsePointer \? 8 : 24/);
+  assert.match(cursorBloomScript, /pointerdown/);
+  assert.match(cursorBloomScript, /pointer-events:none/);
 });
 
 test("serves the free local-only designer from the clean route", async () => {
@@ -156,6 +165,12 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.doesNotMatch(html, /INTERNAL PROTOTYPE/);
   assert.doesNotMatch(html, /792 packs/);
   assert.doesNotMatch(html, /<script[^>]+src=/i);
+  assert.match(html, /<canvas id="designerCursorBloom" aria-hidden="true"><\/canvas>/);
+  assert.match(html, /prefers-reduced-motion: reduce/);
+  assert.match(html, /pointer: coarse/);
+  assert.match(html, /maxBlooms = coarsePointer \? 8 : 24/);
+  assert.match(html, /pointerdown/);
+  assert.match(html, /pointer-events:none/);
   assert.doesNotMatch(html, manufacturingSecretPattern);
   const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/);
   assert.ok(inlineScript, "designer must contain its local inline script");
