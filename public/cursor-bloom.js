@@ -11,16 +11,17 @@
 
   const blooms = [];
   const maxBlooms = coarsePointer ? 8 : 24;
-  const lifeStep = coarsePointer ? 0.035 : 0.025;
-  const maxRadius = coarsePointer ? 70 : 110;
-  const minDistance = coarsePointer ? 22 : 12;
+  const lifeStep = coarsePointer ? 0.024 : 0.025;
+  const maxRadius = coarsePointer ? 96 : 110;
+  const minDistance = coarsePointer ? 16 : 12;
+  const maxAlpha = coarsePointer ? 0.46 : 0.2;
   let frame = 0;
   let lastX = -100;
   let lastY = -100;
 
   canvas.id = "siteCursorBloom";
   canvas.setAttribute("aria-hidden", "true");
-  canvas.style.cssText = `position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:2;opacity:${coarsePointer ? ".58" : ".48"};mix-blend-mode:${coarsePointer ? "normal" : "screen"}`;
+  canvas.style.cssText = `position:fixed;inset:0;width:100vw;height:100vh;pointer-events:none;z-index:2;opacity:${coarsePointer ? ".9" : ".48"};mix-blend-mode:${coarsePointer ? "normal" : "screen"}`;
   document.body.append(canvas);
 
   const resize = () => {
@@ -44,7 +45,7 @@
       }
 
       const radius = 16 + bloom.life * (maxRadius - 16);
-      const alpha = (1 - bloom.life) * 0.2;
+      const alpha = (1 - bloom.life) * maxAlpha;
       const gradient = context.createRadialGradient(bloom.x, bloom.y, 0, bloom.x, bloom.y, radius);
       gradient.addColorStop(0, `rgba(255, 241, 211, ${alpha})`);
       gradient.addColorStop(0.42, `rgba(231, 183, 111, ${alpha * 0.72})`);

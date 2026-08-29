@@ -83,6 +83,10 @@ test("renders verified homepage content and navigation", async () => {
   assert.match(cursorBloomScript, /touchstart/);
   assert.match(cursorBloomScript, /touchmove/);
   assert.match(cursorBloomScript, /coarsePointer \? "normal" : "screen"/);
+  assert.match(cursorBloomScript, /lifeStep = coarsePointer \? 0\.024 : 0\.025/);
+  assert.match(cursorBloomScript, /maxRadius = coarsePointer \? 96 : 110/);
+  assert.match(cursorBloomScript, /maxAlpha = coarsePointer \? 0\.46 : 0\.2/);
+  assert.match(cursorBloomScript, /coarsePointer \? "\.9" : "\.48"/);
   assert.match(cursorBloomScript, /pointer-events:none/);
 });
 
@@ -175,6 +179,10 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.match(html, /touchstart/);
   assert.match(html, /touchmove/);
   assert.match(html, /coarsePointer \? "normal" : "screen"/);
+  assert.match(html, /lifeStep = coarsePointer \? 0\.024 : 0\.025/);
+  assert.match(html, /maxRadius = coarsePointer \? 96 : 110/);
+  assert.match(html, /maxAlpha = coarsePointer \? 0\.46 : 0\.22/);
+  assert.match(html, /coarsePointer \? "\.9" : "\.72"/);
   assert.match(html, /pointer-events:none/);
   assert.doesNotMatch(html, manufacturingSecretPattern);
   const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/);
