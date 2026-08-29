@@ -128,6 +128,7 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.deepEqual(requestedAssets, [{ method: "GET", path: "/designer-payload.txt" }]);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   assert.match(response.headers.get("content-security-policy") ?? "", /connect-src 'none'/);
+  assert.match(response.headers.get("content-security-policy") ?? "", /script-src 'self' 'unsafe-inline'/);
   assert.equal(response.headers.get("permissions-policy"), "camera=(), geolocation=(), microphone=()");
   assert.equal(response.headers.get("referrer-policy"), "no-referrer");
   assert.equal(response.headers.get("x-content-type-options"), "nosniff");
@@ -164,7 +165,7 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.doesNotMatch(html, /®|patent pending|registered|patented|등록상표|특허등록/i);
   assert.doesNotMatch(html, /INTERNAL PROTOTYPE/);
   assert.doesNotMatch(html, /792 packs/);
-  assert.doesNotMatch(html, /<script[^>]+src=/i);
+  assert.match(html, /<script src="\/security-hardening\.js"><\/script>/);
   assert.match(html, /<canvas id="designerCursorBloom" aria-hidden="true"><\/canvas>/);
   assert.match(html, /prefers-reduced-motion: reduce/);
   assert.match(html, /pointer: coarse/);

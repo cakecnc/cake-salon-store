@@ -2617,6 +2617,7 @@
 
     configureCanvas();
   </script>
+  <script src="/security-hardening.js"></script>
   <canvas id="designerCursorBloom" aria-hidden="true"></canvas>
   <script>
     (() => {

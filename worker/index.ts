@@ -60,7 +60,7 @@ const worker = {
       }));
       const headers = new Headers(response.headers);
       headers.set("content-type", "text/html; charset=utf-8");
-      headers.set("content-security-policy", "default-src 'self'; img-src 'self' blob: data:; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'");
+      headers.set("content-security-policy", "default-src 'self'; img-src 'self' blob: data:; style-src 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'none'; object-src 'none'; base-uri 'none'; frame-ancestors 'self'");
       headers.set("permissions-policy", "camera=(), geolocation=(), microphone=()");
       headers.set("referrer-policy", "no-referrer");
       headers.set("x-content-type-options", "nosniff");
