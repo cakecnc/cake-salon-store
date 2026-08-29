@@ -19,8 +19,10 @@
   let lastX = -100;
   let lastY = -100;
   const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  const fluteScale = [523.25, 587.33, 659.25, 698.46, 783.99, 880, 987.77, 1046.5];
   let audioContext;
   let lastToneAt = -Infinity;
+  let fluteNoteIndex = 0;
 
   canvas.id = "siteCursorBloom";
   canvas.setAttribute("aria-hidden", "true");
@@ -65,7 +67,9 @@
 
   const playFluteTone = () => {
     const nowMs = performance.now();
-    if (!AudioContextClass || nowMs - lastToneAt < 900) return;
+    const elapsed = nowMs - lastToneAt;
+    if (!AudioContextClass || elapsed < 400) return;
+    if (elapsed > 3500) fluteNoteIndex = 0;
     lastToneAt = nowMs;
 
     try {
@@ -81,22 +85,24 @@
     const vibrato = audioContext.createOscillator();
     const vibratoDepth = audioContext.createGain();
     const gain = audioContext.createGain();
+    const frequency = fluteScale[fluteNoteIndex];
+    fluteNoteIndex = (fluteNoteIndex + 1) % fluteScale.length;
 
     oscillator.type = "sine";
-    oscillator.frequency.setValueAtTime(783.99, now);
+    oscillator.frequency.setValueAtTime(frequency, now);
     vibrato.frequency.setValueAtTime(5, now);
     vibratoDepth.gain.setValueAtTime(3, now);
     gain.gain.setValueAtTime(0.0001, now);
-    gain.gain.exponentialRampToValueAtTime(0.045, now + 0.08);
-    gain.gain.exponentialRampToValueAtTime(0.018, now + 0.55);
-    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.85);
+    gain.gain.exponentialRampToValueAtTime(0.04, now + 0.06);
+    gain.gain.exponentialRampToValueAtTime(0.016, now + 0.46);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.72);
 
     vibrato.connect(vibratoDepth).connect(oscillator.frequency);
     oscillator.connect(gain).connect(audioContext.destination);
     oscillator.start(now);
     vibrato.start(now);
-    oscillator.stop(now + 0.85);
-    vibrato.stop(now + 0.85);
+    oscillator.stop(now + 0.72);
+    vibrato.stop(now + 0.72);
   };
 
   const addBloom = (event, force = false) => {

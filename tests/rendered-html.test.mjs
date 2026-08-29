@@ -89,7 +89,10 @@ test("renders verified homepage content and navigation", async () => {
   assert.match(cursorBloomScript, /coarsePointer \? "\.9" : "\.48"/);
   assert.match(cursorBloomScript, /webkitAudioContext/);
   assert.match(cursorBloomScript, /playFluteTone/);
-  assert.match(cursorBloomScript, /nowMs - lastToneAt < 900/);
+  assert.match(cursorBloomScript, /fluteScale = \[523\.25, 587\.33, 659\.25, 698\.46, 783\.99, 880, 987\.77, 1046\.5\]/);
+  assert.match(cursorBloomScript, /elapsed < 400/);
+  assert.match(cursorBloomScript, /elapsed > 3500/);
+  assert.match(cursorBloomScript, /fluteNoteIndex = \(fluteNoteIndex \+ 1\) % fluteScale\.length/);
   assert.match(cursorBloomScript, /pointerdown/);
   assert.match(cursorBloomScript, /pointer-events:none/);
 });
@@ -189,7 +192,10 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.match(html, /coarsePointer \? "\.9" : "\.72"/);
   assert.match(html, /webkitAudioContext/);
   assert.match(html, /playFluteTone/);
-  assert.match(html, /nowMs - lastToneAt < 900/);
+  assert.match(html, /fluteScale = \[523\.25, 587\.33, 659\.25, 698\.46, 783\.99, 880, 987\.77, 1046\.5\]/);
+  assert.match(html, /elapsed < 400/);
+  assert.match(html, /elapsed > 3500/);
+  assert.match(html, /fluteNoteIndex = \(fluteNoteIndex \+ 1\) % fluteScale\.length/);
   assert.match(html, /pointerdown/);
   assert.match(html, /pointer-events:none/);
   assert.doesNotMatch(html, manufacturingSecretPattern);
