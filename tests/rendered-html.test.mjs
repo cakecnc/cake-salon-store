@@ -87,6 +87,10 @@ test("renders verified homepage content and navigation", async () => {
   assert.match(cursorBloomScript, /maxRadius = coarsePointer \? 96 : 110/);
   assert.match(cursorBloomScript, /maxAlpha = coarsePointer \? 0\.46 : 0\.2/);
   assert.match(cursorBloomScript, /coarsePointer \? "\.9" : "\.48"/);
+  assert.match(cursorBloomScript, /webkitAudioContext/);
+  assert.match(cursorBloomScript, /playFluteTone/);
+  assert.match(cursorBloomScript, /nowMs - lastToneAt < 900/);
+  assert.match(cursorBloomScript, /pointerdown/);
   assert.match(cursorBloomScript, /pointer-events:none/);
 });
 
@@ -183,6 +187,10 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.match(html, /maxRadius = coarsePointer \? 96 : 110/);
   assert.match(html, /maxAlpha = coarsePointer \? 0\.46 : 0\.22/);
   assert.match(html, /coarsePointer \? "\.9" : "\.72"/);
+  assert.match(html, /webkitAudioContext/);
+  assert.match(html, /playFluteTone/);
+  assert.match(html, /nowMs - lastToneAt < 900/);
+  assert.match(html, /pointerdown/);
   assert.match(html, /pointer-events:none/);
   assert.doesNotMatch(html, manufacturingSecretPattern);
   const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/);

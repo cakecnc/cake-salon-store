@@ -18,6 +18,9 @@
   let frame = 0;
   let lastX = -100;
   let lastY = -100;
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  let audioContext;
+  let lastToneAt = -Infinity;
 
   canvas.id = "siteCursorBloom";
   canvas.setAttribute("aria-hidden", "true");
@@ -60,29 +63,71 @@
     frame = blooms.length ? window.requestAnimationFrame(draw) : 0;
   };
 
+  const playFluteTone = () => {
+    const nowMs = performance.now();
+    if (!AudioContextClass || nowMs - lastToneAt < 900) return;
+    lastToneAt = nowMs;
+
+    try {
+      if (!audioContext) audioContext = new AudioContextClass();
+    } catch {
+      return;
+    }
+
+    if (audioContext.state === "suspended") void audioContext.resume().catch(() => {});
+
+    const now = audioContext.currentTime;
+    const oscillator = audioContext.createOscillator();
+    const vibrato = audioContext.createOscillator();
+    const vibratoDepth = audioContext.createGain();
+    const gain = audioContext.createGain();
+
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(783.99, now);
+    vibrato.frequency.setValueAtTime(5, now);
+    vibratoDepth.gain.setValueAtTime(3, now);
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.045, now + 0.08);
+    gain.gain.exponentialRampToValueAtTime(0.018, now + 0.55);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.85);
+
+    vibrato.connect(vibratoDepth).connect(oscillator.frequency);
+    oscillator.connect(gain).connect(audioContext.destination);
+    oscillator.start(now);
+    vibrato.start(now);
+    oscillator.stop(now + 0.85);
+    vibrato.stop(now + 0.85);
+  };
+
   const addBloom = (event, force = false) => {
-    if (document.visibilityState === "hidden") return;
+    if (document.visibilityState === "hidden") return false;
 
     const distance = Math.hypot(event.clientX - lastX, event.clientY - lastY);
-    if (!force && distance < minDistance) return;
+    if (!force && distance < minDistance) return false;
 
     lastX = event.clientX;
     lastY = event.clientY;
     blooms.push({ x: event.clientX, y: event.clientY, life: 0 });
     if (blooms.length > maxBlooms) blooms.shift();
     if (!frame) frame = window.requestAnimationFrame(draw);
+    return true;
   };
 
   if (coarsePointer) {
     const addTouchBloom = (event, force = false) => {
       const touch = event.touches[0];
-      if (touch) addBloom(touch, force);
+      if (!touch) return;
+      const added = addBloom(touch, force);
+      if (force && added) playFluteTone();
     };
 
     window.addEventListener("touchstart", (event) => addTouchBloom(event, true), { passive: true });
     window.addEventListener("touchmove", addTouchBloom, { passive: true });
   } else {
     window.addEventListener("pointermove", addBloom, { passive: true });
+    window.addEventListener("pointerdown", (event) => {
+      if (addBloom(event, true)) playFluteTone();
+    }, { passive: true });
   }
   window.addEventListener("resize", resize, { passive: true });
   resize();
