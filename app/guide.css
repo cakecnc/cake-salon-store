@@ -1,0 +1,388 @@
+.product-card .product-art > img {
+  object-position: center top;
+}
+
+.product-grid {
+  max-width: 1000px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.localized-guide {
+  max-width: 1120px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr);
+  background: #fffdf9;
+  box-shadow: 0 18px 45px rgba(72, 48, 37, .1);
+}
+
+.localized-guide > img { width: 100%; height: auto; display: block; }
+.localized-guide > div { padding: 52px 42px; align-self: center; }
+.localized-guide h3 { margin: 0 0 18px; font: 32px/1.2 Georgia, "Nanum Myeongjo", serif; }
+.localized-guide > div > p:not(.kicker) { color: var(--muted); font-size: 12px; line-height: 1.8; }
+.localized-guide small { display: block; margin-top: 24px; padding-top: 18px; border-top: 1px solid #eadfd5; color: #927b6d; line-height: 1.6; }
+
+.product-copy h3 {
+  font-size: 21px;
+}
+
+.guide-section {
+  padding: 125px 6vw;
+  background: #eee4d8;
+}
+
+.guide-heading {
+  max-width: 1240px;
+  margin: 0 auto 60px;
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 8vw;
+  align-items: end;
+}
+
+.guide-heading h2 {
+  margin: 0;
+  font: 400 clamp(42px, 4.4vw, 67px)/1.08 Georgia, "Nanum Myeongjo", serif;
+  letter-spacing: -.055em;
+}
+
+.guide-heading h2 span:last-child {
+  color: var(--rose);
+  font-style: italic;
+}
+
+.guide-heading > div:last-child > p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.guide-heading .guide-language-note {
+  margin-top: 17px;
+  padding: 14px 16px;
+  border-left: 2px solid var(--rose);
+  background: rgba(255, 255, 255, .58);
+  font-size: 10px;
+}
+
+.guide-grid {
+  max-width: 1240px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.guide-card {
+  appearance: none;
+  border: 0;
+  padding: 0;
+  background: #fff;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(72, 48, 37, .08);
+}
+
+.guide-card img {
+  width: 100%;
+  height: 365px;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform .35s;
+}
+
+.guide-card:hover img { transform: scale(1.018); }
+
+.guide-card span {
+  min-height: 76px;
+  padding: 16px 15px;
+  display: grid;
+  grid-template-columns: 27px 1fr;
+  gap: 8px;
+  align-items: center;
+  color: var(--ink);
+  font-size: 10px;
+}
+
+.guide-card span b {
+  font: italic 12px Georgia, serif;
+  color: var(--rose);
+}
+
+.guide-card span i {
+  grid-column: 2;
+  color: #957a68;
+  font-size: 8px;
+  font-style: normal;
+  letter-spacing: .08em;
+}
+
+.guide-card-1,
+.guide-card-7 { grid-column: span 2; }
+.guide-card-1 img,
+.guide-card-7 img { height: 440px; }
+
+.how-thumb {
+  width: 100%;
+  max-height: 350px;
+  margin-top: 42px;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(24, 17, 16, .92);
+  display: grid;
+  place-items: center;
+  padding: 25px;
+}
+
+.lightbox > button {
+  position: absolute;
+  right: 24px;
+  top: 20px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, .55);
+  background: rgba(0, 0, 0, .25);
+  color: #fff;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.lightbox-panel {
+  width: min(1260px, 94vw);
+  max-height: 90vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr);
+  background: #fff;
+  overflow: hidden;
+}
+
+.lightbox-scroll {
+  max-height: 90vh;
+  overflow: auto;
+  background: #f6f1e9;
+}
+
+.lightbox-scroll img { width: 100%; height: auto; }
+.guide-translation {
+  max-height: 90vh;
+  padding: 48px 40px;
+  overflow: auto;
+  color: var(--ink);
+  background: #fffdf9;
+}
+
+.guide-translation h3 {
+  margin: 0 0 18px;
+  font: 30px/1.2 Georgia, "Nanum Myeongjo", serif;
+}
+
+.guide-translation > p:not(.kicker) {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.75;
+}
+
+.guide-translation ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide-translation li {
+  position: relative;
+  padding: 12px 0 12px 18px;
+  border-top: 1px solid #eadfd5;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.guide-translation li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 19px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rose);
+}
+
+.guide-translation small {
+  display: block;
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid #eadfd5;
+  color: #927b6d;
+  font-size: 9px;
+  line-height: 1.6;
+}
+
+.company-actions,
+.final-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.final-contacts {
+  margin-top: 24px;
+}
+
+.final-contacts a {
+  color: white;
+  font-size: 10px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+footer > a[href^="mailto:"] {
+  color: #d8c7c0;
+  font-size: 9px;
+  letter-spacing: .08em;
+}
+.pro-image img { object-position: center center; }
+
+.product-meta { margin: 0 0 24px; border-top: 1px solid #dfd2c6; }
+.product-meta > div { display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding: 11px 0; border-bottom: 1px solid #dfd2c6; }
+.product-meta dt { color: #99756e; font-size: 9px; font-weight: 700; }
+.product-meta dd { margin: 0; color: var(--ink); font-size: 10px; font-weight: 700; }
+.button-outline { border: 1px solid rgba(255,255,255,.68); color: white; background: rgba(40,20,24,.22); }
+.final-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.feature-grid { max-width: 1240px; margin: auto; display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; }
+.feature-card { grid-column: span 2; padding: 32px 28px; background: #fffdf9; border: 1px solid #dfd2c6; box-shadow: 0 10px 26px rgba(72,48,37,.06); }
+.feature-card:nth-child(4), .feature-card:nth-child(5) { grid-column: span 3; }
+.feature-card > span { color: var(--rose); font: italic 12px Georgia, serif; }
+.feature-card h3 { margin: 18px 0 12px; font: 24px/1.25 Georgia,"Nanum Myeongjo",serif; }
+.feature-card p { min-height: 54px; color: var(--muted); font-size: 11px; line-height: 1.75; }
+.feature-card ul { margin: 20px 0 0; padding: 0; list-style: none; }
+.feature-card li { position: relative; padding: 10px 0 10px 15px; border-top: 1px solid #eadfd5; color: #554943; font-size: 10px; line-height: 1.55; }
+.feature-card li::before { content: ""; position: absolute; left: 0; top: 16px; width: 5px; height: 5px; border-radius: 50%; background: var(--rose); }
+.proof-section { padding: 105px 6vw; background: #fffaf3; }
+.proof-heading { max-width: 900px; margin: 0 auto 55px; text-align: center; }
+.proof-heading h2 { margin: 0; font: 400 clamp(40px,4vw,62px)/1.08 Georgia,"Nanum Myeongjo",serif; letter-spacing: -.05em; }
+.proof-heading h2 span:last-child { color: var(--rose); font-style: italic; }
+.proof-heading > p:last-child { max-width: 650px; margin: 24px auto 0; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.proof-section .trust-grid { max-width: 1100px; margin: auto; border: 1px solid var(--line); }
+.coffee-moments { padding: 120px 6vw; background: #fffaf3; }
+.coffee-moments-heading { max-width: 760px; margin: 0 auto 58px; text-align: center; }
+.coffee-moments-heading h2 { margin: 0; font: 400 clamp(42px,4.4vw,67px)/1.08 Georgia,"Nanum Myeongjo",serif; letter-spacing: -.055em; }
+.coffee-moments-heading h2 span:last-child { color: var(--rose); font-style: italic; }
+.coffee-moments-heading > p:last-child { max-width: 590px; margin: 26px auto 0; color: var(--muted); font-size: 13px; line-height: 1.85; word-break: keep-all; }
+.coffee-moments-grid { max-width: 1320px; margin: auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 18px; }
+.coffee-moments-grid figure { margin: 0; background: white; border: 1px solid #eadfd5; overflow: hidden; }
+.coffee-moments-grid img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform .45s ease; }
+.coffee-moments-grid figure:hover img { transform: scale(1.025); }
+.coffee-moments-grid figcaption { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; align-items: baseline; padding: 22px 23px 24px; }
+.coffee-moments-grid figcaption span { grid-row: 1/3; color: var(--rose); font: italic 13px Georgia,serif; }
+.coffee-moments-grid figcaption b { font: 18px Georgia,serif; letter-spacing: .04em; }
+.coffee-moments-grid figcaption small { color: var(--muted); font-size: 10px; }
+.cocktail-showcase { padding: 120px 6vw; color: white; background: radial-gradient(circle at 82% 18%,rgba(65,58,190,.38),transparent 30%),radial-gradient(circle at 12% 75%,rgba(190,36,80,.32),transparent 32%),#17132a; }
+.cocktail-heading { max-width: 1240px; margin: 0 auto 58px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px 8vw; align-items: end; }
+.cocktail-heading .kicker { grid-column: 1/3; margin-bottom: 0; }
+.cocktail-heading h2 { margin: 0; font: 400 clamp(42px,4.4vw,67px)/1.08 Georgia,"Nanum Myeongjo",serif; letter-spacing: -.055em; }
+.cocktail-heading h2 span:last-child { color: #f2a9c5; font-style: italic; }
+.cocktail-heading > p { max-width: 580px; margin: 0; color: #d8d3ec; font-size: 13px; line-height: 1.85; word-break: keep-all; }
+.cocktail-heading .button { grid-column: 2; justify-self: start; }
+.cocktail-grid { max-width: 1320px; margin: auto; display: grid; grid-template-columns: 1.15fr .85fr; grid-template-rows: repeat(2,300px); gap: 18px; }
+.cocktail-grid figure { position: relative; margin: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.18); background: #24193c; }
+.cocktail-grid .cocktail-1 { grid-row: 1/3; }
+.cocktail-grid img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.cocktail-grid figure:hover img { transform: scale(1.025); }
+.cocktail-grid figcaption { position: absolute; inset: auto 0 0; display: flex; gap: 15px; align-items: center; padding: 38px 24px 22px; background: linear-gradient(transparent,rgba(12,8,25,.9)); }
+.cocktail-grid figcaption > span { color: #ffc0d4; font: italic 13px Georgia,serif; }
+.cocktail-grid figcaption div { display: grid; gap: 4px; }
+.cocktail-grid figcaption b { font: 19px Georgia,serif; letter-spacing: .06em; }
+.cocktail-grid figcaption small { color: #ddd6ed; font-size: 10px; }
+.reviews-section { padding: 105px 6vw; background: #2b2020; color: white; }
+.reviews-heading { max-width: 1100px; margin: 0 auto 50px; }
+.reviews-heading h2 { margin: 0; font: 400 clamp(40px,4vw,62px)/1.08 Georgia,"Nanum Myeongjo",serif; letter-spacing: -.05em; }
+.reviews-heading h2 span:last-child { color: #efb8ad; font-style: italic; }
+.reviews-grid { max-width: 1100px; margin: auto; display: grid; grid-template-columns: repeat(2,1fr); gap: 18px; }
+.reviews-grid blockquote { margin: 0; padding: 36px 34px; border: 1px solid rgba(255,255,255,.2); background: rgba(255,255,255,.055); }
+.reviews-grid blockquote > span { color: #efb8ad; font-size: 9px; font-weight: 800; letter-spacing: .1em; }
+.reviews-grid blockquote > p { min-height: 76px; margin: 24px 0; font: 22px/1.65 Georgia,"Nanum Myeongjo",serif; }
+.review-meta { display: flex; justify-content: space-between; padding-top: 18px; border-top: 1px solid rgba(255,255,255,.17); color: #cdbab1; font-size: 9px; letter-spacing: .08em; }
+.final-contacts span { color: white; font-size: 10px; }
+footer > span { color: #d8c7c0; font-size: 9px; letter-spacing: .08em; }
+.mobile-cta { display: none; }
+
+@media (max-width: 900px) {
+  .coffee-moments-grid { grid-template-columns: 1fr 1fr; }
+  .coffee-moments-grid figure:last-child { grid-column: 1 / 3; }
+  .cocktail-heading { grid-template-columns: 1fr; }
+  .cocktail-heading .kicker,.cocktail-heading .button { grid-column: 1; }
+  .cocktail-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 470px 330px; }
+  .cocktail-grid .cocktail-1 { grid-column: 1/3; grid-row: 1; }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .guide-heading { grid-template-columns: 1fr; gap: 25px; }
+  .feature-card { grid-column: span 3; }
+  .feature-card:last-child { grid-column: 2 / span 4; }
+  .guide-grid { grid-template-columns: repeat(2, 1fr); }
+  .lightbox-panel {
+    grid-template-columns: 1fr 360px;
+  }
+}
+
+@media (max-width: 620px) {
+  body { padding-bottom: 68px; }
+  .coffee-moments { padding: 80px 20px; }
+  .coffee-moments-heading { margin-bottom: 40px; text-align: left; }
+  .coffee-moments-heading h2 { font-size: 40px; }
+  .coffee-moments-grid { display: block; }
+  .coffee-moments-grid figure { margin-bottom: 16px; }
+  .cocktail-showcase { padding: 80px 20px; }
+  .cocktail-heading { margin-bottom: 40px; }
+  .cocktail-heading h2 { font-size: 40px; }
+  .cocktail-grid { display: block; }
+  .cocktail-grid figure { height: 360px; margin-bottom: 16px; }
+  .guide-section { padding: 80px 20px; }
+  .guide-heading { margin-bottom: 42px; }
+  .guide-heading h2 { font-size: 40px; }
+  .localized-guide { grid-template-columns: 1fr; }
+  .localized-guide > div { padding: 32px 24px; }
+  .feature-grid { display: block; }
+  .feature-card { margin-bottom: 14px; padding: 27px 22px; }
+  .feature-card p { min-height: 0; }
+  .product-meta > div { grid-template-columns: 95px 1fr; }
+  .proof-section { padding: 78px 20px; }
+  .proof-heading { margin-bottom: 40px; }
+  .proof-heading h2 { font-size: 39px; }
+  .reviews-section { padding: 78px 20px; }
+  .reviews-heading h2 { font-size: 39px; }
+  .reviews-grid { display: block; }
+  .reviews-grid blockquote { margin-bottom: 14px; padding: 28px 22px; }
+  .reviews-grid blockquote > p { min-height: 0; font-size: 19px; }
+  .final-actions { display: grid; }
+  .mobile-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 70; display: grid; grid-template-columns: 1.25fr .75fr; min-height: 68px; box-shadow: 0 -8px 24px rgba(39,22,22,.2); }
+  .mobile-cta a { display: grid; place-items: center; padding: 12px 10px; text-align: center; font-size: 10px; font-weight: 800; line-height: 1.3; }
+  .mobile-cta a:first-child { background: var(--rose-dark); color: white; }
+  .mobile-cta a:last-child { background: #fff8ee; color: var(--rose-dark); border-top: 1px solid #dfd2c6; }
+  .guide-grid { display: block; }
+  .guide-card { width: 100%; margin-bottom: 15px; }
+  .guide-card img,
+  .guide-card-1 img,
+  .guide-card-7 img { height: 360px; }
+  .how-thumb { margin-top: 30px; max-height: 260px; }
+  .lightbox { padding: 52px 10px 10px; }
+  .lightbox > button { right: 12px; top: 10px; }
+  .lightbox-panel {
+    width: 100%;
+    max-height: calc(100vh - 65px);
+    display: block;
+    overflow: auto;
+  }
+  .lightbox-scroll { max-width: 100%; max-height: none; overflow: visible; }
+  .guide-translation { max-height: none; padding: 34px 24px; overflow: visible; }
+  .guide-translation h3 { font-size: 27px; }
+  .company-actions,
+  .final-contacts { display: grid; gap: 14px; }
+  footer > a[href^="mailto:"] { display: block; margin: 14px 0; }
+}

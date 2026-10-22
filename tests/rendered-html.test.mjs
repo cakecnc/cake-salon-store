@@ -1,0 +1,260 @@
+import assert from "node:assert/strict";
+import { access, readFile } from "node:fs/promises";
+import test from "node:test";
+import { Script } from "node:vm";
+
+const developmentPreviewMeta =
+  /<meta(?=[^>]*\bname=["']codex-preview["'])(?=[^>]*\bcontent=["']development["'])[^>]*>/i;
+const manufacturingSecretPattern = /silk[ -]?screen|screen[ -]?print|실크[ -]?스크린|스크린[ -]?인쇄/i;
+
+test("renders verified homepage content and navigation", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+
+  const response = await worker.fetch(
+    new Request("http://localhost/", {
+      headers: { accept: "text/html" },
+    }),
+    {
+      ASSETS: {
+        fetch: async () => new Response("Not found", { status: 404 }),
+      },
+    },
+    {
+      waitUntil() {},
+      passThroughOnException() {},
+    },
+  );
+
+  assert.equal(response.status, 200);
+  assert.match(
+    response.headers.get("content-type") ?? "",
+    /^text\/html\b/i,
+  );
+  const html = await response.text();
+  assert.match(html, developmentPreviewMeta);
+  assert.match(html, /cakecnc@daum\.net/);
+  assert.match(html, /아이싱시트 1팩/);
+  assert.match(html, /맞춤 프린팅 서비스/);
+  assert.match(html, /네이버 스마트스토어에서 구매하기/);
+  assert.match(html, /1:1 맞춤 제작 문의/);
+  assert.match(html, /A4 · 25장 구성/);
+  assert.match(html, /40,000원/);
+  assert.match(html, /6,840원부터/);
+  assert.match(html, /최소 주문 1팩/);
+  assert.match(html, /실제 적용 사례만 담았습니다/);
+  assert.match(html, /확인되지 않은 후기나 제휴사는 표시하지 않습니다/);
+  assert.doesNotMatch(html, /두 번째 구매인데|포장이 꼼꼼하고/);
+  assert.match(html, /id="contact"/);
+  assert.match(html, /href="\/designer"/);
+  assert.match(html, /href="\/research"/);
+  assert.match(html, /href="\/hashcat"/);
+  assert.match(html, /이미지 스튜디오/);
+  assert.match(html, /application\/ld\+json/);
+  assert.match(html, /케익살롱 A4 식용 아이싱시트 25장/);
+  assert.doesNotMatch(html, /A4 아이싱시트 50팩|A3 아이싱시트 25장/);
+  assert.doesNotMatch(html, /빈 카트리지|Empty Cartridges|空カートリッジ|空墨盒/);
+  assert.doesNotMatch(html, /localized-guide/);
+  assert.doesNotMatch(html, manufacturingSecretPattern);
+  assert.match(html, /src=["']\/security-hardening\.js["']/);
+  assert.match(html, /src=["']\/webmcp\.js["']/);
+  assert.match(html, /src=["']\/cursor-bloom\.js["']/);
+
+  const rightClickScript = await readFile(
+    new URL("../dist/client/security-hardening.js", import.meta.url),
+    "utf8",
+  );
+  const webmcpScript = await readFile(
+    new URL("../dist/client/webmcp.js", import.meta.url),
+    "utf8",
+  );
+  const cursorBloomScript = await readFile(
+    new URL("../dist/client/cursor-bloom.js", import.meta.url),
+    "utf8",
+  );
+  assert.match(rightClickScript, /우클릭은 사용할 수 없습니다/);
+  assert.match(rightClickScript, /font-weight:700/);
+  assert.match(rightClickScript, /text-align:center/);
+  assert.match(webmcpScript, /aiwork-page-context/);
+  assert.match(webmcpScript, /aiwork-page-links/);
+  assert.match(webmcpScript, /aiwork-page-sections/);
+  assert.match(webmcpScript, /registerTool/);
+  assert.match(cursorBloomScript, /siteCursorBloom/);
+  assert.match(cursorBloomScript, /maxBlooms = coarsePointer \? 8 : 24/);
+  assert.match(cursorBloomScript, /touchstart/);
+  assert.match(cursorBloomScript, /touchmove/);
+  assert.match(cursorBloomScript, /coarsePointer \? "normal" : "screen"/);
+  assert.match(cursorBloomScript, /lifeStep = coarsePointer \? 0\.024 : 0\.025/);
+  assert.match(cursorBloomScript, /maxRadius = coarsePointer \? 96 : 110/);
+  assert.match(cursorBloomScript, /maxAlpha = coarsePointer \? 0\.46 : 0\.2/);
+  assert.match(cursorBloomScript, /coarsePointer \? "\.9" : "\.48"/);
+  assert.match(cursorBloomScript, /webkitAudioContext/);
+  assert.match(cursorBloomScript, /playFluteTone/);
+  assert.match(cursorBloomScript, /fluteScale = \[523\.25, 587\.33, 659\.25, 698\.46, 783\.99, 880, 987\.77, 1046\.5\]/);
+  assert.match(cursorBloomScript, /elapsed < 400/);
+  assert.match(cursorBloomScript, /elapsed > 3500/);
+  assert.match(cursorBloomScript, /fluteNoteIndex = \(fluteNoteIndex \+ 1\) % fluteScale\.length/);
+  assert.match(cursorBloomScript, /pointerdown/);
+  assert.match(cursorBloomScript, /pointer-events:none/);
+});
+
+test("serves research, hashcat, and the NAVER research API route", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("tools-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = {
+    ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+  };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+
+  const research = await worker.fetch(new Request("http://localhost/research", {
+    headers: { accept: "text/html" },
+  }), env, ctx);
+  assert.equal(research.status, 200);
+  const researchHtml = await research.text();
+  assert.match(researchHtml, /제품 시장 가설 연구/);
+  assert.match(researchHtml, /사진은 이 브라우저에서만 미리보기/);
+  assert.match(researchHtml, /검색어 트렌드와 쇼핑 인사이트 근거/);
+  assert.doesNotMatch(researchHtml, /사진 자동 분석 완료/);
+
+  const hashcat = await worker.fetch(new Request("http://localhost/hashcat", {
+    headers: { accept: "text/html" },
+  }), env, ctx);
+  assert.equal(hashcat.status, 200);
+  const hashcatHtml = await hashcat.text();
+  assert.match(hashcatHtml, /Hashcat을/);
+  assert.match(hashcatHtml, /웹 서버에서 Hashcat을 실행하지 않습니다/);
+  assert.match(hashcatHtml, /명령어 생성기/);
+  assert.match(hashcatHtml, /potfile에 평문 비밀번호/);
+
+  const api = await worker.fetch(new Request("http://localhost/api/research/naver-search"), env, ctx);
+  assert.equal(api.status, 405);
+});
+
+test("serves the free local-only designer from the clean route", async () => {
+  const designerHtml = await readFile(
+    new URL("../dist/client/designer-payload.txt", import.meta.url),
+    "utf8",
+  );
+  await assert.rejects(
+    access(new URL("../dist/client/designer.html", import.meta.url)),
+    { code: "ENOENT" },
+  );
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("designer-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const requestedAssets = [];
+  const env = {
+    ASSETS: {
+      fetch: async (request) => {
+        requestedAssets.push({
+          method: request.method,
+          path: new URL(request.url).pathname,
+        });
+        return new Response(designerHtml, {
+          status: 200,
+          headers: { "content-type": "text/html; charset=utf-8" },
+        });
+      },
+    },
+  };
+  const ctx = {
+    waitUntil() {},
+    passThroughOnException() {},
+  };
+
+  const response = await worker.fetch(
+    new Request("http://localhost/designer?ref=makingsweet", {
+      headers: { accept: "text/html" },
+    }),
+    env,
+    ctx,
+  );
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(requestedAssets, [{ method: "GET", path: "/designer-payload.txt" }]);
+  assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
+  assert.match(response.headers.get("content-security-policy") ?? "", /connect-src 'none'/);
+  assert.match(response.headers.get("content-security-policy") ?? "", /script-src 'self' 'unsafe-inline'/);
+  assert.equal(response.headers.get("permissions-policy"), "camera=(), geolocation=(), microphone=()");
+  assert.equal(response.headers.get("referrer-policy"), "no-referrer");
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  const html = await response.text();
+  assert.match(html, /FREE BETA/);
+  assert.match(html, /Cake Salon·Making Sweet/);
+  assert.match(html, /rel="canonical" href="https:\/\/www\.edibleicingsheet\.com\/designer"/);
+  assert.match(html, /이미지는 이 기기 안에서만 처리/);
+  assert.match(html, /MAX_IMAGE_PIXELS = 16_000_000/);
+  assert.match(html, /\.toBlob\(/);
+  assert.match(html, /aria-label="Cake Salon wordmark"/);
+  assert.match(html, /src="\/cnc-logo\.jpeg" alt="C&amp;C Corporation logo"/);
+  assert.match(html, /프로그램 소스와 UI 디자인에 대한 저작권을 주장합니다/);
+  assert.match(html, /상표·디자인·특허 등록 가능성을 검토하고 있습니다/);
+  assert.match(html, /Potential trademark, design and patent registrations are under review/);
+  assert.match(html, /data-circle-preset="two-90"/);
+  assert.match(html, /data-circle-preset="one-100"/);
+  assert.match(html, /data-circle-preset="two-90-one-100"/);
+  assert.match(html, /9cm 원형 2개/);
+  assert.match(html, /10cm 원형 1개/);
+  assert.match(html, /9cm 2개 \+ 10cm 1개/);
+  assert.match(html, /DIAGONAL_CIRCLE_GAP_MM = 5/);
+  assert.match(html, /diameters: Object\.freeze\(\[90, 90\]\)/);
+  assert.match(html, /diameters: Object\.freeze\(\[100\]\)/);
+  assert.match(html, /diameters: Object\.freeze\(\[90, 100, 90\]\)/);
+  assert.match(html, /computeCirclePresetLayout/);
+  assert.match(html, /property="og:image" content="https:\/\/www\.edibleicingsheet\.com\/cake-renaissance\.jpeg"/);
+  assert.match(html, /name="twitter:card" content="summary_large_image"/);
+  assert.ok(html.includes("As Shakespeare reminds us, “What’s past is prologue.”"));
+  assert.doesNotMatch(html, /셰익스피어가 일깨워 주듯/);
+  const printSheetMarkup = html.match(/<div id="printSheet"[^>]*>[\s\S]*?<\/div>/i)?.[0];
+  assert.ok(printSheetMarkup, "designer must contain its isolated print sheet");
+  assert.doesNotMatch(printSheetMarkup, /cnc-logo|권리 안내|What’s past/i);
+  assert.doesNotMatch(html, /®|patent pending|registered|patented|등록상표|특허등록/i);
+  assert.doesNotMatch(html, /INTERNAL PROTOTYPE/);
+  assert.doesNotMatch(html, /792 packs/);
+  assert.match(html, /<script src="\/security-hardening\.js"><\/script>/);
+  assert.match(html, /<canvas id="designerCursorBloom" aria-hidden="true"><\/canvas>/);
+  assert.match(html, /prefers-reduced-motion: reduce/);
+  assert.match(html, /pointer: coarse/);
+  assert.match(html, /maxBlooms = coarsePointer \? 8 : 24/);
+  assert.match(html, /touchstart/);
+  assert.match(html, /touchmove/);
+  assert.match(html, /coarsePointer \? "normal" : "screen"/);
+  assert.match(html, /lifeStep = coarsePointer \? 0\.024 : 0\.025/);
+  assert.match(html, /maxRadius = coarsePointer \? 96 : 110/);
+  assert.match(html, /maxAlpha = coarsePointer \? 0\.46 : 0\.22/);
+  assert.match(html, /coarsePointer \? "\.9" : "\.72"/);
+  assert.match(html, /webkitAudioContext/);
+  assert.match(html, /playFluteTone/);
+  assert.match(html, /fluteScale = \[523\.25, 587\.33, 659\.25, 698\.46, 783\.99, 880, 987\.77, 1046\.5\]/);
+  assert.match(html, /elapsed < 400/);
+  assert.match(html, /elapsed > 3500/);
+  assert.match(html, /fluteNoteIndex = \(fluteNoteIndex \+ 1\) % fluteScale\.length/);
+  assert.match(html, /pointerdown/);
+  assert.match(html, /pointer-events:none/);
+  assert.doesNotMatch(html, manufacturingSecretPattern);
+  const inlineScript = html.match(/<script>([\s\S]*?)<\/script>/);
+  assert.ok(inlineScript, "designer must contain its local inline script");
+  assert.doesNotThrow(() => new Script(inlineScript[1], {
+    filename: "designer.inline.js",
+  }));
+
+  const rejectedMethod = await worker.fetch(
+    new Request("http://localhost/designer", { method: "POST" }),
+    env,
+    ctx,
+  );
+  assert.equal(rejectedMethod.status, 405);
+  assert.equal(rejectedMethod.headers.get("allow"), "GET, HEAD");
+  assert.equal(requestedAssets.length, 1);
+
+  const legacyRedirect = await worker.fetch(
+    new Request("http://localhost/designer.html"),
+    env,
+    ctx,
+  );
+  assert.equal(legacyRedirect.status, 308);
+  assert.equal(legacyRedirect.headers.get("location"), "http://localhost/designer");
+  assert.equal(requestedAssets.length, 1);
+});
