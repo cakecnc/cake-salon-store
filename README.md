@@ -102,6 +102,19 @@ Use build and validation commands for targeted diagnosis after a remote failure,
 
 The timeout defaults can be overridden for a controlled canary with `SITES_INSTALL_TIMEOUT`, `SITES_INSTALL_KILL_AFTER`, `SITES_BUILD_TIMEOUT`, and `SITES_BUILD_KILL_AFTER`. A timeout fails the command; the helpers never retry an unchanged install or build.
 
+## Research and analytics environment
+
+`/research` calls NAVER API HUB only from the server route. Configure the application credentials as runtime secrets:
+
+- `NAVER_API_HUB_CLIENT_ID`
+- `NAVER_API_HUB_CLIENT_SECRET`
+
+Use the API HUB application's **Client ID** and **Client Secret**. Do not use an Ncloud Access Key ID/Secret Key, and do not expose either value through a `NEXT_PUBLIC_*` variable.
+
+GA4 is optional. Set `NEXT_PUBLIC_GA_MEASUREMENT_ID` only to a real `G-...` measurement ID; analytics stays disabled when it is absent or invalid.
+
+`/hashcat` is an educational local-use guide and command composer. It does not upload hashes or run Hashcat on the web server.
+
 ## Learn More
 
 - [vinext Documentation](https://github.com/cloudflare/vinext)

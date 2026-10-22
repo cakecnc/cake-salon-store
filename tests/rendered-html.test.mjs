@@ -48,6 +48,8 @@ test("renders verified homepage content and navigation", async () => {
   assert.doesNotMatch(html, /두 번째 구매인데|포장이 꼼꼼하고/);
   assert.match(html, /id="contact"/);
   assert.match(html, /href="\/designer"/);
+  assert.match(html, /href="\/research"/);
+  assert.match(html, /href="\/hashcat"/);
   assert.match(html, /이미지 스튜디오/);
   assert.match(html, /application\/ld\+json/);
   assert.match(html, /케익살롱 A4 식용 아이싱시트 25장/);
@@ -95,6 +97,39 @@ test("renders verified homepage content and navigation", async () => {
   assert.match(cursorBloomScript, /fluteNoteIndex = \(fluteNoteIndex \+ 1\) % fluteScale\.length/);
   assert.match(cursorBloomScript, /pointerdown/);
   assert.match(cursorBloomScript, /pointer-events:none/);
+});
+
+test("serves research, hashcat, and the NAVER research API route", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("tools-test", `${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = {
+    ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) },
+  };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+
+  const research = await worker.fetch(new Request("http://localhost/research", {
+    headers: { accept: "text/html" },
+  }), env, ctx);
+  assert.equal(research.status, 200);
+  const researchHtml = await research.text();
+  assert.match(researchHtml, /제품 시장 가설 연구/);
+  assert.match(researchHtml, /사진은 이 브라우저에서만 미리보기/);
+  assert.match(researchHtml, /검색어 트렌드와 쇼핑 인사이트 근거/);
+  assert.doesNotMatch(researchHtml, /사진 자동 분석 완료/);
+
+  const hashcat = await worker.fetch(new Request("http://localhost/hashcat", {
+    headers: { accept: "text/html" },
+  }), env, ctx);
+  assert.equal(hashcat.status, 200);
+  const hashcatHtml = await hashcat.text();
+  assert.match(hashcatHtml, /Hashcat을/);
+  assert.match(hashcatHtml, /웹 서버에서 Hashcat을 실행하지 않습니다/);
+  assert.match(hashcatHtml, /명령어 생성기/);
+  assert.match(hashcatHtml, /potfile에 평문 비밀번호/);
+
+  const api = await worker.fetch(new Request("http://localhost/api/research/naver-search"), env, ctx);
+  assert.equal(api.status, 405);
 });
 
 test("serves the free local-only designer from the clean route", async () => {

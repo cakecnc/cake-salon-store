@@ -551,6 +551,8 @@ export default function Home() {
         <a href="#business">{t.nav[3]}</a>
         <a href="#custom-design">{t.nav[4]}</a>
         <a className="designer-nav" href="/designer">{t.designer}</a>
+        <a href="/research">RESEARCH</a>
+        <a href="/hashcat">HASHCAT</a>
       </nav>
       <div className="header-tools">
         <a className="header-designer" href="/designer">{t.designerShort}</a>
@@ -827,6 +829,10 @@ export default function Home() {
       <div className="footer-brand">
         <a className="wordmark footer-mark" href="#top"><b>CAKE</b><i>SALON</i></a>
         <p>© 2026 C&amp;C Corporation. All rights reserved.</p>
+        <div className="footer-labs" aria-label="C&amp;C tools">
+          <a href="/research">시장 리서치</a>
+          <a href="/hashcat">Hashcat 안전 가이드</a>
+        </div>
       </div>
       <div className="footer-business" aria-label={business.title}>
         <p><b>{business.company}</b><span>{legalCompany.name}</span></p>

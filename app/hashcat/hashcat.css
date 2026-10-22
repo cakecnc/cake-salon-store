@@ -1,0 +1,63 @@
+.hashcat-page { min-height: 100vh; background: #f6f3ec; color: #202b2c; font-family: Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; }
+.hashcat-page a { text-decoration: underline; text-underline-offset: 3px; }
+.hashcat-page :focus-visible { outline: 3px solid #c47d35; outline-offset: 3px; }
+.hashcat-hero { padding: 26px clamp(20px, 5vw, 72px) 88px; background: #173a3c; color: #f7f1e6; }
+.hashcat-hero nav { display: flex; align-items: center; gap: 12px; font-size: 13px; color: #cfdfdc; }
+.hashcat-hero-grid { max-width: 1260px; margin: 80px auto 0; display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(280px, .7fr); align-items: end; gap: 8vw; }
+.hashcat-kicker, .hashcat-section-heading > span { margin: 0 0 18px; color: #b9d6b9; font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.hashcat-hero h1 { margin: 0; font: 400 clamp(48px, 6.3vw, 92px)/1.08 Georgia, "Nanum Myeongjo", serif; letter-spacing: -.055em; }
+.hashcat-hero h1 em { color: #e5b977; font-weight: 400; }
+.hashcat-lead { max-width: 650px; margin: 30px 0; color: #d7e5df; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.8; }
+.hashcat-primary { display: inline-flex; justify-content: center; align-items: center; gap: 32px; min-height: 48px; padding: 12px 22px; border: 0; border-radius: 4px; background: #e9be7e; color: #173a3c; font-weight: 800; text-decoration: none !important; cursor: pointer; }
+.hashcat-primary:disabled { opacity: .48; cursor: not-allowed; }
+.hashcat-hero-note { padding: 28px; border: 1px solid #729391; background: #244b4d; }
+.hashcat-hero-note span { display: block; margin-bottom: 36px; color: #b9d6b9; font-size: 11px; letter-spacing: .12em; }
+.hashcat-hero-note strong { display: block; font: 28px/1.25 Georgia, "Nanum Myeongjo", serif; }
+.hashcat-hero-note p { margin-bottom: 0; color: #d7e5df; font-size: 14px; line-height: 1.75; }
+.hashcat-content { max-width: 1260px; margin: auto; padding: 20px clamp(20px, 5vw, 72px) 100px; }
+.hashcat-section { padding: 72px 0; border-bottom: 1px solid #d6d9d2; scroll-margin-top: 20px; }
+.hashcat-section-heading { margin-bottom: 28px; }
+.hashcat-section-heading > span { color: #557879; }
+.hashcat-section h2 { margin: 0; font: 400 clamp(31px, 3.6vw, 47px)/1.2 Georgia, "Nanum Myeongjo", serif; letter-spacing: -.035em; }
+.hashcat-two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+.hashcat-card, .hashcat-steps article { padding: 30px; background: #fffdf9; border: 1px solid #e1e4dc; }
+.hashcat-card h3, .hashcat-steps h3 { margin: 0 0 15px; font-size: 19px; }
+.hashcat-card p, .hashcat-card li, .hashcat-steps p { color: #465656; font-size: 15px; line-height: 1.8; }
+.hashcat-card ul { margin: 0; padding-left: 20px; }
+.hashcat-card li + li { margin-top: 8px; }
+.hashcat-allowed { border-top: 5px solid #4d8a68; }
+.hashcat-forbidden { border-top: 5px solid #aa5d50; }
+.hashcat-card-num { display: inline-block; margin-bottom: 18px; color: #487272; font: 22px Georgia, serif; }
+.hashcat-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.hashcat-steps article b { display: block; margin-bottom: 25px; color: #758e88; font: 28px Georgia, serif; }
+.hashcat-steps p { margin-bottom: 0; }
+.hashcat-page code { padding: 2px 5px; border-radius: 3px; background: #e9efeb; color: #174f50; font: .9em/1.6 var(--font-geist-mono), Consolas, monospace; overflow-wrap: anywhere; }
+.hashcat-os { margin-top: 18px; padding: 28px; background: #e9efeb; }
+.hashcat-os h3 { margin: 0 0 14px; }
+.hashcat-os > div { display: flex; justify-content: space-between; gap: 15px; padding: 10px 0; border-bottom: 1px solid #cbd7d1; font-size: 14px; }
+.hashcat-os > p { margin-bottom: 0; color: #465656; font-size: 13px; line-height: 1.6; }
+.hashcat-generator { padding: clamp(22px, 4vw, 40px); border: 1px solid #c8d2cb; background: #fffdf9; }
+.hashcat-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.hashcat-fields label { display: grid; gap: 7px; font-size: 14px; font-weight: 700; }
+.hashcat-fields small { color: #62716e; font-weight: 400; }
+.hashcat-fields input, .hashcat-fields select { width: 100%; min-height: 46px; padding: 9px 12px; border: 1px solid #adbbb5; border-radius: 3px; background: #fff; color: #1f3030; }
+.hashcat-fields input[aria-invalid="true"] { border-color: #b34439; }
+.hashcat-field-help { color: #546663; font-size: 13px; line-height: 1.7; }
+.hashcat-command { margin: 22px 0 16px; padding: 22px; background: #173a3c; color: #edf3ea; }
+.hashcat-command span { display: block; margin-bottom: 12px; color: #b9d6b9; font-size: 11px; letter-spacing: .1em; }
+.hashcat-command code { display: block; padding: 0; background: transparent; color: inherit; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; }
+.hashcat-consent { display: flex; align-items: flex-start; gap: 10px; margin: 20px 0; font-size: 14px; font-weight: 700; line-height: 1.6; cursor: pointer; }
+.hashcat-consent input { width: 19px; height: 19px; margin-top: 2px; flex: none; accent-color: #205d57; }
+.hashcat-error { color: #9b3930; font-size: 13px; }
+.hashcat-copy-status { min-height: 1.5em; color: #245d54; font-size: 13px; }
+.hashcat-warning { margin-top: 18px; padding: 25px 28px; border-left: 5px solid #b26a48; background: #f8e9dd; }
+.hashcat-warning strong { font-size: 18px; }
+.hashcat-warning p { margin-bottom: 0; color: #5a4b40; line-height: 1.7; }
+.hashcat-glossary { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+.hashcat-glossary div { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 17px 0; border-bottom: 1px solid #d6d9d2; line-height: 1.6; }
+.hashcat-glossary dt { font-weight: 800; }
+.hashcat-glossary dd { margin: 0; color: #465656; }
+.hashcat-sources { margin-top: 30px; color: #546663; font-size: 13px; line-height: 1.7; }
+@media (max-width: 800px) { .hashcat-hero-grid { grid-template-columns: 1fr; margin-top: 55px; gap: 36px; } .hashcat-hero-note { max-width: 600px; } .hashcat-steps { grid-template-columns: 1fr; } .hashcat-glossary { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .hashcat-hero { padding-bottom: 55px; } .hashcat-hero h1 { font-size: clamp(34px, 10vw, 42px); } .hashcat-section { padding: 52px 0; } .hashcat-two-col, .hashcat-fields { grid-template-columns: 1fr; } .hashcat-card, .hashcat-steps article { padding: 23px; } .hashcat-os > div { display: grid; } .hashcat-glossary div { grid-template-columns: 1fr; gap: 3px; } }
+@media (max-width: 620px) { .hashcat-page { min-height: calc(100vh + 60px); margin-bottom: -60px; } }
