@@ -678,6 +678,87 @@
       font-size: 10px;
     }
 
+    .studio-steps {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 8px;
+      max-width: 1428px;
+      margin: 0 auto 18px;
+      padding: 0 clamp(18px, 4vw, 56px);
+    }
+
+    .studio-step {
+      min-height: 46px;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 14px;
+      color: #f0d9d5;
+      background: rgba(53, 19, 29, 0.34);
+      font-size: 11px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .studio-step[aria-current="step"] {
+      border-color: var(--gold-light);
+      color: var(--ink);
+      background: var(--gold-light);
+    }
+
+    .studio-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding: 0 18px 10px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 248, 245, 0.96);
+    }
+
+    .studio-tools .tool-button { min-height: 38px; padding: 7px 11px; }
+
+    .layer-list { display: grid; gap: 7px; margin-top: 12px; }
+
+    .layer-item {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .layer-item[aria-current="true"] { border-color: var(--accent); background: #f9ece8; }
+    .layer-select { overflow: hidden; border: 0; color: var(--ink); background: transparent; font-size: 12px; font-weight: 800; text-align: left; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
+    .layer-actions { display: flex; gap: 4px; }
+    .layer-actions button { min-width: 30px; min-height: 30px; padding: 0 7px; border: 1px solid var(--line); border-radius: 8px; background: #fff; cursor: pointer; }
+
+    .policy-card {
+      margin-top: 12px;
+      padding: 13px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      color: var(--muted);
+      background: #fff;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .policy-card strong { display: block; margin-bottom: 4px; color: var(--ink); }
+
+    .mobile-action-bar { display: none; }
+
+    body.focus-mode .controls,
+    body.focus-mode .output-panel,
+    body.focus-mode .hero,
+    body.focus-mode .studio-steps,
+    body.focus-mode .membership,
+    body.focus-mode .footer { display: none; }
+
+    body.focus-mode .workspace { grid-template-columns: 1fr; max-width: none; padding-top: 18px; }
+    body.focus-mode .stage-panel { min-height: calc(100vh - 36px); }
+    body.focus-mode .stage-wrap { min-height: calc(100vh - 132px); }
+
     .footer {
       display: grid;
       gap: 18px;
@@ -731,6 +812,8 @@
     }
 
     @media (max-width: 900px) {
+      body { padding-bottom: calc(68px + env(safe-area-inset-bottom)); }
+      .hero { display: none; }
       .footer-brands,
       .footer-meta {
         align-items: flex-start;
@@ -927,6 +1010,28 @@
       .membership-shell { grid-template-columns: 1fr; }
 
       .benefits { grid-template-columns: 1fr; }
+
+      .studio-steps { position: sticky; top: 76px; z-index: 15; gap: 5px; padding-top: 10px; padding-bottom: 10px; background: var(--burgundy); }
+      .studio-step { min-height: 40px; padding: 5px 3px; font-size: 10px; }
+      .controls .section[data-mobile-step],
+      .output-panel .section[data-mobile-step] { display: none; }
+      .controls .section[data-mobile-step].is-mobile-active,
+      .output-panel .section[data-mobile-step].is-mobile-active { display: block; }
+      .mobile-action-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 25;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 7px;
+        padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--line);
+        background: rgba(255, 248, 245, 0.98);
+        box-shadow: 0 -10px 28px rgba(53, 19, 29, 0.16);
+      }
+      .mobile-action-bar button { min-height: 44px; padding: 9px 13px; }
     }
 
     @media print {
@@ -968,11 +1073,11 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="/" aria-label="Cake Salon 홈페이지로 이동">
+    <a class="brand" href="/" aria-label="C&amp;C Corporation 홈페이지로 이동">
       <div class="brand-mark" aria-hidden="true">C&amp;C</div>
       <div>
-        <strong>Cake Salon</strong>
-        <span>Edible Image Studio</span>
+        <strong>C&amp;C Corporation.Co.Ltd</strong>
+        <span>Cake Salon Edible Image Studio</span>
       </div>
     </a>
     <span class="prototype-badge">FREE BETA · 무료 베타</span>
@@ -995,22 +1100,31 @@
       </aside>
     </section>
 
+    <nav class="studio-steps" aria-label="디자인 스튜디오 단계">
+      <button class="studio-step" type="button" data-step="1" aria-current="step">1 이미지</button>
+      <button class="studio-step" type="button" data-step="2">2 시트</button>
+      <button class="studio-step" type="button" data-step="3">3 조정</button>
+      <button class="studio-step" type="button" data-step="4">4 점검</button>
+      <button class="studio-step" type="button" data-step="5">5 출력</button>
+    </nav>
+
     <section class="workspace" aria-label="Edible image designer workspace">
       <aside class="panel controls" aria-label="Design controls">
-        <section class="section">
+        <section class="section is-mobile-active" data-mobile-step="1">
           <div class="section-title">
             <h2>이미지 불러오기 · Upload</h2>
             <span class="step-number">01</span>
           </div>
           <label class="upload" for="imageInput">
-            <input id="imageInput" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp">
+            <input id="imageInput" type="file" multiple accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp">
             <strong>JPG, PNG 또는 WebP 선택</strong>
             <span>Choose a photo or logo · 최대 15MB / 16MP · HEIC는 JPG/PNG로 변환</span>
           </label>
           <p class="file-meta" id="fileMeta">아직 선택된 이미지가 없습니다.</p>
+          <div class="layer-list" id="layerList" aria-label="이미지 레이어"></div>
         </section>
 
-        <section class="section">
+        <section class="section" data-mobile-step="2">
           <div class="section-title">
             <h2>시트 설정 · Sheet</h2>
             <span class="step-number">02</span>
@@ -1063,7 +1177,7 @@
           </fieldset>
         </section>
 
-        <section class="section">
+        <section class="section" data-mobile-step="3">
           <div class="section-title">
             <h2>이미지 조정 · Adjust</h2>
             <span class="step-number">03</span>
@@ -1114,6 +1228,11 @@
           <span><strong id="sheetLabel">A4 Portrait</strong> · <span id="canvasSizeLabel">210 × 297mm</span></span>
           <span><span id="pixelSizeLabel">1240 × 1754px</span> · <span id="repeatLabel">1 image</span></span>
         </div>
+        <div class="studio-tools" aria-label="편집 도구">
+          <button id="undoButton" class="tool-button" type="button" disabled>실행 취소 · Undo</button>
+          <button id="focusButton" class="tool-button" type="button" aria-pressed="false">캔버스 집중 · Focus</button>
+          <span id="autosaveStatus" class="keyboard-help">설정 자동 저장 · 이미지는 저장하지 않음</span>
+        </div>
         <div class="stage-wrap">
           <div class="canvas-shell">
             <canvas
@@ -1131,14 +1250,14 @@
       </section>
 
       <aside class="panel output-panel" aria-label="Output and next actions">
-        <section class="section">
+        <section class="section" data-mobile-step="4">
           <div class="section-title">
             <h2>품질 확인 · Quality</h2>
             <span class="step-number">04</span>
           </div>
           <div class="status-card" id="resolutionCard" data-tone="neutral">
             <p class="status-label"><span class="status-dot" aria-hidden="true"></span><span id="resolutionTitle">이미지를 선택하세요</span></p>
-            <p id="resolutionText">A4 실제 크기를 기준으로 원본 이미지의 예상 PPI를 확인합니다.</p>
+            <p id="resolutionText">A4 300DPI 출력을 기준으로 원본 이미지의 예상 PPI를 확인합니다.</p>
           </div>
           <div class="status-card" id="coverageCard" data-tone="neutral">
             <p class="status-label"><span class="status-dot" aria-hidden="true"></span><span id="coverageTitle">출력 영역 확인 대기</span></p>
@@ -1149,9 +1268,15 @@
             <p>자동 업로드나 네트워크 전송이 없습니다.</p>
           </div>
           <p id="liveStatus" class="keyboard-help" role="status" aria-live="polite">편집기를 준비했습니다.</p>
+          <div class="policy-card">
+            <strong>동의 기반 사용량 분석 · 선택 사항</strong>
+            <label class="check"><input id="analyticsConsent" type="checkbox" disabled><span>네이버 로그인과 익명 사용량 기록에 동의합니다.</span></label>
+            <button class="secondary-button" type="button" disabled aria-disabled="true">네이버 로그인 · 연결 준비 중</button>
+            현재 로그인·분석 저장소가 연결되지 않아 기록하지 않습니다. 편집과 출력은 로그인 없이 계속 사용할 수 있습니다.
+          </div>
         </section>
 
-        <section class="section">
+        <section class="section" data-mobile-step="5">
           <div class="section-title">
             <h2>저장 및 인쇄 · Output</h2>
             <span class="step-number">05</span>
@@ -1170,7 +1295,7 @@
           </p>
         </section>
 
-        <section class="section">
+        <section class="section" data-mobile-step="5">
           <div class="section-title">
             <h2>다음 단계 · Next</h2>
             <span class="step-number">06</span>
@@ -1194,6 +1319,12 @@
       </aside>
     </section>
 
+    <div class="mobile-action-bar" aria-label="모바일 단계 이동">
+      <button id="mobilePrevious" class="tool-button" type="button">이전</button>
+      <button id="mobileOutput" class="primary-button" type="button">PNG 저장</button>
+      <button id="mobileNext" class="tool-button" type="button">다음</button>
+    </div>
+
     <section class="membership" id="membershipSection" aria-labelledby="membershipTitle">
       <div class="membership-shell">
         <article class="membership-card">
@@ -1215,7 +1346,7 @@
           <h3>Cake Salon Pro</h3>
           <p>
             반복 주문과 브랜드 운영을 위한 유료 멤버십을 검토 중입니다. 아래 기능은 아직 활성화되지 않았으며,
-            가격·출시일·결제는 확정되지 않았습니다.
+            가격·출시일·결제는 확정되지 않았습니다. 현재 페이지에서 결제되거나 유료 전환되지 않습니다.
           </p>
           <p id="proNudge" role="status" aria-live="polite">
             무료 A4 결과를 먼저 완성해 보세요. 첫 저장 또는 인쇄 뒤 다음 작업을 줄이는 Pro를 안내합니다.
@@ -1239,11 +1370,11 @@
 
   <footer class="footer" aria-label="브랜드 및 권리 안내">
     <div class="footer-brands">
-      <a class="brand footer-wordmark" href="/" aria-label="Cake Salon wordmark">
+      <a class="brand footer-wordmark" href="/" aria-label="C&amp;C Corporation wordmark">
         <div class="brand-mark" aria-hidden="true">C&amp;C</div>
         <div>
-          <strong>Cake Salon</strong>
-          <span>Edible Image Studio</span>
+          <strong>C&amp;C Corporation.Co.Ltd</strong>
+          <span>Cake Salon Edible Image Studio</span>
         </div>
       </a>
       <div class="cnc-brand">
@@ -1273,7 +1404,7 @@
   <script>
     "use strict";
 
-    const DPI = 150;
+    const DPI = 300;
     const MM_PER_INCH = 25.4;
     const A4 = Object.freeze({ width: 210, height: 297 });
     const PAGE_MARGIN_MM = Object.freeze({ top: 10, right: 2, bottom: 3, left: 2 });
@@ -1312,7 +1443,7 @@
     const MAX_FILE_BYTES = 15 * 1024 * 1024;
     const MAX_IMAGE_PIXELS = 16_000_000;
     const PREVIEW_MAX_EDGE = 1800;
-    const MIN_RECOMMENDED_DPI = 150;
+    const MIN_RECOMMENDED_DPI = 300;
     const ACCEPTED_TYPES = new Set(["image/jpeg", "image/png", "image/webp"]);
     const ACCEPTED_EXTENSIONS = /\.(jpe?g|png|webp)$/i;
     const REFERRAL_SOURCES = new Set(["cakesalon", "edibleicingsheet", "makingsweet"]);
@@ -1352,6 +1483,8 @@
       imageName: "",
       imageWidth: 0,
       imageHeight: 0
+      ,layers: []
+      ,activeLayerIndex: -1
     };
 
     const canvas = document.getElementById("designCanvas");
@@ -1383,10 +1516,212 @@
     const customCircleApply = document.getElementById("customCircleApply");
     const membershipSection = document.getElementById("membershipSection");
     const proNudge = document.getElementById("proNudge");
+    const layerList = document.getElementById("layerList");
+    const undoButton = document.getElementById("undoButton");
+    const autosaveStatus = document.getElementById("autosaveStatus");
 
     const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
     const mmToPx = (mm) => mm * DPI / MM_PER_INCH;
     const pxToMm = (px) => px * MM_PER_INCH / DPI;
+
+    function syncActiveLayer() {
+      const layer = state.layers[state.activeLayerIndex];
+      if (!layer) return;
+      Object.assign(layer, {
+        fitMode: state.fitMode,
+        zoom: state.zoom,
+        rotation: state.rotation,
+        offsetXmm: state.offsetXmm,
+        offsetYmm: state.offsetYmm
+      });
+    }
+
+    function activateLayer(index) {
+      const layer = state.layers[index];
+      if (!layer) return;
+      state.activeLayerIndex = index;
+      Object.assign(state, {
+        image: layer.image,
+        previewImage: layer.previewImage,
+        imageName: layer.imageName,
+        imageWidth: layer.imageWidth,
+        imageHeight: layer.imageHeight,
+        fitMode: layer.fitMode,
+        zoom: layer.zoom,
+        rotation: layer.rotation,
+        offsetXmm: layer.offsetXmm,
+        offsetYmm: layer.offsetYmm
+      });
+      fitButton.setAttribute("aria-pressed", String(state.fitMode === "fit"));
+      fillButton.setAttribute("aria-pressed", String(state.fitMode === "fill"));
+      zoomInput.value = String(Math.round(state.zoom * 100));
+      zoomOutput.value = `${Math.round(state.zoom * 100)}%`;
+      rotationInput.value = String(state.rotation);
+      rotationOutput.value = `${state.rotation}°`;
+      renderLayerList();
+      scheduleRender();
+    }
+
+    function renderLayerList() {
+      layerList.replaceChildren();
+      state.layers.forEach((layer, index) => {
+        const row = document.createElement("div");
+        row.className = "layer-item";
+        row.setAttribute("aria-current", String(index === state.activeLayerIndex));
+        const select = document.createElement("button");
+        select.className = "layer-select";
+        select.type = "button";
+        select.textContent = `${index + 1}. ${layer.imageName}`;
+        select.addEventListener("click", () => activateLayer(index));
+        const actions = document.createElement("span");
+        actions.className = "layer-actions";
+        for (const [label, delta] of [["위", 1], ["아래", -1]]) {
+          const button = document.createElement("button");
+          button.type = "button";
+          button.textContent = label;
+          button.disabled = index + delta < 0 || index + delta >= state.layers.length;
+          button.addEventListener("click", () => {
+            captureUndo();
+            const target = index + delta;
+            [state.layers[index], state.layers[target]] = [state.layers[target], state.layers[index]];
+            state.activeLayerIndex = target;
+            activateLayer(target);
+          });
+          actions.append(button);
+        }
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "삭제";
+        remove.addEventListener("click", () => {
+          captureUndo();
+          state.layers.splice(index, 1);
+          if (state.layers.length) activateLayer(Math.min(index, state.layers.length - 1));
+          else {
+            state.activeLayerIndex = -1;
+            state.image = null;
+            state.previewImage = null;
+            state.imageName = "";
+            state.imageWidth = 0;
+            state.imageHeight = 0;
+            fileMeta.textContent = "아직 선택된 이미지가 없습니다.";
+            renderLayerList();
+            render();
+          }
+        });
+        actions.append(remove);
+        row.append(select, actions);
+        layerList.append(row);
+      });
+    }
+
+    const undoHistory = [];
+
+    function studioSnapshot() {
+      syncActiveLayer();
+      return {
+        orientation: state.orientation,
+        template: state.template,
+        circleDiameterMm: state.circleDiameterMm,
+        circleLayoutMode: state.circleLayoutMode,
+        circlePresetId: state.circlePresetId,
+        showSafeArea: state.showSafeArea,
+        showScaleBar: state.showScaleBar,
+        activeLayerIndex: state.activeLayerIndex,
+        layers: state.layers.map((layer) => ({ ...layer }))
+      };
+    }
+
+    function snapshotKey(snapshot) {
+      return JSON.stringify({ ...snapshot, layers: snapshot.layers.map(({ image, previewImage, ...layer }) => layer) });
+    }
+
+    function captureUndo() {
+      const snapshot = studioSnapshot();
+      if (undoHistory.length && snapshotKey(undoHistory.at(-1)) === snapshotKey(snapshot)) return;
+      undoHistory.push(snapshot);
+      if (undoHistory.length > 30) undoHistory.shift();
+      undoButton.disabled = false;
+    }
+
+    function restoreSnapshot(snapshot) {
+      Object.assign(state, snapshot);
+      document.querySelector(`input[name="orientation"][value="${state.orientation}"]`).checked = true;
+      document.getElementById("safeAreaInput").checked = state.showSafeArea;
+      document.getElementById("scaleBarInput").checked = state.showScaleBar;
+      if (state.layers.length) activateLayer(Math.min(state.activeLayerIndex, state.layers.length - 1));
+      else renderLayerList();
+      configureCanvas();
+    }
+
+    undoButton.addEventListener("click", () => {
+      const snapshot = undoHistory.pop();
+      if (!snapshot) return;
+      restoreSnapshot(snapshot);
+      undoButton.disabled = undoHistory.length === 0;
+      announce("이전 편집 상태로 되돌렸습니다.");
+    });
+
+    document.addEventListener("pointerdown", (event) => {
+      if (event.target.closest("#designCanvas, .controls button, .controls label, .layer-actions")) captureUndo();
+    }, true);
+    document.addEventListener("input", (event) => {
+      if (event.target.matches("#zoomInput, #rotationInput")) captureUndo();
+    }, true);
+
+    // shortcut: image pixels stay memory-only; upgrade to consented D1/R2 project storage when login infrastructure exists.
+    let autosaveTimer = 0;
+    function queueAutosave() {
+      clearTimeout(autosaveTimer);
+      autosaveTimer = setTimeout(() => {
+        const snapshot = studioSnapshot();
+        const { layers, activeLayerIndex, ...settings } = snapshot;
+        localStorage.setItem("cnc-designer-settings-v1", JSON.stringify(settings));
+        autosaveStatus.textContent = "설정 자동 저장 완료 · 이미지 원본은 저장하지 않음";
+      }, 350);
+    }
+
+    function restoreStudioSettings() {
+      try {
+        const saved = JSON.parse(localStorage.getItem("cnc-designer-settings-v1") || "null");
+        if (!saved || !["portrait", "landscape"].includes(saved.orientation)) return;
+        Object.assign(state, saved);
+        document.querySelector(`input[name="orientation"][value="${state.orientation}"]`).checked = true;
+        document.getElementById("safeAreaInput").checked = state.showSafeArea;
+        document.getElementById("scaleBarInput").checked = state.showScaleBar;
+        autosaveStatus.textContent = "저장된 시트 설정 복원 · 이미지 원본은 저장하지 않음";
+      } catch {
+        localStorage.removeItem("cnc-designer-settings-v1");
+      }
+    }
+
+    restoreStudioSettings();
+
+    const focusButton = document.getElementById("focusButton");
+    focusButton.addEventListener("click", () => {
+      const enabled = document.body.classList.toggle("focus-mode");
+      focusButton.setAttribute("aria-pressed", String(enabled));
+      focusButton.textContent = enabled ? "집중 모드 종료 · Exit" : "캔버스 집중 · Focus";
+    });
+    document.addEventListener("keydown", (event) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "z") {
+        event.preventDefault();
+        undoButton.click();
+      }
+      if (event.key === "Escape" && document.body.classList.contains("focus-mode")) focusButton.click();
+    });
+
+    let mobileStep = 1;
+    function setMobileStep(step) {
+      mobileStep = clamp(step, 1, 5);
+      document.querySelectorAll(".studio-step").forEach((button) => button.setAttribute("aria-current", button.dataset.step === String(mobileStep) ? "step" : "false"));
+      document.querySelectorAll("[data-mobile-step]").forEach((section) => section.classList.toggle("is-mobile-active", section.dataset.mobileStep === String(mobileStep)));
+      document.querySelector(`[data-mobile-step="${mobileStep}"]`)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    document.querySelectorAll(".studio-step").forEach((button) => button.addEventListener("click", () => setMobileStep(Number(button.dataset.step))));
+    document.getElementById("mobilePrevious").addEventListener("click", () => setMobileStep(mobileStep - 1));
+    document.getElementById("mobileNext").addEventListener("click", () => setMobileStep(mobileStep + 1));
+    document.getElementById("mobileOutput").addEventListener("click", () => document.getElementById("downloadButton").click());
 
     function getPageSize() {
       return state.orientation === "portrait"
@@ -1521,18 +1856,18 @@
       };
     }
 
-    function getBaseScale(targetWidth, targetHeight, imageWidth = state.imageWidth, imageHeight = state.imageHeight) {
+    function getBaseScale(targetWidth, targetHeight, imageWidth = state.imageWidth, imageHeight = state.imageHeight, transform = state) {
       if (!imageWidth || !imageHeight) return 1;
-      const bounds = getRotatedBounds(imageWidth, imageHeight, state.rotation);
+      const bounds = getRotatedBounds(imageWidth, imageHeight, transform.rotation);
       const fitScale = Math.min(targetWidth / bounds.width, targetHeight / bounds.height);
-      const angle = state.rotation * Math.PI / 180;
+      const angle = transform.rotation * Math.PI / 180;
       const cosine = Math.abs(Math.cos(angle));
       const sine = Math.abs(Math.sin(angle));
       const fillScale = Math.max(
         (targetWidth * cosine + targetHeight * sine) / imageWidth,
         (targetWidth * sine + targetHeight * cosine) / imageHeight
       );
-      return state.fitMode === "fill" ? fillScale : fitScale;
+      return transform.fitMode === "fill" ? fillScale : fitScale;
     }
 
     function constrainOffsets() {
@@ -1553,7 +1888,8 @@
       clipShape,
       sourceImage,
       sourceWidth,
-      sourceHeight
+      sourceHeight,
+      transform = state
     ) {
       if (!sourceImage) return;
 
@@ -1566,9 +1902,9 @@
       }
       targetContext.clip();
 
-      const scale = getBaseScale(targetWidth, targetHeight, sourceWidth, sourceHeight) * state.zoom;
-      targetContext.translate(centerX + mmToPx(state.offsetXmm), centerY + mmToPx(state.offsetYmm));
-      targetContext.rotate(state.rotation * Math.PI / 180);
+      const scale = getBaseScale(targetWidth, targetHeight, sourceWidth, sourceHeight, transform) * transform.zoom;
+      targetContext.translate(centerX + mmToPx(transform.offsetXmm), centerY + mmToPx(transform.offsetYmm));
+      targetContext.rotate(transform.rotation * Math.PI / 180);
       targetContext.scale(scale, scale);
       targetContext.drawImage(sourceImage, -sourceWidth / 2, -sourceHeight / 2);
       targetContext.restore();
@@ -1669,43 +2005,22 @@
       const { guides = false, scaleBar = state.showScaleBar, preview = false } = options;
       const targetContext = targetCanvas.getContext("2d", { alpha: false });
       const page = getPageSize();
-      const sourceImage = preview && state.previewImage ? state.previewImage : state.image;
-      const sourceWidth = sourceImage ? (sourceImage.naturalWidth || sourceImage.width) : 0;
-      const sourceHeight = sourceImage ? (sourceImage.naturalHeight || sourceImage.height) : 0;
       targetContext.clearRect(0, 0, targetCanvas.width, targetCanvas.height);
       targetContext.fillStyle = "#ffffff";
       targetContext.fillRect(0, 0, targetCanvas.width, targetCanvas.height);
 
-      if (!sourceImage) {
+      const layers = state.layers.length ? state.layers : (state.image ? [state] : []);
+      if (!layers.length) {
         drawPlaceholder(targetContext, targetCanvas.width, targetCanvas.height);
-      } else if (state.template === "single") {
-        drawTransformedImage(
-          targetContext,
-          targetCanvas.width / 2,
-          targetCanvas.height / 2,
-          targetCanvas.width,
-          targetCanvas.height,
-          "rectangle",
-          sourceImage,
-          sourceWidth,
-          sourceHeight
-        );
       } else {
-        const cells = getTemplateCells();
-        for (const cell of cells) {
-          const targetWidth = mmToPx(cell.diameter || cell.width);
-          const targetHeight = mmToPx(cell.diameter || cell.height);
-          drawTransformedImage(
-            targetContext,
-            mmToPx(cell.x),
-            mmToPx(cell.y),
-            targetWidth,
-            targetHeight,
-            cell.shape,
-            sourceImage,
-            sourceWidth,
-            sourceHeight
-          );
+        for (const layer of layers) {
+          const sourceImage = preview && layer.previewImage ? layer.previewImage : layer.image;
+          const sourceWidth = sourceImage.naturalWidth || sourceImage.width;
+          const sourceHeight = sourceImage.naturalHeight || sourceImage.height;
+          const cells = state.template === "single" ? [{ x: getPageSize().width / 2, y: getPageSize().height / 2, width: getPageSize().width, height: getPageSize().height, shape: "rectangle" }] : getTemplateCells();
+          for (const cell of cells) {
+            drawTransformedImage(targetContext, mmToPx(cell.x), mmToPx(cell.y), mmToPx(cell.diameter || cell.width), mmToPx(cell.diameter || cell.height), cell.shape, sourceImage, sourceWidth, sourceHeight, layer);
+          }
         }
       }
 
@@ -1718,6 +2033,7 @@
     }
 
     function render() {
+      syncActiveLayer();
       constrainOffsets();
       renderArtwork(canvas, { guides: true, preview: true });
       updateQualityStatus();
@@ -1725,6 +2041,7 @@
       updateTemplateCount();
       updateCtaLinks();
       updateCanvasAria();
+      queueAutosave();
     }
 
     let renderFrame = 0;
@@ -2132,11 +2449,20 @@
           throw new Error("헤더 크기와 디코딩된 이미지 크기가 일치하지 않습니다.");
         }
 
-        state.image = image;
-        state.previewImage = createWorkingPreview(image, decodedWidth, decodedHeight);
-        state.imageName = file.name;
-        state.imageWidth = decodedWidth;
-        state.imageHeight = decodedHeight;
+        const layer = {
+          image,
+          previewImage: createWorkingPreview(image, decodedWidth, decodedHeight),
+          imageName: file.name,
+          imageWidth: decodedWidth,
+          imageHeight: decodedHeight,
+          fitMode: "fit",
+          zoom: 1,
+          rotation: 0,
+          offsetXmm: 0,
+          offsetYmm: 0
+        };
+        state.layers.push(layer);
+        activateLayer(state.layers.length - 1);
         resetTransform(false);
         fileMeta.textContent = `${file.name} · ${decodedWidth} × ${decodedHeight}px · ${(file.size / 1024 / 1024).toFixed(1)}MB`;
         announce("이미지를 불러왔습니다. 드래그하거나 방향키로 위치를 조정하세요.");
@@ -2150,7 +2476,11 @@
       }
     }
 
-    imageInput.addEventListener("change", () => loadSelectedImage(imageInput.files[0]));
+    imageInput.addEventListener("change", async () => {
+      const files = [...imageInput.files].slice(0, Math.max(0, 8 - state.layers.length));
+      for (const file of files) await loadSelectedImage(file);
+      imageInput.value = "";
+    });
 
     document.querySelectorAll('input[name="orientation"]').forEach((input) => {
       input.addEventListener("change", () => {
