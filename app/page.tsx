@@ -162,7 +162,7 @@ const copy = {
 };
 
 const productImage = ["/cake-floral.jpeg", "/cake-portrait.jpeg", "/cake-renaissance.jpeg"];
-const productCardImage = ["/cake-salon-a4-25.webp", "/cake-portrait.jpeg"];
+const productCardImage = ["/cake-salon-a4-25.png", "/cake-portrait.jpeg"];
 const guideCopy = {
   ko: { kicker: "OFFICIAL PRODUCT GUIDE", title: "실제 판매 자료로\n제품을 더 자세히 확인하세요.", intro: "제품 특징, 규격, 사용법과 보관법을 케익살롱 공식 이미지로 확인할 수 있습니다.", translationNote: "현재 선택한 언어에 맞춘 제품 안내 이미지입니다.", labels: ["제품 전체 안내", "프리미엄 품질", "규격과 추천 구성", "3단계 사용법", "출력·박리·장식", "구매 전 FAQ", "아이싱시트 리뉴얼 V.10"], open: "크게 보기", close: "닫기", translatedHeading: "제품 주요 안내", originalNote: "제품 표시와 인증 정보는 실제 제품 라벨 및 최신 판매 안내를 기준으로 확인해 주세요.", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "커피와 음료 위에도\n브랜드를 선명하게.", cafeText: "로고와 메시지를 담은 식용 토퍼로 카페 시그니처 메뉴, 호텔 행사와 브랜드 프로모션을 완성하세요." },
   en: { kicker: "OFFICIAL PRODUCT GUIDE", title: "Explore the product through\nofficial sales materials.", intro: "Review product features, sizes, use and storage in Cake Salon’s official visual guide.", translationNote: "This product guide is presented in your selected language.", labels: ["Complete guide", "Premium quality", "Sizes & recommendations", "Three-step use", "Print, peel & place", "FAQ", "Icing Sheet Renewal V.10"], open: "Enlarge", close: "Close", translatedHeading: "Product Highlights", originalNote: "For labeling and compliance details, refer to the current product packaging and official sales information.", cafeKicker: "CAFÉ & HOTEL", cafeTitle: "Put your brand on\ncoffee and drinks, too.", cafeText: "Create signature café menus, hotel events and brand promotions with custom edible logo toppers." },
@@ -251,21 +251,21 @@ const coffeeMoments: Record<Lang, { kicker: string; title: string; intro: string
   ja: { kicker: "EDIBLE MESSAGE MOMENTS", title: "一杯のコーヒーに\n想いを添えて。", intro: "愛、祝福、感謝のメッセージを食用イメージトッパーにして、特別な時間を演出します。", labels: ["愛を伝える瞬間", "祝福を伝える瞬間", "感謝を伝える瞬間"], alts: ["I LOVE YOU食用トッパーをのせたラテ", "CONGRATS食用トッパーをのせたカプチーノ", "THANK YOU食用トッパーをのせたラテ"] },
   zh: { kicker: "EDIBLE MESSAGE MOMENTS", title: "在一杯咖啡上\n传递心意。", intro: "将爱、祝贺与感谢印在可食用图像装饰上，创造值得纪念的咖啡时刻。", labels: ["表达爱意", "送上祝贺", "传递感谢"], alts: ["放有I LOVE YOU可食用装饰的拿铁", "放有CONGRATS可食用装饰的卡布奇诺", "放有THANK YOU可食用装饰的拿铁"] },
 };
-const coffeeImages = ["/coffee-i-love-you.webp", "/coffee-congrats.webp", "/coffee-thank-you.webp"];
+const coffeeImages = ["/coffee-i-love-you.png", "/coffee-congrats.png", "/coffee-thank-you.png"];
 const cocktailMoments: Record<Lang, { kicker: string; title: string; intro: string; labels: string[]; alts: string[] }> = {
   ko: { kicker: "COCKTAIL CELEBRATION", title: "한 잔의 칵테일을\n행사의 주인공으로.", intro: "선명한 색의 칵테일과 맞춤 식용 메시지 토퍼를 결합해 파티, 기념일, 호텔 이벤트에 기억에 남는 장면을 만듭니다.", labels: ["건배와 파티", "특별한 축하", "기념일과 웨딩"], alts: ["CHEERS 식용 토퍼를 올린 루비 레드 칵테일", "CELEBRATE 식용 토퍼를 올린 블루 바이올렛 칵테일", "ANNIVERSARY 식용 토퍼를 올린 에메랄드 로즈 칵테일"] },
   en: { kicker: "COCKTAIL CELEBRATION", title: "Make every cocktail\nthe center of the occasion.", intro: "Pair vibrant cocktails with custom edible message toppers for parties, anniversaries, hotel events and memorable brand moments.", labels: ["Cheers & parties", "A special celebration", "Anniversaries & weddings"], alts: ["Ruby-red cocktail with a CHEERS edible topper", "Blue-violet cocktail with a CELEBRATE edible topper", "Emerald and rose cocktail with an ANNIVERSARY edible topper"] },
   ja: { kicker: "COCKTAIL CELEBRATION", title: "一杯のカクテルを\nイベントの主役に。", intro: "鮮やかなカクテルと食用メッセージトッパーで、パーティー、記念日、ホテルイベントを印象的に演出します。", labels: ["乾杯とパーティー", "特別なお祝い", "記念日とウェディング"], alts: ["CHEERS食用トッパーをのせたルビーレッドカクテル", "CELEBRATE食用トッパーをのせたブルーバイオレットカクテル", "ANNIVERSARY食用トッパーをのせたエメラルドローズカクテル"] },
   zh: { kicker: "COCKTAIL CELEBRATION", title: "让一杯鸡尾酒\n成为活动主角。", intro: "以缤纷鸡尾酒搭配定制可食用信息装饰，为派对、纪念日、酒店活动和品牌场景留下难忘画面。", labels: ["举杯与派对", "特别的祝贺", "纪念日与婚礼"], alts: ["放有CHEERS可食用装饰的宝石红鸡尾酒", "放有CELEBRATE可食用装饰的蓝紫色鸡尾酒", "放有ANNIVERSARY可食用装饰的祖母绿玫红鸡尾酒"] },
 };
-const cocktailImages = ["/cocktail-cheers.webp", "/cocktail-celebrate.webp", "/cocktail-anniversary.webp"];
+const cocktailImages = ["/cocktail-cheers.png", "/cocktail-celebrate.png", "/cocktail-anniversary.png"];
 const candyMoments: Record<Lang, { kicker: string; title: string; intro: string; labels: string[]; alts: string[] }> = {
   ko: { kicker: "EDIBLE CANDY ART", title: "투명한 캔디 안에\n브랜드와 마음을 담으세요.", intro: "로고, 축하 문구, 감사 메시지를 식용 이미지로 제작해 롤리팝을 프로모션과 선물의 주인공으로 완성합니다.", labels: ["사랑을 담은 선물", "행사와 브랜드 프로모션", "감사를 전하는 답례품"], alts: ["루비 오렌지 LOVE 식용 이미지 롤리팝", "블루 바이올렛 CELEBRATE 식용 이미지 롤리팝", "에메랄드 로즈 THANK YOU 식용 이미지 롤리팝"] },
   en: { kicker: "EDIBLE CANDY ART", title: "Put a message and identity\ninside clear candy.", intro: "Turn logos, celebration notes and gratitude into edible images that make lollipops memorable gifts and promotional pieces.", labels: ["A gift made with love", "Events & brand promotions", "Thoughtful thank-you favors"], alts: ["Ruby-orange LOVE edible image lollipops", "Blue-violet CELEBRATE edible image lollipops", "Emerald-rose THANK YOU edible image lollipops"] },
   ja: { kicker: "EDIBLE CANDY ART", title: "透明なキャンディに\nブランドと想いを。", intro: "ロゴやお祝い、感謝のメッセージを食用イメージにして、ロリポップを印象的なギフトやプロモーションに仕上げます。", labels: ["愛を込めたギフト", "イベントとブランド販促", "感謝を伝えるプチギフト"], alts: ["ルビーオレンジのLOVE食用イメージロリポップ", "ブルーバイオレットのCELEBRATE食用イメージロリポップ", "エメラルドローズのTHANK YOU食用イメージロリポップ"] },
   zh: { kicker: "EDIBLE CANDY ART", title: "把品牌与心意\n放进透明糖果。", intro: "将标志、庆祝语和感谢信息制作成可食用图像，让棒棒糖成为令人难忘的礼物与推广载体。", labels: ["充满爱意的礼物", "活动与品牌推广", "表达感谢的回礼"], alts: ["宝石红橙色LOVE可食用图像棒棒糖", "蓝紫色CELEBRATE可食用图像棒棒糖", "祖母绿玫红THANK YOU可食用图像棒棒糖"] },
 };
-const candyImages = ["/candy-love.webp", "/candy-celebrate.webp", "/candy-thank-you.webp"];
+const candyImages = ["/candy-love.png", "/candy-celebrate.png", "/candy-thank-you.png"];
 const cottonCandyCaseCopy: Record<Lang, {
   kicker: string;
   title: string;
@@ -348,15 +348,15 @@ const cottonCandyCaseCopy: Record<Lang, {
     rightsNote: "“빵빵이 솜사탕”仅作为识别实际制作对象的文字说明。相关角色及产品名称权利归各权利人所有，本说明不代表官方合作或赞助。",
   },
 };
-const cottonFaceImages = ["/cotton-face-bunny.webp", "/cotton-face-bear.webp", "/cotton-face-cat.webp"];
+const cottonFaceImages = ["/cotton-face-bunny.png", "/cotton-face-bear.png", "/cotton-face-cat.png"];
 const petiteDesserts: Record<Lang, { cookieKicker: string; cookieTitle: string; cookieIntro: string; macaronKicker: string; macaronTitle: string; macaronIntro: string; cookieLabels: string[]; macaronLabels: string[]; cookieAlts: string[]; macaronAlts: string[] }> = {
   ko: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "한 장의 이미지로\n쿠키에 이야기를 더하세요.", cookieIntro: "답례품, 시즌 행사, 기업 프로모션에 맞춘 식용 이미지를 쿠키 위에 선명하게 표현합니다.", macaronKicker: "MACARON COLLECTION", macaronTitle: "작고 섬세한 마카롱을\n특별한 메시지로 완성하세요.", macaronIntro: "실제 0.40mm의 얇은 아이싱시트가 마카롱 표면에 자연스럽게 밀착되어 웨딩, 기념일, 브랜드 선물을 섬세하게 완성합니다.", cookieLabels: ["사랑의 답례품", "축하 이벤트", "감사의 선물"], macaronLabels: ["기념일 컬렉션", "축하 컬렉션", "플로럴 기프트"], cookieAlts: ["루비 오렌지 LOVE 식용 이미지 쿠키", "블루 바이올렛 CELEBRATE 식용 이미지 쿠키", "에메랄드 로즈 THANK YOU 식용 이미지 쿠키"], macaronAlts: ["0.40mm의 얇은 아이싱시트를 올린 루비 오렌지 기념일 마카롱", "0.40mm의 얇은 아이싱시트를 올린 블루 바이올렛 축하 마카롱", "0.40mm의 얇은 아이싱시트를 올린 에메랄드 로즈 플로럴 마카롱"] },
   en: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "Give every cookie\na story of its own.", cookieIntro: "Add crisp edible images to cookies for favors, seasonal events and brand promotions.", macaronKicker: "MACARON COLLECTION", macaronTitle: "Finish delicate macarons\nwith a meaningful message.", macaronIntro: "A paper-thin 0.40 mm icing sheet settles naturally onto each macaron for refined weddings, anniversaries and branded gifts.", cookieLabels: ["Love favors", "Celebration events", "Thank-you gifts"], macaronLabels: ["Anniversary collection", "Celebration collection", "Floral gift collection"], cookieAlts: ["Ruby-orange LOVE edible image cookies", "Blue-violet CELEBRATE edible image cookies", "Emerald-rose THANK YOU edible image cookies"], macaronAlts: ["Ruby-orange anniversary macarons with thin 0.40 mm icing sheets", "Blue-violet celebration macarons with thin 0.40 mm icing sheets", "Emerald-rose floral macarons with thin 0.40 mm icing sheets"] },
   ja: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "一枚のイメージで\nクッキーに物語を。", cookieIntro: "プチギフト、季節イベント、企業プロモーションに合わせた食用イメージを鮮明に表現します。", macaronKicker: "MACARON COLLECTION", macaronTitle: "小さく繊細なマカロンを\n特別なメッセージで。", macaronIntro: "ウェディング、記念日、ブランドギフトに合う食用イメージで、ひと箱をより印象的に仕上げます。", cookieLabels: ["愛のプチギフト", "お祝いイベント", "感謝のギフト"], macaronLabels: ["記念日コレクション", "お祝いコレクション", "フローラルギフト"], cookieAlts: ["ルビーオレンジのLOVE食用イメージクッキー", "ブルーバイオレットのCELEBRATE食用イメージクッキー", "エメラルドローズのTHANK YOU食用イメージクッキー"], macaronAlts: ["ルビーオレンジの記念日食用イメージマカロン", "ブルーバイオレットのお祝い食用イメージマカロン", "エメラルドローズのフローラル食用イメージマカロン"] },
   zh: { cookieKicker: "CUSTOM COOKIE MOMENTS", cookieTitle: "用一张可食用图像\n为曲奇增添故事。", cookieIntro: "为回礼、季节活动与企业推广制作清晰精致的可食用曲奇图案。", macaronKicker: "MACARON COLLECTION", macaronTitle: "以特别的信息\n点亮精致马卡龙。", macaronIntro: "用定制可食用图像，让婚礼、纪念日和品牌礼盒更加令人难忘。", cookieLabels: ["爱意回礼", "庆祝活动", "感谢礼物"], macaronLabels: ["纪念日系列", "庆祝系列", "花卉礼盒"], cookieAlts: ["宝石红橙色LOVE可食用图像曲奇", "蓝紫色CELEBRATE可食用图像曲奇", "祖母绿玫红THANK YOU可食用图像曲奇"], macaronAlts: ["宝石红橙色纪念日可食用图像马卡龙", "蓝紫色庆祝可食用图像马卡龙", "祖母绿玫红花卉可食用图像马卡龙"] },
 };
-const cookieImages = ["/cookie-love.webp", "/cookie-celebrate.webp", "/cookie-thank-you.webp"];
-const macaronImages = ["/macaron-thin-anniversary.webp", "/macaron-thin-celebrate.webp", "/macaron-thin-floral.webp"];
+const cookieImages = ["/cookie-love.png", "/cookie-celebrate.png", "/cookie-thank-you.png"];
+const macaronImages = ["/macaron-thin-anniversary.png", "/macaron-thin-celebrate.png", "/macaron-thin-floral.png"];
 const ideaCollections: Record<Lang, { kicker: string; title: string; intro: string; action: string; items: Array<[string, string, string]> }> = {
   ko: { kicker: "CUSTOM PRODUCTION WORK ORDER", title: "맞춤 제작 작업지시서", intro: "사용 목적을 선택한 뒤 제작 대상, 규격, 수량, 납기와 디자인 파일을 순서대로 입력하세요. 입력 내용은 이메일 작업지시서로 정리됩니다.", action: "용도로 선택", items: [["WEDDING", "웨딩·기념일", "웨딩 케이크, 마카롱, 쿠키와 답례품"], ["BRAND", "기업·브랜드 행사", "로고, BI, 프로모션과 대량 제작"], ["CELEBRATION", "돌잔치·생일", "사진, 이름, 날짜가 들어간 기념 디자인"], ["PETIT DESSERT", "소형 디저트", "마카롱, 쿠키, 초콜릿과 컵케이크"], ["HOSPITALITY", "카페·호텔", "커피, 칵테일, 웰컴 디저트와 VIP 행사"], ["OTHER", "기타 맞춤 제작", "별도 용도와 규격을 작업 내용에 직접 입력"]] },
   en: { kicker: "CUSTOM PRODUCTION WORK ORDER", title: "Custom Production Work Order", intro: "Select the purpose, then specify the application, size, quantity, due date and design file. The details are formatted into an email work order.", action: "Select purpose", items: [["WEDDING", "Wedding & Anniversary", "Wedding cakes, macarons, cookies and favors"], ["BRAND", "Corporate & Brand Event", "Logos, brand identity, promotions and volume production"], ["CELEBRATION", "Birthday Celebration", "Commemorative designs with a photo, name and date"], ["PETIT DESSERT", "Petite Desserts", "Macarons, cookies, chocolates and cupcakes"], ["HOSPITALITY", "Café & Hotel", "Coffee, cocktails, welcome desserts and VIP events"], ["OTHER", "Other Custom Project", "Describe a separate application and specification in the brief"]] },
@@ -375,7 +375,7 @@ const dessertMoments: Record<Lang, { kicker: string; title: string; intro: strin
   ja: { kicker: "SEASONAL CAKE INSPIRATION", title: "親しみのあるデザートを\n新しい作品へ。", intro: "カラフルな魚の食用イメージ、懐かしいプンオパン、豊かな旬のフルーツで三つの物語を表現します。", items: [["カラフルフィッシュケーキ", "なめらかな魚型ケーキに宝石色の水彩フィッシュアイシングシートを飾ったデザート"], ["プンオパンケーキ", "プンオパン、小豆、栗、水彩の食用イメージを組み合わせた温かな冬のデザート"], ["ジュエルフルーツケーキ", "色鮮やかな旬のフルーツとフルーツリースのアイシングシートを飾ったケーキ"]], alts: ["カラフルな水彩の魚の食用イメージを飾った魚型ケーキ", "プンオパンと水彩の食用アイシングシートを飾ったケーキ", "旬のフルーツとフルーツリースのアイシングシートを飾ったケーキ"] },
   zh: { kicker: "SEASONAL CAKE INSPIRATION", title: "让熟悉的甜点\n成为全新作品。", intro: "彩色鱼图案、怀旧鲫鱼饼与丰盛时令水果，以可食用糖霜纸呈现三种不同的蛋糕故事。", items: [["彩色鱼形蛋糕", "在细腻的鱼形蛋糕上装饰宝石色水彩鱼图案糖霜纸"], ["鲫鱼饼蛋糕", "结合鲫鱼饼、红豆、栗子与水彩可食用图像的温暖冬季甜点"], ["宝石水果蛋糕", "以缤纷时令水果和水果花环糖霜纸装饰的庆祝蛋糕"]], alts: ["装饰彩色水彩鱼可食用图像的鱼形蛋糕", "以鲫鱼饼和水彩可食用糖霜纸装饰的蛋糕", "以时令水果和水果花环糖霜纸装饰的水果蛋糕"] },
 };
-const dessertImages = ["/bungeoppang-cake-rainbow.webp", "/bungeoppang-cake.webp", "/fruit-cake.webp"];
+const dessertImages = ["/bungeoppang-cake-rainbow.png", "/bungeoppang-cake.png", "/fruit-cake.png"];
 const Lines = ({ children }: { children: string }) => <>{children.replace(/\s*\n\s*/g, " ")}</>;
 const Arrow = () => <span aria-hidden="true">↗</span>;
 const editorialCopy: Record<Lang, {
@@ -764,7 +764,7 @@ export default function Home() {
         <p className="kicker">{t.useKicker}</p>
         <h2><Lines>{t.useTitle}</Lines></h2>
         <p>{e.processNote}</p>
-        <img className="how-thumb" src="/icing-sheet-process.webp" alt={alts.how} />
+        <img className="how-thumb" src="/icing-sheet-process.png" alt={alts.how} />
       </div>
       <ol>{t.steps.map(([number, title, description]) => <li key={number}><span>{number}</span><div><h3>{title}</h3><p>{description}</p></div></li>)}</ol>
     </section>
