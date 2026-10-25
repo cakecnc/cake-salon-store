@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type FormEvent } from "react";
 import Link from "next/link";
+import ProAccess from "../pro-access";
 import "./research.css";
 
 type SearchItem = { title: string; link: string; description?: string; thumbnail?: string };
@@ -127,6 +128,7 @@ export default function ResearchPage() {
       <p>제품 설명을 바탕으로 가설을 정리하고, NAVER API HUB 근거를 함께 확인합니다.</p>
     </header>
 
+    <ProAccess product="research-pro">
     <form className="research-form" onSubmit={runResearch} aria-busy={loading}>
       <div className="research-field research-photo">
         <label htmlFor="research-photo">제품 사진 (선택)</label>
@@ -147,6 +149,7 @@ export default function ResearchPage() {
       <button type="submit" disabled={loading}>{loading ? "네이버 근거 조회 중…" : reportInputs ? "근거 다시 조회" : "시장 가설 리포트 만들기"}</button>
       {requestError && <p className="research-error" role="alert">{requestError} 기존 보고서는 유지됩니다.</p>}
     </form>
+    </ProAccess>
 
     {reportInputs && <div className="research-report" aria-live="polite">
       <header><span className="research-kicker">RESEARCH REPORT</span><h2>{product}</h2><p>사용한 검색어: <strong>{query}</strong> · 조회 시각: {retrievedAt}</p></header>

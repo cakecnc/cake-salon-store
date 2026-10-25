@@ -114,8 +114,8 @@ test("serves research, hashcat, and the NAVER research API route", async () => {
   assert.equal(research.status, 200);
   const researchHtml = await research.text();
   assert.match(researchHtml, /제품 시장 가설 연구/);
-  assert.match(researchHtml, /사진은 이 브라우저에서만 미리보기/);
-  assert.match(researchHtml, /검색어 트렌드와 쇼핑 인사이트 근거/);
+  assert.match(researchHtml, /Research Pro/);
+  assert.match(researchHtml, /Digital service · No shipping fee/);
   assert.doesNotMatch(researchHtml, /사진 자동 분석 완료/);
 
   const hashcat = await worker.fetch(new Request("http://localhost/hashcat", {
@@ -175,7 +175,7 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.equal(response.status, 200);
   assert.deepEqual(requestedAssets, [{ method: "GET", path: "/designer-payload.txt" }]);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-  assert.match(response.headers.get("content-security-policy") ?? "", /connect-src 'none'/);
+  assert.match(response.headers.get("content-security-policy") ?? "", /connect-src 'self'/);
   assert.match(response.headers.get("content-security-policy") ?? "", /script-src 'self' 'unsafe-inline'/);
   assert.equal(response.headers.get("permissions-policy"), "camera=(), geolocation=(), microphone=()");
   assert.equal(response.headers.get("referrer-policy"), "no-referrer");
@@ -195,7 +195,10 @@ test("serves the free local-only designer from the clean route", async () => {
   assert.match(html, /data-step="5"/);
   assert.match(html, /C&amp;C Corporation\.Co\.Ltd/);
   assert.match(html, /네이버 로그인 · 연결 준비 중/);
-  assert.match(html, /현재 페이지에서 결제되거나 유료 전환되지 않습니다/);
+  assert.match(html, /PayPal 구매 · \$24 USD/);
+  assert.match(html, /name="pageSize" value="A3" disabled/);
+  assert.match(html, /product: "designer-pro"/);
+  assert.match(html, /cnc-\$\{state\.pageSize\.toLowerCase\(\)\}/);
   assert.match(html, /\.toBlob\(/);
   assert.match(html, /aria-label="C&amp;C Corporation wordmark"/);
   assert.match(html, /src="\/cnc-logo\.jpeg" alt="C&amp;C Corporation logo"/);

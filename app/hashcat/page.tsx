@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import ProAccess from "../pro-access";
 import "./hashcat.css";
 
 const official = "https://github.com/cakecnc/hashcat/tree/main";
@@ -92,6 +93,7 @@ export default function HashcatPage() {
 
         <section className="hashcat-section" id="generator" aria-labelledby="generator-title">
           <div className="hashcat-section-heading"><span>04 / 내 컴퓨터에서 실행</span><h2 id="generator-title">명령어 생성기</h2></div>
+          <ProAccess product="hashcat-pro">
           <div className="hashcat-generator">
             <div className="hashcat-fields">
               <label>운영체제<select value={system} onChange={(event) => { setSystem(event.target.value as typeof system); setCopyStatus(""); }}><option value="windows">Windows PowerShell</option><option value="mac">macOS 터미널</option><option value="linux">Linux 터미널</option></select></label>
@@ -107,6 +109,7 @@ export default function HashcatPage() {
             <button type="button" className="hashcat-primary" disabled={!authorized || !ready} onClick={copyCommand}>명령어 복사</button>
             <p className="hashcat-copy-status" role="status">{copyStatus}</p>
           </div>
+          </ProAccess>
         </section>
 
         <section className="hashcat-section" aria-labelledby="finish-title">

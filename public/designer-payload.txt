@@ -1130,7 +1130,14 @@
             <span class="step-number">02</span>
           </div>
           <fieldset>
-            <legend>A4 방향 · Orientation</legend>
+            <legend>용지 크기 · Sheet size</legend>
+            <div class="segment">
+              <label><input type="radio" name="pageSize" value="A4" checked>A4 · Free</label>
+              <label><input id="a3Option" type="radio" name="pageSize" value="A3" disabled>A3 · Pro</label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>용지 방향 · Orientation</legend>
             <div class="segment">
               <label>
                 <input type="radio" name="orientation" value="portrait" checked>
@@ -1284,8 +1291,8 @@
           <button id="downloadButton" class="primary-button" type="button">PNG 저장 · Download PNG</button>
           <button id="printButton" class="secondary-button" type="button">실제 크기 인쇄 · Print 100%</button>
           <p class="print-help">
-            인쇄창에서 용지 A4, 여백 없음, 배율 <strong>100% 또는 Actual Size</strong>를 선택하세요.
-            PNG는 픽셀 파일이며 물리 크기 메타데이터를 보장하지 않습니다. 실제 A4 크기는 인쇄/PDF를 사용하고,
+            인쇄창에서 선택한 용지(A4/A3), 여백 없음, 배율 <strong>100% 또는 Actual Size</strong>를 선택하세요.
+            PNG는 픽셀 파일이며 물리 크기 메타데이터를 보장하지 않습니다. 실제 크기는 인쇄/PDF를 사용하고,
             출력 후 50mm 검증선을 자로 확인해야 합니다.
           </p>
           <p class="keyboard-help" id="interactionHelp">
@@ -1342,27 +1349,29 @@
           </ul>
         </article>
         <article class="membership-card pro">
-          <span class="membership-status">Planned · Early access</span>
-          <h3>Cake Salon Pro</h3>
-          <p>
-            반복 주문과 브랜드 운영을 위한 유료 멤버십을 검토 중입니다. 아래 기능은 아직 활성화되지 않았으며,
-            가격·출시일·결제는 확정되지 않았습니다. 현재 페이지에서 결제되거나 유료 전환되지 않습니다.
-          </p>
-          <p id="proNudge" role="status" aria-live="polite">
-            무료 A4 결과를 먼저 완성해 보세요. 첫 저장 또는 인쇄 뒤 다음 작업을 줄이는 Pro를 안내합니다.
-          </p>
+          <span class="membership-status">Available · 1-year access</span>
+          <h3>Cake Salon Designer Pro</h3>
+          <p>A3 작업판, 프로젝트 저장, 브랜드·텍스트 레이어와 배치 레이아웃을 위한 1년 디지털 이용권입니다. 실물 배송이 없어 배송비와 배송지 입력이 필요하지 않습니다.</p>
+          <p id="proNudge" role="status" aria-live="polite">A4는 계속 무료입니다. A3는 유효한 Pro 등록코드로 활성화됩니다.</p>
           <ul class="benefits">
-            <li>A3 작업판</li>
+            <li>A3 세로·가로 300DPI 작업판</li>
             <li>프로젝트 저장</li>
             <li>브랜드·텍스트 레이어</li>
             <li>배치 레이아웃</li>
             <li>우선 지원</li>
           </ul>
-          <a
-            class="pro-cta"
-            href="mailto:sales@edibleicingsheet.com?subject=Cake%20Salon%20Pro%20early%20access"
-          >Pro 사전등록 문의 · Join early access</a>
-          <span class="pro-disclaimer">문의 메일만 열립니다. 계정 생성·결제·자동 전송은 발생하지 않습니다.</span>
+          <a class="pro-cta" href="https://www.paypal.com/ncp/payment/CBYLHTSA8TSA2" target="_blank" rel="noopener noreferrer">PayPal 구매 · $24 USD</a>
+          <form id="designerPurchaseForm" style="display:grid;gap:8px;margin-top:16px">
+            <label>결제 수단<select name="provider"><option value="paypal">PayPal</option><option value="naver">Naver SmartStore</option></select></label>
+            <label>거래·주문 번호<input name="reference" required maxlength="100"></label>
+            <label>결제 이메일<input name="email" type="email" required maxlength="200"></label>
+            <button class="secondary-button" type="submit">결제 확인 요청</button>
+          </form>
+          <form id="designerRedeemForm" style="display:grid;gap:8px;margin-top:16px">
+            <label>등록코드<input name="code" required maxlength="32" autocomplete="one-time-code" placeholder="CNC-XXXX-XXXX-XXXX-XXXX"></label>
+            <button class="primary-button" type="submit">Designer Pro 활성화</button>
+          </form>
+          <span class="pro-disclaimer" id="designerAccessMessage">결제를 확인한 뒤 등록코드를 이메일로 안내합니다. 한국어 · English · 日本語 · 中文 지원.</span>
         </article>
       </div>
     </section>
@@ -1407,6 +1416,7 @@
     const DPI = 300;
     const MM_PER_INCH = 25.4;
     const A4 = Object.freeze({ width: 210, height: 297 });
+    const A3 = Object.freeze({ width: 297, height: 420 });
     const PAGE_MARGIN_MM = Object.freeze({ top: 10, right: 2, bottom: 3, left: 2 });
     const CIRCLE_GAP_MM = 3;
     const DIAGONAL_CIRCLE_GAP_MM = 5;
@@ -1466,6 +1476,7 @@
     }
 
     const state = {
+      pageSize: "A4",
       orientation: "portrait",
       template: "single",
       circleDiameterMm: 35,
@@ -1724,9 +1735,10 @@
     document.getElementById("mobileOutput").addEventListener("click", () => document.getElementById("downloadButton").click());
 
     function getPageSize() {
+      const sheet = state.pageSize === "A3" ? A3 : A4;
       return state.orientation === "portrait"
-        ? { width: A4.width, height: A4.height }
-        : { width: A4.height, height: A4.width };
+        ? { width: sheet.width, height: sheet.height }
+        : { width: sheet.height, height: sheet.width };
     }
 
     function computeGridLayout(pageWidthMm, pageHeightMm, widthMm, heightMm) {
@@ -1808,8 +1820,8 @@
       canvas.style.aspectRatio = `${page.width} / ${page.height}`;
       rootStyle.setProperty("--print-width", `${page.width}mm`);
       rootStyle.setProperty("--print-height", `${page.height}mm`);
-      pageRule.textContent = `@page { size: A4 ${state.orientation}; margin: 0; }`;
-      sheetLabel.textContent = state.orientation === "portrait" ? "A4 Portrait" : "A4 Landscape";
+      pageRule.textContent = `@page { size: ${state.pageSize} ${state.orientation}; margin: 0; }`;
+      sheetLabel.textContent = `${state.pageSize} ${state.orientation === "portrait" ? "Portrait" : "Landscape"}`;
       canvasSizeLabel.textContent = `${page.width} × ${page.height}mm`;
       pixelSizeLabel.textContent = `${canvas.width} × ${canvas.height}px`;
       render();
@@ -2482,6 +2494,16 @@
       imageInput.value = "";
     });
 
+    document.querySelectorAll('input[name="pageSize"]').forEach((input) => {
+      input.addEventListener("change", () => {
+        state.pageSize = input.value;
+        state.offsetXmm = 0;
+        state.offsetYmm = 0;
+        configureCanvas();
+        announce(`${state.pageSize} ${state.orientation} 작업판으로 변경했습니다.`);
+      });
+    });
+
     document.querySelectorAll('input[name="orientation"]').forEach((input) => {
       input.addEventListener("change", () => {
         if (input.value === "landscape" && state.template === "circle" && state.circleLayoutMode === "standard") {
@@ -2493,7 +2515,7 @@
         state.offsetXmm = 0;
         state.offsetYmm = 0;
         configureCanvas();
-        announce(`A4 ${state.orientation} 방향으로 변경했습니다.`);
+        announce(`${state.pageSize} ${state.orientation} 방향으로 변경했습니다.`);
       });
     });
 
@@ -2795,7 +2817,7 @@
       const templateSlug = state.template === "circle"
         ? `circle-${getCircleTemplateSlug()}`
         : state.template;
-      link.download = `cnc-a4-${state.orientation}-${templateSlug}.png`;
+      link.download = `cnc-${state.pageSize.toLowerCase()}-${state.orientation}-${templateSlug}.png`;
       output.toBlob((blob) => {
         if (!blob) {
           announce("PNG를 만들지 못했습니다. 브라우저 메모리를 확인하고 다시 시도해 주세요.");
@@ -2944,6 +2966,39 @@
       document.getElementById("selfCheck").textContent = "편집기 점검 실패 · 페이지를 다시 불러와 주세요";
       document.getElementById("selfCheck").style.color = "#a4332a";
     }
+
+    const a3Option = document.getElementById("a3Option");
+    const designerAccessMessage = document.getElementById("designerAccessMessage");
+
+    async function refreshDesignerAccess() {
+      try {
+        const response = await fetch("/api/access?product=designer-pro", { cache: "no-store" });
+        const result = response.ok ? await response.json() : { active: false };
+        a3Option.disabled = !result.active;
+        if (result.active) designerAccessMessage.textContent = "Designer Pro가 활성화되었습니다. A3 세로·가로 작업판을 사용할 수 있습니다.";
+      } catch {
+        a3Option.disabled = true;
+      }
+    }
+
+    document.getElementById("designerPurchaseForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const values = Object.fromEntries(new FormData(event.currentTarget));
+      const response = await fetch("/api/access", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...values, action: "request", product: "designer-pro" }) });
+      const result = await response.json();
+      designerAccessMessage.textContent = result.message || result.error || "요청을 처리하지 못했습니다.";
+    });
+
+    document.getElementById("designerRedeemForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const values = Object.fromEntries(new FormData(event.currentTarget));
+      const response = await fetch("/api/access", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...values, action: "redeem", product: "designer-pro" }) });
+      const result = await response.json();
+      designerAccessMessage.textContent = result.message || result.error || "요청을 처리하지 못했습니다.";
+      if (response.ok) await refreshDesignerAccess();
+    });
+
+    void refreshDesignerAccess();
 
     configureCanvas();
   </script>
