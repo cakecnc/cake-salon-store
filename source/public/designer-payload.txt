@@ -1149,6 +1149,147 @@
       }
     }
   </style>
+
+<!-- DESIGNER_COMPACT_STYLE_START -->
+<style id="designerCompactStyles">
+.canvas-workspace .custom-circle-editor{gap:8px;padding:12px;background:#fffaf6}
+.custom-circle-editor #customCircleTitle{font-size:15px;line-height:1.4}
+.custom-circle-editor .custom-circle-fields label{font-size:12px}
+.custom-circle-editor input,.custom-circle-editor select{font-size:16px;min-height:44px}
+.custom-circle-editor .tool-button{min-height:44px;font-size:12px;padding:8px 10px}
+.custom-circle-editor .custom-circle-diameter .tool-button{min-width:36px;padding:6px 0}
+.canvas-workspace .custom-circle-editor > .button-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.canvas-workspace .custom-circle-editor > .button-row > button{width:100%;flex:none}
+.custom-circle-editor .custom-circle-note{font-size:12px;line-height:1.55;margin:0}
+.custom-circle-editor #customCircleStatus{padding:7px 8px}
+.custom-circle-editor details{border-top:1px solid var(--line);padding-top:2px}
+.custom-circle-editor summary{min-height:34px;display:list-item;cursor:pointer;font-size:12px;font-weight:700;line-height:1.5;padding:8px 2px}
+.custom-circle-editor details p{padding-top:6px}
+@media screen and (min-width:761px) and (min-height:700px) and (hover:hover) and (pointer:fine){
+ body:not(.focus-mode) .stage-panel{height:calc(100vh - 112px);height:calc(100dvh - 112px)}
+ body:not(.focus-mode) .stage-wrap{min-height:0;padding:12px;overflow:hidden;scrollbar-gutter:auto}
+ body:not(.focus-mode) .canvas-workspace{height:100%;min-height:0;grid-template-rows:minmax(140px,1fr) auto;gap:10px;align-items:stretch}
+ body:not(.focus-mode) .canvas-shell{display:flex;align-items:center;justify-content:center;height:100%;width:100%;min-height:0;overflow:auto;align-self:stretch}
+ body:not(.focus-mode) #designCanvas{max-height:100%;max-width:100%}
+ body:not(.focus-mode) .custom-circle-editor{max-height:40vh;max-height:40dvh;overflow:auto;overscroll-behavior:contain}
+}
+@media screen and (max-width:760px){
+ .stage-wrap{padding:12px}
+ .custom-circle-editor .custom-circle-primary{gap:8px}
+ .custom-circle-editor .custom-circle-primary .custom-circle-diameter{grid-template-columns:minmax(36px,1fr) 48px 36px 36px}
+ .custom-circle-editor .custom-circle-primary>.tool-button{min-height:44px}
+}
+@media screen and (min-width:361px) and (max-width:760px){
+ .custom-circle-editor .custom-circle-primary .custom-circle-fields{grid-template-columns:minmax(0,1fr) 56px;gap:5px 8px}
+ .custom-circle-editor .custom-circle-fields label[for="customCircleInput"]{grid-column:1;grid-row:1}
+ .custom-circle-editor .custom-circle-fields label[for="customCircleCount"]{grid-column:2;grid-row:1}
+ .custom-circle-editor .custom-circle-primary .custom-circle-diameter{grid-column:1;grid-row:2}
+ .custom-circle-editor .custom-circle-fields #customCircleCount{grid-column:2;grid-row:2}
+}
+@media print{.custom-circle-editor details{display:none!important}}
+</style>
+<!-- DESIGNER_COMPACT_STYLE_END -->
+
+<!-- DESIGNER_STREAMLINE_STYLE_START -->
+<style id="designerStreamlineStyles">
+.topbar{min-height:64px;padding:0 clamp(14px,2vw,24px)}
+.brand strong{font-size:17px}.brand span{font-size:10px}.brand-mark{width:36px;height:36px}
+.studio-intro{display:flex;align-items:center;justify-content:space-between;gap:14px;max-width:1540px;margin:0 auto;padding:16px clamp(14px,2vw,24px) 10px}
+.studio-intro .hero{display:block;padding:0;margin:0;max-width:none;color:#fff;min-width:0}
+.studio-intro .hero .eyebrow{display:none}
+.studio-intro .hero h1{font-size:24px;line-height:1.25;letter-spacing:-.025em;margin:0}
+.studio-intro .hero-copy{font-size:13px;margin:8px 0}
+.studio-intro .privacy-note{max-width:620px;font-size:12px;padding:10px 12px}
+.studio-intro .tutorial-entry{margin:0;flex:none}
+.studio-intro .tutorial-entry>span{display:none}
+.studio-intro .tutorial-entry button{min-height:44px;padding:8px 12px;font-size:12px;white-space:nowrap}
+.help-details{font-size:12px;line-height:1.6;margin-top:8px}
+.help-details>summary,.membership-details>summary,.footer-details>summary{min-height:44px;display:list-item;cursor:pointer;font-weight:700;padding:11px 2px;line-height:1.6}
+.help-details>summary:focus-visible,.membership-details>summary:focus-visible,.footer-details>summary:focus-visible{outline:3px solid #ba872f;outline-offset:2px}
+.help-details p{margin:6px 0}.hero .help-details{margin-top:0}.hero .help-details>summary{min-height:32px;padding:5px 0;color:#efd09b}
+.studio-steps{max-width:1540px;margin-bottom:12px;padding:0 clamp(14px,2vw,24px);gap:6px}
+.workspace{gap:12px;padding:0 clamp(14px,2vw,24px) 20px}
+.controls,.output-panel{padding:14px;border-radius:18px}
+.section+.section{margin-top:14px;padding-top:14px}.section-title{margin-bottom:8px}
+.upload{padding:12px;gap:5px}.upload strong{font-size:13px}.upload span{font-size:11px;line-height:1.5}
+.file-meta{margin:8px 0;font-size:12px}.layer-list:empty{display:none}
+.status-card{padding:10px 12px;border-radius:12px}.status-card+.status-card{margin-top:8px}
+.output-panel .help-details .status-card{margin-bottom:8px}.output-panel .policy-card{margin:0}
+.output-panel .print-essential{margin:10px 0 0;font-size:12px;line-height:1.6;color:#581b2a}
+.output-panel .cta-stack{gap:8px}.output-panel .cta{padding:10px 12px}
+[data-mobile-step]{scroll-margin-top:128px}
+.membership-details{max-width:1492px;margin:0 auto 18px;padding:0 clamp(14px,2vw,24px);color:#fff3e7}
+.membership-details>summary{padding:12px 14px;border:1px solid #e7c19370;border-radius:12px;background:#581b2a}
+.membership-details .membership{padding:12px 0 0;margin-bottom:0;max-width:none}
+.membership-card{padding:20px}.membership-card h2,.membership-card h3{font-size:25px}
+.membership-status{margin-bottom:10px}.benefits{gap:7px 14px;margin-top:14px}
+.footer{gap:8px;padding:12px clamp(14px,2vw,24px) 20px}.footer-details>summary{padding:8px 0}
+.footer-details .footer-brands{margin-bottom:12px}.footer-details .footer-legal{margin-bottom:12px}
+body.focus-mode .membership-details{display:none}
+body.focus-mode .studio-intro{justify-content:flex-end;padding-top:8px;padding-bottom:0}
+@media screen and (min-width:1161px){.workspace{grid-template-columns:minmax(240px,290px) minmax(360px,1fr) minmax(230px,270px)}}
+@media screen and (min-width:761px) and (hover:hover) and (pointer:fine){body:not(.focus-mode) .stage-panel{top:80px;max-height:max(180px,calc(100dvh - 96px))}}
+@media screen and (min-width:761px) and (min-height:700px) and (hover:hover) and (pointer:fine){body:not(.focus-mode) .stage-panel{height:calc(100dvh - 96px)}}
+@media screen and (max-width:1160px) and (min-width:761px){.output-panel .section+.section{margin:0;padding:0 0 0 12px}}
+@media screen and (max-width:760px){
+ .studio-intro{padding-top:12px;gap:8px;align-items:flex-start}.studio-intro .hero h1{font-size:17px;line-height:1.4}
+ .studio-intro .tutorial-entry button{font-size:11px;padding:8px 9px}.studio-intro .hero .help-details>summary{font-size:11px}
+ .studio-steps{top:0;margin-bottom:10px;padding-top:8px;padding-bottom:8px}
+ .studio-step{min-height:44px}.workspace{gap:10px;padding-bottom:14px}
+ .stage-panel,.stage-wrap{min-height:0}.controls,.output-panel{padding:12px}
+ .controls .section+.section,.output-panel .section+.section{margin-top:0;padding-top:0;border-top:0}
+ .output-panel .section.is-mobile-active+.section.is-mobile-active{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+ .controls:not(:has(.is-mobile-active)),.output-panel:not(:has(.is-mobile-active)){display:none}
+ [data-mobile-step]{scroll-margin-top:72px}.footer{padding-bottom:14px}
+}
+@media print{.studio-intro,.membership-details,.footer-details{display:none!important}}
+</style>
+<!-- DESIGNER_STREAMLINE_STYLE_END -->
+
+<!-- DESIGNER_TUTORIAL_STYLE_START -->
+<style id="designerTutorialStyles">
+.tutorial-entry{display:flex;justify-content:flex-end;align-items:center;gap:12px;margin:0 0 12px;color:#fff4eb;font-size:13px}
+.tutorial-entry button{min-height:44px;padding:10px 17px;border:1px solid #efd09b;border-radius:12px;background:#581b2a;color:#fff9f3;font:inherit;font-weight:700;cursor:pointer}
+#designerTutorial{width:min(560px,calc(100% - 24px));max-height:calc(100vh - 24px);max-height:calc(100dvh - 24px);padding:0;border:1px solid #d5b789;border-radius:22px;color:#351620;background:#fff8f1;box-shadow:0 24px 80px #21081259;overflow:hidden}
+#designerTutorial[open]{display:grid;grid-template-rows:auto minmax(0,1fr) auto}
+#designerTutorial::backdrop{background:#210d19a8}
+#designerTutorial.tutorial-fallback{position:fixed;inset:0;margin:0;width:100%;height:100%;max-width:none;max-height:none;border-radius:0;z-index:2147483647}
+#designerTutorial .tutorial-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:22px 24px 18px;background:#581b2a;color:#fff7ed}
+#designerTutorial .tutorial-heading h2{margin:0;font-family:inherit;font-size:19px;font-weight:700;line-height:1.4;letter-spacing:0;word-break:keep-all}
+#designerTutorial .tutorial-heading p{margin:6px 0 0;color:#efd09b;font-size:12px;line-height:1.5}
+#designerTutorial button{font:inherit;font-weight:700;min-height:44px;border-radius:10px;padding:10px 15px;cursor:pointer;line-height:1.4}
+#designerTutorial .tutorial-close{flex-shrink:0;min-width:44px;padding:6px;border:1px solid #e4c9a0;background:transparent;color:#fff7ed;font-size:24px;line-height:1}
+#designerTutorial .tutorial-content{overflow:auto;overscroll-behavior:contain;padding:24px;min-height:0}
+#designerTutorial .tutorial-progress{display:flex;gap:8px;margin-bottom:22px}
+#designerTutorial .tutorial-progress span{height:5px;flex:1;border-radius:9px;background:#e0ced2}
+#designerTutorial .tutorial-progress span.is-current{background:#8e3a52}
+#designerTutorial .tutorial-step-number{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:14px;background:#efcf9b;color:#581b2a;font-size:19px;font-weight:700;margin-bottom:14px}
+#designerTutorial h3{margin:0 0 13px;font-size:25px;line-height:1.4;color:#581b2a;word-break:keep-all;overflow-wrap:anywhere}
+#designerTutorial .tutorial-description{margin:0;font-size:16px;line-height:1.8;word-break:keep-all;overflow-wrap:anywhere}
+#designerTutorial .tutorial-note{margin:18px 0 0;padding:14px 16px;border-left:3px solid #ab7944;border-radius:0 10px 10px 0;background:#f0e2dc;font-size:14px;line-height:1.7;word-break:keep-all;overflow-wrap:anywhere}
+#designerTutorial .tutorial-preserve{margin:18px 0 0;color:#70545b;font-size:12px;line-height:1.6}
+#designerTutorial .tutorial-footer{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:16px 24px 22px;border-top:1px solid #e4d5d1;background:#fff8f1}
+#designerTutorial .tutorial-skip{margin-right:auto;background:transparent;border:1px solid transparent;color:#6b3344;text-decoration:underline;text-underline-offset:3px}
+#designerTutorial .tutorial-prev{border:1px solid #8b6170;background:transparent;color:#581b2a}
+#designerTutorial .tutorial-next{border:1px solid #581b2a;background:#581b2a;color:#fff7ed;min-width:90px}
+#designerTutorial button:disabled{opacity:.45;cursor:default}
+#designerTutorial :focus-visible,.tutorial-entry button:focus-visible{outline:3px solid #a87523;outline-offset:3px}
+#designerTutorial h3:focus{outline:0}
+@media(max-width:600px){.tutorial-entry{justify-content:space-between;gap:8px}.tutorial-entry span{font-size:12px}#designerTutorial .tutorial-heading{padding:18px}#designerTutorial .tutorial-content{padding:20px 18px}#designerTutorial .tutorial-footer{padding:14px 16px 18px;gap:7px}#designerTutorial .tutorial-footer button{padding:10px 12px}#designerTutorial h3{font-size:22px}}
+@media(prefers-reduced-motion:reduce){#designerTutorial *, .tutorial-entry *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+@media print{#designerTutorial,.tutorial-entry{display:none!important}}
+</style>
+<!-- DESIGNER_TUTORIAL_STYLE_END -->
+
+<!-- DESIGNER_PAYPAL_STYLE_START -->
+<style id="designerPayPalStyles">
+.membership-legacy[hidden]{display:none!important}
+.paypal-checkout{text-align:right}
+.paypal-checkout>.pro-cta{margin-top:0;min-height:48px}
+@media(max-width:760px){.paypal-checkout>.pro-cta{width:100%}}
+@media print{.paypal-checkout{display:none!important}}
+</style>
+<!-- DESIGNER_PAYPAL_STYLE_END -->
 </head>
 <body>
   <header class="topbar">
@@ -1163,21 +1304,28 @@
   </header>
 
   <main>
+    <div class="studio-intro">
     <section class="hero" aria-labelledby="pageTitle">
       <div>
         <p class="eyebrow">Design locally. Print with confidence.</p>
-        <h1 id="pageTitle">식용 이미지를<br>한 장의 시트로.</h1>
-        <p class="hero-copy">
+        <h1 id="pageTitle">식용 이미지 스튜디오</h1>
+        
+      <details class="help-details"><summary>소개·이미지 보호</summary><p class="hero-copy">
           Cake Salon·Making Sweet 고객이 사진과 로고를 브라우저에서 배치하고 실제 크기로 인쇄할 수 있는 무료 편집기입니다.
           Create a print-ready A4 edible-image layout without installing an app.
-        </p>
-      </div>
-      <aside class="privacy-note">
+        </p><aside class="privacy-note">
         <strong>개인정보 보호 · Private by default</strong>
         불러온 이미지는 이 기기 안에서만 처리되며 서버로 자동 전송되지 않습니다.
         Your image stays in this browser unless you choose to contact us. 사용 권한이 있는 이미지만 이용해 주세요.
-      </aside>
+      </aside></details>
+      </div>
+      
     </section>
+
+    <!-- DESIGNER_TUTORIAL_ENTRY_START -->
+    <div class="tutorial-entry"><span>처음 사용하는 디자인 스튜디오</span><button id="designerTutorialReplay" type="button" aria-haspopup="dialog" aria-controls="designerTutorial">사용 가이드 · Guide</button></div>
+    <!-- DESIGNER_TUTORIAL_ENTRY_END -->
+    </div><!-- STUDIO_INTRO_END -->
 
     <nav class="studio-steps" aria-label="디자인 스튜디오 단계">
       <button class="studio-step" type="button" data-step="1" aria-current="step">1 이미지</button>
@@ -1201,7 +1349,7 @@
           </label>
           <p class="file-meta" id="fileMeta">아직 선택된 이미지가 없습니다.</p>
           <div class="layer-list" id="layerList" aria-label="이미지 레이어"></div>
-          <p class="keyboard-help">원형을 선택하면 이미지를 순서대로 한 장씩 배치합니다. 원형보다 이미지가 적으면 순서대로 반복합니다.</p>
+          <details class="help-details"><summary>여러 이미지 배치 안내</summary><p class="keyboard-help">원형을 선택하면 이미지를 순서대로 한 장씩 배치합니다. 원형보다 이미지가 적으면 순서대로 반복합니다.</p></details>
         </section>
 
         <section class="section" data-mobile-step="2">
@@ -1243,13 +1391,13 @@
               <button class="template-button" type="button" data-template="circle" data-circle-preset="one-100" aria-pressed="false">10cm 원형 1개<br>가운데 배치</button>
               <button class="template-button" type="button" data-template="circle" data-circle-preset="two-90-one-100" aria-pressed="false">9cm 2개 + 10cm 1개<br>사선 · 간격 5mm</button>
             </div>
-            <p class="custom-circle-note">A4 일반 원형과 빠른 템플릿은 전체 배치가 안전영역에 들어가면 기존보다 5mm 아래로 배치하며, 공간이 없으면 기존 위치를 유지합니다. 실측 표준 지그는 고정입니다. 전체 지름을 변경하면 모두 같은 크기로, 개수만 변경하면 기존 개별 지름을 유지합니다. 아래에서 원형별 지름을 적용할 수 있습니다. 개별 지름 수정은 표준 지그도 자유배치로 전환하며 원형별 이미지와 이미지 변형은 유지합니다.</p>
+            <details class="help-details"><summary>원형 배치 기준</summary><p class="custom-circle-note">A4 일반 원형과 빠른 템플릿은 전체 배치가 안전영역에 들어가면 기존보다 5mm 아래로 배치하며, 공간이 없으면 기존 위치를 유지합니다. 실측 표준 지그는 고정입니다. 전체 지름을 변경하면 모두 같은 크기로, 개수만 변경하면 기존 개별 지름을 유지합니다. 아래에서 원형별 지름을 적용할 수 있습니다. 개별 지름 수정은 표준 지그도 자유배치로 전환하며 원형별 이미지와 이미지 변형은 유지합니다.</p></details>
           </fieldset>
           <div id="circleAssignmentPanel" hidden>
             <strong>원형별 지름·이미지</strong>
             <p id="circleAssignmentSummary" class="keyboard-help" role="status"></p>
             <div id="circleAssignments" class="circle-assignments"></div>
-            <p class="keyboard-help">미리보기의 번호와 같은 원형입니다. 원형을 누르거나 ‘조정’을 선택해 이미지를 편집하세요. 같은 이미지의 확대·회전·이동은 그 이미지를 쓰는 원형에 함께 적용됩니다. 번호는 출력되지 않습니다.</p>
+            <details class="help-details"><summary>원형별 편집 안내</summary><p class="keyboard-help">미리보기의 번호와 같은 원형입니다. 원형을 누르거나 ‘조정’을 선택해 이미지를 편집하세요. 같은 이미지의 확대·회전·이동은 그 이미지를 쓰는 원형에 함께 적용됩니다. 번호는 출력되지 않습니다.</p></details>
           </div>
         </section>
 
@@ -1324,10 +1472,10 @@
             ></canvas>
           </div>
           <div class="custom-circle-editor" role="group" aria-labelledby="customCircleTitle">
-              <strong id="customCircleTitle">원형 크기·개수 직접 설정</strong>
+              <strong id="customCircleTitle">원형 설정</strong>
               <div class="custom-circle-primary"><div class="custom-circle-fields">
-                <label for="customCircleInput">전체 지름 · Diameter</label>
-                <label for="customCircleCount">개수 · Count</label>
+                <label for="customCircleInput">지름</label>
+                <label for="customCircleCount">개수</label>
                 <div class="custom-circle-diameter">
                   <input id="customCircleInput" type="number" min="0.5" max="20.6" step="0.5" value="13" inputmode="decimal" aria-describedby="customCircleStatus">
                   <select id="customCircleUnit" aria-label="원형 지름 단위">
@@ -1337,14 +1485,14 @@
                 </div>
                 <input id="customCircleCount" type="number" min="1" max="4096" step="1" value="1" inputmode="numeric" aria-describedby="customCircleStatus">
               </div>
-              <button id="customCircleApply" class="tool-button" type="button" aria-pressed="false">이 크기·개수 적용</button></div>
+              <button id="customCircleApply" class="tool-button" type="button" aria-pressed="false">적용</button></div>
               <div class="button-row">
-                <button id="customCircleMax" class="tool-button" type="button">가능한 개수 채우기</button>
-                <button id="customCircleFit" class="tool-button" type="button">개수에 맞춰 크기 조절</button>
+                <button id="customCircleMax" class="tool-button" type="button">최대 개수</button>
+                <button id="customCircleFit" class="tool-button" type="button">크기 자동</button>
+                <button id="customCircleCancel" class="tool-button" type="button">입력 취소</button>
               </div>
-              <button id="customCircleCancel" class="tool-button" type="button">전체 입력 취소</button>
               <p id="customCircleStatus" class="custom-circle-note" role="status" aria-live="polite"></p>
-              <p class="custom-circle-note">A4 원형은 전체 배치가 기존 안전영역 안에서 5mm 내려갈 수 있을 때만 정확히 5mm 아래로 이동합니다. 공간이 없으면 기존 위치를 유지합니다. 실측 Standard jig 좌표는 이동하지 않습니다. −/+는 0.5cm(5mm)씩, 직접 입력은 0.1mm까지 허용합니다. 자동 크기 맞춤은 안전한 5mm 배수로 내림합니다. 기존 정밀값은 그대로 복원하며, 원형 간격은 최소 3mm입니다. 정렬·엇갈림 배치 중 용지에 맞는 구성을 사용합니다. 50mm 검증선은 상단 안전선 안쪽 10–14mm에 표시하며, 원형과 1mm 이상 간격이 있는 좌우 위치를 찾습니다. 공간이 없으면 검증선을 표시하지 않고 저장·인쇄를 막습니다. 검증선을 끄면 원형 배치를 출력할 수 있습니다. 기존 배치를 유지하기 위해 검증선 ON일 때 하단 12mm, OFF일 때 하단 3mm 배치 여백을 유지합니다. 실제 프린터의 비인쇄 여백은 출력 전 확인하세요.</p>
+              <details class="circle-details"><summary>배치·인쇄 기준</summary><p class="custom-circle-note">A4 원형은 전체 배치가 기존 안전영역 안에서 5mm 내려갈 수 있을 때만 정확히 5mm 아래로 이동합니다. 공간이 없으면 기존 위치를 유지합니다. 실측 Standard jig 좌표는 이동하지 않습니다. −/+는 0.5cm(5mm)씩, 직접 입력은 0.1mm까지 허용합니다. 자동 크기 맞춤은 안전한 5mm 배수로 내림합니다. 기존 정밀값은 그대로 복원하며, 원형 간격은 최소 3mm입니다. 정렬·엇갈림 배치 중 용지에 맞는 구성을 사용합니다. 50mm 검증선은 상단 안전선 안쪽 10–14mm에 표시하며, 원형과 1mm 이상 간격이 있는 좌우 위치를 찾습니다. 공간이 없으면 검증선을 표시하지 않고 저장·인쇄를 막습니다. 검증선을 끄면 원형 배치를 출력할 수 있습니다. 기존 배치를 유지하기 위해 검증선 ON일 때 하단 12mm, OFF일 때 하단 3mm 배치 여백을 유지합니다. 실제 프린터의 비인쇄 여백은 출력 전 확인하세요.</p></details>
             </div>
           </div>
         </div>
@@ -1365,17 +1513,17 @@
             <p class="status-label"><span class="status-dot" aria-hidden="true"></span><span id="coverageTitle">출력 영역 확인 대기</span></p>
             <p id="coverageText">빈 출력이나 Fill 모드의 미채움 영역을 확인합니다.</p>
           </div>
-          <div class="status-card" id="localCard" data-tone="good">
+          
+          <p id="liveStatus" class="keyboard-help" role="status" aria-live="polite">편집기를 준비했습니다.</p>
+          <details class="help-details"><summary>이미지 보호·선택 기능</summary><div class="status-card" id="localCard" data-tone="good">
             <p class="status-label"><span class="status-dot" aria-hidden="true"></span>로컬 처리 · Local only</p>
             <p>자동 업로드나 네트워크 전송이 없습니다.</p>
-          </div>
-          <p id="liveStatus" class="keyboard-help" role="status" aria-live="polite">편집기를 준비했습니다.</p>
-          <div class="policy-card">
+          </div><div class="policy-card">
             <strong>동의 기반 사용량 분석 · 선택 사항</strong>
             <label class="check"><input id="analyticsConsent" type="checkbox" disabled><span>네이버 로그인과 익명 사용량 기록에 동의합니다.</span></label>
             <button class="secondary-button" type="button" disabled aria-disabled="true">네이버 로그인 · 연결 준비 중</button>
             현재 로그인·분석 저장소가 연결되지 않아 기록하지 않습니다. 편집과 출력은 로그인 없이 계속 사용할 수 있습니다.
-          </div>
+          </div></details>
         </section>
 
         <section class="section" data-mobile-step="5">
@@ -1385,24 +1533,19 @@
           </div>
           <button id="downloadButton" class="primary-button" type="button">PNG 저장 · Download PNG</button>
           <button id="printButton" class="secondary-button" type="button">실제 크기 인쇄 · Print 100%</button>
-          <p class="print-help">
+          <p class="print-essential">인쇄는 <strong>100% · 여백 없음</strong>. 출력 후 50mm 검증선을 확인하세요.</p><details class="help-details"><summary>정확한 크기로 인쇄하기</summary><p class="print-help">
             인쇄창에서 선택한 용지(A4/A3), 여백 없음, 배율 <strong>100% 또는 Actual Size</strong>를 선택하세요.
             PNG는 픽셀 파일이며 물리 크기 메타데이터를 보장하지 않습니다. 실제 크기는 인쇄/PDF를 사용하고,
             출력 후 상단 50mm 검증선을 자로 확인해야 합니다. 전체 시트 이미지는 용지 끝까지 사용하므로 검증선이 그림 위에 표시됩니다. 그림을 가리지 않으려면 검증선을 끄세요.
-          </p>
-          <p class="keyboard-help" id="interactionHelp">
+          </p></details>
+          <details class="help-details"><summary>드래그·단축키</summary><p class="keyboard-help" id="interactionHelp">
             드래그/터치: 이동 · 휠/두 손가락: 확대 ·
             <kbd>↑</kbd><kbd>↓</kbd><kbd>←</kbd><kbd>→</kbd>: 1mm 이동 ·
             <kbd>Shift</kbd>: 5mm
-          </p>
+          </p></details>
         </section>
 
-        <section class="section" data-mobile-step="5">
-          <div class="section-title">
-            <h2>다음 단계 · Next</h2>
-            <span class="step-number">06</span>
-          </div>
-          <div class="cta-stack">
+        <section class="section" data-mobile-step="5"><details class="help-details"><summary>상품·맞춤 인쇄 문의</summary>          <div class="cta-stack">
             <a class="cta" id="storeCta" href="https://smartstore.naver.com/cake" target="_blank" rel="noopener noreferrer">
               <strong>Cake Salon 스토어 보기 · Visit store</strong>
               <span>스토어에서 A4 아이싱시트 상품을 선택하세요.</span>
@@ -1417,7 +1560,7 @@
             </a>
           </div>
           <p class="keyboard-help">톡톡 상담창에는 파일이 자동 첨부되지 않습니다. 저장한 PNG를 사용자가 직접 추가해야 합니다.</p>
-        </section>
+</details></section>
       </aside>
     </section>
 
@@ -1427,8 +1570,8 @@
       <button id="mobileNext" class="tool-button" type="button">다음</button>
     </div>
 
-    <section class="membership" id="membershipSection" aria-labelledby="membershipTitle">
-      <div class="membership-shell">
+    <section class="membership-details paypal-checkout" id="membershipSection" aria-label="PayPal 구매">
+      <div class="membership-legacy" hidden inert><div class="membership-shell">
         <article class="membership-card">
           <span class="membership-status">Available now · 현재 사용 가능</span>
           <h2 id="membershipTitle">Free A4 Editor</h2>
@@ -1455,7 +1598,7 @@
             <li>배치 레이아웃</li>
             <li>우선 지원</li>
           </ul>
-          <a class="pro-cta" href="https://www.paypal.com/ncp/payment/CBYLHTSA8TSA2" target="_blank" rel="noopener noreferrer">PayPal 구매 · $24 USD</a>
+          
           <form id="designerPurchaseForm" style="display:grid;gap:8px;margin-top:16px">
             <label>결제 수단<select name="provider"><option value="paypal">PayPal</option><option value="naver">Naver SmartStore</option></select></label>
             <label>거래·주문 번호<input name="reference" required maxlength="100"></label>
@@ -1468,12 +1611,13 @@
           </form>
           <span class="pro-disclaimer" id="designerAccessMessage">결제를 확인한 뒤 등록코드를 이메일로 안내합니다. 한국어 · English · 日本語 · 中文 지원.</span>
         </article>
-      </div>
+      </div></div>
+      <a class="pro-cta" href="https://www.paypal.com/ncp/payment/CBYLHTSA8TSA2" target="_blank" rel="noopener noreferrer">PayPal 구매 · $24 USD</a>
     </section>
   </main>
 
   <footer class="footer" aria-label="브랜드 및 권리 안내">
-    <div class="footer-brands">
+    <details class="footer-details"><summary>브랜드·권리 안내</summary>    <div class="footer-brands">
       <a class="brand footer-wordmark" href="/" aria-label="C&amp;C Corporation wordmark">
         <div class="brand-mark" aria-hidden="true">C&amp;C</div>
         <div>
@@ -1495,6 +1639,7 @@
       </p>
       <p lang="en">As Shakespeare reminds us, “What’s past is prologue.” In that spirit, certain portions of this document have been prepared with reference to AI-assisted materials. All rights, licenses, and editorial responsibility pertaining to this work are retained by its author, Sungjae Lim, Director of Planning.</p>
     </div>
+</details>
     <div class="footer-meta">
       <span>C&amp;C Corporation / Cake Salon · South Korea · sales@edibleicingsheet.com</span>
       <span id="selfCheck" aria-live="polite">편집기 점검 중 · Checking editor</span>
@@ -1745,7 +1890,7 @@
           updateCoverageStatus();
         });
         const apply = () => {
-          if(customCircleDirty) { status.textContent="위 ‘전체 입력 취소’를 누른 뒤 이 원형의 지름을 적용하세요. 전체 크기·개수를 적용하려면 개별 입력을 먼저 취소하세요.";announce(status.textContent);return; }
+          if(customCircleDirty) { status.textContent="위 ‘입력 취소’를 누른 뒤 이 원형의 지름을 적용하세요. 전체 크기·개수를 적용하려면 개별 입력을 먼저 취소하세요.";announce(status.textContent);return; }
           const diameter=Number(size.value)*10, page=getPageSize();
           const ds=getTemplateCells().map(c=>c.diameter);ds[index]=diameter;
           const layout=computeVariableCircleLayout(page.width,page.height,ds,state.showScaleBar);
@@ -3187,13 +3332,13 @@
       else if (Math.abs(diameter * 10 - Math.round(diameter * 10)) >= 1e-6) text = "지름은 0.1mm(0.01cm) 단위로 입력하세요.";
       else if (!countValid) text = "원형 개수는 1 이상의 정수로 입력하세요.";
       else if (!ok && state.circleDiametersMm.length && !customDiameterDirty) text = "개별 지름으로 요청한 개수를 배치할 수 없습니다. 개수나 개별 크기를 줄이세요. 이전 배치를 유지합니다.";
-      else if (!ok) text = `지름 ${formatCircleDiameter(diameter)}로는 이 배치에서 최대 ${layout.capacity}개까지 가능합니다. 개수를 줄이거나 ‘개수에 맞춰 크기 조절’을 선택하세요.`;
+      else if (!ok) text = `지름 ${formatCircleDiameter(diameter)}로는 이 배치에서 최대 ${layout.capacity}개까지 가능합니다. 개수를 줄이거나 ‘크기 자동’을 선택하세요.`;
       else if (state.circleLayoutMode === "flexible" && !customDiameterDirty && currentCircleDiameters(count).some(d=>d!==diameter)) text = `${count}개 개별 지름 배치. 개수만 바꾸면 기존 지름을 유지하고, 전체 지름을 바꾸면 모든 원형에 같은 크기를 적용합니다.`;
-      else text = `${page.width}×${page.height}mm 안에 지름 ${formatCircleDiameter(diameter)} · ${count}개 배치 가능. A4 원형은 안전영역 안에서 전체가 5mm 내려갈 수 있을 때만 5mm 아래로 배치합니다. 이 크기의 자동배치 한도는 ${layout.capacity}개입니다.`;
+      else text = `${formatCircleDiameter(diameter)} · ${count}개 배치 가능 · 최대 ${layout.capacity}개`;
       if (!customCircleDirty && state.template === "circle" && state.circleLayoutMode === "flexible" && ok) text = "적용 완료 · " + text;
-      if (customCircleDirty) text += " 아직 적용 전입니다. 미리보기는 이전 배치이며 저장·인쇄는 적용 후 가능합니다.";
+      if (customCircleDirty) text += " 아직 적용 전 · 이전 배치 유지. 저장·인쇄 전 적용해 주세요.";
       if (customCircleDirty) customCircleApply.setAttribute("aria-pressed", "false");
-      customCircleApply.textContent = !customCircleDirty && state.template === "circle" && state.circleLayoutMode === "flexible" ? "적용됨 · 다시 적용" : "이 크기·개수 적용";
+      customCircleApply.textContent = !customCircleDirty && state.template === "circle" && state.circleLayoutMode === "flexible" ? "적용됨" : "적용";
       customCircleStatus.textContent = text;
       customCircleStatus.dataset.tone = ok ? "good" : "danger";
       customCircleInput.setAttribute("aria-invalid", String(!diameterValid || Math.abs(diameter * 10 - Math.round(diameter * 10)) >= 1e-6));
@@ -3223,7 +3368,7 @@
 
     function applyCustomCircle() {
       if (individualSizeDrafts.size) {
-        announceCircleLayoutIssue("개별 지름에 적용 전 입력이 있습니다. 각 원형의 적용/취소를 먼저 완료하세요. 위 전체 입력이 있으면 ‘전체 입력 취소’ 후 개별 지름을 적용할 수 있습니다.");
+        announceCircleLayoutIssue("개별 지름에 적용 전 입력이 있습니다. 각 원형의 적용/취소를 먼저 완료하세요. 위 전체 입력이 있으면 ‘입력 취소’ 후 개별 지름을 적용할 수 있습니다.");
         updateCoverageStatus();return false;
       }
       const draft = readCustomCircleDraft();
@@ -3848,5 +3993,102 @@
       resize();
     })();
   </script>
+
+<!-- DESIGNER_TUTORIAL_DIALOG_START -->
+<dialog id="designerTutorial" aria-modal="true" aria-labelledby="designerTutorialTitle" aria-describedby="designerTutorialDescription">
+  <header class="tutorial-heading"><div><h2 id="designerTutorialTitle">처음 사용 가이드</h2><p id="designerTutorialProgress" aria-live="polite" aria-atomic="true">1 / 5 단계</p></div><button id="designerTutorialClose" class="tutorial-close" type="button" aria-label="튜토리얼 닫기">×</button></header>
+  <div class="tutorial-content">
+    <div class="tutorial-progress" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="tutorial-step-number" id="designerTutorialNumber" aria-hidden="true">01</div>
+    <h3 id="designerTutorialStepTitle" tabindex="-1">이미지를 불러오세요</h3>
+    <p id="designerTutorialDescription" class="tutorial-description"></p>
+    <p id="designerTutorialNote" class="tutorial-note"></p>
+    <p class="tutorial-preserve">안내를 보거나 건너뛰어도 편집 중인 이미지·배치·입력값은 바뀌지 않습니다.</p>
+  </div>
+  <footer class="tutorial-footer"><button id="designerTutorialSkip" class="tutorial-skip" type="button">건너뛰기</button><button id="designerTutorialPrevious" class="tutorial-prev" type="button">이전</button><button id="designerTutorialNext" class="tutorial-next" type="button">다음</button></footer>
+</dialog>
+<!-- DESIGNER_TUTORIAL_DIALOG_END -->
+
+<!-- DESIGNER_TUTORIAL_SCRIPT_START -->
+<script id="designerTutorialScript">
+(() => {
+  "use strict";
+  const KEY = "cake-designer-tutorial-v1";
+  const dialog = document.getElementById("designerTutorial");
+  const replay = document.getElementById("designerTutorialReplay");
+  if (!dialog || !replay) return;
+  const stepTitle = document.getElementById("designerTutorialStepTitle");
+  const description = document.getElementById("designerTutorialDescription");
+  const note = document.getElementById("designerTutorialNote");
+  const previous = document.getElementById("designerTutorialPrevious");
+  const next = document.getElementById("designerTutorialNext");
+  const closeButton = document.getElementById("designerTutorialClose");
+  const skip = document.getElementById("designerTutorialSkip");
+  const steps = [
+    {title:"이미지를 불러오세요",description:"‘이미지 불러오기’에서 JPG·PNG·WebP 사진이나 로고를 선택하세요. 최대 8장까지 함께 불러올 수 있고, 원형에는 이미지를 순서대로 배치합니다.",note:"각 파일은 최대 15MB / 16MP입니다. HEIC는 JPG 또는 PNG로 바꿔 주세요. 이미지는 이 기기 안에서만 처리됩니다."},
+    {title:"시트와 원형 배치를 정하세요",description:"A4 용지의 세로·가로 방향과 배치 방식을 고르세요. 원하는 원형 지름과 개수는 캔버스 바로 아래에서 입력할 수 있습니다.",note:"직접 입력한 값은 ‘적용’을 눌러야 반영됩니다. 용지에 들어가지 않는 조합은 안내에 따라 조정하세요."},
+    {title:"사진을 알맞게 조정하세요",description:"‘맞춤’은 사진 전체가 보이도록, ‘채우기’는 출력 영역이 채워지도록 맞춥니다. 확대·회전하거나 캔버스에서 사진을 끌어 위치를 조정하세요.",note:"‘채우기’에서는 사진 가장자리가 잘릴 수 있습니다. 원형별 이미지·크기도 조정할 수 있고, 잘못 바꿨다면 ‘실행 취소’를 이용하세요."},
+    {title:"품질과 실제 크기를 확인하세요",description:"‘품질 확인’에서 해상도 경고와 빈 출력 영역을 확인하세요. 중요한 글자나 얼굴이 잘리거나 원형 밖으로 나가지 않았는지도 살펴보세요.",note:"50mm 검증선을 사용하는 경우, 실제 크기(100%)로 인쇄한 뒤 자로 길이를 확인하세요. 프린터의 자동 맞춤 배율은 크기를 바꿀 수 있습니다."},
+    {title:"저장하거나 인쇄하면 완성이에요",description:"‘PNG 저장’으로 파일을 내려받거나 ‘실제 크기 인쇄’로 출력하세요. 인쇄 창에서도 배율 100% 또는 Actual Size를 확인해 주세요.",note:"시트 설정은 이 브라우저에 저장되지만 이미지 원본은 저장되지 않습니다. 다시 방문하면 이미지를 다시 불러오세요. 이 안내는 ‘사용 가이드’에서 언제든 다시 볼 수 있어요."}
+  ];
+  let index = 0, opened = false, restored = null, inertNodes = [];
+  const hasSeen = () => { try { return localStorage.getItem(KEY) === "seen"; } catch { return false; } };
+  const remember = () => { try { localStorage.setItem(KEY, "seen"); } catch { /* The editor remains usable if storage is unavailable. */ } };
+  function renderStep() {
+    const step = steps[index];
+    stepTitle.textContent = step.title; description.textContent = step.description; note.textContent = step.note;
+    document.getElementById("designerTutorialProgress").textContent = `${index + 1} / ${steps.length} 단계`;
+    document.getElementById("designerTutorialNumber").textContent = String(index + 1).padStart(2, "0");
+    dialog.querySelectorAll(".tutorial-progress span").forEach((node, n) => node.classList.toggle("is-current", n <= index));
+    previous.disabled = index === 0; next.textContent = index === steps.length - 1 ? "시작하기" : "다음";
+    dialog.querySelector(".tutorial-content").scrollTop = 0;
+    stepTitle.focus({preventScroll:true});
+  }
+  function openGuide() {
+    if (opened) return;
+    restored = {focus:document.activeElement, x:window.scrollX, y:window.scrollY,
+      overflow:document.body.style.getPropertyValue("overflow"), priority:document.body.style.getPropertyPriority("overflow")};
+    opened = true; index = 0;
+    if (typeof dialog.showModal === "function") dialog.showModal();
+    else {
+      dialog.setAttribute("open", ""); dialog.setAttribute("role", "dialog"); dialog.setAttribute("aria-modal", "true"); dialog.classList.add("tutorial-fallback");
+      inertNodes = [...document.body.children].filter(node => node !== dialog && !["SCRIPT","STYLE"].includes(node.tagName)).map(node => ({node,inert:node.inert}));
+      inertNodes.forEach(({node}) => {node.inert = true;});
+    }
+    document.body.style.setProperty("overflow", "hidden"); renderStep();
+  }
+  function closeGuide() {
+    if (!opened) return;
+    opened = false; remember();
+    if (typeof dialog.close === "function") dialog.close(); else dialog.removeAttribute("open");
+    dialog.classList.remove("tutorial-fallback"); inertNodes.forEach(({node,inert}) => {node.inert = inert;}); inertNodes = [];
+    if (restored) {
+      if (restored.overflow) document.body.style.setProperty("overflow", restored.overflow, restored.priority); else document.body.style.removeProperty("overflow");
+      const target = restored.focus && restored.focus.isConnected && restored.focus !== document.body ? restored.focus : replay;
+      target.focus({preventScroll:true}); window.scrollTo(restored.x, restored.y);
+    }
+  }
+  replay.addEventListener("click", openGuide);
+  closeButton.addEventListener("click", closeGuide); skip.addEventListener("click", closeGuide);
+  previous.addEventListener("click", () => {if(index > 0){index--;renderStep();}});
+  next.addEventListener("click", () => {if(index < steps.length - 1){index++;renderStep();} else closeGuide();});
+  dialog.addEventListener("cancel", event => {event.preventDefault();closeGuide();});
+  dialog.addEventListener("keydown", event => {
+    event.stopPropagation();
+    if (event.key === "Escape") {event.preventDefault();closeGuide();return;}
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "z") {event.preventDefault();return;}
+    if (event.key === "Tab") {
+      const nodes = [...dialog.querySelectorAll("button:not(:disabled)")]; const first = nodes[0], last = nodes[nodes.length-1];
+      if(event.shiftKey && (document.activeElement === first || document.activeElement === stepTitle)){event.preventDefault();last.focus();}
+      else if(!event.shiftKey && document.activeElement === last){event.preventDefault();first.focus();}
+    }
+  });
+  // Prevent existing workspace pointer/audio effects from running over the guide.
+  ["pointerdown","pointermove","touchstart","touchmove"].forEach(type => dialog.addEventListener(type,event => event.stopPropagation(),{passive:true}));
+  const start = () => {if(!hasSeen()) openGuide();};
+  if(document.readyState === "loading") document.addEventListener("DOMContentLoaded",start,{once:true}); else start();
+})();
+</script>
+<!-- DESIGNER_TUTORIAL_SCRIPT_END -->
 </body>
 </html>

@@ -219,24 +219,24 @@ test('top alignment: restore, Undo and clicked circle selection use the moved co
 test('feedback: applying reports completion, editing restores Apply label, and presets do not claim a flexible apply', () => {
   const t = setup(names);
   try {
-    assert.equal(t.el('#customCircleApply').textContent, '이 크기·개수 적용');
+    assert.equal(t.el('#customCircleApply').textContent, '적용');
     apply(t, 90.1, 3);
     assert.match(t.el('#customCircleStatus').textContent, /^적용 완료 · /);
-    assert.equal(t.el('#customCircleApply').textContent, '적용됨 · 다시 적용');
+    assert.equal(t.el('#customCircleApply').textContent, '적용됨');
     assert.equal(t.el('#customCircleApply').getAttribute('aria-pressed'), 'true');
     t.input('#customCircleCount', 4);
     assert.equal(t.el('#customCircleApply').getAttribute('aria-pressed'), 'false');
     assert.doesNotMatch(t.el('#customCircleStatus').textContent, /^적용 완료/);
     assert.match(t.el('#customCircleStatus').textContent, /아직 적용 전/);
-    assert.equal(t.el('#customCircleApply').textContent, '이 크기·개수 적용');
+    assert.equal(t.el('#customCircleApply').textContent, '적용');
     physicalClick(t, '#customCircleApply');
     assert.equal(t.api.state.circleCount, 4);
     assert.match(t.el('#customCircleStatus').textContent, /^적용 완료 · /);
     t.input('#customCircleCount', 99); physicalClick(t, '#customCircleApply');
-    assert.equal(t.el('#customCircleApply').textContent, '이 크기·개수 적용');
+    assert.equal(t.el('#customCircleApply').textContent, '적용');
     assert.doesNotMatch(t.el('#customCircleStatus').textContent, /^적용 완료/);
     physicalClick(t, '[data-circle-preset="one-100"]');
-    assert.equal(t.el('#customCircleApply').textContent, '이 크기·개수 적용');
+    assert.equal(t.el('#customCircleApply').textContent, '적용');
     assert.doesNotMatch(t.el('#customCircleStatus').textContent, /^적용 완료/);
   } finally { t.close(); }
 });
