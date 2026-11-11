@@ -1,0 +1,14 @@
+{
+  "files": [
+    {
+      "before_sha256": "2806032d64b8a89cc5247968050a89403b97a615690d15c12ce08cac9140a006",
+      "bytes": 193258,
+      "path": "designer/index.html",
+      "sha256": "2806032d64b8a89cc5247968050a89403b97a615690d15c12ce08cac9140a006"
+    }
+  ],
+  "schema": 1,
+  "sequence": 1,
+  "site": "cake",
+  "source_commit": "de0cf33ebb52ac5b2ed27ccd1306b8604d6afcaa"
+}
