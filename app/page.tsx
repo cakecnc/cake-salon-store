@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import InspirationGallery, { inspirationNav } from "./inspiration-gallery";
 
 type Lang = "ko" | "en" | "ja" | "zh";
 type Copy = typeof copy.ko;
@@ -96,8 +97,8 @@ const businessLabels: Record<Lang, { title: string; company: string; registratio
 const copy = {
   ko: {
     nav: ["제품", "활용", "사용법", "회사소개", "맞춤디자인", "CONTACT"], designer: "이미지 스튜디오", designerShort: "스튜디오", shop: "스마트스토어",
-    kicker: "PREMIUM EDIBLE PRINTING", title: "상상한 디자인을,\n가장 맛있는 작품으로.",
-    intro: "케익살롱의 아이싱시트와 식용 프린팅 솔루션으로 사진, 일러스트, 로고를 케이크 위에 선명하게 표현하세요.",
+    kicker: "EDIBLE ART & DESIGN INSPIRATION", title: "상상한 디자인을,\n먹을 수 있는 작품으로.",
+    intro: "크리스마스부터 일상의 기념일까지. 직접 생산하는 케익살롱 아이싱시트로 쿠키, 마카롱, 케이크에 나만의 디자인을 더해보세요.",
     primary: "판매 제품 보기", secondary: "맞춤 제작 상담", heroNote: "PET 필름에서 분리해 바로 사용하는 식용 이미지 시트",
     promises: [["18개월", "넉넉한 소비기한"], ["4.8 / 5", "아마존 평균 별점"], ["GLOBAL", "전 세계 수출"], ["080-664-7077", "제품·맞춤 상담"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "필요한 두 가지를\n명확하게 선택하세요.", shopIntro: "아이싱시트 1팩과 맞춤 프린팅 서비스, 케익살롱의 대표 상품만 간결하게 안내합니다.",
@@ -120,8 +121,8 @@ const copy = {
   },
   en: {
     nav: ["Products", "Inspiration", "How it works", "Company", "Custom Design", "CONTACT"], designer: "Image Studio", designerShort: "Studio", shop: "Smart Store",
-    kicker: "PREMIUM EDIBLE PRINTING", title: "Turn any design into\na delicious work of art.",
-    intro: "Bring photos, illustrations and logos to life on cakes with Cake Salon icing sheets and edible-printing solutions.",
+    kicker: "EDIBLE ART & DESIGN INSPIRATION", title: "Turn your inspiration\ninto edible art.",
+    intro: "From Christmas to everyday celebrations, turn cookies, macarons and cakes into personal designs with Cake Salon icing sheets.",
     primary: "Shop products", secondary: "Custom order", heroNote: "Edible image sheets that peel cleanly from PET backing",
     promises: [["18 months", "Generous shelf life"], ["4.8 / 5", "Amazon average"], ["GLOBAL", "Worldwide export"], ["+82 80-664-7077", "Product support"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "Two clear choices\nfor your cake project.", shopIntro: "Explore Cake Salon’s two signature offers: a single pack of icing sheets and custom edible printing.",
@@ -135,7 +136,7 @@ const copy = {
   },
   ja: {
     nav: ["商品", "活用例", "使い方", "会社紹介", "オーダーデザイン", "CONTACT"], designer: "画像スタジオ", designerShort: "スタジオ", shop: "スマートストア",
-    kicker: "PREMIUM EDIBLE PRINTING", title: "想像したデザインを、\nいちばん美味しい作品へ。", intro: "ケーキサロンのアイシングシートで写真・イラスト・ロゴを鮮やかに表現できます。", primary: "商品を見る", secondary: "オーダー相談", heroNote: "PETフィルムからはがして使う食用イメージシート",
+    kicker: "EDIBLE ART & DESIGN INSPIRATION", title: "想像したデザインを、\n食べられるアートへ。", intro: "クリスマスから日々の記念日まで。Cake Salonの食用アイシングシートでクッキーやケーキを彩りましょう。", primary: "商品を見る", secondary: "オーダー相談", heroNote: "PETフィルムからはがして使う食用イメージシート",
     promises: [["18か月", "余裕のある賞味期間"], ["4.8 / 5", "Amazon平均評価"], ["GLOBAL", "世界へ輸出"], ["+82 80-664-7077", "商品相談"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "必要な二つを\n分かりやすく選択。", shopIntro: "アイシングシート1パックとオーダープリントサービスのみをご案内します。",
     products: [["A4アイシングシート 1パック", "ホームベーキングや少量制作に便利な1パック", "A4 · 25 SHEETS", "a4"], ["オーダープリントサービス", "円形は直径35mm・55mmをカット可能。その他は治具制作のご相談が必要です", "CUSTOM PRINT", "custom"]],
@@ -148,7 +149,7 @@ const copy = {
   },
   zh: {
     nav: ["产品", "应用", "使用方法", "公司介绍", "定制设计", "CONTACT"], designer: "图像工作室", designerShort: "工作室", shop: "智能商店",
-    kicker: "PREMIUM EDIBLE PRINTING", title: "将想象中的设计，\n变成美味的艺术品。", intro: "使用 Cake Salon 糖霜纸与可食用打印方案，将照片、插画和标志清晰呈现在蛋糕上。", primary: "浏览产品", secondary: "咨询定制", heroNote: "从PET底膜揭下即可使用的可食用图像纸",
+    kicker: "EDIBLE ART & DESIGN INSPIRATION", title: "把你的设计灵感，\n变成可食用的艺术。", intro: "从圣诞节到日常庆祝，用 Cake Salon 自产糖霜纸为曲奇、马卡龙和蛋糕增添专属创意。", primary: "浏览产品", secondary: "咨询定制", heroNote: "从PET底膜揭下即可使用的可食用图像纸",
     promises: [["18个月", "充足保质期"], ["4.8 / 5", "亚马逊平均评分"], ["GLOBAL", "出口全球"], ["+82 80-664-7077", "产品咨询"]],
     shopKicker: "TWO SIGNATURE OFFERS", shopTitle: "两项代表服务，\n选择更简单。", shopIntro: "仅展示单包装糖霜纸与定制可食用打印服务。",
     products: [["A4糖霜纸 1包装", "适合家庭烘焙与小批量制作的单包装", "A4 · 25 SHEETS", "a4"], ["定制打印服务", "目前可裁切直径35mm、55mm圆形；其他尺寸需咨询定制治具", "CUSTOM PRINT", "custom"]],
@@ -545,14 +546,13 @@ export default function Home() {
     <header className="site-header">
       <a className="wordmark" href="#top" aria-label="Cake Salon home"><b>CAKE</b><i>SALON</i></a>
       <nav aria-label="Main navigation">
+        <a href="#inspiration">{inspirationNav[lang]}</a>
         <a href="#products">{t.nav[0]}</a>
         <a href="#applications">{t.nav[1]}</a>
-        <a href="#how">{t.nav[2]}</a>
-        <a href="#business">{t.nav[3]}</a>
         <a href="#custom-design">{t.nav[4]}</a>
+        <a href="#how">{t.nav[2]}</a>
+        <a href="#company">{t.nav[3]}</a>
         <a className="designer-nav" href="/designer">{t.designer}</a>
-        <a href="/research">RESEARCH</a>
-        <a href="/hashcat">HASHCAT</a>
       </nav>
       <div className="header-tools">
         <a className="header-designer" href="/designer">{t.designerShort}</a>
@@ -613,7 +613,7 @@ export default function Home() {
         <h1><Lines>{t.title}</Lines></h1>
         <p className="hero-intro">{t.intro}</p>
         <div className="hero-actions">
-          <a className="button button-light" href={productUrls.a4} target="_blank" rel="noreferrer">{c.purchase} <Arrow /></a>
+          <a className="button button-light" href="#inspiration">{inspirationNav[lang]} <Arrow /></a>
           <a className="text-action light-action" href="#custom-design">{c.inquiry}</a>
         </div>
       </div>
@@ -623,6 +623,16 @@ export default function Home() {
     <section className="promise-bar" aria-label="Product highlights">
       {t.promises.map(([value, label]) => <div key={value}><b>{value}</b><span>{label}</span></div>)}
     </section>
+
+    <InspirationGallery
+      lang={lang}
+      onChoose={(request) => {
+        setSelectedIdea(request.purpose);
+        setDesignProduct(request.product);
+        setDesignSize(request.size);
+        setDesignDetails(request.notes);
+      }}
+    />
 
     <section className="shop-section" id="products">
       <div className="section-heading">
