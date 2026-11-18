@@ -46,6 +46,10 @@ test("renders verified homepage content and navigation", async () => {
   assert.match(html, /실제 적용 사례만 담았습니다/);
   assert.match(html, /확인되지 않은 후기나 제휴사는 표시하지 않습니다/);
   assert.doesNotMatch(html, /두 번째 구매인데|포장이 꼼꼼하고/);
+  assert.match(html, /id="inspiration"/);
+  assert.match(html, /CS-W01/);
+  assert.match(html, /CS-B08/);
+  assert.match(html, /크리스마스 모노그램 쿠키/);
   assert.match(html, /id="contact"/);
   assert.match(html, /href="\/designer"/);
   assert.match(html, /href="\/research"/);
@@ -113,7 +117,7 @@ test("serves research, hashcat, and the NAVER research API route", async () => {
   }), env, ctx);
   assert.equal(research.status, 200);
   const researchHtml = await research.text();
-  assert.match(researchHtml, /제품 시장 가설 연구/);
+  assert.match(researchHtml, /Research \(대한민국시장조사용\)/);
   assert.match(researchHtml, /사진은 이 브라우저에서만 미리보기/);
   assert.match(researchHtml, /검색어 트렌드와 쇼핑 인사이트 근거/);
   assert.doesNotMatch(researchHtml, /사진 자동 분석 완료/);
