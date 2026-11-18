@@ -1,0 +1,361 @@
+/* Cake Salon design-inspiration gallery and composited card depth.
+   Imported after globals.css; do not revive the unreferenced redesign.css. */
+
+.inspiration-section {
+  scroll-margin-top: 85px;
+  padding: clamp(68px, 8vw, 118px) clamp(20px, 5.4vw, 90px);
+  background: #f8f3ea;
+  color: #302d2a;
+}
+
+.inspiration-shell {
+  width: min(100%, 1440px);
+  margin-inline: auto;
+}
+
+.inspiration-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.28fr) minmax(260px, .72fr);
+  align-items: end;
+  gap: clamp(25px, 6vw, 84px);
+  margin-bottom: 34px;
+}
+
+.inspiration-kicker {
+  margin: 0 0 20px;
+  color: #9d584a;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: .2em;
+}
+
+.inspiration-heading h2 {
+  max-width: 790px;
+  margin: 0;
+  color: #194336;
+  font: 500 clamp(32px, 4.35vw, 62px)/1.12 Georgia, "Nanum Myeongjo", serif;
+  letter-spacing: -.055em;
+  word-break: keep-all;
+}
+
+.inspiration-heading > p {
+  max-width: 420px;
+  margin: 0;
+  color: #665c55;
+  font-size: 14px;
+  line-height: 1.85;
+  word-break: keep-all;
+}
+
+.inspiration-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 0 0 27px;
+  border-bottom: 1px solid #d9cbbf;
+  padding-bottom: 19px;
+}
+
+.inspiration-filters button {
+  min-height: 42px;
+  padding: 10px 19px;
+  border: 1px solid #cfbfb0;
+  border-radius: 2px;
+  background: transparent;
+  color: #544b45;
+  font-size: 12px;
+  font-weight: 750;
+  line-height: 1.2;
+  transition: border-color .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.inspiration-filters button:is(:hover, :focus-visible) {
+  border-color: #194336;
+}
+
+.inspiration-filters button.is-active {
+  border-color: #194336;
+  background: #194336;
+  color: #fff;
+}
+
+.inspiration-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  isolation: isolate;
+}
+
+.inspiration-card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  overflow: visible;
+  border: 1px solid #e0d4c8;
+  background: #fffdf9;
+  box-shadow: 0 10px 22px rgba(41, 33, 28, .06);
+}
+
+.inspiration-art {
+  --art-bg: #173c34;
+  --art-ink: #e8d5a8;
+  --art-edge: #a2b7a4;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  width: 100%;
+  min-height: 232px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--art-bg);
+  color: var(--art-ink);
+}
+
+.inspiration-art::before {
+  position: absolute;
+  inset: 17% auto auto 50%;
+  width: 165px;
+  height: 165px;
+  border: 1px solid var(--art-edge);
+  border-radius: 50%;
+  content: "";
+  opacity: .7;
+  transform: translateX(-50%);
+}
+
+.inspiration-art::after {
+  position: absolute;
+  right: 17px;
+  bottom: 17px;
+  left: 17px;
+  height: 1px;
+  background: var(--art-edge);
+  content: "";
+  opacity: .7;
+}
+
+.inspiration-art-index {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .13em;
+}
+
+.inspiration-art-emblem {
+  z-index: 1;
+  font: 400 83px/1 Georgia, "Times New Roman", serif;
+  text-shadow: 0 6px 28px rgba(0, 0, 0, .12);
+  transition: transform .33s cubic-bezier(.2, .7, .2, 1);
+}
+
+.inspiration-art-name {
+  z-index: 1;
+  margin-top: 7px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .24em;
+  text-align: center;
+}
+
+.inspiration-art.tone-forest { --art-bg: #183b2e; --art-ink: #ebd09a; --art-edge: #b5a87f; }
+.inspiration-art.tone-snow { --art-bg: #dfeaf0; --art-ink: #36657c; --art-edge: #709cae; }
+.inspiration-art.tone-burgundy { --art-bg: #6e283e; --art-ink: #f7dcc0; --art-edge: #d4ab98; }
+.inspiration-art.tone-copper { --art-bg: #82593c; --art-ink: #f8e2c0; --art-edge: #e0b98a; }
+.inspiration-art.tone-rose { --art-bg: #edd2cb; --art-ink: #7d4250; --art-edge: #b77983; }
+.inspiration-art.tone-cream { --art-bg: #eae1cf; --art-ink: #61504c; --art-edge: #b5a391; }
+.inspiration-art.tone-midnight { --art-bg: #1e2e39; --art-ink: #e8d7b9; --art-edge: #8ba0ad; }
+.inspiration-art.tone-green { --art-bg: #335b51; --art-ink: #f1dfbd; --art-edge: #b3c4ac; }
+
+.inspiration-card-body {
+  display: flex;
+  min-height: 245px;
+  flex: 1;
+  flex-direction: column;
+  padding: 22px 21px 23px;
+}
+
+.inspiration-card-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 13px;
+  color: #967a69;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: .08em;
+}
+
+.inspiration-card h3 {
+  margin: 0 0 10px;
+  color: #243d35;
+  font: 500 21px/1.23 Georgia, "Nanum Myeongjo", serif;
+  letter-spacing: -.035em;
+  word-break: keep-all;
+}
+
+.inspiration-card-body > p {
+  flex: 1;
+  margin: 0;
+  color: #6a5d52;
+  font-size: 12px;
+  line-height: 1.6;
+  word-break: keep-all;
+}
+
+.inspiration-card-spec {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 20px;
+  padding: 12px 0;
+  border-top: 1px solid #e4d9cc;
+  color: #685d54;
+  font-size: 11px;
+}
+
+.inspiration-card-spec strong {
+  color: #164b3c;
+  font-weight: 800;
+}
+
+.inspiration-card-body > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 42px;
+  border-bottom: 1px solid #af7b65;
+  color: #6c3642;
+  font-size: 12px;
+  font-weight: 800;
+  text-underline-offset: 4px;
+}
+
+.inspiration-card-body > a span {
+  font-size: 17px;
+}
+
+.inspiration-note {
+  margin: 19px 0 0;
+  color: #77695e;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.inspiration-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 45px;
+  padding: 31px 34px;
+  background: #193c32;
+  color: #fffdf8;
+}
+
+.inspiration-footer h3 {
+  margin: 0 0 7px;
+  font: 500 25px/1.2 Georgia, "Nanum Myeongjo", serif;
+}
+
+.inspiration-footer p {
+  max-width: 680px;
+  margin: 0;
+  color: #d4e0d6;
+  font-size: 12px;
+  line-height: 1.65;
+  word-break: keep-all;
+}
+
+.inspiration-footer > a {
+  display: inline-flex;
+  min-height: 47px;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 18px;
+  border: 1px solid #e7d4ab;
+  color: #f5e2b8;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.inspiration-section :is(a, button):focus-visible {
+  outline: 3px solid #bd6f54;
+  outline-offset: 3px;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  :is(.inspiration-card, .product-card, .story-grid figure, .purpose-grid button) {
+    position: relative;
+    transform-origin: center center;
+    transition: transform .26s cubic-bezier(.19, .8, .25, 1),
+                box-shadow .26s cubic-bezier(.19, .8, .25, 1),
+                border-color .26s ease;
+  }
+
+  :is(.inspiration-card, .product-card, .story-grid figure, .purpose-grid button):is(:hover, :focus-within) {
+    z-index: 2;
+    transform: translate3d(0, -12px, 0) scale(1.018);
+    box-shadow: 0 9px 8px -9px rgba(34, 29, 27, .24),
+                0 30px 58px rgba(34, 29, 27, .23),
+                0 0 0 1px rgba(154, 106, 75, .27);
+  }
+
+  .inspiration-card:is(:hover, :focus-within) .inspiration-art-emblem {
+    transform: translate3d(0, -5px, 0) scale(1.11);
+  }
+
+  .product-card:hover .product-art > img,
+  .story-grid figure:hover img {
+    transform: scale(1.055);
+  }
+
+  .site-header nav a:is(:hover, :focus-visible) {
+    text-shadow: 0 2px 15px rgba(255, 237, 205, .45);
+  }
+}
+
+@media (max-width: 1180px) {
+  .inspiration-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 850px) {
+  .inspiration-heading { grid-template-columns: 1fr; gap: 19px; }
+  .inspiration-heading > p { max-width: 700px; }
+  .inspiration-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .inspiration-footer { align-items: stretch; flex-direction: column; gap: 23px; }
+  .inspiration-footer > a { align-self: flex-start; }
+}
+
+@media (max-width: 540px) {
+  .inspiration-section { padding: 65px 18px; }
+  .inspiration-heading h2 { font-size: clamp(31px, 8.2vw, 43px); }
+  .inspiration-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .inspiration-filters button { padding-inline: 7px; }
+  .inspiration-grid { grid-template-columns: 1fr; gap: 18px; }
+  .inspiration-art { min-height: 238px; }
+  .inspiration-card-body { min-height: auto; }
+  .inspiration-footer { margin-top: 30px; padding: 27px 22px; }
+  .inspiration-footer > a { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inspiration-art-emblem,
+  .inspiration-filters button,
+  .inspiration-card,
+  .inspiration-card:hover,
+  .product-card:hover,
+  .story-grid figure:hover,
+  .purpose-grid button:hover {
+    transform: none !important;
+    transition: none !important;
+  }
+}
